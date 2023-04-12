@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+    <link rel="manifest" href="../favicon/site.webmanifest" />
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="stylesheet" href="board.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+    <link rel="stylesheet" href="../headerNav/headerNav.css">
+    <!-- https://i.imgflip.com/52lvif.jpg -->
+
+
+    <link rel="stylesheet" href="../addtask/add_task.css">
+    <link rel="stylesheet" href="../addtask/color.css">
+    <link rel="stylesheet" href="../addtask/media.css">
+    <link rel="stylesheet" href="../addtask/prios.css">
+    <script src="../mini_backend.js"></script>
+    <script src="../addtask/js/add_task.js"></script>
+    <script src="../addtask/js/template.js"></script>
+    <!-- https://i.imgflip.com/52lvif.jpg -->
+    <script src="board.js"></script>
+    <script src="../script.js"></script>
+</head>
+
+<body onload="init(); changeContentOnWindowSize(); consoleLOGS();" id="body">
+    <div style="display: none;" onclick="cardUnInspect();" class="fullviewport" id="fullviewport"></div>
+    <div w3-include-html="../headerNav/headerNav.html"></div>
+
+
+    <div class="board">
+        <div style="display: none;" class="board-kanban" id="board-kanban">Kanban Project Managment Tool</div>
+
+        <div class="board-text">
+            Board
+            <div style="display: none;" class="board-Addtask" id="board-AddtaskRe"
+                onclick="window.location.href='../addtask/add_task.html'">
+
+                <div class="board-Addtask-plusicon">
+                    <div class="board-Addtask-plusicon-linev"></div>
+                    <div class="board-Addtask-plusicon-line"></div>
+                </div>
+            </div>
+        </div>
+        <div class="board-searchAddtask">
+            <div class="board-search">
+                <input class="board-search-input" placeholder="Find Task" type="text">
+                <div class="board-searchAndicon">
+                    <div class="board-search-spaceline"></div>
+                    <img class="board-search-icon" src="../img/boardSearchicon.png" onclick="test()">
+                </div>
+            </div>
+            <div class="board-Addtask" id="board-Addtask" onclick="window.location.href='../addtask/add_task.html'">
+                <div class="board-Addtask-text" id="board-Addtask-text">Add task</div>
+                <div class="board-Addtask-plusicon" id="board-Addtask-plusicon">
+                    <div class="board-Addtask-plusicon-linev" id="board-Addtask-plusicon-linev"></div>
+                    <div class="board-Addtask-plusicon-line" id="board-Addtask-plusicon-line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="trueboard">
+
+        <div class="trueboard-maincon" id="trueboard-maincon">
+            <div class="trueboard-textAddSing">
+                <div class="trueboard-text">To do</div>
+                <div class="trueboard-addSing">
+                    <div class="trueboard-addSing-h"></div>
+                    <div class="trueboard-addSing-v"></div>
+                </div>
+            </div>
+
+            <div class="trueboard-scroll">
+                <div class="trueboard-taskcard" onclick="cardInspect();">
+
+                    <div class="trueboard-init">
+                        <div class="trueboard-tag trueboard-tag-test">
+                            <div class="trueboard-tag-text">Design</div>
+                        </div>
+
+                        <div class="trueboard-text">
+                            <div class="trueboard-text-title">
+                                Website redesign
+                            </div>
+                            <div class="trueboard-text-desciption">
+                                <div style="word-break: break-word;">Modify the contents of the main website...</div>
+                            </div>
+                        </div>
+
+                        <div class="trueboard-progress">
+                            <div class="trueboard-progress-init">
+                                <progress class="trueboard-progress-bar" max="2" value="1"></progress>
+                            </div>
+
+                            <div class="trueboard-progress-num" id="placeholder">1/2 Done</div>
+                        </div>
+
+                        <div class="trueboard-userIcoPrio">
+
+                            <div class="trueboard-userIco">
+                                <div class="trueboard-userIco-text trueboard-userIco-start"
+                                    id="trueboard-userIco-start">MV</div>
+                                <div class="trueboard-userIco-text trueboard-userIco-medium"
+                                    id="trueboard-userIco-medium">MV</div>
+                                <div class="trueboard-userIco-text trueboard-userIco-end" id="trueboard-userIco-end">DE
+                                </div>
+                                <!-- Js in need
+                            <div class="trueboard-userIco-text trueboard-userIco-plus">+2</div>
+                            -->
+                            </div>
+
+                            <div class="trueboard-Prio">
+                                <img class="trueboard-Prio-low" src="../img/prio-low.svg">
+                                <!-- Js in need
+                                <img class="trueboard-Prio-medium" src="../img/prio-medium.svg">
+                                <img class="trueboard-Prio-high" src="../img/prio-urgent.svg">
+                            -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="trueboard-maincon" id="trueboard-maincon">
+            <div class="trueboard-textAddSing">
+                <div class="trueboard-text">In progress</div>
+                <div class="trueboard-addSing">
+                    <div class="trueboard-addSing-h"></div>
+                    <div class="trueboard-addSing-v"></div>
+                </div>
+            </div>
+
+            <div class="trueboard-scroll">
+                <div class="trueboard-taskcard" onclick="cardInspect();">
+                    <div class="trueboard-init">
+                        <div class="trueboard-tag trueboard-tag-test">
+                            <div class="trueboard-tag-text">Sales</div>
+                        </div>
+                        <div class="trueboard-text">
+                            <div class="trueboard-text-title"></div>
+                            <div class="trueboard-text-desciption"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="trueboard-maincon" id="trueboard-maincon">
+            <div class="trueboard-textAddSing">
+                <div class="trueboard-text">Awaiting Feedback</div>
+                <div class="trueboard-addSing">
+                    <div class="trueboard-addSing-h"></div>
+                    <div class="trueboard-addSing-v"></div>
+                </div>
+            </div>
+
+            <div class="trueboard-scroll">
+                <div class="trueboard-taskcard" onclick="cardInspect();">
+                    <div class="trueboard-init">
+                        <div class="trueboard-tag trueboard-tag-test">
+                            <div class="trueboard-tag-text">Backoffice</div>
+                        </div>
+                        <div class="trueboard-text">
+                            <div class="trueboard-text-title">AccountingAccountingAc</div>
+                            <div class="trueboard-text-desciption"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="trueboard-taskcard" onclick="cardInspect();">
+                    <div class="trueboard-init">
+                        <div class="trueboard-tag trueboard-tag-test">
+                            <div class="trueboard-tag-text">Media</div>
+                        </div>
+                        <div class="trueboard-text">
+                            <div class="trueboard-text-title"></div>
+                            <div class="trueboard-text-desciption"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="trueboard-maincon" id="trueboard-maincon">
+            <div class="trueboard-textAddSing">
+                <div class="trueboard-text">Done</div>
+                <div class="trueboard-addSing">
+                    <div class="trueboard-addSing-h"></div>
+                    <div class="trueboard-addSing-v"></div>
+                </div>
+            </div>
+
+            <div class="trueboard-scroll">
+                <div class="trueboard-taskcard" onclick="cardInspect();">
+                    <div class="trueboard-init">
+                        <div class="trueboard-tagid">
+                            <div class="trueboard-tag trueboard-tag-test">
+                                <div class="trueboard-tag-text">Marketing</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trueboard-text">
+                        <div class="trueboard-text-title"></div>
+                        <div class="trueboard-text-desciption"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="thebnt" id="thebnt" style="display: none;">
+        <div class="taskcard-inspect" id="taskcard-inspect" style="display: none;">
+            <div class="taskcard-inspect-cross">
+                <div class="taskcard-inspect-cross-init">
+                    <div class="taskcard-inspect-cross-line"></div>
+                    <div class="taskcard-inspect-cross-lineone"></div>
+                </div>
+            </div>
+            <div class="trueboard-tag trueboard-tag-test trueboard-tag-text">Sales</div>
+            <div class="taskcard-inspect-title">Call potential clients</div>
+            <div class="taskcard-inspect-description">Make the product presentation to prospective buyers</div>
+
+            <div class="taskcard-inspect-dueDate">
+                <div class="taskcard-inspect-dueDate-text">Due date: </div>
+                <div class="taskcard-inspect-dueDate-date">05-08-2022</div>
+            </div>
+
+            <div class="taskcard-inspect-prio">
+                <div class="taskcard-inspect-prio-text">Priority: </div>
+                <!-- Js in need -->
+                <div class="taskcard-inspect-prio-tag">
+                    <div class="taskcard-inspect-prio-tag-text">Urgent</div>
+                    <img src="../addtask/assets/img/urgent-white.svg">
+                </div>
+
+            </div>
+
+            <div class="taskcard-inspect-prio-assignedTo">
+                <div class="taskcard-inspect-prio-assignedTo-text">Assigned To:</div>
+                <div class="taskcard-inspect-prio-assignedTo-scroll">
+                    <!-- Js in need -->
+                    <div class="taskcard-inspect-prio-assignedTo-scroll-person">
+                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico">
+                            <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico-name">DE</div>
+                        </div>
+                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-name">David Eisenberg</div>
+                    </div>
+                    <div class="taskcard-inspect-prio-assignedTo-scroll-person">
+                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico">
+                            <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico-name">DE</div>
+                        </div>
+                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-name">David Eisenberg</div>
+                    </div>
+                    <div class="taskcard-inspect-prio-assignedTo-scroll-person">
+                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico">
+                            <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico-name">DE</div>
+                        </div>
+                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-name">David Eisenberg</div>
+                    </div>
+                    <div class="taskcard-inspect-prio-assignedTo-scroll-person">
+                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico">
+                            <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico-name">DE</div>
+                        </div>
+                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-name">David Eisenberg</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="taskcard-inspect-prio-edit" onclick="test();">
+                <img class="taskcard-inspect-prio-edit-ico" src="../img/pencilBoard.svg">
+            </div>
+        </div>
+        <div class="taskcard-edit" style="display: none;">
+            <!-- https://i.imgflip.com/52lvif.jpg -->
+            <div class="taskcard-inspect-cross" onclick="">
+                <div class="taskcard-inspect-cross-init">
+                    <div class="taskcard-inspect-cross-line"></div>
+                    <div class="taskcard-inspect-cross-lineone"></div>
+                </div>
+            </div>
+            <div class="title">
+                <p class="text">Title</p>
+                <input class="task-board-input-fields" type="text" placeholder="Enter a Title" required=""
+                    id="input-title" maxlength="22">
+            </div>
+            <div class="description">
+                <p class="text">Description</p>
+                <textarea id="input-description" placeholder="Enter a Description" required="" minlength="3"></textarea>
+            </div>
+            <div class="date">
+                <p class="text">Due date</p>
+                <input class="task-board-input-fields" type="date" id="input-date">
+            </div>
+            <div>
+                <p class="text">Prio</p>
+                <div class="prios">
+                    <div class="prio" id="urgent" onclick="test()">
+                        <div class="d-flex">
+                            <p>Urgent</p>
+                            <img id="urgent-img" src="../addtask/assets/img/prio-urgent.svg">
+                        </div>
+                    </div>
+
+                    <div class="prio" id="medium" onclick="test()">
+                        <div class="d-flex">
+                            <p>Medium</p>
+                            <img id="medium-img" src="../addtask/assets/img/prio-medium.svg">
+                        </div>
+                    </div>
+
+                    <div class="prio" id="low" onclick="test()">
+                        <div class="d-flex">
+                            <p>Low</p>
+                            <img id="low-img" src="../addtask/assets/img/prio-low.svg">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="text">Assign to</p>
+                    <div id="assignToContainer" class="categoryContainer">
+                        <div class="category" onclick="openAssignToList()" id="assignToInput">
+                            <div>
+                                <input class="categoryInputField" type="text" placeholder="Assign to">
+                            </div>
+                            <div>
+                                <img src="../img/dropdown.svg">
+                            </div>
+                        </div>
+                        <div id="assignToList" class="d-none categoryList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+
+}
+
+.help-side {
+
+    top: 170px;
+    left: 355px;
+    display: flex;
+    flex-direction: column;
+}
+
+.help-hl {
+    gap: 100%;
+    display: flex;
+    font-size: 61px;
+    font-family: 'Inter';
+}
+
+.help-hl img:hover {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.bnt {
+
+    top: 82.51px;
+    right: 126.17px;
+}
+
+@media (max-width: 900px) {
+    .help-side{
+        display: flex;
+        justify-content: center;
+        top: 20%;
+        left: 0;
+        margin-left: 33px;
+        margin-right: 32px;
+    }
+
+    .help-hl {
+        gap: 50%;
+    }
+}
+
+@media (max-width: 450px) {
+    .help-side {
+        top: 10%;
+    }
+}
+
+@media (max-width: 350px) {
+    .help-hl {
+        gap: 10%;
+    }
+
+    .help-hl h1 {
+        font-size: 40px;
+    }
+}

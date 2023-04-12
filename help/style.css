@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+}
+
+.help-side {
+    position: absolute;
+    top: 170px;
+    left: 355px;
+    display: flex;
+    flex-direction: column;
+}
+
+.help-hl {
+    gap: 100%;
+    display: flex;
+    font-size: 30px;
+}
+
+.help-hl img:hover {
+    cursor: pointer;
+}
+
+td {
+    margin-left: 20px;
+}
+
+
+@media (max-width: 900px) {
+    .help-side {
+        display: flex;
+        justify-content: center;
+        top: 20%;
+        left: 0;
+        margin-left: 33px;
+        margin-right: 32px;
+    }
+
+    .help-hl {
+        gap: 50%;
+    }
+}
+
+@media (max-width: 450px) {
+    .help-side {
+        top: 10%;
+    }
+}
+
+@media (max-width: 350px) {
+    .help-hl {
+        gap: 10%;
+    }
+
+    .help-hl h1 {
+        font-size: 40px;
+    }
+}

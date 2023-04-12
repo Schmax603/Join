@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="headerNav/headerNav.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <script src="mini_backend.js"></script>
+    <script src="script.js"></script>
+    <script src="index.js"></script>
+    <script src="./contacts/contacts.js"></script>
+    <link rel="stylesheet" href="./forgot/forgot.css">
+    <link rel="stylesheet" href="./signUp/signUp.css">
+    <link rel="stylesheet" href="media.css">
+    <script src="./signUp/signUp.js"></script>
+    <title>Login</title>
+</head>
+
+<body onload="initLogin()">
+    <div class="loginPage">
+        <img class="logo moveLogo" src="./img/logoBig.png">
+        <div class="loginArea fadeIn">
+            <div id="loginBox" class="loginBox">
+                <span class="loginHeadlineText">Log in</span>
+                <div class="loginHeadlineSeperator"></div>
+                <form onsubmit="login(); return false;">
+                    <div class="inputFieldContainer">
+                        <input id="loginEmail" class="loginInputField loginUser" onkeyup="emailInputChanged()"
+                            required="" type="email" placeholder="E-mail">
+                        <img class="inputFieldImage" src="img/mail.png" />
+                    </div>
+                    <span class="error dp-none" id="wrongEmail">Wrong Email</span>
+                    <div class="inputFieldContainer">
+                        <input class="loginInputField loginPassword" id="loginPassword" required="" type="password"
+                            placeholder="Passwort" onkeyup="pwInputChanged()">
+                        <img id="loginPasswordImage" class="inputFieldImage" src="img/lock.png"
+                            onclick="togglePasswordVisibility()" />
+                    </div>
+                    <span class="error dp-none" id="wrongPassword">Wrong Password</span>
+                    <div class="loginRememberMeForgotPassword">
+                        <div>
+                            <input id="loginRememberCheckbox" type="checkbox">
+                            <span>Remember me</span>
+                        </div>
+                        <a onclick="openForgotPassword()" class="forgotPassword">Forgot my password</a>
+                    </div>
+                    <div class="loginButtons">
+                        <button class="loginButton" type="submit">Login</button>
+                        <button onclick="guestLogin()" class="loginGuestButton">Guest login</button>
+                    </div>
+                </form>
+            </div>
+            <div id="signUpButton" class="signIn fadeIn">
+                <span class="signInText">Not a Join user?</span>
+                <button onclick="openSignUp()" class="signInButton">Sign up</button>
+            </div>
+            <div id="signUpContainerContent" class="signUpContainerContent dp-none"
+                w3-include-html="./signUp/signUp.html"></div>
+            <div id="forgotContainerContent" class="forgotContainerContent dp-none"
+                w3-include-html="./forgot/forgot.html">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
