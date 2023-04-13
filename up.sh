@@ -16,12 +16,10 @@ if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]
     git pull
     git merge $branch 
     git push
+    git ftp push
     git switch $branch 
     git merge main 
     git push
-    git switch main
-    git ftp catchup
-    git switch $branch 
 else
     if [[ $prompt == "M" || $prompt == "m" ]]; then
         echo merge 
