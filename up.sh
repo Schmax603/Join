@@ -1,5 +1,5 @@
 #!/bin/bash
-echo your branch ?
+echo The current branch that you worked on and want to commit ?
 read branch
 echo commit msg ?
 read commitmsg
