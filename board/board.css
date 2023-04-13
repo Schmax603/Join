@@ -3,6 +3,10 @@ body {
 
 }
 
+progress {
+
+}
+
 .fullviewport {
 	position: fixed;
 	z-index: 50;
@@ -87,6 +91,7 @@ body {
 .board-Addtask-text {
 	width: 92px;
 	height: 25px;
+	font-family: 'Inter';
 	font-weight: 700;
 	font-size: 21px;
 	line-height: 120%;
@@ -224,6 +229,7 @@ body {
 }
 
 .trueboard-tag-text {
+	font-family: 'Inter';
 	color: #FFFFFF;
 }
 
@@ -281,6 +287,7 @@ body {
 .trueboard-progress-bar {
 	width: 138px;
 	height: 14px;
+	accent-color: #298ee1;
 }
 
 .trueboard-progress-num {
@@ -344,7 +351,7 @@ body {
 
 	background: #0190E0;
 
-	border: 1px solid #FFFFFF;
+	border: 1px solid;
 	border-radius: 58px;
 
 	flex: none;

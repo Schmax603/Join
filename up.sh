@@ -1,5 +1,5 @@
 #!/bin/bash
-echo branch to commit to ?
+echo your branch ?
 read branch
 echo commit msg ?
 read commitmsg
