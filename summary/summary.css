@@ -9,12 +9,45 @@
   font-size: 64px;
   font-weight: 600;
 }
+.font-count-21{
+  font-size: 21px;
+  font-weight: 700;
+}
+.font-count-47{
+  font-size: 47px;
+  font-weight: 600;
+}
 .font-text{
   font-size: 21px;
   font-weight: 400;
 }
+.font-text-16{
+  font-size: 16px;
+  font-weight: 400;
+}
+.font-text-36{
+  font-size: 36px;
+  font-weight: 400;
+}
+.font-text-47{
+  font-size: 47px;
+  font-weight: 500;
+}
 .ta-center{
   text-align: center;
+}
+.mb-10{
+  margin-bottom: 10px;
+}
+.username{
+  font-size: 47px;
+  font-weight: 700;
+  color: #29ABE2;
+}
+.username-64{
+  font-size: 64px;
+  font-weight: 700;
+  color: #29ABE2;
 }
 .hover:hover{
   cursor: pointer;
@@ -27,8 +60,8 @@
 }
 .summary{
   background-color: #F5F5F5;
-  min-height: calc(100vh - 171px - 153px);
-  padding: 171px 53px 153px 355px;
+  min-height: 100vh;
+  padding: 171px 53px 0 355px;
 }
 .summary-header{
   display: flex;
@@ -109,6 +142,7 @@
 }
 .summary-infos-tasks-deadline-priority{
   display: flex;
+  align-items: center;
   gap: 18px;
 }
 .summary-infos-tasks-deadline-border{
@@ -124,18 +158,24 @@
   align-items: center;
   gap: 18px;
 }
-.summary-infos-tasks-progress-card .img-progress{
+.img-priority, .img-progress{
   height: 70px;
   width: 70px;
-  padding: 15px;
-  background-color: #2A3647;
   border-radius: 50%;
   filter: invert(0);
 }
+.img-progress{
+  padding: 15px;
+  background-color: #2A3647;
+}
 #summary-infos-greeting{
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+#mobile-overlay{
+  display: none;
 }
 
 @media(max-width: 1270px){
@@ -157,7 +197,19 @@
     font-size: 47px;
     font-weight: 600;
   }
+  .font-count-21{
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .font-count-47{
+    font-size: 47px;
+    font-weight: 600;
+  }
   .font-text{
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .font-text-16{
     font-size: 14px;
     font-weight: 400;
   }
@@ -168,9 +220,11 @@
     justify-content: center;
     gap: 20px;
   }
-  .summary-infos-tasks-progress-card .img-progress{
+  .img-priority, .img-progress{
     height: 40px;
     width: 40px;
+  }
+  .img-progress{
     padding: 8px;
   }
 }
@@ -204,6 +258,38 @@
   }
   .summary-infos{
     padding-top: 41px;
+  }
+  #mobile-overlay{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #F5F5F5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    animation: fadeBackground 1.6s ease-in-out;
+    animation-direction: normal;
+    z-index: -1;
+  }
+}
+@keyframes fadeBackground {
+  0% {
+      opacity: 100%;
+      z-index: 10;
+  }
+  50% {
+      opacity: 100%;
+  }
+  99% {
+      opacity: 0%;
+      z-index: 10;
+  }
+  100% {
+      z-index: -1;
   }
 }
 @media (max-width: 400px){
