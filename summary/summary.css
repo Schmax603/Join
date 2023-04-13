@@ -1,0 +1,222 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter';
+  box-sizing: border-box;
+}
+.font-count{
+  font-size: 64px;
+  font-weight: 600;
+}
+.font-text{
+  font-size: 21px;
+  font-weight: 400;
+}
+.hover:hover{
+  cursor: pointer;
+  background-color: #2A3647;
+  color: white;
+}
+.hover:hover img{
+  background-color: black;
+  filter: invert(1);
+}
+.summary{
+  background-color: #F5F5F5;
+  min-height: calc(100vh - 171px - 153px);
+  padding: 171px 53px 153px 355px;
+}
+.summary-header{
+  display: flex;
+  align-items: center;
+}
+.summary-header-tertiaerheadline{
+  display: none;
+}
+.summary-header-headline{
+  font-size: 61px;
+  font-weight: 700;
+  width: 315px;
+  margin-right: 30px;
+}
+.summary-header-border-mid{
+  height: 59px;
+  border: 3px solid #29ABE2;
+  text-align: center;
+}
+.summary-header-subheadline{
+  font-size: 27px;
+  font-weight: 400;
+  margin-left: calc(30px - 3px);
+}
+.summary-header-border-bottom{
+  display: none;
+}
+.summary-infos{
+  padding-top: 87px;
+  display: flex;
+  gap: 67px;
+}
+.summary-infos-tasks{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  grid-auto-rows: minmax(170px, auto);
+}
+.grid1 {
+  grid-column: 1/3;
+}
+.grid2 {
+  grid-column: 3/5;
+}
+.grid3 {
+  grid-column: 5/7;
+}
+.grid4 {
+  grid-column: 1/7;
+}
+.grid5 {
+  grid-column: 1/4;
+}
+.grid6 {
+  grid-column: 4/7;
+}
+.summary-infos-tasks-card{
+  /* max-width: calc(170px - 50px); */
+  min-height: calc(110px - 50px);
+  padding: 25px;
+  border-radius: 30px;
+  background-color: white;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.summary-infos-tasks-deadline{
+  min-height: calc(110px - 50px);
+  border-radius: 30px;
+  background-color: white;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.summary-infos-tasks-deadline-border{
+  border: 2px solid #D1D1D1;
+  height: 70%;
+}
+.summary-infos-tasks-progress-card{
+  border-radius: 30px;
+  background-color: white;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+.summary-infos-tasks-progress-card img{
+  height: 70px;
+  width: 70px;
+  padding: 15px;
+  background-color: #2A3647;
+  border-radius: 50%;
+  filter: invert(0);
+}
+.summary-infos-tasks-progress-card div{
+  text-align: center;
+}
+#summary-infos-greeting{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media(max-width: 1270px){
+  .summary-infos{
+    width: 100%;
+  }
+  #summary-infos-greeting{
+    display: none;
+  }
+} 
+@media(max-width: 900px){
+  .summary{
+    padding: 114px 35px 0 35px;
+    min-height: 100vh;
+  }
+}
+@media (max-width: 850px){
+  .font-count{
+    font-size: 47px;
+    font-weight: 600;
+  }
+  .font-text{
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .summary-infos-tasks{
+    grid-auto-rows: minmax(140px, auto);
+  }
+  .summary-infos-tasks-deadline{
+    justify-content: center;
+    gap: 20px;
+  }
+  .summary-infos-tasks-progress-card img{
+    height: 40px;
+    width: 40px;
+    padding: 8px;
+  }
+}
+@media(max-width: 755px){
+  .summary-header{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .summary-header-headline{
+    font-size: 47px;
+  }
+  .summary-header-subheadline{
+    font-size: 21px;
+  }
+  .summary-header-tertiaerheadline{
+    display: flex;
+    margin-bottom: 19px;
+  }
+  .summary-header-border-mid{
+    display: none;
+  }
+  .summary-header-subheadline{
+    margin-top: 20px;
+    margin-left: 0;
+    margin-bottom: 32px;
+  }
+  .summary-header-border-bottom{
+    display: flex;
+    border: 3px solid #29ABE2;
+    width: 90px;
+  }
+  .summary-infos{
+    padding-top: 41px;
+  }
+}
+@media (max-width: 400px){
+  .summary{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .summary-infos-tasks{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(110px, auto);
+    font-size: 12px;
+  }
+  .summary-infos-tasks-card{
+    padding: 15px;
+  }
+  .summary-infos-tasks-card-amount{
+    font-size: 47px;
+  }
+}
