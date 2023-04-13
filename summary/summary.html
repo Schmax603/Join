@@ -23,27 +23,52 @@
   
   <main class="summary">
     <div class="summary-header">
+      <p class="summary-header-tertiaerheadline">Kanban Project Managment Tool</p>
       <p class="summary-header-headline">Summary</p>
       <div class="summary-header-border-mid"></div>
-      <p>Everything in a nutshell!</p>
+      <p class="summary-header-subheadline">Everything in a nutshell!</p>
+      <div class="summary-header-border-bottom"></div>
     </div>
 
     <div class="summary-infos">
+
       <div class="summary-infos-tasks">
         <div class="summary-infos-tasks-number">
-          <div class="summary-infos-tasks-number-card"></div>
-          <div class="summary-infos-tasks-number-card"></div>
-          <div class="summary-infos-tasks-number-card"></div>
+          <div class="summary-infos-tasks-number-card">
+            <p id="summary-infos-tasks-number-card-board"></p>
+            <p>Tasks in Board</p>
+          </div>
+
+          <div class="summary-infos-tasks-number-card">
+            <p id="summary-infos-tasks-number-card-progress"></p>
+            <p>Tasks in Progress</p>
+          </div>
+
+          <div class="summary-infos-tasks-number-card">
+            <p id="summary-infos-tasks-number-card-feedback"></p>
+            <p>Awaiting Feedback</p>
+          </div>
         </div>
 
-        <div class="summary-infos-tasks-deadline"></div>
+        <div class="summary-infos-tasks-deadline">
+          <p>placeholder deadline</p>
+        </div>
 
-        <div class="summary-infos-tasks-progress"></div>
+        <div class="summary-infos-tasks-progress">
+          <div class="summary-infos-tasks-progress-card">
+            <p>placeholder progress</p>
+          </div>
+          <div class="summary-infos-tasks-progress-card">
+            <p>placeholder progress</p>
+          </div>
+        </div>
       </div>
 
       <div id="summary-infos-greeting">
-        <!-- todo render greetings h3 / h2 -->
+        <!-- todo render greetings h3 / h2 desktop mobile -->
+        <p>Good morning,</p>
       </div>
+
     </div>
 
   </main>
