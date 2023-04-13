@@ -2,6 +2,24 @@
   margin: 0;
   padding: 0;
   font-family: 'Inter';
+  box-sizing: border-box;
+}
+.font-count{
+  font-size: 64px;
+  font-weight: 600;
+}
+.font-text{
+  font-size: 21px;
+  font-weight: 400;
+}
+.hover:hover{
+  cursor: pointer;
+  background-color: #2A3647;
+  color: white;
+}
+.hover:hover img{
+  background-color: black;
+  filter: invert(1);
 }
 .summary{
   background-color: #F5F5F5;
@@ -64,23 +82,50 @@
   grid-column: 4/7;
 }
 .summary-infos-tasks-card{
-  max-width: calc(170px - 50px);
+  /* max-width: calc(170px - 50px); */
   min-height: calc(110px - 50px);
   padding: 25px;
   border-radius: 30px;
   background-color: white;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .summary-infos-tasks-deadline{
-  height: 150px;
+  min-height: calc(110px - 50px);
   border-radius: 30px;
   background-color: white;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1)
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.summary-infos-tasks-deadline-border{
+  border: 2px solid #D1D1D1;
+  height: 70%;
 }
 .summary-infos-tasks-progress-card{
   border-radius: 30px;
   background-color: white;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1)
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+.summary-infos-tasks-progress-card img{
+  height: 70px;
+  width: 70px;
+  padding: 15px;
+  background-color: #2A3647;
+  border-radius: 50%;
+  filter: invert(0);
+}
+.summary-infos-tasks-progress-card div{
+  text-align: center;
 }
 #summary-infos-greeting{
   display: flex;
@@ -99,12 +144,29 @@
 @media(max-width: 900px){
   .summary{
     padding: 114px 35px 0 35px;
-    min-height: calc(100vh - 114px);
+    min-height: 100vh;
   }
 }
 @media (max-width: 850px){
+  .font-count{
+    font-size: 47px;
+    font-weight: 600;
+  }
+  .font-text{
+    font-size: 14px;
+    font-weight: 400;
+  }
   .summary-infos-tasks{
     grid-auto-rows: minmax(140px, auto);
+  }
+  .summary-infos-tasks-deadline{
+    justify-content: center;
+    gap: 20px;
+  }
+  .summary-infos-tasks-progress-card img{
+    height: 40px;
+    width: 40px;
+    padding: 8px;
   }
 }
 @media(max-width: 755px){
@@ -140,10 +202,21 @@
   }
 }
 @media (max-width: 400px){
+  .summary{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .summary-infos-tasks{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 13px;
+    gap: 10px;
     grid-auto-rows: minmax(110px, auto);
+    font-size: 12px;
+  }
+  .summary-infos-tasks-card{
+    padding: 15px;
+  }
+  .summary-infos-tasks-card-amount{
+    font-size: 47px;
   }
 }
