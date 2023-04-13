@@ -1,3 +1,4 @@
+/* todo hover: box sizing box shadow mobile: Good morning animation*/
 *{
   margin: 0;
   padding: 0;
@@ -12,12 +13,15 @@
   font-size: 21px;
   font-weight: 400;
 }
+.ta-center{
+  text-align: center;
+}
 .hover:hover{
   cursor: pointer;
   background-color: #2A3647;
   color: white;
 }
-.hover:hover img{
+.hover:hover .img-progress{
   background-color: black;
   filter: invert(1);
 }
@@ -103,6 +107,10 @@
   justify-content: space-around;
   align-items: center;
 }
+.summary-infos-tasks-deadline-priority{
+  display: flex;
+  gap: 18px;
+}
 .summary-infos-tasks-deadline-border{
   border: 2px solid #D1D1D1;
   height: 70%;
@@ -116,16 +124,13 @@
   align-items: center;
   gap: 18px;
 }
-.summary-infos-tasks-progress-card img{
+.summary-infos-tasks-progress-card .img-progress{
   height: 70px;
   width: 70px;
   padding: 15px;
   background-color: #2A3647;
   border-radius: 50%;
   filter: invert(0);
-}
-.summary-infos-tasks-progress-card div{
-  text-align: center;
 }
 #summary-infos-greeting{
   display: flex;
@@ -163,7 +168,7 @@
     justify-content: center;
     gap: 20px;
   }
-  .summary-infos-tasks-progress-card img{
+  .summary-infos-tasks-progress-card .img-progress{
     height: 40px;
     width: 40px;
     padding: 8px;
