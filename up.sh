@@ -12,10 +12,11 @@ if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]
     git add . 
     git commit -m "$commitmsg" 
     git push
-    git switch main 
-    git pull  
+    git switch main
+    git pull
     git merge $branch 
     git push
+    git ftp catchup
     git switch $branch 
     git merge main 
     git push
