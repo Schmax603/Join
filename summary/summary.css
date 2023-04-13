@@ -1,0 +1,25 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter';
+}
+.summary{
+  background-color: #F5F5F5;
+  height: 100vh;
+  padding-top: 171px;
+  padding-left: 355px;
+}
+.summary-header{
+  display: flex;
+  align-items: center;
+}
+.summary-header-headline{
+  font-size: 61px;
+  font-weight: 700;
+  width: 315px;
+}
+.summary-header-border-mid{
+  height: 59px;
+  border: 3px solid #29ABE2;
+  text-align: center;
+}
