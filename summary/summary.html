@@ -49,14 +49,17 @@
 
         <div onclick="location.href='../board/board.html';" class="summary-infos-tasks-deadline hover grid4">
           <div class="summary-infos-tasks-deadline-priority">
-            <img src="../img/prio-urgent.svg" alt="prio">
+            <img class="img-priority" src="../img/urgent.png" alt="prio">
             <div class="ta-center">
-              <span class="font-count">0</span>
-              <p class="font-text">Urgent</p>
+              <span class="font-count-47">0</span>
+              <p class="font-text-16">Urgent</p>
             </div>
           </div>
           <div class="summary-infos-tasks-deadline-border"></div>
-          <div id="summary-infos-tasks-deadline-time">fill me</div>
+          <div class="summary-infos-tasks-deadline-time">
+            <p id="deadline-time" class="font-count-21 mb-10">fill innerHTML</p>
+            <p class="font-text-16">Upcoming Deadline</p>
+          </div>
         </div>
 
         <div onclick="location.href='../board/board.html';" class="summary-infos-tasks-progress-card hover grid5">
@@ -78,10 +81,16 @@
 
       <div id="summary-infos-greeting">
         <!-- todo render greetings h3 / h2 desktop mobile -->
-        <p>Good morning,</p>
+        <p class="font-text-47">Good morning,</p>
+        <p class="username-64">username</p>
       </div>
 
     </div>
+
+    <section id="mobile-overlay">
+      <p class="font-text-36">Greeting Daytime</p>
+      <p class="username">Username</p>
+    </section>
 
   </main>
 
