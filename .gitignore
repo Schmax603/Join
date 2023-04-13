@@ -1,0 +1,3 @@
+# ignore ALL listed files
+.vscode
+.gitignore
