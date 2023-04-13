@@ -11,14 +11,14 @@ if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]
     git pull 
     git add . 
     git commit -m "$commitmsg" 
-    git push origin HEAD:$branch 
+    git push
     git switch main 
     git pull  
     git merge $branch 
-    git push origin HEAD:$branch 
+    git push
     git switch $branch 
     git merge main 
-    git push origin HEAD:$branch
+    git push
 else
     if [[ $prompt == "M" || $prompt == "m" ]]; then
         echo merge 
@@ -27,13 +27,13 @@ else
         echo the branch you want $branch to merge to
         read $tobranch
         git merge $tobranch 
-        git push origin HEAD:$branch
+        git push
     else
         echo no
         git switch $branch
         git pull
         git add . 
         git commit -m "$commitmsg" 
-        git push origin HEAD:$branch
+        git push
     fi
 fi
