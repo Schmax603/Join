@@ -49,8 +49,8 @@
             </div>
         </div>
         <div class="board-searchAddtask">
-            <div class="board-search">
-                <input class="board-search-input" placeholder="Find Task" type="text">
+            <div class="board-search" id="board-search">
+                <input class="board-search-input" id="board-search-input" placeholder="Find Task" type="text">
                 <div class="board-searchAndicon">
                     <div class="board-search-spaceline"></div>
                     <img class="board-search-icon" src="../img/boardSearchicon.png" onclick="test()">
@@ -97,7 +97,7 @@
 
                         <div class="trueboard-progress">
                             <div class="trueboard-progress-init">
-                                <progress class="trueboard-progress-bar" max="2" value="1"></progress>
+                                <progress class="trueboard-progress-bar" id="trueboard-progress-bar" max="2" value="1"></progress>
                             </div>
 
                             <div class="trueboard-progress-num" id="placeholder">1/2 Done</div>
