@@ -36,44 +36,48 @@
 }
 .summary-infos{
   padding-top: 87px;
-  max-width: 580px;
   display: flex;
   gap: 67px;
 }
 .summary-infos-tasks{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  grid-auto-rows: minmax(170px, auto);
 }
-.summary-infos-tasks-number{
-  display: flex;
-  justify-content: space-between;
+.grid1 {
+  grid-column: 1/3;
 }
-.summary-infos-tasks-number-card{
-  margin-bottom: 35px;
-  max-width: 170px;
-  aspect-ratio : 1 / 1;
-  padding: 25px 0 25px 0;
+.grid2 {
+  grid-column: 3/5;
+}
+.grid3 {
+  grid-column: 5/7;
+}
+.grid4 {
+  grid-column: 1/7;
+}
+.grid5 {
+  grid-column: 1/4;
+}
+.grid6 {
+  grid-column: 4/7;
+}
+.summary-infos-tasks-card{
+  max-width: calc(170px - 50px);
+  min-height: calc(110px - 50px);
+  padding: 25px;
   border-radius: 30px;
   background-color: white;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 }
 .summary-infos-tasks-deadline{
-  margin-bottom: 35px;
-  width: 580px;
   height: 150px;
   border-radius: 30px;
   background-color: white;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1)
 }
-.summary-infos-tasks-progress{
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-}
 .summary-infos-tasks-progress-card{
-  width: 272.5px;
-  height: 150px;
   border-radius: 30px;
   background-color: white;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1)
@@ -84,10 +88,35 @@
   align-items: center;
 }
 
+@media(max-width: 1270px){
+  .summary-infos{
+    width: 100%;
+  }
+  #summary-infos-greeting{
+    display: none;
+  }
+} 
+@media(max-width: 900px){
+  .summary{
+    padding: 114px 35px 0 35px;
+    min-height: calc(100vh - 114px);
+  }
+}
+@media (max-width: 850px){
+  .summary-infos-tasks{
+    grid-auto-rows: minmax(140px, auto);
+  }
+}
 @media(max-width: 755px){
   .summary-header{
     flex-direction: column;
     align-items: flex-start;
+  }
+  .summary-header-headline{
+    font-size: 47px;
+  }
+  .summary-header-subheadline{
+    font-size: 21px;
   }
   .summary-header-tertiaerheadline{
     display: flex;
@@ -106,30 +135,15 @@
     border: 3px solid #29ABE2;
     width: 90px;
   }
-  .summary-infos-tasks-number{
-    gap: 15px;
-  }
-  .summary-infos-tasks-deadline{
-    width: 100%;
-    height: 110px;
-  }
-  .summary-infos-tasks-progress-card{
-    height: 110px;
-  }
-}
-
-@media(max-width: 900px){
-  .summary{
-    padding: 114px 35px 0 35px;
-    min-height: calc(100vh - 114px);
-  }
-}
-
-@media(max-width: 1270px){
   .summary-infos{
-    width: 100%;
+    padding-top: 41px;
   }
-  #summary-infos-greeting{
-    display: none;
+}
+@media (max-width: 400px){
+  .summary-infos-tasks{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 13px;
+    grid-auto-rows: minmax(110px, auto);
   }
 }
