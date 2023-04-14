@@ -9,7 +9,8 @@ if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]
     echo yes
     git switch $branch
     git pull 
-    git commit -am "$commitmsg" 
+    git add .
+    git commit -m "$commitmsg" 
     git push
     git switch main
     git pull
@@ -34,7 +35,8 @@ else
         echo no
         git switch $branch
         git pull
-        git commit -am "$commitmsg" 
+        git add .
+        git commit -m "$commitmsg" 
         git push
     fi
 fi
