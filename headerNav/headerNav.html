@@ -1,6 +1,7 @@
 <head>
   <link rel="stylesheet" href="headerNav.css">
   <link rel="stylesheet" href="../fonts/fonts.css">
+  <script src="../headerNav.js"></script>
 </head>
 
 <header>
@@ -9,7 +10,7 @@
   </div>
 
   <div class="h-menu">
-    <div><img onclick="toggleOverlayHelp()" class="cu-pointer icon-30" src="../img/questionmarkHeader.png" alt="help icon"></div>
+    <div><img id="header-help-icon" onclick="toggleOverlays('help')" class="cu-pointer icon-30" src="../img/questionmarkHeader.png" alt="help icon"></div>
     <div><img class="cu-pointer icon-50" src="../img/profileImgHeader.png" alt="profil"></div>
   </div>
 </header>
@@ -27,19 +28,19 @@
       <li onclick="location.href='../contacts/contacts.html';" class="n-nav-ul-li"><img class="icon-30" src="../img/contactsNav.png" alt="contacts icon"><p class="c-w fs-16">Contacts</p></li>
     </ul>
 
-    <li onclick="toggleOverlayLegal()" class="n-more n-nav-ul-li">
+    <li onclick="toggleOverlays('legal')" class="n-more n-nav-ul-li">
       <img class="icon-20" src="../img/legalNotice.png" alt="info">
       <p class="c-w fs-16">Legal notice</p>
     </li>
   </div>
 </nav>
 
-<section class="help">
+<section id="help" class="d-none">
   <div class="overlay">
 
         <div class="overlay-header">
             <div class="bnt">
-                <img onclick="toggleOverlayHelp()" src="../img/leave.svg" />
+                <img onclick="toggleOverlays('help')" class="cu-pointer" src="../img/leave.svg" />
             </div>
 
             <span class="overlay-h1 cu-default fs-61">Help</span>
@@ -64,13 +65,13 @@
     </div>
 </section>
 
-<section class="legal">
+<section id="legal" class="d-none">
   <div class="overlay o-legal">
 
     <div class="overlay-header">
 
       <div class="bnt">
-        <img onclick="toggleOverlayLegal()" src="../img/leave.svg" />
+        <img onclick="toggleOverlays('legal')" class="cu-pointer" src="../img/leave.svg" />
       </div>
 
         <div class="overlay-h1 cu-default fs-61">Leagl Notice</div>
