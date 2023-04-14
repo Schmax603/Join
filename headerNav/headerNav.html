@@ -4,6 +4,10 @@
   <script src="../headerNav.js"></script>
 </head>
 
+<!-- !entfernen Body -->
+<body id="body">
+  
+
 <header>
   <div>
     <img class="header-logo-small icon-32" src="../img/logoSmall.png" alt="logo">
@@ -12,11 +16,11 @@
 
   <div class="h-menu">
     <div><img id="header-help-icon" onclick="toggleOverlays('help')" class="cu-pointer icon-30" src="../img/questionmarkHeader.png" alt="help icon"></div>
-    <div><img id="header-profil-icon" class="cu-pointer icon-50" src="../img/profileImgHeader.png" alt="profil"></div>
+    <div><img id="header-profil-icon" onclick="toggleMenu()" class="cu-pointer icon-50" src="../img/profileImgHeader.png" alt="profil"></div>
   </div>
 </header>
 
-<section class="mobile-drdo-menu">
+<section id="mobile-drdo-menu" class="mobile-drdo-menu d-none">
   <div onclick="toggleOverlays('help')" class="mobile-drdo-menu-box cu-pointer mobile-only">
     <span class="fs-16">Help</span>
   </div>
@@ -110,3 +114,6 @@
 
 </div>
 </section>
+
+<!-- ! entfernen Body-->
+</body> 

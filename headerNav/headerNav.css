@@ -56,6 +56,9 @@ body{
 .text-i-40px{
   text-indent: -40px;
 }
+.of-hidden{
+  overflow: hidden;
+}
 .pl-35{
   padding-left: 35px;
 }
@@ -86,7 +89,6 @@ header{
 }
 .mobile-drdo-menu{
   padding: 10px;
-  display: flex;
   flex-direction: column;
   position: absolute;
   top: 89px;
@@ -95,6 +97,7 @@ header{
   color: #CDCDCD;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
   border-radius: 20px 0px 20px 20px;
+  z-index: 10;
 }
 .mobile-drdo-menu-box{
   height: 33px;
@@ -105,6 +108,17 @@ header{
 }
 .mobile-only{
   display: none;
+}
+.animation{
+  animation: 250ms moveIn ease-in-out;
+}
+@keyframes moveIn{
+  from{
+    right: -130px;
+  }
+  to{
+    right: 33px;
+  }
 }
 /*<=========== Nav*/
 nav{
@@ -206,7 +220,6 @@ nav{
     display: none;
   }
   .mobile-drdo-menu{
-    display: flex;
     top: 80px;
     right: 25px;
   }
@@ -253,7 +266,7 @@ nav{
   }
   /*<=========== Media Querrys Overlay*/
   .overlay{
-    margin: 80px 0;
+    margin: 55px 0;
     padding: 10% 10% 0 10%;
     overflow-y: auto;
   }
