@@ -26,35 +26,33 @@ LIGHTPURPLE='\033[1;35m'
 LIGHTCYAN='\033[1;36m'
 WHITE='\033[1;37m'
 
-sleep 120
-
 if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]; then
     echo yes
-    echo ${BLUE} git switch $branch ${NOCOLOR}
+    echo -e ${BLUE}git switch $branch ${NOCOLOR}
     git switch $branch
-    echo ${BLUE} git pull ${NOCOLOR}
+    echo -e ${BLUE}git pull ${NOCOLOR}
     git pull 
-    echo ${BLUE} git add . ${NOCOLOR}
+    echo -e ${BLUE}git add . ${NOCOLOR}
     git add .
-    echo ${BLUE} git commit -m "$commitmsg" ${NOCOLOR}
+    echo -e ${BLUE}git commit -m "$commitmsg" ${NOCOLOR}
     git commit -m "$commitmsg" 
-    echo ${BLUE} git push ${NOCOLOR}
+    echo -e ${BLUE}git push ${NOCOLOR}
     git push
-    echo ${BLUE} git switch main ${NOCOLOR}
+    echo -e ${BLUE}git switch main ${NOCOLOR}
     git switch main
-    echo ${BLUE} git pull ${NOCOLOR}
+    echo -e ${BLUE}git pull ${NOCOLOR}
     git pull
-    echo ${BLUE} git merge $branch ${NOCOLOR}
+    echo -e ${BLUE}git merge $branch ${NOCOLOR}
     git merge $branch 
-    echo ${BLUE} git push ${NOCOLOR}
+    echo -e ${BLUE}git push ${NOCOLOR}
     git push
-    echo ${BLUE} git ftp push ${NOCOLOR}
+    echo -e ${BLUE}git ftp push ${NOCOLOR}
     git ftp push
-    echo ${BLUE} git switch $branch ${NOCOLOR}
+    echo -e ${BLUE}git switch $branch ${NOCOLOR}
     git switch $branch 
-    echo ${BLUE} git merge main ${NOCOLOR}
+    echo -e ${BLUE}git merge main ${NOCOLOR}
     git merge main 
-    echo ${BLUE} git push ${NOCOLOR}
+    echo -e ${BLUE}git push ${NOCOLOR}
     git push
     echo fertig
     sleep 120
