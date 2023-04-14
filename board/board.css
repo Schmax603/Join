@@ -125,10 +125,10 @@ progress {
 
 .trueboard {
 	display: flex;
-	flex-direction: row;
+
 	justify-content: space-between;
-	align-items: flex-start;
-	padding: 0px;
+
+
 	flex-wrap: wrap;
 	margin-left: 302px;
 	margin-top: 98.5px;
@@ -234,13 +234,11 @@ progress {
 }
 
 .trueboard-text {
-
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 0px;
 	gap: 10px;
-
 	width: 207px;
 	border-radius: 10px;
 }
@@ -251,7 +249,6 @@ progress {
 	font-style: normal;
 	font-weight: 700;
 	font-size: 16px;
-
 	color: #2A3647;
 }
 
@@ -277,7 +274,7 @@ progress {
 	height: 14px;
 	flex: none;
 
-	flex-grow: 0;
+
 }
 
 .trueboard-progress-init {
@@ -293,18 +290,13 @@ progress {
 .trueboard-progress-num {
 	width: 51px;
 	height: 14px;
-
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 12px;
 	line-height: 120%;
-
 	color: #000000;
-
 	flex: none;
-
-	flex-grow: 0;
 }
 
 .trueboard-userIcoPrio {
@@ -322,66 +314,49 @@ progress {
 }
 
 .trueboard-userIco-text {
-
 	width: 15px;
 	height: 14px;
-
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 12px;
 	line-height: 120%;
-
 	color: #FFFFFF;
 }
 
 .trueboard-userIco-start {
-
 	box-sizing: border-box;
-
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 10px 8px;
 	gap: 10px;
-
 	width: 35px;
 	height: 35px;
-
 	background: #0190E0;
-
 	border: 1px solid;
 	border-radius: 58px;
-
 	flex: none;
 	order: 0;
-	flex-grow: 0;
 	margin: 0px -6px;
 }
 
 .trueboard-userIco-medium {
-
 	box-sizing: border-box;
-
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 10px 8px;
 	gap: 10px;
-
 	width: 35px;
 	height: 35px;
-
 	background: #EE00D6;
-
 	border: 1px solid #FFFFFF;
 	border-radius: 58px;
-
 	flex: none;
 	order: 1;
-	flex-grow: 0;
 	margin: 0px -6px;
 
 }
@@ -402,31 +377,21 @@ progress {
 }
 
 .trueboard-userIco-plus {
-
 	box-sizing: border-box;
-
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 10px 8px;
 	gap: 10px;
-
 	width: 35px;
 	height: 35px;
-
 	background: #2A3647;
-
 	border: 1px solid #FFFFFF;
 	border-radius: 58px;
-
-	flex: none;
-
-	flex-grow: 0;
 }
 
 .trueboard-Prio {
-
 	padding-right: 9px;
 	display: flex;
 	justify-content: center;
@@ -446,14 +411,11 @@ progress {
 }
 
 .taskcard-inspect-cross-line {
-
-
 	position: absolute;
 	width: 0px;
 	height: 21.65px;
 	right: 10px;
 	top: 0px;
-
 	border-radius: 2px;
 	border: 2px solid #2A3647;
 	transform: rotate(135deg);
@@ -461,7 +423,6 @@ progress {
 
 .taskcard-inspect-cross-lineone {
 	top: 0px;
-
 	border-radius: 2px;
 	border: 2px solid #2A3647;
 	transform: rotate(45deg);
@@ -478,134 +439,91 @@ progress {
 }
 
 .taskcard-inspect {
-
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 50px;
 	gap: 25px;
 	isolation: isolate;
-
 	background: #FFFFFF;
-
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 	border-radius: 30px;
-
-
 	z-index: 101;
 }
 
 .taskcard-inspect-title {
-
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 0px;
 	gap: 1px;
-
 	width: 523px;
 	height: 146px;
-
 	flex: none;
-
 	width: 523px;
 	height: 146px;
-
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 61px;
 	line-height: 120%;
-
 	color: #2A3647;
-
 }
 
 .taskcard-inspect-description {
-
 	width: 518px;
 	height: 50px;
-
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 21px;
 	line-height: 120%;
-
 	color: #000000;
-
 	flex: none;
-
-
 }
 
 .taskcard-inspect-dueDate {
-
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
 	padding: 0px;
 	gap: 25px;
-
 	width: 246px;
 	height: 25px;
-
 	flex: none;
-
 }
 
 .taskcard-inspect-dueDate-text {
-
 	width: 99px;
 	height: 25px;
-
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 21px;
 	line-height: 120%;
-
 	color: #000000;
-
-
 }
 
 .taskcard-inspect-dueDate-date {
-
 	width: 122px;
 	height: 25px;
-
-
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 21px;
 	line-height: 120%;
-
-
 	color: #000000;
-
-
 }
 
 .taskcard-inspect-prio {
-
-
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	padding: 0px;
 	gap: 25px;
-
 	width: 238px;
 	height: 33px;
-
-
-
-
 	flex: none;
-
-
 }
 
 .taskcard-inspect-prio-text {
@@ -766,25 +684,19 @@ progress {
 }
 
 .taskcard-edit {
-
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	padding: 50px;
 	gap: 25px;
 	isolation: isolate;
-
 	position: absolute;
 	width: 523px;
 	height: 724px;
-
 	background: #FFFFFF;
-
 	z-index: 101;
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 	border-radius: 30px;
-
-
 }
 
 @media(max-width: 1100px) {
