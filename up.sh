@@ -19,6 +19,7 @@ if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]
     git switch $branch 
     git merge main 
     git push
+    wait
 else
     if [[ $prompt == "M" || $prompt == "m" ]]; then
         echo merge 
@@ -36,5 +37,3 @@ else
         git push
     fi
 fi
-
-wait
