@@ -37,7 +37,7 @@ body{
   height: 50px;
 }
 
-
+/*<=========== Header*/
 header{
   padding-left: 116px;
   padding-right: 33px;
@@ -58,7 +58,7 @@ header{
   gap: 26px;
 }
 
-
+/*<=========== Nav*/
 nav{
   position: absolute;
   top: 0;
@@ -107,3 +107,63 @@ li:hover{
   align-items: center;
 }
 
+/*<=========== legal*/
+.help-side {
+  padding: 171px 128px 0 355px;
+  display: flex;
+  flex-direction: column;
+}
+.help-header{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.help-hl {
+  gap: 100%;
+  display: flex;
+  font-size: 61px;
+  font-family: 'Inter';
+}
+
+.help-hl img:hover {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.bnt {
+
+  top: 82.51px;
+  right: 126.17px;
+}
+
+@media (max-width: 900px) {
+  .help-side{
+      display: flex;
+      justify-content: center;
+      top: 20%;
+      left: 0;
+      margin-left: 33px;
+      margin-right: 32px;
+  }
+
+  .help-hl {
+      gap: 50%;
+  }
+}
+
+@media (max-width: 450px) {
+  .help-side {
+      top: 10%;
+  }
+}
+
+@media (max-width: 350px) {
+  .help-hl {
+      gap: 10%;
+  }
+
+  .help-hl h1 {
+      font-size: 40px;
+  }
+}
