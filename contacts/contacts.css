@@ -10,7 +10,7 @@
     font-weight: 600;
 }
 
-.font-count-21 {
+.font-btn-21 {
     font-size: 21px;
     font-weight: 700;
 }
@@ -60,6 +60,25 @@
     box-shadow: 0 4px 5px #5551;
 }
 
+.dark-btn {
+    color: white;
+    background-color: #2A3647;
+    border-radius: 10px;
+    border: none;
+    transition: 220ms ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 10px;
+}
+
+.dark-btn:hover {
+    cursor: pointer;
+    background-color: #29ABE2;
+    color: white;
+    box-shadow: 0 4px 5px #5551;
+}
+
 .contacts {
     background-color: #F5F5F5;
     min-height: 100vh;
@@ -67,16 +86,90 @@
     display: flex;
 }
 
-.contacts-list {
+.contacts-list-container {
     width: 40%;
     background-color: white;
     overflow: auto;
     box-shadow: 4px 0px 6px 0px #00000014;
-
+    display: flex;
+    justify-content: center;
 }
 
-.contacts-info {
+.contacts-list {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.letter-container {
+    width: 100%;
+    padding: 0px 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.letter-header {
+    width: 100%;
+    height: 60px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.letter-header-bottom-border {
+    width: 100%;
+    margin: 14px 0;
+    border-bottom: 1px solid #d1d1d1;
+}
+
+
+.contact {
+    width: 100%;
+    display: flex;
+    /* align-items: center; */
+    padding: 15px 8px;
+    border-radius: 10px;
+}
+
+.contact:hover {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.08));
+    cursor: pointer;
+}
+
+.contact-icon {
+    width: 42px;
+    height: 42px;
+    padding: 16px;
+    color: white;
+    background-color: #FF7A00;
+    border: 1px solid white;
+    border-radius: 100%;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-name-email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 35px;
+}
+
+.contact-email {
+    color: #007CEE;
+    margin-top: 5px;
+}
+
+.contacts-info-container {
     width: 60%;
+    padding: 89px 52px 67px 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .contacts-header {
@@ -87,14 +180,14 @@
 .contacts-header-headline {
     font-size: 61px;
     font-weight: 700;
-    width: 315px;
+    /* width: 315px; */
     margin-right: 30px;
 }
 
 .contacts-header-border-mid {
     height: 59px;
     border: 3px solid #29ABE2;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .contacts-header-subheadline {
@@ -102,4 +195,10 @@
     font-size: 27px;
     font-weight: 400;
     margin-left: calc(30px - 3px);
+}
+
+.new-contact {
+    height: 53px;
+    align-self: flex-end;
+    gap: 10px;
 }
