@@ -2,7 +2,7 @@ let checkMenu = false;
 
 async function init(){
   await includeHTML();
-  document.getElementById('headline').innerHTML = 'Herzlich Willkommen';
+  // document.getElementById('headline').innerHTML = 'Herzlich Willkommen';
 }
 
 async function includeHTML(){
