@@ -24,6 +24,16 @@ body{
   font-size: 21px;
   font-weight: 400;
 }
+.fs-27{
+  font-family: 'Inter';
+  font-size: 27px;
+  font-weight: 700;
+}
+.fs-61{
+  font-family: 'Inter';
+  font-size: 61px;
+  font-weight: 700;
+}
 .icon-20{
   width: 20px;
   height: 20px;
@@ -35,6 +45,12 @@ body{
 .icon-50{
   width: 50px;
   height: 50px;
+}
+.text-i-40px{
+  text-indent: -40px;
+}
+.pl-35{
+  padding-left: 35px;
 }
 
 /*<=========== Header*/
@@ -82,12 +98,12 @@ nav{
   flex-direction: column;
   justify-content: space-between;
 }
-.n-nav ul{
+.n-nav-ul{
   margin: 0;
   padding: 0;
   list-style: none;
 }
-li{
+.n-nav-ul-li{
   padding-left: 54px;
   display: flex;
   gap: 21px;
@@ -95,7 +111,7 @@ li{
   align-items: center;
   list-style: none;
 }
-li:hover{
+.n-nav-ul-li:hover{
   background-color: #091931;
   cursor: pointer;
 }
@@ -122,8 +138,6 @@ li:hover{
 .help-hl {
   gap: 100%;
   display: flex;
-  font-size: 61px;
-  font-family: 'Inter';
 }
 
 .help-hl img:hover {
@@ -136,6 +150,7 @@ li:hover{
   top: 82.51px;
   right: 126.17px;
 }
+
 
 @media (max-width: 900px) {
   .help-side{
