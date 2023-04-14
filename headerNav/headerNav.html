@@ -5,7 +5,7 @@
 </head>
 
 <!-- !entfernen Body -->
-<body id="body">
+<body id="body" onclick="closeMenu()">
   
 
 <header>
@@ -16,7 +16,7 @@
 
   <div class="h-menu">
     <div><img id="header-help-icon" onclick="toggleOverlays('help')" class="cu-pointer icon-30" src="../img/questionmarkHeader.png" alt="help icon"></div>
-    <div><img id="header-profil-icon" onclick="toggleMenu()" class="cu-pointer icon-50" src="../img/profileImgHeader.png" alt="profil"></div>
+    <div><img id="header-profil-icon" onclick="toggleMenu(), event.stopPropagation()" class="cu-pointer icon-50" src="../img/profileImgHeader.png" alt="profil"></div>
   </div>
 </header>
 
