@@ -11,6 +11,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
     <link rel="manifest" href="../favicon/site.webmanifest" />
     <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <!-- templates header, nav, help, legal-->
+    <link rel="stylesheet" href="../headerNav/headerNav.css">
+    <script src="../headerNav/headerNav.js"></script>
+
     <link rel="stylesheet" href="board.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
     <link rel="stylesheet" href="../headerNav/headerNav.css">
@@ -25,8 +29,8 @@
     <script src="/script.js"></script>
 </head>
 
-<body onload="init(); changeContentOnWindowSize(); consoleLOGS();" id="body">
-    <div style="display: none;" onclick="cardUnInspect();" class="fullviewport" id="fullviewport"></div>
+<body onload="init(); changeContentOnWindowSize(); consoleLOGS();" onclick="closeMenu()" id="body">
+    <div style="display: none;" onclick="cardUnInspect(); " class="fullviewport" id="fullviewport"></div>
     <div w3-include-html="../headerNav/headerNav.html"></div>
 
 
