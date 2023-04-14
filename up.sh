@@ -42,6 +42,8 @@ if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]
     git switch main
     echo -e ${BLUE}git pull ${NOCOLOR}
     git pull
+    echo -e ${BLUE}git push ${NOCOLOR}
+    git push
     echo -e ${BLUE}git merge $branch ${NOCOLOR}
     git merge $branch 
     echo -e ${BLUE}git push ${NOCOLOR}
