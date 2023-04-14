@@ -1,11 +1,8 @@
 body {
 	background-color: #F6F7F8;
-
 }
 
-progress {
-
-}
+progress {}
 
 .fullviewport {
 	position: fixed;
@@ -27,7 +24,7 @@ progress {
 	font-weight: 700;
 	font-size: 61px;
 }
- 
+
 .board-searchAddtask {
 	display: flex;
 	align-items: center;
@@ -125,10 +122,7 @@ progress {
 
 .trueboard {
 	display: flex;
-
 	justify-content: space-between;
-
-
 	flex-wrap: wrap;
 	margin-left: 302px;
 	margin-top: 98.5px;
@@ -138,9 +132,7 @@ progress {
 .trueboard-maincon {
 	display: flex;
 	flex-direction: column;
-	padding: 0px;
 	padding-right: 26px;
-	width: 250px;
 	height: 661px;
 }
 
@@ -149,16 +141,21 @@ progress {
 	overflow-y: auto;
 }
 
+
 .trueboard-text {
 	margin-bottom: 20px;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	font-family: 'Inter';
 	font-weight: 700;
 	font-size: 21px;
-	line-height: 120%;
+
+	gap: 10px;
+	width: 207px;
 	color: #2A3647;
 }
+
 
 .trueboard-textAddSing {
 	display: flex;
@@ -233,16 +230,6 @@ progress {
 	color: #FFFFFF;
 }
 
-.trueboard-text {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	padding: 0px;
-	gap: 10px;
-	width: 207px;
-	border-radius: 10px;
-}
-
 .trueboard-text-title {
 	height: 19px;
 	font-family: 'Inter';
@@ -268,7 +255,7 @@ progress {
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 20px;
-	padding: 0px;
+
 	gap: 20px;
 	width: 209px;
 	height: 14px;
@@ -304,7 +291,7 @@ progress {
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0px;
+
 }
 
 .trueboard-userIco {
@@ -430,12 +417,12 @@ progress {
 
 .thebnt {
 	border-radius: 10px;
-    position: fixed;
-    object-fit: cover;
-    top: 70%;
-    left: 55%;
-    z-index: 100;
-    transform: translate(-50%, -68%);
+	position: fixed;
+	object-fit: cover;
+	top: 70%;
+	left: 55%;
+	z-index: 100;
+	transform: translate(-50%, -68%);
 }
 
 .taskcard-inspect {
@@ -455,7 +442,7 @@ progress {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	padding: 0px;
+
 	gap: 1px;
 	width: 523px;
 	height: 146px;
@@ -486,7 +473,7 @@ progress {
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
-	padding: 0px;
+
 	gap: 25px;
 	width: 246px;
 	height: 25px;
@@ -519,7 +506,7 @@ progress {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	padding: 0px;
+
 	gap: 25px;
 	width: 238px;
 	height: 33px;
@@ -671,7 +658,7 @@ progress {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	padding: 0px;
+
 	gap: 6px;
 	position: absolute;
 	width: 57px;
@@ -747,7 +734,7 @@ progress {
 		z-index: 100;
 		transform: translate(-43%, -68%);
 	}
-	
+
 }
 
 @media(max-width: 900px) {

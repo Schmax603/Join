@@ -14,19 +14,15 @@
     <link rel="stylesheet" href="board.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
     <link rel="stylesheet" href="../headerNav/headerNav.css">
-    <!-- https://i.imgflip.com/52lvif.jpg -->
 
-
-    <link rel="stylesheet" href="../addtask/add_task.css">
-    <link rel="stylesheet" href="../addtask/color.css">
-    <link rel="stylesheet" href="../addtask/media.css">
-    <link rel="stylesheet" href="../addtask/prios.css">
-    <script src="../mini_backend.js"></script>
-    <script src="../addtask/js/add_task.js"></script>
-    <script src="../addtask/js/template.js"></script>
+    <link rel="stylesheet" href="/addtask/addtask.css">
+    
+    <script src="/templets/mini_backend/mini_backend.js"></script>
+    <script src="/addtask/addtask.js"></script>
     <!-- https://i.imgflip.com/52lvif.jpg -->
     <script src="board.js"></script>
-    <script src="../script.js"></script>
+    <script src="backend.js"></script>
+    <script src="/script.js"></script>
 </head>
 
 <body onload="init(); changeContentOnWindowSize(); consoleLOGS();" id="body">
@@ -321,7 +317,7 @@
                     <div class="prio" id="low" onclick="test()">
                         <div class="d-flex">
                             <p>Low</p>
-                            <img id="low-img" src="../addtask/assets/img/prio-low.svg">
+                            <img id="low-img" src="../addtask/">
                         </div>
                     </div>
                 </div>
