@@ -204,7 +204,7 @@ nav{
 
 /*<=========== Media Querrys*/
 @media (max-width: 900px) {
-  /*<=========== Media Querrys Header*/
+  /*<=========== Media Querrys max-width: 900px Header*/
   header{
     height: 80px;
     padding: 0 25px;
@@ -226,7 +226,7 @@ nav{
   .mobile-drdo-menu-box{
     display: flex;
   }
-  /*<=========== Media Querrys Nav*/
+  /*<=========== Media Querrys max-width: 900px Nav*/
   nav{
     position: fixed;
     width: 100%;
@@ -264,7 +264,7 @@ nav{
   .n-more{
     display: none;
   }
-  /*<=========== Media Querrys Overlay*/
+  /*<=========== Media Querrys max-width: 900px Overlay*/
   .overlay{
     margin: 55px 0;
     padding: 10% 10% 0 10%;
@@ -275,13 +275,13 @@ nav{
       gap: 50%;
   }
 }
-
+/*<=========== Media Querrys max-width: 400px Nav*/
 @media (max-width: 400px){
   .nav-txt{
     font-size: 14px;
   }
 }
-
+/*<=========== Media Querrys max-width: 350px Overlay*/
 @media (max-width: 350px) {
   .overlay-h1 {
       gap: 10%;
