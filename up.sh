@@ -36,3 +36,5 @@ else
         git push
     fi
 fi
+
+wait
