@@ -12,6 +12,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
     <link rel="manifest" href="../favicon/site.webmanifest" />
     <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <!-- templates header, nav, help, legal-->
+    <link rel="stylesheet" href="../headerNav/headerNav.css">
+    <script src="../headerNav/headerNav.js"></script>
 
     <link rel="stylesheet" href="contacts.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
@@ -20,7 +23,10 @@
     <script src="../script.js"></script>
 </head>
 
-<body>
+<body id="body" onload="initHeaderNav()" onclick="closeMenu()">
+
+    <div w3-include-html="../headerNav/headerNav.html"></div>
+
     <main class="contacts">
         <div class="contacts-list-container">
             <div id="contacts-list" class="contacts-list">
