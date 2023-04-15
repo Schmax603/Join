@@ -102,12 +102,15 @@ input:focus{
   justify-content: flex-end;
   align-items: flex-start;
 }
-/* .main-logo{
+.main-logo-white{
+  opacity: 0;
+}
+.main-logo{
   width: 100px;
   position: absolute;
   top: 80px;
   left: 77px;
-} */
+}
 .main-login{
   margin-top: 67px;
   margin-right: 114px;
@@ -116,13 +119,6 @@ input:focus{
   gap: 35px;
   z-index: 1;
 }
-/* .main-login{
-  position: absolute;
-  top: 67px;
-  right: 114px;
-  display: flex;
-  align-items: center;
-} */
 /* <=================== login overlay */
 .overlay{
   position: absolute;
@@ -208,28 +204,26 @@ input:focus{
 }
 
 /* <========== login animation */
+.animation-bg{
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+}
 .bg-animation{ 
-  /* body class */
-  animation: 2000ms bg-fade-out ease-in;
+  animation: 1000ms bg-fade-out ease-in;
+}
+.logo-animate{
+ animation: 1000ms moveLogo ease-in-out;
 }
 @keyframes bg-fade-out{
   from{
-    opacity: 0;
-    z-index: 4;
+    z-index: 10;
+    background-color: #F5F5F5;
   }
   to{
-    opacity: 1;
     z-index: 0;
   }
-}
-.main-logo{
-  width: 100px;
-  position: absolute;
-  top: 80px;
-  left: 77px;
-}
-.login-animate{
- animation: 2000ms moveLogo ease-in-out;
 }
 @keyframes moveLogo{
   from{
@@ -238,9 +232,35 @@ input:focus{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 5;
+    z-index: 20;
   }
   to{
     z-index: 2;
+  }
+}
+/* <========== login animation <900px */
+@media(max-width: 900px){
+  .logo-animate-white{
+    animation: 1000ms moveLogo-white ease-in-out;
+  }
+  @keyframes bg-fade-out{
+    from{
+      z-index: 10;
+      background-color: #2A3647;
+    }
+  }
+  @keyframes moveLogo-white{
+    from{
+      width: 50vw;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 1;
+      z-index: 20;
+    }
+    to{
+      z-index: 0;
+    }
   }
 }
