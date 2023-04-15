@@ -50,11 +50,20 @@ body{
   font-size: 21px;
   font-weight: 400;
 }
+.ta-c{
+  text-align: center;
+}
 .mr-20{
   margin-right: 20px;
 }
 .mr-35{
   margin-right: 35px;
+}
+.mb-35{
+  margin-bottom: 35px;
+}
+.wmax-826{
+  max-width: 826px;
 }
 /* <=================== global Elements */
 button{
@@ -64,8 +73,12 @@ button{
 }
 form{
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 form input{
+  margin-bottom: 49px;
   width: 85%;
   padding: 13px 21px;
   font-size: 21px;
@@ -74,9 +87,6 @@ form input{
   flex-direction: column;
   border: 1px solid #D1D1D1;
   border-radius: 10px;
-}
-form input:first-child{
-  margin-bottom: 49px;
 }
 form input:last-child{
   margin-bottom: 55px;
@@ -102,6 +112,7 @@ input:focus{
 }
 /* <=================== main overlay */
 .main-overlay{
+  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -137,6 +148,7 @@ input:focus{
   align-items: center;
 }
 .overlay-login{
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,6 +156,11 @@ input:focus{
   box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
   border-radius: 30px;
   z-index: 1;
+}
+.overlay-login-arrow{
+  position: absolute;
+  top: 41px;
+  left: 37px;
 }
 .overlay-login-header{
   display: flex;
@@ -170,6 +187,12 @@ input:focus{
 }
 .overlay-login-buttons button{
   width: 145px;
+}
+.overlay-login-buttons .btn-send{
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  max-width: 264px;
 }
 /*<=========== Media Querrys max-width: 900px Overlay*/
 @media (max-width: 900px){
@@ -269,4 +292,7 @@ input:focus{
       z-index: 0;
     }
   }
+}
+.d-none{
+  display: none;
 }

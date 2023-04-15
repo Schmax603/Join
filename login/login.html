@@ -16,51 +16,25 @@
     <link rel="stylesheet" href="../fonts/fonts.css">
   
     <script src="login.js"></script>
-    <script src="../script.js"></script>
+    <!-- <script src="../script.js"></script> -->
 </head>
 
-<body>
+<body onload="initLogin()">
   <main >
     <img class="main-logo logo-animate-white main-logo-white" src="../img/logo.png" alt="join logo white">
     <img class="main-logo logo-animate" src="../img/logoSmall.png" alt="join logo">
     
     <div class="main-overlay">
-      <div class="main-login">
+      <div id="sign-up" class="main-login">
         <p class="cursor-d fs-21-400">Not a Join user?</p>
-        <button class="main-login-btn bg-c-db cursor-p fc-w fs-16-700">Sign up</button>
+        <button onclick="openSignUp()" class="main-login-btn bg-c-db cursor-p fc-w fs-16-700">Sign up</button>
       </div>
     </div>
 
-    <section class="overlay">
+    <section id="overlay" class="overlay">
 
-      <div class="overlay-login bg-c-w">
-        <div class="overlay-login-header">
-          <h1 class="cursor-d fs-62-700">Log in</h1>
-          <div class="border"></div>
-        </div>
+      <div id="login-card" class="overlay-login bg-c-w"></div>
 
-        <form class="overlay-login-form">
-          <input type="email" placeholder="Email" required>
-          <input type="password" placeholder="Password" required>
-        </form>
-
-        <div class="overlay-login-selection">
-
-          <div class="overlay-login-selection-support">
-            <div class="overlay-login-selection-support-remember">
-              <input type="checkbox" class="cursor-p mr-20">
-              <p class="cursor-d fs-16-400 mr-35">Remember me</p>
-            </div>
-            <p class="cursor-p fc-lb fs-16-400">Forgot my password</p>
-          </div>
-
-          <div class="overlay-login-buttons">
-            <button class="bg-c-db cursor-p fc-w fs-21-700">Log in</button>
-            <button class="bg-c-w cursor-p fs-21-700">Guest Log in</button>
-          </div>
-
-        </div>
-      </div>
     </section>
     <div class="animation-bg bg-animation"></div>
   </main>
