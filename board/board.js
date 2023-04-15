@@ -44,10 +44,10 @@ function cardInspect() {
         trueboardTaskcard[i].style.backgroundColor = '#bebebf';
     }
 
-    document.getElementById('body').style = ("background-color: #b8b9ba; position: fixed;  filter: brightness(40%);")
+    document.getElementById('body').style = ("background-color: #b8b9ba; position: fixed; filter: brightness(40%);")
     document.getElementById('taskcard-inspect').style = ("display: flex;")
     document.getElementById('fullviewport').style = ("display: flex;")
-    document.getElementById('thebnt').style = ("display: flex;")
+    document.getElementById('thebnt').style = ("display: flex; position: absolute; filter: brightness(100%); top: 50%; left: 50%; transform: translate(-30%, -80%);")
     console.log("dadada")
 }
 
