@@ -1,0 +1,134 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter';
+}
+body{
+  height: 100vh;
+  background-color: #F5F5F5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* <=================== global Variable */
+.bg-c-db{
+  background-color: #2A3647;
+}
+.bg-c-w{
+  background-color: #FFFFFF;
+}
+.fc-lb{
+  color: #29ABE2;
+}
+.fc-w{
+  color: #FFFFFF;
+}
+.fs-16-700{
+  font-size: 16px;
+  font-weight: 700;
+}
+.fs-21-700{
+  font-size: 21px;
+  font-weight: 700;
+}
+.fs-62-700{
+  font-size: 61px;
+  font-weight: 700;
+}
+.fs-16-400{
+  font-size: 16px;
+  font-weight: 400;
+}
+.fs-21-400{
+  font-size: 21px;
+  font-weight: 400;
+}
+.mr-20{
+  margin-right: 20px;
+}
+.mr-35{
+  margin-right: 35px;
+}
+/* <=================== global Elements */
+button{
+  height: 49px;
+  border: 1px solid #2A3647;
+  border-radius: 8px;
+}
+form input{
+  padding: 13px 21px;
+  font-size: 21px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #D1D1D1;
+  border-radius: 10px;
+}
+form input:first-child{
+  margin-bottom: 49px;
+}
+form input:last-child{
+  margin-bottom: 55px;
+}
+input[type=email]{
+  background-image: url(../img/emailInput.png);
+  background-repeat: no-repeat;
+  background-position: 95%;
+}
+input[type=password]{
+  background-image: url(../img/lock.png);
+  background-repeat: no-repeat;
+  background-position: 95%;
+}
+/* <=================== btns */
+.main-login-btn{
+  padding: 16px;
+}
+/* <=================== main */
+.main-logo{
+  max-width: 100px;
+  position: absolute;
+  top: 80px;
+  left: 77px;
+}
+.main-login{
+  position: absolute;
+  top: 67px;
+  right: 114px;
+  display: flex;
+  gap: 35px;
+  align-items: center;
+}
+/* <=================== Login overlay */
+.overlay-login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 35px 115px;
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 30px;
+}
+.overlay-login-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.border{
+  width: 80%;
+  height: 3px;
+  background-color: #29ABE2;
+  margin-top: 24px;
+  margin-bottom: 35px;
+}
+.overlay-login-selection-support{
+  display: flex;
+  margin-bottom: 35px;
+}
+.overlay-login-buttons{
+  display: flex;
+  justify-content: space-between;
+}
+.overlay-login-buttons button{
+  width: 145px;
+}
