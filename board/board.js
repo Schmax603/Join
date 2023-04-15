@@ -7,7 +7,7 @@ const trueboardTaskcard = document.getElementsByClassName('trueboard-taskcard');
 // var let const warscheinlich werden alle for loops nacher mit der api gesynct
 
 function consoleLOGS() {
-    console.log(tasks);
+    console.log();
 }
 
 function changeContentOnWindowSize() {
