@@ -148,6 +148,7 @@ input:focus{
   align-items: center;
 }
 .overlay-login{
+  max-width: 826px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -208,7 +209,16 @@ input:focus{
   }
   /* <=================== login overlay */
   .overlay-login{
+    margin: 10px;
     padding: 35px 22px;
+  }
+  .header-forgot-password{
+    padding-top: 21px;
+    text-align: center;
+  }
+  .overlay-login-arrow{
+    top: 27px;
+    left: 33px;
   }
   .overlay-login-selection{
     width: 100%;

@@ -16,8 +16,8 @@ function initLogin(){
 
           <div class="overlay-login-selection-support">
             <div class="overlay-login-selection-support-remember">
-              <input type="checkbox" class="cursor-p mr-20">
-              <p class="cursor-d fs-16-400 mr-35">Remember me</p>
+              <input id="remember" type="checkbox" class="cursor-p mr-20">
+              <label for="remember" class="cursor-d fs-16-400 mr-35">Remember me</label>
             </div>
             <p onclick="openForgotPassword()" class="cursor-p fc-lb fs-16-400">Forgot my password</p>
           </div>
@@ -75,7 +75,7 @@ function openForgotPassword(){
 
   loginCard.innerHTML = /*html*/`
       <img onclick="closeSignup()" class="overlay-login-arrow" src="../img/arrow_left_blue.png" alt="arrow left blue">
-        <div class="overlay-login-header">
+        <div class="overlay-login-header header-forgot-password">
           <h1 class="cursor-d fs-62-700">I forgot my password</h1>
           <div class="border"></div>
         </div>
