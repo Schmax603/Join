@@ -1,6 +1,7 @@
 let checkMenu = false;
 
-async function init(){
+
+async function initHeaderNav(){
   await includeHTML();
   // document.getElementById('headline').innerHTML = 'Herzlich Willkommen';
 }

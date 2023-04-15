@@ -12,6 +12,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
     <link rel="manifest" href="../favicon/site.webmanifest" />
     <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <!-- templates header, nav, help, legal-->
+    <link rel="stylesheet" href="../headerNav/headerNav.css">
+    <script src="../headerNav/headerNav.js"></script>
 
     <link rel="stylesheet" href="contacts.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
@@ -20,18 +23,57 @@
     <script src="../script.js"></script>
 </head>
 
-<body>
-    <main class="contacts">
-        <div class="contacts-list">
+<body id="body" onload="initHeaderNav()" onclick="closeMenu()">
 
+    <div w3-include-html="../headerNav/headerNav.html"></div>
+
+    <main class="contacts">
+        <div class="contacts-list-container">
+            <div id="contacts-list" class="contacts-list">
+                <div class="letter-container">
+                    <div class="letter-header font-text">A</div>
+                    <div class="letter-header-bottom-border"></div>
+
+
+                    <div class="contact">
+                        <div id="contact-icon" class="contact-icon font-text-12">
+                            AM
+                        </div>
+                        <div class="contact-name-email">
+                            <b class="contact-name font-text">Anton Mayer</b>
+                            <span class="contact-email font-text-16">antom@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="letter-container">
+                    <div class="letter-header font-text">B</div>
+                    <div class="letter-header-bottom-border"></div>
+                    <div class="contact">
+                        <div class="contact-icon font-text-12">
+                            AM
+                        </div>
+                        <div class="contact-name-email">
+                            <b class="contact-name font-text">Anton Mayer</b>
+                            <span class="contact-email font-text-16">antom@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="contacts-info">
+        <div class="contacts-info-container">
             <div class="contacts-header">
                 <p class="contacts-header-headline">Contacts</p>
                 <div class="contacts-header-border-mid"></div>
                 <p class="contacts-header-subheadline">Better with a team</p>
             </div>
+
+
+            <button class="new-contact dark-btn font-btn-21">
+                <span>New contact</span>
+                <img src="../img/contactsNew.png">
+            </button>
         </div>
     </main>
 </body>

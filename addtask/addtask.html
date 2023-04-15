@@ -5,12 +5,19 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<!-- templates header, nav, help, legal-->
+  <link rel="stylesheet" href="../headerNav/headerNav.css">
+  <script src="../headerNav/headerNav.js"></script>
+	<link rel="stylesheet" href="../fonts/fonts.css">
+
 
 	<script src="/templets/mini_backend/mini_backend.js"></script>
 
 	
-</head>
-<body>
-	dad
+
+<body id="body" onload="initHeaderNav()" onclick="closeMenu()">
+	<div w3-include-html="../headerNav/headerNav.html"></div>
+	
+
 </body>
 </html>
