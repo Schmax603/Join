@@ -18,6 +18,12 @@ body{
 .bg-c-w{
   background-color: #FFFFFF;
 }
+.cursor-d{
+  cursor: default;
+}
+.cursor-p{
+  cursor: pointer;
+}
 .fc-lb{
   color: #29ABE2;
 }
