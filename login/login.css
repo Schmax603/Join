@@ -56,7 +56,11 @@ button{
   border: 1px solid #2A3647;
   border-radius: 8px;
 }
+form{
+  width: 100%;
+}
 form input{
+  width: 85%;
   padding: 13px 21px;
   font-size: 21px;
   font-weight: 400;
@@ -81,26 +85,55 @@ input[type=password]{
   background-repeat: no-repeat;
   background-position: 95%;
 }
+input:focus{
+  outline: none;
+}
 /* <=================== btns */
 .main-login-btn{
   padding: 16px;
+  display: flex;
+  align-items: center;
 }
-/* <=================== main */
-.main-logo{
-  max-width: 100px;
+/* <=================== main overlay */
+.main-overlay{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+/* .main-logo{
+  width: 100px;
   position: absolute;
   top: 80px;
   left: 77px;
-}
+} */
 .main-login{
+  margin-top: 67px;
+  margin-right: 114px;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  z-index: 1;
+}
+/* .main-login{
   position: absolute;
   top: 67px;
   right: 114px;
   display: flex;
-  gap: 35px;
+  align-items: center;
+} */
+/* <=================== login overlay */
+.overlay{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
-/* <=================== Login overlay */
 .overlay-login{
   display: flex;
   flex-direction: column;
@@ -108,6 +141,7 @@ input[type=password]{
   padding: 35px 115px;
   box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
   border-radius: 30px;
+  z-index: 1;
 }
 .overlay-login-header{
   display: flex;
@@ -125,10 +159,88 @@ input[type=password]{
   display: flex;
   margin-bottom: 35px;
 }
+.overlay-login-selection-support-remember{
+  display: flex;
+}
 .overlay-login-buttons{
   display: flex;
   justify-content: space-between;
 }
 .overlay-login-buttons button{
   width: 145px;
+}
+/*<=========== Media Querrys max-width: 900px Overlay*/
+@media (max-width: 900px){
+  /* <=================== main overlay */
+  .main-overlay{
+   justify-content: center;
+   align-items: flex-end;
+  }
+  .main-login{
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 59px;
+  }
+  /* <=================== login overlay */
+  .overlay-login{
+    padding: 35px 22px;
+  }
+  .overlay-login-selection{
+    width: 100%;
+  }
+  form input:last-child{
+    margin-bottom: 30px;
+  }
+  .overlay-login-selection-support{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .overlay-login-selection-support-remember{
+    margin-top: 31px;
+  }
+  .overlay-login-buttons{
+    flex-direction: column;
+    align-items: center;
+  }
+  .overlay-login-buttons :first-child{
+    margin-bottom: 21px;
+  }
+}
+
+/* <========== login animation */
+.bg-animation{ 
+  /* body class */
+  animation: 2000ms bg-fade-out ease-in;
+}
+@keyframes bg-fade-out{
+  from{
+    opacity: 0;
+    z-index: 4;
+  }
+  to{
+    opacity: 1;
+    z-index: 0;
+  }
+}
+.main-logo{
+  width: 100px;
+  position: absolute;
+  top: 80px;
+  left: 77px;
+}
+.login-animate{
+ animation: 2000ms moveLogo ease-in-out;
+}
+@keyframes moveLogo{
+  from{
+    width: 50vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+  }
+  to{
+    z-index: 2;
+  }
 }

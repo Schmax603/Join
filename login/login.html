@@ -20,20 +20,19 @@
 </head>
 
 <body>
- 
-  <main>
-
-    <img class="main-logo" src="../img/logoBig.png" alt="join logo">
-
-    <div class="main-login">
-      <p class="fs-21-400">Not a Join user?</p>
-      <button class="main-login-btn bg-c-db fc-w fs-16-700">Sign up</button>
+  <main class="bg-animation">
+    <img class="main-logo login-animate" src="../img/logoBig.png" alt="join logo">
+    
+    <div class="main-overlay">
+      <div class="main-login">
+        <p class="fs-21-400">Not a Join user?</p>
+        <button class="main-login-btn bg-c-db fc-w fs-16-700">Sign up</button>
+      </div>
     </div>
 
     <section class="overlay">
 
       <div class="overlay-login bg-c-w">
-
         <div class="overlay-login-header">
           <h1 class="fs-62-700">Log in</h1>
           <div class="border"></div>
@@ -47,8 +46,10 @@
         <div class="overlay-login-selection">
 
           <div class="overlay-login-selection-support">
-            <input type="checkbox" class="mr-20">
-            <p class="fs-16-400 mr-35">Remember me</p>
+            <div class="overlay-login-selection-support-remember">
+              <input type="checkbox" class="mr-20">
+              <p class="fs-16-400 mr-35">Remember me</p>
+            </div>
             <p class="fc-lb fs-16-400">Forgot my password</p>
           </div>
 
@@ -58,9 +59,9 @@
           </div>
 
         </div>
-
       </div>
     </section>
+    <div class="test"></div>
   </main>
 
 </body>
