@@ -2,8 +2,6 @@ body {
 	background-color: #F6F7F8;
 }
 
-progress {}
-
 .fullviewport {
 	position: fixed;
 	z-index: 50;
@@ -120,271 +118,6 @@ progress {}
 	transform: rotate(90deg);
 }
 
-.trueboard {
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	margin-left: 302px;
-	margin-top: 98.5px;
-	margin-right: 34px;
-}
-
-.trueboard-maincon {
-	display: flex;
-	flex-direction: column;
-	padding-right: 26px;
-	height: 661px;
-}
-
-.trueboard-scroll {
-	overflow-x: hidden;
-	overflow-y: auto;
-}
-
-
-.trueboard-text {
-	margin-bottom: 20px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	font-family: 'Inter';
-	font-weight: 700;
-	font-size: 21px;
-
-	gap: 10px;
-	width: 207px;
-	color: #2A3647;
-}
-
-
-.trueboard-textAddSing {
-	display: flex;
-	align-items: flex-start;
-	padding-bottom: 35px;
-	height: 30px;
-}
-
-.trueboard-addSing {
-	position: relative;
-	box-sizing: border-box;
-	width: 30px;
-	height: 30px;
-	border: 2px solid #2A3647;
-	border-radius: 10px;
-	flex: none;
-}
-
-.trueboard-addSing-h {
-	position: absolute;
-	height: 15px;
-	left: 12px;
-	top: 3.5px;
-	border: 2px solid #2A3647;
-}
-
-.trueboard-addSing-v {
-	position: absolute;
-	height: 15px;
-	left: 12px;
-	top: 3.1400000000000006px;
-	border: 2px solid #2A3647;
-	transform: rotate(90deg);
-}
-
-.trueboard-taskcard {
-	cursor: pointer;
-	display: flex;
-	width: 212px;
-	flex-direction: column;
-	padding: 18px 19px;
-	margin-bottom: 35px;
-	height: auto;
-	background: #FFFFFF;
-	box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
-	border-radius: 30px;
-}
-
-/* For later jake that does not exist
-.trueboard-init {
-
-}
-*/
-
-.trueboard-tag {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 4px;
-	padding: 4px 25px;
-	width: 73px;
-	height: 27px;
-	border-radius: 8px;
-}
-
-.trueboard-tag-test {
-	background: #FF7A00;
-}
-
-.trueboard-tag-text {
-	font-family: 'Inter';
-	color: #FFFFFF;
-}
-
-.trueboard-text-title {
-	height: 19px;
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 16px;
-	color: #2A3647;
-}
-
-.trueboard-text-desciption {
-	word-wrap: break-word;
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 120%;
-	color: #A8A8A8;
-}
-
-.trueboard-progress {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 20px;
-
-	gap: 20px;
-	width: 209px;
-	height: 14px;
-	flex: none;
-
-
-}
-
-.trueboard-progress-init {
-	display: flex;
-}
-
-.trueboard-progress-bar {
-	width: 138px;
-	height: 14px;
-	accent-color: #298ee1;
-}
-
-.trueboard-progress-num {
-	width: 51px;
-	height: 14px;
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 12px;
-	line-height: 120%;
-	color: #000000;
-	flex: none;
-}
-
-.trueboard-userIcoPrio {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-
-}
-
-.trueboard-userIco {
-	display: flex;
-	justify-content: center;
-	width: 93px;
-}
-
-.trueboard-userIco-text {
-	width: 15px;
-	height: 14px;
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 12px;
-	line-height: 120%;
-	color: #FFFFFF;
-}
-
-.trueboard-userIco-start {
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: 10px 8px;
-	gap: 10px;
-	width: 35px;
-	height: 35px;
-	background: #0190E0;
-	border: 1px solid;
-	border-radius: 58px;
-	flex: none;
-	order: 0;
-	margin: 0px -6px;
-}
-
-.trueboard-userIco-medium {
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: 10px 8px;
-	gap: 10px;
-	width: 35px;
-	height: 35px;
-	background: #EE00D6;
-	border: 1px solid #FFFFFF;
-	border-radius: 58px;
-	flex: none;
-	order: 1;
-	margin: 0px -6px;
-
-}
-
-.trueboard-userIco-end {
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: 10px 8px;
-	gap: 10px;
-	width: 35px;
-	height: 35px;
-	background: #02CF2F;
-	border: 1px solid #FFFFFF;
-	border-radius: 58px;
-}
-
-.trueboard-userIco-plus {
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: 10px 8px;
-	gap: 10px;
-	width: 35px;
-	height: 35px;
-	background: #2A3647;
-	border: 1px solid #FFFFFF;
-	border-radius: 58px;
-}
-
-.trueboard-Prio {
-	padding-right: 9px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 .taskcard-inspect-cross {
 	position: absolute;
 	width: 21.65px;
@@ -417,12 +150,8 @@ progress {}
 
 .thebnt {
 	border-radius: 10px;
-	position: fixed;
 	object-fit: cover;
-	top: 70%;
-	left: 55%;
 	z-index: 100;
-	transform: translate(-50%, -68%);
 }
 
 .taskcard-inspect {
@@ -442,11 +171,9 @@ progress {}
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-
 	gap: 1px;
 	width: 523px;
 	height: 146px;
-	flex: none;
 	width: 523px;
 	height: 146px;
 	font-family: 'Inter';
@@ -466,18 +193,15 @@ progress {}
 	font-size: 21px;
 	line-height: 120%;
 	color: #000000;
-	flex: none;
 }
 
 .taskcard-inspect-dueDate {
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
-
 	gap: 25px;
 	width: 246px;
 	height: 25px;
-	flex: none;
 }
 
 .taskcard-inspect-dueDate-text {
@@ -506,57 +230,35 @@ progress {}
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-
 	gap: 25px;
 	width: 238px;
 	height: 33px;
-	flex: none;
+
 }
 
 .taskcard-inspect-prio-text {
-
-
-
 	width: 82px;
 	height: 25px;
-
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 21px;
 	line-height: 120%;
-
-
 	color: #000000;
-
-
-
-
-
 }
 
 .taskcard-inspect-prio-tag {
-
-
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	padding: 4px 18px;
 	gap: 10px;
-
 	width: 131px;
 	height: 33px;
-
 	background: #FF3D00;
-
-
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
-
-
-
-
 }
 
 .taskcard-inspect-prio-tag-text {
@@ -571,25 +273,14 @@ progress {}
 }
 
 .taskcard-inspect-prio-assignedTo-text {
-
-
-
 	width: 134px;
 	height: 25px;
-
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 21px;
 	line-height: 120%;
-
-
 	color: #000000;
-
-
-	/* Inside auto layout */
-
-
 }
 
 .taskcard-inspect-prio-assignedTo-scroll {
@@ -632,14 +323,9 @@ progress {}
 	gap: 10px;
 	width: 45px;
 	height: 45px;
-
 	background: #9327FF;
-	/* white */
-
 	border: 2px solid #FFFFFF;
 	border-radius: 58px;
-
-	/* Inside auto layout */
 }
 
 .taskcard-inspect-prio-assignedTo-scroll-person-ico-name {
@@ -658,7 +344,6 @@ progress {}
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-
 	gap: 6px;
 	position: absolute;
 	width: 57px;
@@ -761,7 +446,6 @@ progress {}
 	}
 
 	.trueboard-maincon {
-
 		display: flex;
 	}
 
