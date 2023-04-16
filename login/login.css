@@ -68,7 +68,6 @@ body{
 /* <=================== global Elements */
 button{
   height: 49px;
-  border: 1px solid #2A3647;
   border-radius: 8px;
 }
 form{
@@ -110,6 +109,22 @@ input:focus{
   display: flex;
   align-items: center;
 }
+.btn-bright{
+  border: 1px solid #2A3647;
+}
+.btn-bright:hover{
+  border: 1px solid #29ABE2;
+  color: #29ABE2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.btn-dark{
+  border: 1px solid #2A3647;
+}
+.btn-dark:hover{
+  border: 1px solid #29ABE2;
+  background-color: #29ABE2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 /* <=================== main overlay */
 .main-overlay{
   position: relative;
@@ -148,6 +163,7 @@ input:focus{
   align-items: center;
 }
 .overlay-login{
+  margin: 0 15%;
   max-width: 826px;
   position: relative;
   display: flex;
