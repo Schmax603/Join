@@ -1,8 +1,12 @@
 Checked:
 
-- addUser to backend
-  - return to Login.html
-  - response response Registry
+-Sign up
+  - addUser to backend
+    - return to Login.html
+    - response Registry
+  - Check available Email
+    - response if true or false
+
 
 ToDo:
 
