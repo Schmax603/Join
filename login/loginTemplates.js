@@ -53,6 +53,15 @@ function generateHtmlSignUp(){
       <!-- <div class="overlay-login-selection"></div> -->
 `
 }
+
+function generateHtmlEmailNotAvailable(){
+  return /*html*/`
+  <div class="msg-box ta-c fs-21-400">
+  Email bereits vorhanden.
+</div>
+`
+}
+
 function generateHtmlRegistry(){
   return /*html*/`
   <div class="msg-box ta-c fs-21-400">

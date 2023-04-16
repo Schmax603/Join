@@ -12,3 +12,8 @@ async function init() {
 //     users.push(username.value);
 //     backend.setItem('users', JSON.stringify(users));
 // }
+
+async function deleteUser(name) {
+    await backend.deleteItem('users');
+    console.log(users);
+  }
