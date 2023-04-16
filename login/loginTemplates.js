@@ -5,9 +5,10 @@ function generateHtmlLogin(){
     <div class="border"></div>
   </div>
 
-  <form class="overlay-login-form">
-    <input type="email" placeholder="Email" required>
-    <input type="password" placeholder="Password" required>
+  <!--!!! return false =>  prevents the page from reloading-->
+  <form onsubmit="addUser(), return false" class="overlay-login-form">
+    <input id="loginEmail" type="email" placeholder="Email" required>
+    <input id="loginPassword" type="password" placeholder="Password" required>
   </form>
 
   <div class="overlay-login-selection">
@@ -21,7 +22,7 @@ function generateHtmlLogin(){
     </div>
 
     <div class="overlay-login-buttons">
-      <button class="btn-dark bg-c-db cursor-p fc-w fs-21-700">Log in</button>
+      <button onclick="userLogin()" class="btn-dark bg-c-db cursor-p fc-w fs-21-700">Log in</button>
       <button onclick="location.href='../summary/summary.html';" class="btn-bright bg-c-w cursor-p fs-21-700">Guest Log in</button>
     </div>
 
@@ -37,16 +38,17 @@ function generateHtmlSignUp(){
        <div class="border"></div>
      </div>
 
-     <form class="overlay-login-form">
-       <input type="name" placeholder="Name" required>
-       <input type="email" placeholder="Email" required>
-       <input type="password" placeholder="Password" required>
+     <!--!!! return false =>  prevents the page from reloading-->
+     <form onsubmit="addUser(), return false" class="overlay-login-form">
+       <input id="signUpName" type="name" placeholder="Name" required>
+       <input id="signUpEmail" type="email" placeholder="Email" required>
+       <input id="signUpPassword" type="password" placeholder="Password" required>
      </form>
 
      <div class="overlay-login-selection">
 
        <div class="overlay-login-buttons">
-         <button class="btn-dark bg-c-db cursor-p fc-w fs-21-700">Sign up</button>
+         <button onclick="userSignUp()" class="btn-dark bg-c-db cursor-p fc-w fs-21-700">Sign up</button>
        </div>
      </div>
 `
@@ -60,13 +62,14 @@ function generateHtmlForgotPassword(){
       <div class="border"></div>
     </div>
 
-    <form class="overlay-login-form">
+    <!--!!! return false =>  prevents the page from reloading-->
+    <form onsubmit="addUser(), return false" class="overlay-login-form">
       <p class="cursor-d fs-21-400 ta-c mb-35">Don´t worry! We will send you an email with the instructions to reset your password.</p>
-      <input type="email" placeholder="Email" required>
+      <input id="requesterEmail" type="email" placeholder="Email" required>
     </form>
 
       <div class="overlay-login-buttons">
-        <button class="btn-dark btn-send bg-c-db cursor-p fc-w fs-21-700">Send me the email</button>
+        <button onclick="newPasswordEmail()" class="btn-dark btn-send bg-c-db cursor-p fc-w fs-21-700">Send me the email</button>
       </div>
 `
 }
