@@ -27,7 +27,7 @@
 
 </head>
 
-<body id="body" onload="initHeaderNav(); init();" onclick="closeMenu()">
+<body id="body" onload="initHeaderNav(); init(); bnts();" onclick="closeMenu()">
 	<div w3-include-html="../headerNav/headerNav.html"></div>
 
 	<div class="amogus center-stuff">
@@ -50,12 +50,12 @@
 			<div class="addtask-gentext">Prio</div>
 
 			<div class="addtask-prio-bnt center-stuff">
-				<button class="addtask-prio-bnts addtask-genimput center-stuff" id="addtask-prio-bnt-urgent"
-					onclick="bntUrgent()">Urgent <img src="../img/prio-urgent.svg"></button>
-				<button class="addtask-prio-bnts addtask-genimput center-stuff" id="addtask-prio-bnt-medium"
-					onclick="bntMedium();">Medium <img src="../img/prio-medium.svg"></button>
-				<button class="addtask-prio-bnts addtask-genimput center-stuff" id="addtask-prio-bnt-low"
-					onclick="bntLow();">Low <img src="../img/prio-low.svg"></button>
+				<button class="addtask-genimput center-stuff" id="addtask-prio-bnt-urgent"
+					onclick="bnts();">Urgent <img class="addtask-prio-img" id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
+				<button class="addtask-genimput center-stuff" id="addtask-prio-bnt-medium"
+					onclick="bnts();">Medium <img class="addtask-prio-img" id="addtask-prio-bnt-medium-img" src="../img/prio-medium.svg"></button>
+				<button class="addtask-genimput center-stuff" id="addtask-prio-bnt-low"
+					onclick="bnts();">Low <img class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
 			</div>
 
 		</div>
