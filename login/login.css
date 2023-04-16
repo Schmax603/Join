@@ -161,6 +161,17 @@ input:focus{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+.msg-box{
+  margin-top: 25px;
+  padding: 24px;
+  color: #FFFFFF;
+  background-color: #2A3647;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  position: absolute;
+  transform: translate(-50%);
 }
 .overlay-login{
   margin: 0 15%;
