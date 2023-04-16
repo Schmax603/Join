@@ -30,10 +30,10 @@ for (let i = 0; i < users.length; i++) {
     checkedEmail = true;
   }
 }
-checkEmailAvailable();
+checkEmailAvailable(name, email, password);
 }
 
-function checkEmailAvailable(){
+function checkEmailAvailable(name, email, password){
   if (checkedEmail === false) {
     renderMsgBoxEmailNotAvailable();
   }else{

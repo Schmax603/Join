@@ -7,8 +7,8 @@ function generateHtmlLogin(){
 
   <!--!!! return false =>  prevents the page from reloading-->
   <form onsubmit="userLogin(); return false" class="overlay-login-form">
-    <input id="loginEmail" type="email" placeholder="Email" required>
-    <input id="loginPassword" type="password" placeholder="Password" required>
+    <input id="loginEmail" type="email" placeholder="Email" autocomplete="current-password" required>
+    <input id="loginPassword" type="password" placeholder="Password" autocomplete="current-password" required>
     
     <div class="overlay-login-selection">
       
@@ -40,9 +40,9 @@ function generateHtmlSignUp(){
      <!--!!! return false =>  prevents the page from reloading-->
      <form onsubmit="userSignUp(); return false" class="overlay-login-form">
 
-       <input id="signUpName" type="name" placeholder="Name" required>
-       <input id="signUpEmail" type="email" placeholder="Email" required>
-       <input id="signUpPassword" type="password" placeholder="Password" required>
+       <input id="signUpName" type="name" placeholder="Name" autocomplete="current-password" required>
+       <input id="signUpEmail" type="email" placeholder="Email" autocomplete="current-password" required>
+       <input id="signUpPassword" type="password" placeholder="Password" autocomplete="current-password" required>
 
        <div class="overlay-login-buttons">
         <button type="submit" class="btn-dark bg-c-db cursor-p fc-w fs-21-700">Sign up</button>
@@ -81,7 +81,7 @@ function generateHtmlForgotPassword(){
     <!--!!! return false =>  prevents the page from reloading-->
     <form onsubmit="newPasswordEmail(); return false" class="overlay-login-form">
       <p class="cursor-d fs-21-400 ta-c mb-35">Don´t worry! We will send you an email with the instructions to reset your password.</p>
-      <input id="requesterEmail" type="email" placeholder="Email" required>
+      <input id="requesterEmail" type="email" placeholder="Email" autocomplete="current-password" required>
       
       <div class="overlay-login-buttons">
         <button type="submit" class="btn-dark btn-send bg-c-db cursor-p fc-w fs-21-700">Send me the email</button>
