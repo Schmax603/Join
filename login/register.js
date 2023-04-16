@@ -3,7 +3,7 @@
 // userSignUp() => btn sign up
 // newPasswordEmail() => btn forgot password
 // 
-let checkedEmail = false;
+let EmailIsAvailable = false;
 
 async function userSignUp() {
   let name = document.getElementById('signUpName');
@@ -22,24 +22,28 @@ async function userSignUp() {
 }
 
 function checkEmailSignUp(name, email, password){
-for (let i = 0; i < users.length; i++) {
-  let userEmailSignedUp = users[i].email;
-  if(userEmailSignedUp === email.value){
-    checkedEmail = false;
-  }else{
-    checkedEmail = true;
+  for (let i = 0; i < users.length; i++) {
+    let userEmailSignedUp = users[i].email;
+    if(EmailCheckAvailable(userEmailSignedUp, email)){
+      EmailIsAvailable = false;
+    }else{
+      EmailIsAvailable = true;
+    }
   }
+  checkEmailAvailable(name, email, password);
 }
-checkEmailAvailable(name, email, password);
+
+function EmailCheckAvailable(userEmailSignedUp, email){
+  return userEmailSignedUp === email.value;
 }
 
 function checkEmailAvailable(name, email, password){
-  if (checkedEmail === false) {
+  if (EmailIsAvailable === false) {
     renderMsgBoxEmailNotAvailable();
   }else{
     pushUserArray(name, email, password);
     returnToLogin();
-    checkedEmail = false;
+    EmailIsAvailable = false;
   }
 }
 
