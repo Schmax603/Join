@@ -85,6 +85,18 @@ textarea {
 
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+
+    display: flex;
+    justify-content:   end;
+    background: url(../img/calendarico.svg) no-repeat;
+    width: 25px;
+    height: 25px;
+    padding-left: 10px;
+    border-width: thin
+}
 
 
 .addtask-description-input {

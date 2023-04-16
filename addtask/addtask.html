@@ -62,8 +62,13 @@
 
 		<div class="addtask-duedate addtask-gencon">
 			<div class="addtask-gentext">Due date</div>
-			<textarea class="addtask-genimput" placeholder="dd/mm/yyyy"></textarea>
+			<input class="addtask-genimput" id="date" placeholder="dd/mm/yyyy" type="date" min=""></input>
 		</div>
+
+		<script>
+			const today = new Date().toISOString().split('T')[0];
+			document.getElementById("date").setAttribute('min', today);
+		</script>
 
 		<div class="addtask-category addtask-gencon">
 			<div class="addtask-gentext">Category</div>
