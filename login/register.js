@@ -11,7 +11,8 @@ async function userSignUp() {
   let password = document.getElementById('signUpPassword');
 
   if (users.length === 0) {
-    pushUserArray(name, email, password)
+    pushUserArray(name, email, password);
+    returnToLogin();
   }else{
     checkEmailSignUp(name, email, password);
   }
@@ -25,9 +26,10 @@ function checkEmailSignUp(name, email, password){
   for (let i = 0; i < users.length; i++) {
     let userEmailSignedUp = users[i].email;
     if(EmailCheckAvailable(userEmailSignedUp, email)){
-      EmailIsAvailable = false;
-    }else{
       EmailIsAvailable = true;
+    }
+    if(EmailIsAvailable == true){
+      break;
     }
   }
   checkEmailAvailable(name, email, password);
@@ -38,8 +40,9 @@ function EmailCheckAvailable(userEmailSignedUp, email){
 }
 
 function checkEmailAvailable(name, email, password){
-  if (EmailIsAvailable === false) {
+  if (EmailIsAvailable === true) {
     renderMsgBoxEmailNotAvailable();
+    EmailIsAvailable = false;
   }else{
     pushUserArray(name, email, password);
     returnToLogin();
