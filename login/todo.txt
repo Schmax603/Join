@@ -1,0 +1,25 @@
+Checked:
+
+- addUser to backend
+  - return to Login.html
+  - response response Registry
+
+ToDo:
+
+- Login
+  - Guest submit -> Summary greeting (Date time of day)
+  - Login submit check Email / Password
+    - Checked Login -> Summary greeting Name (Date time of day)
+  -Remember me checkbox -> save localStorage
+
+- Forgot Password
+  - send Email on submit
+    - return to login
+    - response Email was send
+
+- Email link "forgot Password"
+  - link to reset your Password (new side)
+  - double check new password
+  - submit return to Login 
+    - search for email into array overwrite password
+    - response reset Password
