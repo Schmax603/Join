@@ -29,7 +29,7 @@ function initLogin(){
 
           <div class="overlay-login-buttons">
             <button class="btn-dark bg-c-db cursor-p fc-w fs-21-700">Log in</button>
-            <button class="btn-bright bg-c-w cursor-p fs-21-700">Guest Log in</button>
+            <button onclick="location.href='../summary/summary.html';" class="btn-bright bg-c-w cursor-p fs-21-700">Guest Log in</button>
           </div>
 
         </div>
