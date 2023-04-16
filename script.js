@@ -1,3 +1,4 @@
+// implement mini-backend.js before srcipt.js
 let users = [];
 setURL('https://gruppe-534.developerakademie.net/smallest_backend_ever');
 
