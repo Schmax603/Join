@@ -1,3 +1,4 @@
+// implement mini-backend.js before srcipt.js
 let jsonFromServer = {};
 let BASE_SERVER_URL;
 

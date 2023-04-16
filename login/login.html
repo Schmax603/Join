@@ -5,23 +5,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  
+  <!-- favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
     <link rel="manifest" href="../favicon/site.webmanifest" />
     <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
-  
+  <!-- login style -->
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
-  
-    <!-- change for index.html -->
+  <!-- backend -->
+    <script src="../templets/mini_backend/mini_backend.js"></script>
+    <script src="../script.js"></script>
+  <!-- 
+      frontend functions
+      change for index.html 
+  -->
     <script src="login.js"></script>
     <script src="loginTemplates.js"></script>
-    <script src="../script.js"></script>
+    <script src="registry.js"></script>
 </head>
 
-<body onload="initLogin()">
+<body onload="initLogin(); init()">
   <main >
     <img id="logo-white" class="main-logo main-logo-white logo-animate-white" src="../img/logo.png" alt="join logo white">
     <img class="main-logo logo-animate" src="../img/logoSmall.png" alt="join logo">
@@ -32,11 +37,12 @@
         <button onclick="openSignUp()" class="btn-dark main-login-btn bg-c-db cursor-p fc-w fs-16-700">Sign up</button>
       </div>
     </div>
-
+    
     <section id="overlay" class="overlay">
-
+      
       <div id="login-card" class="overlay-login bg-c-w"></div>
-
+      
+      <div id="msg-box"></div>
     </section>
     <div class="animation-bg bg-animation"></div>
   </main>
