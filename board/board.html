@@ -12,10 +12,13 @@
     <link rel="manifest" href="../favicon/site.webmanifest" />
     <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
     <!-- templates header, nav, help, legal-->
-    <script src="../headerNav/headerNav.js"></script>
+
     <link rel="stylesheet" href="../headerNav/headerNav.css">
+    <script src="../headerNav/headerNav.js"></script>
+
 
     <link rel="stylesheet" href="board.css">
+    <link rel="stylesheet" href="trueboard.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
     <link rel="stylesheet" href="../headerNav/headerNav.css">
 
@@ -29,7 +32,9 @@
     <script src="/script.js"></script>
 </head>
 
+
 <body onload="initHeaderNav(); init(); changeContentOnWindowSize(); consoleLOGS(); " onclick="closeMenu()" id="body">
+
     <div style="display: none;" onclick="cardUnInspect(); " class="fullviewport" id="fullviewport"></div>
     <div w3-include-html="../headerNav/headerNav.html"></div>
 
@@ -239,7 +244,7 @@
                 <!-- Js in need -->
                 <div class="taskcard-inspect-prio-tag">
                     <div class="taskcard-inspect-prio-tag-text">Urgent</div>
-                    <img src="../addtask/assets/img/urgent-white.svg">
+                    <img src="../img/prio-urgent.svg">
                 </div>
 
             </div>
@@ -307,14 +312,14 @@
                     <div class="prio" id="urgent" onclick="test()">
                         <div class="d-flex">
                             <p>Urgent</p>
-                            <img id="urgent-img" src="../addtask/assets/img/prio-urgent.svg">
+                            <img id="urgent-img" src="../img/prio-urgent.svg">
                         </div>
                     </div>
 
                     <div class="prio" id="medium" onclick="test()">
                         <div class="d-flex">
                             <p>Medium</p>
-                            <img id="medium-img" src="../addtask/assets/img/prio-medium.svg">
+                            <img id="medium-img" src="../img/prio-medium.svg">
                         </div>
                     </div>
 

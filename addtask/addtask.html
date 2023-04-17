@@ -1,19 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<!-- templates header, nav, help, legal-->
-  <link rel="stylesheet" href="../headerNav/headerNav.css">
-  <script src="../headerNav/headerNav.js"></script>
-	<link rel="stylesheet" href="../fonts/fonts.css">
+	<title>Add Task</title>
 
-	<script src="/templets/mini_backend/mini_backend.js"></script>
+	<link rel="stylesheet" href="../headerNav/headerNav.css">
+	<script src="../headerNav/headerNav.js"></script>
+
+
+	<link rel="stylesheet" href="../fonts/fonts.css">
+	<link rel="stylesheet" href="../headerNav/headerNav.css">
+
+	<link rel="stylesheet" href="addtask.css">
+
+
+
+	<!-- https://i.imgflip.com/52lvif.jpg -->
+	<script src="addtask.js"></script>
+	<script src="backend.js"></script>
+	<script src="../templets/mini_backend/mini_backend.js"></script>
+	<script src="../script.js"></script>
+	<script src="../headerNav/headerNav.js"></script>
+
 </head>
-<body id="body" onload="initHeaderNav()" onclick="closeMenu()">
+
+<body id="body" onload="initHeaderNav(); init(); bnts();" onclick="closeMenu()">
 	<div w3-include-html="../headerNav/headerNav.html"></div>
-	
+
+	<div class="amogus center-stuff">
+
+		<h6 class="addtask-gentext karben-text">Kanban Project Management Tool</h6>
+		<h1 class="addtask-title">Add Task</h1>
+
+		<div class="addtask-tasktitle addtask-gencon">
+			<div class="addtask-gentext">Title</div>
+			<textarea class="addtask-genimput" placeholder="Enter a title"></textarea>
+		</div>
+
+		<div class="addtask-description addtask-gencon">
+			<div class="addtask-gentext">Description</div>
+			<textarea class="addtask-description-input addtask-genimput" placeholder="Enter a Description"
+				type="text"></textarea>
+		</div>
+
+		<div class="addtask-prio addtask-gencon">
+			<div class="addtask-gentext">Prio</div>
+
+			<div class="addtask-prio-bnt center-stuff">
+				<button class="addtask-genimput center-stuff" id="addtask-prio-bnt-urgent"
+					onclick="bnts();">Urgent <img class="addtask-prio-img" id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
+				<button class="addtask-genimput center-stuff" id="addtask-prio-bnt-medium"
+					onclick="bnts();">Medium <img class="addtask-prio-img" id="addtask-prio-bnt-medium-img" src="../img/prio-medium.svg"></button>
+				<button class="addtask-genimput center-stuff" id="addtask-prio-bnt-low"
+					onclick="bnts();">Low <img class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
+			</div>
+
+		</div>
+
+		<div class="addtask-duedate addtask-gencon">
+			<div class="addtask-gentext">Due date</div>
+			<input class="addtask-genimput" id="date" placeholder="dd/mm/yyyy" type="date" min=""></input>
+		</div>
+
+		<script>
+			const today = new Date().toISOString().split('T')[0];
+			document.getElementById("date").setAttribute('min', today);
+		</script>
+
+		<div class="addtask-category addtask-gencon">
+			<div class="addtask-gentext">Category</div>
+			<textarea class="addtask-genimput"></textarea>
+		</div>
+
+		<div class="addtask-assignedto addtask-gencon">
+			<div class="addtask-gentext">Assigned to</div>
+			<textarea class="addtask-genimput"></textarea>
+		</div>
+
+		<div class="addtask-subtasks addtask-gencon">
+			<div class="addtask-gentext">Subtasks</div>
+			<textarea class="addtask-genimput" placeholder="Add  new subtask"></textarea>
+		</div>
+
+	</div>
+
 </body>
 </html>

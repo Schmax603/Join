@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    background: #F5F5F5;
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
+}
+
+.addtask-prio-img {
+    padding-left: 10px;
+}
+
+.center-stuff {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.amogus {
+    flex-direction: column;
+    margin-top: 96px;
+    margin-left: 31px;
+    margin-right: 14px;
+}
+
+.karben-text {
+    width: 255px;
+    height: 19px;
+    margin: 0;
+}
+
+.addtask-gentext {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.addtask-title {
+    margin-top: 19px;
+    margin-bottom: 23px;
+    font-weight: 700;
+    font-size: 47px;
+    line-height: 120%;
+}
+
+.addtask-prio-bnt {
+    gap: 10px;
+}
+
+.addtask-prio-bnts {
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 5px;
+    cursor: pointer !important;
+}
+
+.addtask-prio-bnts.img {
+    padding: 100px;
+}
+
+.addtask-genimput {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 11px 21px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    white-space: pre-wrap;
+    height: 41px;
+
+}
+
+.addtask-genimput:hover {
+    cursor: text;
+
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+
+    display: flex;
+    justify-content:   end;
+    background: url(../img/calendarico.svg) no-repeat;
+    width: 25px;
+    height: 25px;
+    padding-left: 10px;
+    border-width: thin
+}
+
+
+.addtask-description-input {
+    height: 93px;
+
+    padding: 18px;
+}

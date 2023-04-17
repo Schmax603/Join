@@ -1,4 +1,5 @@
-let checkMenu = false;
+checkMenu = false;
+
 
 async function initHeaderNav(){
   await includeHTML();
