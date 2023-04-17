@@ -23,7 +23,7 @@
     <script src="login/registry.js"></script>
 </head>
 
-<body onload="initLogin()">
+<body onload="initLogin(); init(); remember()">
   <main >
     <img id="logo-white" class="main-logo main-logo-white logo-animate-white" src="../img/logo.png" alt="join logo white">
     <img class="main-logo logo-animate" src="../img/logoSmall.png" alt="join logo">
@@ -34,11 +34,11 @@
         <button onclick="openSignUp()" class="btn-dark main-login-btn bg-c-db cursor-p fc-w fs-16-700">Sign up</button>
       </div>
     </div>
-
+    
     <section id="overlay" class="overlay">
-
+      
       <div id="login-card" class="overlay-login bg-c-w"></div>
-
+      
       <div id="msg-box"></div>
     </section>
     <div class="animation-bg bg-animation"></div>
