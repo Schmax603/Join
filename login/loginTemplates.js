@@ -14,7 +14,7 @@ function generateHtmlLogin(){
       
       <div class="overlay-login-selection-support">
         <div class="overlay-login-selection-support-remember">
-          <input id="remember" type="checkbox" class="cursor-p mr-20">
+          <input id="remember-me" type="checkbox" class="cursor-p mr-20">
           <label for="remember" class="cursor-d fs-16-400 mr-35">Remember me</label>
         </div>
         <p onclick="openForgotPassword()" class="cursor-p fc-lb fs-16-400">Forgot my password</p>
@@ -22,10 +22,18 @@ function generateHtmlLogin(){
       
       <div class="overlay-login-buttons">
         <button type="submit" class="btn-dark bg-c-db cursor-p fc-w fs-21-700">Log in</button>
-        <button onclick="location.href='../summary/summary.html';" class="btn-bright bg-c-w cursor-p fs-21-700">Guest Log in</button>
+        <button onclick="location.href='../summary/summary.html'; generateHtmlGuest()" class="btn-bright bg-c-w cursor-p fs-21-700">Guest Log in</button>
       </div>
     </div>
   </form>
+`
+}
+
+function generateHtmlWrongLogin(){
+  return /*html*/`
+  <div class="msg-box ta-c fs-21-400">
+  Fehlerhafte Email oder Passwort.
+</div>
 `
 }
 
