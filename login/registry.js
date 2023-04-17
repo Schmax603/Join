@@ -1,10 +1,13 @@
-// 
-// userLogin() => btn login
-// userSignUp() => btn sign up
-// newPasswordEmail() => btn forgot password
-// 
 let EmailIsAvailable = false;
 
+/**
+  *this function registry new User or checke Array users for existing email
+  *
+  *@param {Array} users - backend Array
+  *@param {string} name - Name of the new user
+  *@param {string} email - email of the new user
+  *@param {string} password - password of the new user
+ */
 async function userSignUp() {
   let name = document.getElementById('signUpName');
   let email = document.getElementById('signUpEmail');
@@ -22,6 +25,16 @@ async function userSignUp() {
   password.value = '';
 }
 
+/**
+  *this function checked registerd User email and set boolean true or false
+  *
+  *@param {Array} users - backend Array
+  *@param {string} name - Name of the new user
+  *@param {string} email - email of the new user
+  *@param {string} password - password of the new user
+  *@param {string} userEmailSignedUp - registered user email
+  *@param {boolean} EmailIsAvailable - toggle true or false if email exist
+ */
 function checkEmailSignUp(name, email, password){
   for (let i = 0; i < users.length; i++) {
     let userEmailSignedUp = users[i].email;
@@ -35,10 +48,23 @@ function checkEmailSignUp(name, email, password){
   checkEmailAvailable(name, email, password);
 }
 
+/**
+  *this function verify email
+  *@param {string} email - email of the new user
+  *@param {string} userEmailSignedUp - registered user email
+ */
 function EmailCheckAvailable(userEmailSignedUp, email){
   return userEmailSignedUp === email.value;
 }
 
+/**
+  *this function look for exsited email
+  *
+  *@param {string} name - Name of the new user
+  *@param {string} email - email of the new user
+  *@param {string} password - password of the new user
+  *@param {boolean} EmailIsAvailable - toggle true or false if email exist
+ */
 function checkEmailAvailable(name, email, password){
   if (EmailIsAvailable === true) {
     renderMsgBoxEmailNotAvailable();
@@ -50,11 +76,20 @@ function checkEmailAvailable(name, email, password){
   }
 }
 
+/**
+  *this function push array into backend
+  *
+  *@param {Array} users - backend Array
+  *@param {*} backend - mini_backend.js variable
+ */
 async function pushUserArray(name, email, password){
   users.push({name: name.value, email: email.value, password: password.value});
   await backend.setItem('users', JSON.stringify(users));
 }
 
+/**
+  *this function return to login
+  */
 function returnToLogin(){
   let overlayCard = document.getElementById('login-card');
 
@@ -64,6 +99,9 @@ function returnToLogin(){
   renderMsgBoxRegestry();
 }
 
+/**
+  *this function render message box "not available"
+  */
 function renderMsgBoxEmailNotAvailable(){
   let msgBox = document.getElementById('msg-box');
 
@@ -73,6 +111,9 @@ function renderMsgBoxEmailNotAvailable(){
   }, 2000);
 }
 
+/**
+  *this function render message box "registered"
+  */
 function renderMsgBoxRegestry(){
   let msgBox = document.getElementById('msg-box');
 

@@ -1,34 +1,14 @@
-function initLogin(){
-  let overlayCard = document.getElementById('login-card');
-  let whiteLogo = document.getElementById('logo-white');
+function userLogin(){
+  let userEmail = document.getElementById('loginEmail');
+  let userPassword = document.getElementById('loginPassword');
+  let user = users.find(users => users.userEmail.toLowerCase() == userEmail.value.toLowerCase() && users.password == userPassword.value);
+  let msgBox = document.getElementById('msg-box');
 
-  setTimeout(function(){ 
-    whiteLogo.classList.add('d-none');
-  }, 1000);
-
-  overlayCard.innerHTML = generateHtmlLogin();
-}
-
-function openSignUp(){
-  let loginCard = document.getElementById('login-card');
-
-  document.getElementById('sign-up').classList.add('d-none');
-  loginCard.innerHTML = '';
-  loginCard.innerHTML = generateHtmlSignUp();
-}
-
-function closeSignup(){
-  let loginCard = document.getElementById('login-card');
-
-  document.getElementById('sign-up').classList.remove('d-none');
-  loginCard.innerHTML = '';
-  initLogin();
-}
-
-function openForgotPassword(){
-  let loginCard = document.getElementById('login-card');
-
-  document.getElementById('sign-up').classList.add('d-none');
-  loginCard.innerHTML = '';
-  loginCard.innerHTML = generateHtmlForgotPassword();
+  msgBox.innerHTML = '';
+  if (user) {
+    console.log('user gefunden');
+    window.location.href = '../summary/summary.html';
+  }else{
+    msgBox.innerHTML = generateHtmlWrongLogin();
+  }
 }
