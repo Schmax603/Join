@@ -1,4 +1,5 @@
 function generateHtmlLogin(){
+  /**@alias module:generateHtmlLogin */
   return /*html*/`
   <div class="overlay-login-header">
     <h1 class="cursor-d fs-62-700">Log in</h1>
@@ -56,9 +57,7 @@ function generateHtmlSignUp(){
         <button type="submit" class="btn-dark bg-c-db cursor-p fc-w fs-21-700">Sign up</button>
       </div>
 
-      </form>
-      
-      <!-- <div class="overlay-login-selection"></div> -->
+    </form>
 `
 }
 

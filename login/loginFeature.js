@@ -1,4 +1,8 @@
-function initLogin(){
+/**
+ * initiated login animation & generate login card
+ * @module generateHtmlLogin
+ */
+function initLogin(){ /**@alias module:initLogin */
   let overlayCard = document.getElementById('login-card');
   let whiteLogo = document.getElementById('logo-white');
 
@@ -9,6 +13,7 @@ function initLogin(){
   overlayCard.innerHTML = generateHtmlLogin();
 }
 
+/**open Sign up card */
 function openSignUp(){
   let loginCard = document.getElementById('login-card');
 
@@ -17,6 +22,10 @@ function openSignUp(){
   loginCard.innerHTML = generateHtmlSignUp();
 }
 
+/**
+ * close Sign up card & jump to login card
+ * @module initLogin
+*/
 function closeSignup(){
   let loginCard = document.getElementById('login-card');
 
@@ -25,6 +34,7 @@ function closeSignup(){
   initLogin();
 }
 
+/**open gorgot password card */
 function openForgotPassword(){
   let loginCard = document.getElementById('login-card');
 
