@@ -1,11 +1,12 @@
 // aus backend: currentUser = getItem('currentUser') 
 // users[currentUser].contacts 
-// Farben zufällig ziehen und über CSS-Klasse bg-color-i einbinden
+// Farben zufällig ziehen und über CSS-Klasse bg-i einbinden
 let contacts = [
     {
         "name": "AntonMayer",
         "email": "antom@gmail.com",
         "phone": "+49 1111 111 11 1",
+        "color": "bg-0",
         "tasks": []
     }
     ,
@@ -13,6 +14,7 @@ let contacts = [
         "name": "Anja Schulz",
         "email": "schulz@hotmail.com",
         "phone": "+49 1111 111 11 1",
+        "color": "bg-1",
         "tasks": []
     }
     ,
@@ -20,6 +22,7 @@ let contacts = [
         "name": "David Eisenberg",
         "email": "davidberg@gmail.com",
         "phone": "+49 1111 111 11 1",
+        "color": "bg-2",
         "tasks": []
     }
     ,
@@ -27,9 +30,12 @@ let contacts = [
         "name": "Benedict Ziegler",
         "email": "benedict@gmail.com",
         "phone": "+49 1111 111 11 1",
+        "color": "bg-3",
         "tasks": []
     }
 ]
+
+const NUMBER_OF_BG_COLORS = 17; // see bgColors.css
 
 
 function renderContactList() {
@@ -63,7 +69,7 @@ function renderContact(contact) {
     const container = document.getElementById(`letter-container-${letter}`);
     container.innerHTML += /*html*/`
         <div class="contact" onclick="showContactDetails(${contactIndex})">
-            <div id="contact-icon" class="contact-icon font-text-12">
+            <div id="contact-icon" class="contact-icon font-text-12 ${contact.color}">
                 ${getInitials(contact)}
             </div>
             <div class="contact-name-email">
@@ -146,13 +152,18 @@ function addNewContact() {
         "name": document.getElementById('new-contact-name').value,
         "email": document.getElementById('new-contact-email').value,
         "phone": document.getElementById('new-contact-phone').value,
-        // "color": getRandomColor(),
-        // "tasks": []
+        "color": getRandomColorClass(),
+        "tasks": []
     };
     contacts.push(newContact);
     closeNewContactOverlay();
     renderContactList();
     // showContactDetails(contacts.indexOf(newContact));
+}
+
+
+function getRandomColorClass() {
+    return `bg-${getRandomInt(NUMBER_OF_BG_COLORS)}`;
 }
 
 
@@ -181,4 +192,9 @@ function doNotClose(event) {
 
 function clearElement(id) {
     document.getElementById(id).innerHTML = '';
+}
+
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
 }
