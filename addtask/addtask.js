@@ -49,10 +49,6 @@ function bnts() {
         }
     }
 
-
-
-
-
     function bntLow() {
 
         if (!lowButton.classList.contains('addtask-prio-bnts')) {
@@ -84,3 +80,6 @@ function bnts() {
 }
 
 
+function diySection() {
+    
+}

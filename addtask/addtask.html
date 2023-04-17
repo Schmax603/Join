@@ -51,19 +51,20 @@
 			<div class="addtask-gentext">Prio</div>
 
 			<div class="addtask-prio-bnt center-stuff">
-				<button class="addtask-genimput center-stuff" id="addtask-prio-bnt-urgent"
-					onclick="bnts();">Urgent <img class="addtask-prio-img" id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
-				<button class="addtask-genimput center-stuff" id="addtask-prio-bnt-medium"
-					onclick="bnts();">Medium <img class="addtask-prio-img" id="addtask-prio-bnt-medium-img" src="../img/prio-medium.svg"></button>
-				<button class="addtask-genimput center-stuff" id="addtask-prio-bnt-low"
-					onclick="bnts();">Low <img class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
+				<button class="addtask-genimput center-stuff" id="addtask-prio-bnt-urgent" onclick="bnts();">Urgent <img
+						class="addtask-prio-img" id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
+				<button class="addtask-genimput center-stuff" id="addtask-prio-bnt-medium" onclick="bnts();">Medium <img
+						class="addtask-prio-img" id="addtask-prio-bnt-medium-img" src="../img/prio-medium.svg"></button>
+				<button class="addtask-genimput center-stuff" id="addtask-prio-bnt-low" onclick="bnts();">Low <img
+						class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
 			</div>
 
 		</div>
 
 		<div class="addtask-duedate addtask-gencon">
 			<div class="addtask-gentext">Due date</div>
-			<input style="display: block;" class="addtask-genimput" id="date" placeholder="dd/mm/yyyy" type="date" min=""></input>
+			<input style="display: block;" class="addtask-genimput" id="date" placeholder="dd/mm/yyyy" type="date"
+				min=""></input>
 		</div>
 
 		<script>
@@ -71,14 +72,83 @@
 			document.getElementById("date").setAttribute('min', today);
 		</script>
 
-		<div class="addtask-category addtask-gencon">
+		<style>
+			/* Style the collapsible */
+			.collapsible {
+				cursor: pointer;
+			}
+
+			.paddings {
+				padding-top: 13px !important;
+				padding-bottom: 13px !important;
+				padding-left: 21px !important;
+			}
+
+			/* Style the content inside the collapsible */
+			.content {
+				display: none;
+				padding: 0 18px;
+				overflow: hidden;
+			}
+
+			.content:hover {
+				background-color: #d8d4d4;
+			}
+
+			/* Show the content when the collapsible is clicked */
+
+
+			.collapsible.active .content {
+				display: block;
+			}
+
+			.addtask-genimput-dw {
+
+				background: #FFFFFF;
+				border: 1px solid #D1D1D1;
+				border-radius: 10px;
+				box-sizing: border-box;
+
+			}
+		</style>
+
+		<div class="addtask-description addtask-gencon">
 			<div class="addtask-gentext">Category</div>
-			<div class="addtask-genimput addtask-gendrop" placeholder="Select Task Category">
-				<div class="addtask-genimput-option" value="option1">Option 1</div>
-				<div class="addtask-genimput-option" value="option2">Option 2</div>
-				<div class="addtask-genimput-option" value="option3">Option 3</div>
+			<div class=" addtask-gendrop" id="collapsible">
+				<div class="paddings">Section 1</div>
+				<div class="addtask-gendrop-item paddings" id="addtask-gendrop-item">
+					Content for section 1 goes here.
+				</div>
+				<div class="addtask-gendrop-item paddings">
+					Content for section 2 goes here.
+				</div>
+				<div class="addtask-gendrop-item paddings">
+					Content for section 2 goes here.
+				</div>
 			</div>
 		</div>
+
+
+
+		<script>// Get all the collapsible elements
+			var coll = document.getElementById("collapsible");
+
+			// Loop through each collapsible element and add a click listener
+			for (var i = 0; i < coll.length; i++) {
+				coll[i].addEventListener("click", function () {
+					this.classList.toggle("active");
+					var content = document.getElementById("addtask-gendrop-item");
+					if (content.style.display === "block") {
+						content.style.display = "none";
+					} else {
+						content.style.display = "block";
+					}
+				});
+			}
+
+	// Add a click listener to the dropdown button
+
+		</script>
 
 		<div class="addtask-gencon">
 			<div class="addtask-gentext">Assigned to</div>
@@ -97,4 +167,5 @@
 	</div>
 
 </body>
+
 </html>
