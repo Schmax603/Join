@@ -1,81 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        /* Style the dropdown button */
-        .dropbtn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* Style the dropdown content */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            z-index: 1;
-        }
-
-        /* Style the collapsible */
-        .collapsible {
-            cursor: pointer;
-        }
-
-        /* Style the content inside the collapsible */
-        .content {
-            display: none;
-            padding: 0 18px;
-            overflow: hidden;
-            background-color: #f1f1f1;
-        }
-
-        /* Show the content when the collapsible is clicked */
-        .collapsible.active {
-            background-color: #ddd;
-        }
-
-        .collapsible.active .content {
-            display: block;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 
 <body>
-
-    <div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
-        <div class="dropdown-content">
-            <div class="collapsible">
-                <h3>Section 1</h3>
-                <div class="content">
-                    <p>Content for section 1 goes here.</p>
-                </div>
-            </div>
-            <div class="collapsible">
-                <h3>Section 2</h3>
-
-            </div>
-        </div>
-    </div>
-
-    <script>
-
-        // Add a click listener to the dropdown button
-        document.querySelector(".dropbtn").addEventListener("click", function () {
-            var content = document.querySelector(".dropdown-content");
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        });
-
-    </script>
 
 </body>
 

@@ -10,6 +10,12 @@ textarea {
     overflow: hidden;
 }
 
+.paddings {
+    padding-top: 13px !important;
+    padding-bottom: 13px !important;
+    padding-left: 21px !important;
+}
+
 .addtask-prio-img {
     padding-left: 10px;
 }
@@ -85,17 +91,34 @@ textarea {
 }
 
 .addtask-gendrop {
-    border: unset;
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    appearance: none;
+    cursor: pointer;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    box-sizing: border-box;
+/*
     background-image: url('../img/dropdown.svg');
     background-repeat: no-repeat;
     background-position: right 0.7rem top 50%;
-    background-size: 0.65rem auto;
 
+    background-size: 0.65rem auto;
+*/
 }
+
+.addtask-gendrop-item {
+    display: none;
+    padding: 0 18px;
+    overflow: hidden;
+}
+
+.addtask-gendrop:hover {
+    background-color: #d8d4d4;
+}
+
+.addtask-gendrop.active .addtask-gendrop-item {
+    display: block;
+}
+
 
 option {
     background: #FFFFFF;
@@ -106,17 +129,7 @@ option {
 
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-    color: rgba(0, 0, 0, 0);
-    opacity: 1;
-    display: flex;
-    justify-content: end;
-    background: url(../img/calendarico.svg) no-repeat;
-    width: 25px;
-    height: 25px;
-    padding-left: 10px;
-    border-width: thin
-}
+
 
 
 .addtask-description-input {
