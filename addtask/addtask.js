@@ -1,37 +1,5 @@
 console.log("dadw")
 
-function bntVars() {
-
-
-}
-
-
-function f() {
-    console.log("F")
-    const urgentButton = document.getElementById('addtask-prio-bnt-urgent');
-    const mediumButton = document.getElementById('addtask-prio-bnt-medium');
-    const lowButton = document.getElementById('addtask-prio-bnt-low');
-
-    urgentButton.onclick = bntUrgent;
-    mediumButton.onclick = bntMedium;
-    lowButton.onclick = bntLow;
-
-    function bntUrgent() {
-        console.log("bntUrgent triggert")
-    }
-
-    function bntMedium() {
-        console.log("mediumButton triggert")
-    }
-
-    function bntLow() {
-        console.log("lowButton triggert")
-    }
-
-
-}
-
-
 function bnts() {
 
     const urgentButton = document.getElementById('addtask-prio-bnt-urgent');
@@ -53,7 +21,7 @@ function bnts() {
             lowButton.style = ('');
             lowButton.querySelector('img').src = ('../img/prio-low.svg');
         } else {
-            console.log("bntUrgent 2 triggert")
+
             urgentButton.classList.remove('addtask-prio-bnts');
             urgentButton.style = ('');
             urgentButton.querySelector('img').src = ('../img/prio-urgent.svg');
@@ -61,7 +29,7 @@ function bnts() {
     }
 
     function bntMedium() {
-        console.log("bntMedium triggert")
+
         if (!mediumButton.classList.contains('addtask-prio-bnts')) {
             mediumButton.classList.add('addtask-prio-bnts');
             mediumButton.style = ('background-color: #ffac04; border: 0px solid #D1D1D1; color: white;')
@@ -86,7 +54,7 @@ function bnts() {
 
 
     function bntLow() {
-        console.log("bntMedium triggert")
+
         if (!lowButton.classList.contains('addtask-prio-bnts')) {
             lowButton.classList.add('addtask-prio-bnts');
             lowButton.style = ('background-color: #80e42c; border: 0px solid #D1D1D1; color: white;')

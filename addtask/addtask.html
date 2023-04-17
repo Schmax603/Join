@@ -62,7 +62,7 @@
 
 		<div class="addtask-duedate addtask-gencon">
 			<div class="addtask-gentext">Due date</div>
-			<input class="addtask-genimput" id="date" placeholder="dd/mm/yyyy" type="date" min=""></input>
+			<input style="display: block;" class="addtask-genimput" id="date" placeholder="dd/mm/yyyy" type="date" min=""></input>
 		</div>
 
 		<script>
@@ -72,17 +72,25 @@
 
 		<div class="addtask-category addtask-gencon">
 			<div class="addtask-gentext">Category</div>
-			<textarea class="addtask-genimput"></textarea>
+			<div class="addtask-genimput addtask-gendrop" placeholder="Select Task Category">
+				<div class="addtask-genimput-option" value="option1">Option 1</div>
+				<div class="addtask-genimput-option" value="option2">Option 2</div>
+				<div class="addtask-genimput-option" value="option3">Option 3</div>
+			</div>
 		</div>
 
-		<div class="addtask-assignedto addtask-gencon">
+		<div class="addtask-gencon">
 			<div class="addtask-gentext">Assigned to</div>
-			<textarea class="addtask-genimput"></textarea>
+			<select class="addtask-genimput addtask-gendrop">
+				<option value="option1">Option 1</option>
+				<option value="option2">Option 2</option>
+				<option value="option3">Option 3</option>
+			</select>
 		</div>
 
 		<div class="addtask-subtasks addtask-gencon">
 			<div class="addtask-gentext">Subtasks</div>
-			<textarea class="addtask-genimput" placeholder="Add  new subtask"></textarea>
+			<textarea class="addtask-genimput" placeholder="Add new subtask"></textarea>
 		</div>
 
 	</div>
