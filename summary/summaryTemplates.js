@@ -18,6 +18,7 @@ function renderTimeOfDay(){
 function generateHtmlGuest(){
   let greetings = document.getElementById('summary-infos-greeting');
 
+  // greetings.innerHTML = '';
   greetings.innerHTML = /*html*/`
   <p class="font-text-47">${timeOfDay}</p>
   `;
