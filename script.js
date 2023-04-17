@@ -1,10 +1,12 @@
 // implement mini-backend.js before srcipt.js
 let users = [];
+let currentUser = [];
 setURL('https://gruppe-534.developerakademie.net/smallest_backend_ever');
 
 async function init() {
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
+    currentUser = JSON.parse(backend.getItem('currentUser')) || [];
 }
 
 
