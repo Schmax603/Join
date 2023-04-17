@@ -63,5 +63,5 @@ function remember(){
 /**this function clear array "currentUser" and navigate to index.html*/
 async function logout(){
   await backend.setItem('currentUser', JSON.stringify({'currentUser':''}));
-  window.location.href = '..index.html';
+  window.location.href = '../index.html';
 }
