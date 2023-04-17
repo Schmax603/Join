@@ -14,7 +14,7 @@ async function userLogin(){
     }
     await backend.setItem('currentUser', JSON.stringify({'currentUser':i}));
     console.log('geschafft')
-    // window.location.href = '../summary/summary.html';
+    window.location.href = '../summary/summary.html';
   }else{
     msgBox.innerHTML = generateHtmlWrongLogin();
   }
@@ -44,4 +44,10 @@ function remember(){
     localStorage.setItem('pw', '');
     localStorage.setItem('remember', false);
   }
+}
+
+
+async function logout(){
+  await backend.setItem('currentUser', JSON.stringify({'currentUser':''}));
+  window.location.href = '../login/login.html';
 }
