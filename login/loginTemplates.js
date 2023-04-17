@@ -88,7 +88,7 @@ function generateHtmlForgotPassword(){
     <!--!!! return false =>  prevents the page from reloading-->
     <form onsubmit="newPasswordEmail(); return false" class="overlay-login-form">
       <p class="cursor-d fs-21-400 ta-c mb-35">Don´t worry! We will send you an email with the instructions to reset your password.</p>
-      <input id="requesterEmail" type="email" placeholder="Email" autocomplete="current-password" required>
+      <input id="requesterEmail" name="requesterEmail" type="email" placeholder="Email" autocomplete="current-password" required>
       
       <div class="overlay-login-buttons">
         <button type="submit" class="btn-dark btn-send bg-c-db cursor-p fc-w fs-21-700">Send me the email</button>
