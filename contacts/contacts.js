@@ -1,11 +1,12 @@
 // aus backend: currentUser = getItem('currentUser') 
 // users[currentUser].contacts 
-// Farben zufällig ziehen und über CSS-Klasse bg-color-i einbinden
+// Farben zufällig ziehen und über CSS-Klasse bg-i einbinden
 let contacts = [
     {
         "name": "AntonMayer",
         "email": "antom@gmail.com",
         "phone": "+49 1111 111 11 1",
+        "color": "bg-0",
         "tasks": []
     }
     ,
@@ -13,6 +14,7 @@ let contacts = [
         "name": "Anja Schulz",
         "email": "schulz@hotmail.com",
         "phone": "+49 1111 111 11 1",
+        "color": "bg-1",
         "tasks": []
     }
     ,
@@ -20,6 +22,7 @@ let contacts = [
         "name": "David Eisenberg",
         "email": "davidberg@gmail.com",
         "phone": "+49 1111 111 11 1",
+        "color": "bg-2",
         "tasks": []
     }
     ,
@@ -27,13 +30,17 @@ let contacts = [
         "name": "Benedict Ziegler",
         "email": "benedict@gmail.com",
         "phone": "+49 1111 111 11 1",
+        "color": "bg-3",
         "tasks": []
     }
 ]
 
+const NUMBER_OF_BG_COLORS = 17; // see bgColors.css
+
 
 function renderContactList() {
     sortContactsByName();
+    clearElement('contacts-list');
 
     getInitialLetters().forEach(letter => {
         renderLetterContacts(letter);
@@ -58,10 +65,11 @@ function renderLetterContacts(letter) {
 
 function renderContact(contact) {
     const letter = getInitialLetter(contact);
+    const contactIndex = contacts.indexOf(contact);
     const container = document.getElementById(`letter-container-${letter}`);
     container.innerHTML += /*html*/`
-        <div class="contact">
-            <div id="contact-icon" class="contact-icon font-text-12">
+        <div class="contact" onclick="showContactDetails(${contactIndex})">
+            <div id="contact-icon" class="contact-icon font-text-12 ${contact.color}">
                 ${getInitials(contact)}
             </div>
             <div class="contact-name-email">
@@ -112,7 +120,7 @@ function sortContactsByName() {
 }
 
 
-function openNewContact() {
+function openNewContactOverlay() {
     freezeBackground();
     setTimeout(() => {
         document.getElementById('new-contact-overlay').classList.add('show-overlay');
@@ -120,12 +128,11 @@ function openNewContact() {
 }
 
 
-function closeNewContact() {
+function closeNewContactOverlay() {
     document.getElementById('new-contact-overlay').classList.remove('show-overlay');
     setTimeout(unfreezeBackground, 220);
+    document.getElementById('form-contact-info').reset();
 }
-
-
 
 
 function freezeBackground() {
@@ -137,6 +144,26 @@ function freezeBackground() {
 function unfreezeBackground() {
     removeElement('new-contact-screen');
     document.getElementById('body').classList.remove('no-scrolling');
+}
+
+
+function addNewContact() {
+    const newContact = {
+        "name": document.getElementById('new-contact-name').value,
+        "email": document.getElementById('new-contact-email').value,
+        "phone": document.getElementById('new-contact-phone').value,
+        "color": getRandomColorClass(),
+        "tasks": []
+    };
+    contacts.push(newContact);
+    closeNewContactOverlay();
+    renderContactList();
+    // showContactDetails(contacts.indexOf(newContact));
+}
+
+
+function getRandomColorClass() {
+    return `bg-${getRandomInt(NUMBER_OF_BG_COLORS)}`;
 }
 
 
@@ -160,4 +187,14 @@ function removeElement(id) {
 
 function doNotClose(event) {
     event.stopPropagation();
+}
+
+
+function clearElement(id) {
+    document.getElementById(id).innerHTML = '';
+}
+
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
 }
