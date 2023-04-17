@@ -1,3 +1,10 @@
+/**
+ * Check user login, if not create message
+ * 
+ * @param {string} userEmail - login email value
+ * @param {string} userPassword - login password value
+ * @param {number} i - user index
+ */
 async function userLogin(){
   let userEmail = document.getElementById('loginEmail');
   let userPassword = document.getElementById('loginPassword');
@@ -20,6 +27,12 @@ async function userLogin(){
   }
 }
 
+/**
+ * this function check the remember checkbox and save in the local storage
+ * 
+ * @param {string} userEmail - login email value
+ * @param {string} userPassword - login password value
+ */
 function checkRemember(userEmail, userPassword){
   let remember = document.getElementById('remember-me');
   if(remember.checked == true){
@@ -33,6 +46,7 @@ function checkRemember(userEmail, userPassword){
   }
 }
 
+/**this function check onload if remember checkbox in the local storage set*/
 function remember(){
   let remember = localStorage.getItem('remember')
   if(remember == 'true'){
@@ -46,8 +60,8 @@ function remember(){
   }
 }
 
-
+/**this function clear array "currentUser" and navigate to index.html*/
 async function logout(){
   await backend.setItem('currentUser', JSON.stringify({'currentUser':''}));
-  window.location.href = '../login/login.html';
+  window.location.href = '..index.html';
 }
