@@ -82,15 +82,35 @@ textarea {
 
 .addtask-genimput:hover {
     cursor: text;
+}
+
+.addtask-gendrop {
+    border: unset;
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    appearance: none;
+    background-image: url('../img/dropdown.svg');
+    background-repeat: no-repeat;
+    background-position: right 0.7rem top 50%;
+    background-size: 0.65rem auto;
+
+}
+
+option {
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    white-space: pre-wrap;
+    height: 41px;
 
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     color: rgba(0, 0, 0, 0);
     opacity: 1;
-
     display: flex;
-    justify-content:   end;
+    justify-content: end;
     background: url(../img/calendarico.svg) no-repeat;
     width: 25px;
     height: 25px;
