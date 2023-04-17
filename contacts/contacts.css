@@ -134,35 +134,36 @@
 
 .contacts {
     background-color: #F5F5F5;
-    min-height: 100vh;
+    height: 100vh;
     padding: 89px 0 0 232px;
     display: flex;
 }
 
 .contacts-list-container {
     width: 40%;
+    /* height: calc(100vh - 89px); 
+    height: 100%;*/
     background-color: white;
     overflow: auto;
     box-shadow: 4px 0px 6px 0px #00000014;
     display: flex;
     justify-content: center;
+    padding: 8px;
 }
 
 .contacts-list-container::-webkit-scrollbar {
-    width: 8px;
+    width: 7px;
 }
 
 .contacts-list-container::-webkit-scrollbar-track {
-    background: rgba(73, 80, 87, 0.1);
+    background: white;
 }
 
 .contacts-list-container::-webkit-scrollbar-thumb {
-    background: rgba(73, 80, 87, 0.5);
+    background: #a8a8a8;
+    border-radius: 10px;
 }
 
-.contacts-list-container::-webkit-scrollbar-thumb:hover {
-    background: rgba(73, 80, 87, 0.7);
-}
 
 .contacts-list {
     width: 80%;

@@ -32,35 +32,7 @@
     <main class="contacts">
         <div class="contacts-list-container">
             <div id="contacts-list" class="contacts-list">
-                <!-- <div class="letter-container">
-                    <div class="letter-header font-text">A</div>
-                    <div class="letter-header-bottom-border"></div>
-
-
-                    <div class="contact">
-                        <div id="contact-icon" class="contact-icon font-text-12">
-                            AM
-                        </div>
-                        <div class="contact-name-email">
-                            <b class="contact-name font-text">Anton Mayer</b>
-                            <span class="contact-email font-text-16">antom@gmail.com</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="letter-container">
-                    <div class="letter-header font-text">B</div>
-                    <div class="letter-header-bottom-border"></div>
-                    <div class="contact">
-                        <div class="contact-icon font-text-12">
-                            AM
-                        </div>
-                        <div class="contact-name-email">
-                            <b class="contact-name font-text">Anton Mayer</b>
-                            <span class="contact-email font-text-16">antom@gmail.com</span>
-                        </div>
-                    </div>
-                </div> -->
+                <!-- rendered by renderContactList() -->
             </div>
         </div>
 
@@ -72,14 +44,14 @@
             </div>
 
 
-            <button class="new-contact dark-btn font-btn-21" onclick="openNewContact()">
+            <button class="new-contact dark-btn font-btn-21" onclick="openNewContactOverlay()">
                 <span>New contact</span>
                 <img src="../img/addSymbol.png">
             </button>
         </div>
     </main>
 
-    <div id="new-contact-screen" class="overlay-bg d-none" onclick="closeNewContact()">
+    <div id="new-contact-screen" class="overlay-bg d-none" onclick="closeNewContactOverlay()">
         <div id="new-contact-overlay" class="new-contact-overlay" onclick="doNotClose(event)">
             <div class="add-contact-header">
                 <img src="../img/logo.png">
@@ -90,21 +62,21 @@
             <div class="user-img">
                 <img src="../img/emptyImg.png">
             </div>
-            <form class="form-contact-info" onsubmit="addNewContact(); return false;">
+            <form id="form-contact-info" class="form-contact-info" onsubmit="addNewContact(); return false;">
                 <div class="input-field">
-                    <input type="text" title="" placeholder="Name" required>
+                    <input id="new-contact-name" type="text" title="" placeholder="Name" required>
                     <img src="../img/nameInput.png">
                 </div>
                 <div class="input-field">
-                    <input type="email" title="" placeholder="Email" required>
+                    <input id="new-contact-email" type="email" title="" placeholder="Email" required>
                     <img src="../img/emailInput.png">
                 </div>
                 <div class="input-field">
-                    <input type="tel" title="" placeholder="Phone" required>
+                    <input id="new-contact-phone" type="tel" title="" placeholder="Phone" required>
                     <img src="../img/phoneInput.png">
                 </div>
                 <div class="form-contact-buttons">
-                    <button class="light-btn font-text-21" onclick="closeNewContact()">
+                    <button type="button" class="light-btn font-text-21" onclick="closeNewContactOverlay()">
                         <span>Cancel</span>
                         <!-- <img src="../img/clear_blue.svg"> -->
                         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -118,7 +90,7 @@
                         <img src="../img/create.png">
                     </button>
                 </div>
-                <div class="close-new-contact" onclick="closeNewContact()"><img src="../img/close.png"></div>
+                <div class="close-new-contact" onclick="closeNewContactOverlay()"><img src="../img/close.png"></div>
             </form>
 
         </div>

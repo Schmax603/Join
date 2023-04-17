@@ -34,6 +34,7 @@ let contacts = [
 
 function renderContactList() {
     sortContactsByName();
+    clearElement('contacts-list');
 
     getInitialLetters().forEach(letter => {
         renderLetterContacts(letter);
@@ -58,9 +59,10 @@ function renderLetterContacts(letter) {
 
 function renderContact(contact) {
     const letter = getInitialLetter(contact);
+    const contactIndex = contacts.indexOf(contact);
     const container = document.getElementById(`letter-container-${letter}`);
     container.innerHTML += /*html*/`
-        <div class="contact">
+        <div class="contact" onclick="showContactDetails(${contactIndex})">
             <div id="contact-icon" class="contact-icon font-text-12">
                 ${getInitials(contact)}
             </div>
@@ -112,7 +114,7 @@ function sortContactsByName() {
 }
 
 
-function openNewContact() {
+function openNewContactOverlay() {
     freezeBackground();
     setTimeout(() => {
         document.getElementById('new-contact-overlay').classList.add('show-overlay');
@@ -120,12 +122,11 @@ function openNewContact() {
 }
 
 
-function closeNewContact() {
+function closeNewContactOverlay() {
     document.getElementById('new-contact-overlay').classList.remove('show-overlay');
     setTimeout(unfreezeBackground, 220);
+    document.getElementById('form-contact-info').reset();
 }
-
-
 
 
 function freezeBackground() {
@@ -137,6 +138,21 @@ function freezeBackground() {
 function unfreezeBackground() {
     removeElement('new-contact-screen');
     document.getElementById('body').classList.remove('no-scrolling');
+}
+
+
+function addNewContact() {
+    const newContact = {
+        "name": document.getElementById('new-contact-name').value,
+        "email": document.getElementById('new-contact-email').value,
+        "phone": document.getElementById('new-contact-phone').value,
+        // "color": getRandomColor(),
+        // "tasks": []
+    };
+    contacts.push(newContact);
+    closeNewContactOverlay();
+    renderContactList();
+    // showContactDetails(contacts.indexOf(newContact));
 }
 
 
@@ -160,4 +176,9 @@ function removeElement(id) {
 
 function doNotClose(event) {
     event.stopPropagation();
+}
+
+
+function clearElement(id) {
+    document.getElementById(id).innerHTML = '';
 }
