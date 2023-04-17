@@ -25,14 +25,14 @@
     <script src="../login/login.js"></script>
 </head>
 
-<body id="body" onload="initHeaderNav()" onclick="closeMenu()">
+<body id="body" onload="initHeaderNav(); renderContactList();" onclick="closeMenu()">
 
-    <div w3-include-html="../headerNav/headerNav.html"></div>
+    <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
 
     <main class="contacts">
         <div class="contacts-list-container">
             <div id="contacts-list" class="contacts-list">
-                <div class="letter-container">
+                <!-- <div class="letter-container">
                     <div class="letter-header font-text">A</div>
                     <div class="letter-header-bottom-border"></div>
 
@@ -60,24 +60,69 @@
                             <span class="contact-email font-text-16">antom@gmail.com</span>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
         <div class="contacts-info-container">
             <div class="contacts-header">
-                <p class="contacts-header-headline">Contacts</p>
-                <div class="contacts-header-border-mid"></div>
-                <p class="contacts-header-subheadline">Better with a team</p>
+                <p class="header-headline mr-30">Contacts</p>
+                <div class="header-border-mid"></div>
+                <p class="header-subheadline ml-30">Better with a team</p>
             </div>
 
 
-            <button class="new-contact dark-btn font-btn-21">
+            <button class="new-contact dark-btn font-btn-21" onclick="openNewContact()">
                 <span>New contact</span>
                 <img src="../img/addSymbol.png">
             </button>
         </div>
     </main>
+
+    <div id="new-contact-screen" class="overlay-bg d-none" onclick="closeNewContact()">
+        <div id="new-contact-overlay" class="new-contact-overlay" onclick="doNotClose(event)">
+            <div class="add-contact-header">
+                <img src="../img/logo.png">
+                <p class="header-headline mt-12 mb-12">Add contact</p>
+                <p class="font-text-27">Tasks are better with a team!</p>
+                <div class="header-border-bottom mt-12"></div>
+            </div>
+            <div class="user-img">
+                <img src="../img/emptyImg.png">
+            </div>
+            <form class="form-contact-info" onsubmit="addNewContact(); return false;">
+                <div class="input-field">
+                    <input type="text" title="" placeholder="Name" required>
+                    <img src="../img/nameInput.png">
+                </div>
+                <div class="input-field">
+                    <input type="email" title="" placeholder="Email" required>
+                    <img src="../img/emailInput.png">
+                </div>
+                <div class="input-field">
+                    <input type="tel" title="" placeholder="Phone" required>
+                    <img src="../img/phoneInput.png">
+                </div>
+                <div class="form-contact-buttons">
+                    <button class="light-btn font-text-21" onclick="closeNewContact()">
+                        <span>Cancel</span>
+                        <!-- <img src="../img/clear_blue.svg"> -->
+                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12.5011 12.5001L17.7441 17.7431M7.25806 17.7431L12.5011 12.5001L7.25806 17.7431ZM17.7441 7.25708L12.5001 12.5001L17.7441 7.25708ZM12.5001 12.5001L7.25806 7.25708L12.5001 12.5001Z"
+                                stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button type="submit" class="dark-btn font-btn-21">
+                        <span>Create contact</span>
+                        <img src="../img/create.png">
+                    </button>
+                </div>
+                <div class="close-new-contact" onclick="closeNewContact()"><img src="../img/close.png"></div>
+            </form>
+
+        </div>
+    </div>
 </body>
 
 </html>
