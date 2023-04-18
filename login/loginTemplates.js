@@ -14,11 +14,11 @@ function generateHtmlLogin(){
     <div class="overlay-login-selection">
       
       <div class="overlay-login-selection-support">
-        <div class="overlay-login-selection-support-remember">
-          <input id="remember-me" type="checkbox" class="cursor-p mr-20">
+        <div class="checkbox">
+          <input id="remember-me" type="checkbox" class="cursor-p">
           <label for="remember" class="cursor-d fs-16-400 mr-35">Remember me</label>
         </div>
-        <p onclick="openForgotPassword()" class="cursor-p fc-lb fs-16-400">Forgot my password</p>
+          <p onclick="openForgotPassword()" class="cursor-p fc-lb fs-16-400">Forgot my password</p>
       </div>
       
       <div class="overlay-login-buttons">
@@ -40,7 +40,8 @@ function generateHtmlWrongLogin(){
 
 function generateHtmlSignUp(){
   return /*html*/`
-  <img onclick="closeSignup()" class="overlay-login-arrow cursor-p" src="../img/arrow_left_blue.png" alt="arrow left blue">
+  <img onclick="closeSignup()" class="overlay-login-arrow arrow-black cursor-p img-16" src="../img/arrow_left.png" alt="arrow left black">
+  <img onclick="closeSignup()" class="overlay-login-arrow arrow-blue cursor-p img-24" src="../img/arrow_left_blue.png" alt="arrow left blue">
      <div class="overlay-login-header">
        <h1 class="cursor-d fs-62-700 ta-c">Sign up</h1>
        <div class="border"></div>
@@ -79,9 +80,10 @@ function generateHtmlRegistry(){
 
 function generateHtmlForgotPassword(){
   return /*html*/`
-  <img onclick="closeSignup()" class="overlay-login-arrow cursor-p" src="../img/arrow_left_blue.png" alt="arrow left blue">
+  <img onclick="closeSignup()" class="overlay-login-arrow arrow-black cursor-p img-16" src="../img/arrow_left.png" alt="arrow left black">
+  <img onclick="closeSignup()" class="overlay-login-arrow arrow-blue cursor-p img-24" src="../img/arrow_left_blue.png" alt="arrow left blue">
     <div class="overlay-login-header header-forgot-password">
-      <h1 class="cursor-d fs-62-700 ta-c">I forgot my password</h1>
+      <h1 class="cursor-d fs-62-700-pw ta-c">I forgot my password</h1>
       <div class="border"></div>
     </div>
 

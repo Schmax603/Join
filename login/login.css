@@ -42,6 +42,10 @@ body{
   font-size: 61px;
   font-weight: 700;
 }
+.fs-62-700-pw{
+  font-size: 61px;
+  font-weight: 700;
+}
 .fs-16-400{
   font-size: 16px;
   font-weight: 400;
@@ -53,6 +57,14 @@ body{
 .ta-c{
   text-align: center;
 }
+.img-16{
+  width: 16px;
+  height: 16px;
+}
+.img-24{
+  width: 24px;
+  height: 24px;
+}
 .mr-20{
   margin-right: 20px;
 }
@@ -61,6 +73,9 @@ body{
 }
 .mb-35{
   margin-bottom: 35px;
+}
+.px-50{
+  padding: 0 50px;
 }
 .wmax-826{
   max-width: 826px;
@@ -76,7 +91,7 @@ form{
   flex-direction: column;
   align-items: center;
 }
-form input{
+form input[type=email], input[type=name], input[type=password]{
   margin-bottom: 49px;
   width: 85%;
   padding: 13px 21px;
@@ -102,6 +117,9 @@ input[type=email]{
 }
 input:focus{
   outline: none;
+}
+input[type=checkbox]{
+  margin-right: 20px;
 }
 /* <=================== btns */
 .main-login-btn{
@@ -190,13 +208,16 @@ input:focus{
   top: 41px;
   left: 37px;
 }
+.arrow-black{
+  display: none;
+}
 .overlay-login-header{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .border{
-  width: 80%;
+  width: 150px;
   height: 3px;
   background-color: #29ABE2;
   margin-top: 24px;
@@ -205,9 +226,7 @@ input:focus{
 .overlay-login-selection-support{
   display: flex;
   margin-bottom: 35px;
-}
-.overlay-login-selection-support-remember{
-  display: flex;
+  align-items: baseline;
 }
 .overlay-login-buttons{
   display: flex;
@@ -224,20 +243,36 @@ input:focus{
 }
 /*<=========== Media Querrys max-width: 900px Overlay*/
 @media (max-width: 900px){
-  /* <=================== main overlay */
+  /* <=================== change global <900 */
+  .fs-21-700{
+    font-size: 16px;
+  }
+  .fs-62-700{
+    font-size: 47px;
+  }
+  .fs-62-700-pw{
+    font-size: 40px;
+  }
+  /* <=================== main overlay <900 */
   .main-overlay{
    justify-content: center;
    align-items: flex-end;
+  }
+  .main-logo{
+    width: 64px;
   }
   .main-login{
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 59px;
   }
-  /* <=================== login overlay */
+  /* <=================== login overlay <900 */
   .overlay-login{
     margin: 10px;
     padding: 35px 22px;
+  }
+  .border{
+    width: 88px;
   }
   .header-forgot-password{
     padding-top: 21px;
@@ -246,6 +281,12 @@ input:focus{
   .overlay-login-arrow{
     top: 27px;
     left: 33px;
+  }
+  .arrow-black{
+    display: flex;
+  }
+  .arrow-blue{
+    display: none;
   }
   .overlay-login-selection{
     width: 100%;
@@ -257,7 +298,7 @@ input:focus{
     display: flex;
     flex-direction: column-reverse;
   }
-  .overlay-login-selection-support-remember{
+  .checkbox{
     margin-top: 31px;
   }
   .overlay-login-buttons{
@@ -327,7 +368,6 @@ input:focus{
     }
     to{
       opacity: 0;
-      /* z-index: 0; */
     }
   }
 }
