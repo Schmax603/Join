@@ -7,13 +7,7 @@ Checked:
   - Check available Email
     - response if true or false
 
-
-ToDo:
-
 - Login
-  - Guest submit -> Summary greeting (Date time of day)
-  - Login submit check Email / Password
-    - Checked Login -> Summary greeting Name (Date time of day)
   -Remember me checkbox -> save localStorage
 
 - Forgot Password
@@ -23,6 +17,15 @@ ToDo:
 
 - Email link "forgot Password"
   - link to reset your Password (new side)
+
+ToDo:
+
+- Login
+  - Guest submit -> Summary greeting (Date time of day)
+  - Login submit check Email / Password
+    - Checked Login -> Summary greeting Name (Date time of day)
+
+- Email link "forgot Password"
   - double check new password
   - submit return to Login 
     - search for email into array overwrite password
