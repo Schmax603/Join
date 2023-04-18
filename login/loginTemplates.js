@@ -33,7 +33,7 @@ function generateHtmlLogin(){
 function generateHtmlWrongLogin(){
   return /*html*/`
   <div class="msg-box ta-c fs-21-400">
-  Fehlerhafte Email oder Passwort.
+  Incorrect email or password.
 </div>
 `
 }
@@ -65,7 +65,7 @@ function generateHtmlSignUp(){
 function generateHtmlEmailNotAvailable(){
   return /*html*/`
   <div class="msg-box ta-c fs-21-400">
-  Email bereits vorhanden.
+  Email already exists.
 </div>
 `
 }
@@ -73,7 +73,7 @@ function generateHtmlEmailNotAvailable(){
 function generateHtmlRegistry(){
   return /*html*/`
   <div class="msg-box ta-c fs-21-400">
-  Du hast dich erfolgreich registriert.
+  You have registered successfully.
 </div>
 `
 }
