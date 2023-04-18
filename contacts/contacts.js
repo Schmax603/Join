@@ -33,6 +33,38 @@ let contacts = [
         "color": "bg-3",
         "tasks": []
     }
+    ,
+    {
+        "name": "Eva Fischer",
+        "email": "eva@gmail.com",
+        "phone": "+49 1111 111 11 1",
+        "color": "bg-4",
+        "tasks": []
+    }
+    ,
+    {
+        "name": "Emmanuel Mauer",
+        "email": "emmanuelMa@gmail.com",
+        "phone": "+49 1111 111 11 1",
+        "color": "bg-5",
+        "tasks": []
+    }
+    ,
+    {
+        "name": "Marcel Bauer",
+        "email": "bauer@gmail.com",
+        "phone": "+49 1111 111 11 1",
+        "color": "bg-6",
+        "tasks": []
+    }
+    ,
+    {
+        "name": "Tatjana Wolf",
+        "email": "wolf@gmail.com",
+        "phone": "+49 1111 111 11 1",
+        "color": "bg-7",
+        "tasks": []
+    }
 ]
 
 const NUMBER_OF_BG_COLORS = 17; // see bgColors.css
@@ -69,15 +101,46 @@ function renderContact(contact) {
     const container = document.getElementById(`letter-container-${letter}`);
     container.innerHTML += /*html*/`
         <div class="contact" onclick="showContactDetails(${contactIndex})">
-            <div id="contact-icon" class="contact-icon font-text-12 ${contact.color}">
+            <div class="contact-icon contact-list-icon font-text-12 ${contact.color}">
                 ${getInitials(contact)}
             </div>
             <div class="contact-name-email">
-                <b class="contact-name font-text">${contact.name}</b>
+                <span class="contact-name font-text">${contact.name}</span>
                 <span class="contact-email font-text-16">${contact.email}</span>
             </div>
         </div>
     `;
+}
+
+
+function showContactDetails(contactIndex) {
+    document.getElementById('contact-details-overlay').classList.remove('show-overlay');
+
+    setTimeout(() => {
+        const contact = contacts[contactIndex];
+        const iconElement = document.getElementById('contact-details-icon');
+        const nameElement = document.getElementById('contact-details-name');
+        const emailElement = document.getElementById('contact-details-email');
+        const phoneElement = document.getElementById('contact-details-phone');
+
+        iconElement.classList = `contact-icon contact-details-icon font-text-47 ${contact.color}`;
+        iconElement.innerHTML = getInitials(contact);
+        nameElement.innerHTML = contact.name;
+        emailElement.innerHTML = `
+            <b>Email</b>
+            <a href="mailto:${contact.email}">${contact.email}</a>
+        `;
+        phoneElement.innerHTML = `
+            <b>Phone</b>
+            <a href="tel:${contact.phone}">${contact.phone}</a>
+        `;
+
+        document.getElementById('contact-details-edit').onclick = () => {
+            editContact(contactIndex);
+        };
+
+        document.getElementById('contact-details-overlay').classList.add('show-overlay');
+    }, 220);
 }
 
 
@@ -158,7 +221,13 @@ function addNewContact() {
     contacts.push(newContact);
     closeNewContactOverlay();
     renderContactList();
-    // showContactDetails(contacts.indexOf(newContact));
+    showContactDetails(contacts.indexOf(newContact));
+}
+
+
+function editContact(contactIndex) {
+    const contact = contacts[contactIndex];
+    console.log(contact.name);
 }
 
 
