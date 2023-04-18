@@ -241,7 +241,20 @@ function addNewContact() {
     contacts.push(newContact);
     closeNewContactOverlay();
     renderContactList();
-    showContactDetails(contacts.indexOf(newContact));
+
+    const contactIndex = contacts.indexOf(newContact);
+    showContactDetails(contactIndex);
+    scrollToContact(contactIndex);
+}
+
+
+function scrollToContact(contactIndex) {
+    scrollToID(`contact-${contactIndex}`);
+}
+
+
+function scrollToID(id) {
+    location.hash = `#${id}`;
 }
 
 

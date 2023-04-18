@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'Inter';
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 .font-count {
@@ -205,7 +206,7 @@ Contact List
 }
 
 .contact:not(.contact-active):hover {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.08));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.08));
     cursor: pointer;
 }
 
