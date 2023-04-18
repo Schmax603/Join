@@ -204,12 +204,21 @@ Contact List
     border-radius: 10px;
 }
 
-.contact:hover {
+.contact:not(.contact-active):hover {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.08));
     cursor: pointer;
 }
 
 .contact:hover .contact-icon {
+    border: 1px solid white;
+}
+
+.contact-active {
+    color: white;
+    background-color: #2A3647;
+}
+
+.contact-active .contact-icon {
     border: 1px solid white;
 }
 

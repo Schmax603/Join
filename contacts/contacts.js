@@ -68,6 +68,7 @@ let contacts = [
 ]
 
 const NUMBER_OF_BG_COLORS = 17; // see bgColors.css
+let activeContactIndex;
 
 
 function renderContactList() {
@@ -100,7 +101,7 @@ function renderContact(contact) {
     const contactIndex = contacts.indexOf(contact);
     const container = document.getElementById(`letter-container-${letter}`);
     container.innerHTML += /*html*/`
-        <div class="contact" onclick="showContactDetails(${contactIndex})">
+        <div id="contact-${contactIndex}" class="contact" onclick="showContactDetails(${contactIndex})">
             <div class="contact-icon contact-list-icon font-text-12 ${contact.color}">
                 ${getInitials(contact)}
             </div>
@@ -114,6 +115,11 @@ function renderContact(contact) {
 
 
 function showContactDetails(contactIndex) {
+    if (contactIsActive(contactIndex))
+        return;
+
+    activateContact(contactIndex);
+
     document.getElementById('contact-details-overlay').classList.remove('show-overlay');
 
     setTimeout(() => {
@@ -141,6 +147,20 @@ function showContactDetails(contactIndex) {
 
         document.getElementById('contact-details-overlay').classList.add('show-overlay');
     }, 220);
+}
+
+
+function activateContact(contactIndex) {
+    activeContactIndex = contactIndex;
+    contacts.forEach(c => {
+        document.getElementById(`contact-${contacts.indexOf(c)}`).classList.remove('contact-active');
+    });
+    document.getElementById(`contact-${contactIndex}`).classList.add('contact-active');
+}
+
+
+function contactIsActive(contactIndex) {
+    return contactIndex === activeContactIndex;
 }
 
 
