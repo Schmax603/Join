@@ -39,10 +39,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
     case ("POST"): //Send the email;
         header("Access-Control-Allow-Origin: *");
 
-        $subject = "Contact From " . $_POST['name'];
+        $subject = "Reset Join Password " . $_POST['name'];
         $subject = '=?UTF-8?B?'.base64_encode($subject).'?='; // Codierung in 7 bit Code to show ä ö ü ... in subject
         
-        $message = "<a>Click here</a> for reset password.";
+        $message = '<a href="">Click here</a> for reset password.';
         
         $headers = array(
             "MIME-Version" => "1.0",
