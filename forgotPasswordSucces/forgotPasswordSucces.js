@@ -11,5 +11,5 @@ function initMsg(){
     overlayMsgBox.classList.remove('overlay-msg');
     msgBox.classList.add('d-none')
     body.classList.remove('overflow-h');
-  }, 4000);
+  }, 2000);
 }
