@@ -95,7 +95,7 @@ input[type=email]{
   background-repeat: no-repeat;
   background-position: 95%;
 }
-input[type=password]{
+.password-img{
   background-image: url(../img/lock.png);
   background-repeat: no-repeat;
   background-position: 95%;

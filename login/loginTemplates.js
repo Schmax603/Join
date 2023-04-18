@@ -9,7 +9,7 @@ function generateHtmlLogin(){
   <!--!!! return false =>  prevents the page from reloading-->
   <form onsubmit="userLogin(); return false" class="overlay-login-form">
     <input id="loginEmail" type="email" placeholder="Email" autocomplete="current-password" required>
-    <input id="loginPassword" type="password" placeholder="Password" autocomplete="current-password" required>
+    <input id="loginPassword" class="password-img" type="password" placeholder="Password" autocomplete="current-password" required>
     
     <div class="overlay-login-selection">
       
@@ -51,7 +51,7 @@ function generateHtmlSignUp(){
 
        <input id="signUpName" type="name" placeholder="Name" autocomplete="current-password" required>
        <input id="signUpEmail" type="email" placeholder="Email" autocomplete="current-password" required>
-       <input id="signUpPassword" type="password" placeholder="Password" autocomplete="current-password" required>
+       <input id="signUpPassword" class="password-img" type="password" placeholder="Password" autocomplete="current-password" required>
 
        <div class="overlay-login-buttons">
         <button type="submit" class="btn-dark bg-c-db cursor-p fc-w fs-21-700">Sign up</button>
