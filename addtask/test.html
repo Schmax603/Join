@@ -8,8 +8,115 @@
     <title>Document</title>
 </head>
 
-<body>
+<body onload="">
+    <style>
+        /* Style the collapsible */
+        .collapsible {
+            cursor: pointer;
+        }
 
+        .paddings {
+            padding-top: 13px !important;
+            padding-bottom: 13px !important;
+            padding-left: 21px !important;
+        }
+
+        /* Style the content inside the collapsible */
+        .content {
+            display: none;
+            padding: 0 18px;
+            overflow: hidden;
+        }
+
+        .content:hover {
+            background-color: #d8d4d4;
+        }
+
+        /* Show the content when the collapsible is clicked */
+
+
+        .collapsible.active .content {
+            display: block;
+        }
+
+        .addtask-genimput {
+
+            background: #FFFFFF;
+            border: 1px solid #D1D1D1;
+            border-radius: 10px;
+            box-sizing: border-box;
+
+        }
+    </style>
+
+    <div class="collapsible addtask-genimput " id="collapsible">
+        <div class="paddings" id="currentItem" onclick="toggleActive(); dropdownValueCheck();">Select task category</div>
+        <div class="content paddings" onclick="newCategory()" >
+            New category
+        </div>
+        <div id="apicategory">
+            <div class="content paddings">
+                Content for section 2 goes here.
+            </div>
+            <div class="content paddings">
+                Content for section 3 goes here.
+            </div>
+        </div>
+    </div>
+    <div>dwadwadwadwa</div>
+
+    <script>// Get all the collapsible elements
+
+        function toggleActive() {
+            document.getElementById("collapsible").classList.toggle("active")
+        }
+
+        function dropdownValueCheck() {
+            var coll = document.getElementById("apicategory");
+            const divs = coll.getElementsByTagName("div");
+
+            for (let dropid = 0; dropid < divs.length; dropid++) {
+                divs[dropid].setAttribute("id", "apicategory-" + dropid);
+                return dropid.length
+            }
+
+        }
+
+        function loadCategory() {
+            const coll = document.getElementById("apicategory");
+            const divs = coll.getElementsByTagName("div");
+
+            
+        }
+
+        function newCategory() {
+            const coll = document.getElementById("apicategory");
+            const divs = coll.getElementsByTagName("div");
+            const currentItem = document.getElementById("currentItem")
+            
+            
+        }
+
+
+
+
+
+        // Loop through each collapsible element and add a click listener
+
+        /*
+        for (var i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                document.getElementById("collapsible").classList.toggle("active");
+                var content = this.querySelector(".content");
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                }
+            });
+        }
+*/
+        // Add a click listener to the dropdown button
+
+    </script>
 </body>
 
 </html>
