@@ -3,7 +3,7 @@
 ########### CONFIG ###############
 
 $recipient = 'requesterEmail'; #fill with user email
-$redirect = 'success.html'; #loading file after email send
+$redirect = 'login/newPassword.html'; #loading file after email send
 
 ########### CONFIG END ###########
 
