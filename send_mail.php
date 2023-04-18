@@ -3,7 +3,7 @@
 ########### CONFIG ###############
 
 $recipient = $_REQUEST["requesterEmail"]; #fill with user email 'requesterEmail'
-$redirect = 'login/newPassword.html'; #loading file after email send
+$redirect = 'index.html'; #loading file after email send
 
 ########### CONFIG END ###########
 
@@ -39,18 +39,23 @@ switch ($_SERVER['REQUEST_METHOD']) {
     case ("POST"): //Send the email;
         header("Access-Control-Allow-Origin: *");
 
-        $subject = "Contact From " . $_POST['name'];
+        $subject = "Reset Join Password " . $_POST['name'];
         $subject = '=?UTF-8?B?'.base64_encode($subject).'?='; // Codierung in 7 bit Code to show ä ö ü ... in subject
         
-        $message = "<a>Click here</a> for reset password.";
-        
+        $mailtext = '
+		<html>
+			<body>
+				<a href="https://gruppe-534.developerakademie.net/login/newPassword.html">Click here</a> for reset password.
+			</body>
+		</html>
+		';
         $headers = array(
             "MIME-Version" => "1.0",
-            "Content-type" => "text/plain; charset=UTF-8",
+            "Content-type" => "text/html; charset=UTF-8",
             "From" => "noreply@developerakademie.com",
         );
 
-        mail($recipient, $subject, $message, $headers);
+        mail($recipient, $subject, $mailtext, $headers);
         header("Location: " . $redirect); 
 
         break;
