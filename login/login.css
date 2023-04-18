@@ -241,6 +241,16 @@ input[type=checkbox]{
   width: 100%;
   max-width: 264px;
 }
+.msg-send{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  width: 35%;
+}
+.msg-send-text{
+  margin-top: 0;
+}
 /*<=========== Media Querrys max-width: 900px Overlay*/
 @media (max-width: 900px){
   /* <=================== change global <900 */
