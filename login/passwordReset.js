@@ -1,3 +1,3 @@
-function newPasswordEmail(){
+function newPassword(){
   let userEmail = document.getElementById('requesterEmail');
 }
