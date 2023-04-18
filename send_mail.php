@@ -3,7 +3,7 @@
 ########### CONFIG ###############
 
 $recipient = $_REQUEST["requesterEmail"]; #fill with user email 'requesterEmail'
-$redirect = 'index.html'; #loading file after email send
+#$redirect = 'index.html'; #loading file after email send
 
 ########### CONFIG END ###########
 
