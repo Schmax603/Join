@@ -22,12 +22,12 @@
 <script src="../templets/mini_backend/mini_backend.js"></script>
 <script src="../script.js"></script>
 <!-- scripts -->
-  <script src="summary.js"></script>
+<script src="../login/login.js"></script>
+<script src="summary.js"></script>
   <script src="summaryTemplates.js"></script>
-  <script src="../login/login.js"></script>
 
 </head>
-<body id="body" onload="initHeaderNav(); init(); renderTimeOfDay()" onclick="closeMenu()">
+<body id="body" onload="initHeaderNav(); renderGreeting()" onclick="closeMenu()">
   <div w3-include-html="../headerNav/headerNav.html"></div>
   
   <main class="summary">
@@ -89,16 +89,11 @@
       </div>
 
       <div id="summary-infos-greeting">
-        <!-- todo render greetings h3 / h2 desktop mobile -->
-        <p class="font-text-47">Good morning,</p>
-        <p class="username-64">username</p>
       </div>
 
     </div>
 
     <section id="mobile-overlay">
-      <p class="font-text-36">Greeting Daytime</p>
-      <p class="username">Username</p>
     </section>
 
   </main>
