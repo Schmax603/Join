@@ -1,11 +1,37 @@
+/**
+ * Checks the email if it is registered
+ */
 function initNewPassword(){
   let requestEmail = localStorage.getItem('requestEmail');
-  let checkedUser = users.find(users => users.email.toLowerCase() == requestEmail.value.toLowerCase()); //tolowerCase = checks case-insensitive
+  let checkedUser = users.find(users => users.email.toLowerCase() == requestEmail.toLowerCase()); //tolowerCase = checks case-insensitive
   
   if (checkedUser) {
     console.log(requestEmail);
+    confirmPassword();
   }else{
-    console.log('Wrong Email')
+    console.log('Wrong Email');
+  }
+}
+
+async function confirmPassword(){
+  let newPassword = document.getElementById('new-password');
+  let confirmPassword = document.getElementById('confirm-password');
+  let resetEmail = localStorage.getItem('requestEmail');
+
+  if(newPassword.value == confirmPassword.value){
+    for (let i = 0; i < users.length; i++) {
+      let user = users[i];
+      if(resetEmail == user['email']){
+          user.password = newPassword.value;
+          users[i]=user;
+          await backend.setItem('users', JSON.stringify(users));
+          resetEmail = localStorage.setItem('requestEmail', '');
+          window.location.href='../index.html?succsess=password';
+          console.log(users, resetEmail);
+      }
+  }
+  }else{
+    console.log('Wrong Password');
   }
 }
 

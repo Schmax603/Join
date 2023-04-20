@@ -1,6 +1,6 @@
 function saveRequesterLocal(){
   let requestEmail = document.getElementById('requesterEmail');
-
+  localStorage.setItem('requestEmail', '');
   localStorage.setItem('requestEmail', requestEmail.value);
 }
 
@@ -18,8 +18,8 @@ function initMsg(){
     overlayMsgBox.classList.remove('overlay-msg');
     msgBox.classList.add('d-none');
     body.classList.remove('overflow-h');
+    loadNewPasswordHtml();
   }, 2000);
-  loadNewPasswordHtml();
 }
 
 function loadNewPasswordHtml(){
