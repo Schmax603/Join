@@ -1,6 +1,5 @@
 // aus backend: currentUser = getItem('currentUser') 
 // users[currentUser].contacts 
-// Farben zufällig ziehen und über CSS-Klasse bg-i einbinden
 let contacts = [
     {
         "name": "AntonMayer",
@@ -119,33 +118,13 @@ function showContactDetails(contactIndex, justEdited = false) {
         return;
 
     activateContact(contactIndex);
-
-    // document.getElementById('contact-details-overlay').classList.remove('show-overlay');
+    // hideOverlay('contact-details-overlay');
 
     setTimeout(() => {
         const contact = contacts[contactIndex];
-        const iconElement = document.getElementById('contact-details-icon');
-        const nameElement = document.getElementById('contact-details-name');
-        const emailElement = document.getElementById('contact-details-email');
-        const phoneElement = document.getElementById('contact-details-phone');
-
-        iconElement.classList = `contact-icon contact-overlay-icon font-text-47 ${contact.color}`;
-        iconElement.innerHTML = getInitials(contact);
-        nameElement.innerHTML = contact.name;
-        emailElement.innerHTML = `
-            <b>Email</b>
-            <a href="mailto:${contact.email}">${contact.email}</a>
-        `;
-        phoneElement.innerHTML = `
-            <b>Phone</b>
-            <a href="tel:${contact.phone}">${contact.phone}</a>
-        `;
-
-        document.getElementById('contact-details-edit').onclick = () => {
-            openEditContactOverlay(contact);
-        };
-
-        document.getElementById('contact-details-overlay').classList.add('show-overlay');
+        renderContactDetails(contact);
+        setOpenEditContact(contact);
+        showOverlay('contact-details-overlay');
     }, 220);
 }
 
@@ -166,6 +145,52 @@ function getActiveContact() {
 
 function contactIsActive(contactIndex) {
     return contactIndex === activeContactIndex;
+}
+
+
+function renderContactDetails(contact) {
+    renderContactDetailsIcon(contact);
+    renderContactDetailsName(contact);
+    renderContactDetailsEmail(contact);
+    renderContactDetailsPhone(contact);
+}
+
+
+function renderContactDetailsIcon(contact) {
+    const iconElement = document.getElementById('contact-details-icon');
+    iconElement.classList = `contact-icon contact-overlay-icon font-text-47 ${contact.color}`;
+    iconElement.innerHTML = getInitials(contact);
+}
+
+
+function renderContactDetailsName(contact) {
+    const nameElement = document.getElementById('contact-details-name');
+    nameElement.innerHTML = contact.name;
+}
+
+
+function renderContactDetailsEmail(contact) {
+    const emailElement = document.getElementById('contact-details-email');
+    emailElement.innerHTML = `
+        <b>Email</b>
+        <a href="mailto:${contact.email}">${contact.email}</a>
+    `;
+}
+
+
+function renderContactDetailsPhone(contact) {
+    const phoneElement = document.getElementById('contact-details-phone');
+    phoneElement.innerHTML = `
+        <b>Phone</b>
+        <a href="tel:${contact.phone}">${contact.phone}</a>
+    `;
+}
+
+
+function setOpenEditContact(contact) {
+    document.getElementById('contact-details-edit').onclick = () => {
+        openEditContactOverlay(contact);
+    };
 }
 
 
@@ -208,6 +233,9 @@ function sortContactsByName() {
 }
 
 
+/*--------------------------------------------------
+Create Contact Overlay
+---------------------------------------------------*/
 function openCreateContactOverlay() {
     freezeBackground();
     renderCreateContactHeadline();
@@ -401,10 +429,16 @@ function getRandomColorClass() {
 }
 
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+
+/*--------------------------------------------------
+Show / Hide
+---------------------------------------------------*/
 function showElement(id) {
-    // if (document.getElementById(id).classList.contains('d-none'))
     document.getElementById(id).classList.remove('d-none');
-    // if (document.getElementById(id).classList.contains('hidden'))
     document.getElementById(id).classList.remove('hidden');
 }
 
@@ -419,6 +453,16 @@ function removeElement(id) {
 }
 
 
+function showOverlay(id) {
+    document.getElementById(id).classList.add('show-overlay');
+}
+
+
+function hideOverlay(id) {
+    document.getElementById(id).classList.remove('show-overlay');
+}
+
+
 function doNotClose(event) {
     event.stopPropagation();
 }
@@ -426,9 +470,4 @@ function doNotClose(event) {
 
 function clearElement(id) {
     document.getElementById(id).innerHTML = '';
-}
-
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
 }
