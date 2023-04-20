@@ -57,18 +57,13 @@ textarea {
     line-height: 120%;
 }
 
-.addtask-prio-bnt {
+.addtask-prio-bnt-cursor {
+    cursor: pointer !important;
     gap: 10px;
 }
 
-.addtask-prio-bnts {
-    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.3);
-    margin-bottom: 5px;
+.addtask-prio-bnt-cursor {
     cursor: pointer !important;
-}
-
-.addtask-prio-bnts.img {
-    padding: 100px;
 }
 
 .addtask-genimput {
@@ -91,49 +86,45 @@ textarea {
 }
 
 .addtask-gendrop {
-    cursor: pointer;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     box-sizing: border-box;
-/*
-    background-image: url('../img/dropdown.svg');
-    background-repeat: no-repeat;
-    background-position: right 0.7rem top 50%;
-
-    background-size: 0.65rem auto;
-*/
 }
 
-.addtask-gendrop-item {
+.addtask-gendrop-collapsible {
+    cursor: pointer;
+}
+
+
+.addtask-gendrop-collapsible.active .addtask-item {
+    display: block;
+}
+
+.addtask-item {
     display: none;
     padding: 0 18px;
     overflow: hidden;
 }
 
-.addtask-gendrop:hover {
+.addtask-item:hover {
     background-color: #d8d4d4;
 }
-
-.addtask-gendrop.active .addtask-gendrop-item {
-    display: block;
-}
-
-
-option {
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
-    white-space: pre-wrap;
-    height: 41px;
-
-}
-
-
-
 
 .addtask-description-input {
     height: 93px;
 
     padding: 18px;
+}
+
+@media (min-width: 900px) {
+    .amogus {
+        margin-left: 355px;
+    }
+}
+
+@media (min-width: 1300px) {
+    body {
+        display: none;
+    }
 }

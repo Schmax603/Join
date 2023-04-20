@@ -80,6 +80,31 @@ function bnts() {
 }
 
 
-function diySection() {
-    
+
+function toggleActive() {
+    document.getElementById("collapsible").classList.toggle("active")
+}
+
+function dropdownValueCheck() {
+    var coll = document.getElementById("apicategory");
+    const divs = coll.getElementsByTagName("div");
+
+    for (let dropid = 0; dropid < divs.length; dropid++) {
+        divs[dropid].setAttribute("id", "apicategory-" + dropid);
+        return dropid.length
+    }
+
+}
+
+function loadCategory() {
+    const coll = document.getElementById("apicategory");
+    const divs = coll.getElementsByTagName("div");
+
+
+}
+
+function newCategory() {
+    const coll = document.getElementById("apicategory");
+    const divs = coll.getElementsByTagName("div");
+    const currentItem = document.getElementById("currentItem")
 }
