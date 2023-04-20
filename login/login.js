@@ -28,6 +28,14 @@ async function userLogin(){
 }
 
 /**
+ * Guest log in
+ */
+async function userGuest(){
+  await backend.setItem('currentUser', JSON.stringify({'currentUser':''}));
+  window.location.href = "../summary/summary.html"
+}
+
+/**
  * this function check the remember checkbox and save in the local storage
  * 
  * @param {string} userEmail - login email value
