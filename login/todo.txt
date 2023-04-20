@@ -17,6 +17,10 @@ Checked:
 
 - Email link "forgot Password"
   - link to reset your Password (new side)
+   - double check new password
+  - submit return to Login 
+    - search for email into array overwrite password
+    - response reset Password
 
 ToDo:
 
@@ -24,9 +28,4 @@ ToDo:
   - Guest submit -> Summary greeting (Date time of day)
   - Login submit check Email / Password
     - Checked Login -> Summary greeting Name (Date time of day)
-
-- Email link "forgot Password"
-  - double check new password
-  - submit return to Login 
-    - search for email into array overwrite password
-    - response reset Password
+ 
