@@ -90,7 +90,7 @@ function generateHtmlForgotPassword(){
     <!--!!! return false =>  prevents the page from reloading-->
     <!-- <form action="https://gruppe-438.developerakademie.net/Kochwelten-438/send_mail.php" method="post" onsubmit="newPasswordEmail(); return false" class="overlay-login-form"> -->
     <!-- ftp://f015a1bd@gruppe-534.developerakademie.net/send_mail.php -->
-    <form action="https://gruppe-534.developerakademie.net/send_mail.php" method="post" class="overlay-login-form">
+    <form onsubmit="saveRequesterLocal(); return false" action="https://gruppe-534.developerakademie.net/send_mail.php" method="post" class="overlay-login-form">
       <p class="cursor-d fs-21-400 ta-c mb-35">Don´t worry! We will send you an email with the instructions to reset your password.</p>
       
       <input id="requesterEmail" name="requesterEmail" type="email" placeholder="Email" autocomplete="current-password" required>
