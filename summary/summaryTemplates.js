@@ -1,4 +1,4 @@
-function generateHTMLGreetingGuest(greetings, mobileGreeting){
+function generateHTMLGreetingGuest(greetings, mobileGreeting, timeOfDay){
 greetings.innerHTML = /*html*/`
 <p class="font-text-47">${timeOfDay}</p>
 `;
@@ -7,7 +7,7 @@ return mobileGreeting.innerHTML = /*html*/`
 `;
 }
 
-function generateHTMLGreetingUser(greetings, mobileGreeting, activUser){
+function generateHTMLGreetingUser(greetings, mobileGreeting, activUser, timeOfDay){
   greetings.innerHTML = /*html*/`
       <p class="font-text-47">${timeOfDay},</p>
       <p class="username-64">${users[activUser].name}</p>
