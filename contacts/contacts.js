@@ -85,7 +85,7 @@ function renderLetterContacts(letter) {
     const container = document.getElementById('contacts-list');
     container.innerHTML += /*html*/`
         <div class="letter-container" id="letter-container-${letter}">
-            <div class="letter-header font-text">${letter}</div>
+            <div class="letter-header font-text-21">${letter}</div>
             <div class="letter-header-bottom-border"></div>
         </div>
     `;
@@ -106,7 +106,7 @@ function renderContact(contact) {
                 ${getInitials(contact)}
             </div>
             <div class="contact-name-email">
-                <span class="contact-name font-text">${contact.name}</span>
+                <span class="contact-name font-text-21">${contact.name}</span>
                 <span class="contact-email font-text-16">${contact.email}</span>
             </div>
         </div>
