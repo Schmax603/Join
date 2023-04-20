@@ -17,4 +17,5 @@ function initMsgPassword(){
     body.classList.remove('overflow-h');
     msgBox.classList.add('d-none')
   }, 2000);
+  // todo link to index.html
 }
