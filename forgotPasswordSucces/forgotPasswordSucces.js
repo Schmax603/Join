@@ -11,12 +11,17 @@ function initMsg(){
 
   overlayMsgBox.classList.add('overlay-msg');
   msgBox.classList.add('animate-msg');
+  msgBox.classList.remove('d-none');
   body.classList.add('overflow-h');
 
   setTimeout(() => {
     overlayMsgBox.classList.remove('overlay-msg');
-    msgBox.classList.add('d-none')
+    msgBox.classList.add('d-none');
     body.classList.remove('overflow-h');
-    window.location.href = "../login/newPassword.html";
   }, 2000);
+  loadNewPasswordHtml();
+}
+
+function loadNewPasswordHtml(){
+  window.location.href = "../login/newPassword.html";
 }
