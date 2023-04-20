@@ -1,8 +1,19 @@
-function newPassword(){
-  let userEmail = document.getElementById('requesterEmail');
+function initNewPassword(){
+  let requestEmail = localStorage.getItem('requestEmail');
+  let checkedUser = users.find(users => users.email.toLowerCase() == requestEmail.value.toLowerCase()); //tolowerCase = checks case-insensitive
+  
+  if (checkedUser) {
+    console.log(requestEmail);
+  }else{
+    console.log('Wrong Email')
+  }
 }
 
-function initMsgPassword(){
+
+/**
+ * generate Feedback succes password change
+ */
+function msgSuccesfullPasswordChange(){
   let overlayMsgBox = document.getElementById('overlay-msg-password');
   let msgBox = document.getElementById('msg-box-password');
   let body = document.getElementById('body-password');
