@@ -44,6 +44,39 @@
                 <p class="header-subheadline ml-30">Better with a team</p>
             </div>
 
+            <div class="contact-details-container">
+                <div id="contact-details-overlay" class="contact-details-overlay">
+                    <div class="contact-icon-and-name">
+                        <div id="contact-details-icon" class="contact-icon contact-details-icon font-text-47 bg-0">
+                            <!-- rendered by showContactDetails(contactIndex) -->
+                        </div>
+                        <div class="contact-name-addTask">
+                            <span id="contact-details-name" class="contact-name font-text-47">
+                                <!-- rendered by showContactDetails(contactIndex) -->
+                            </span>
+                            <div class="contact-addTask font-text-16" onclick="openAddTaskOverlay()">
+                                <div w3-include-html="../img/addPlus.svg" style="display:flex"></div>
+                                <span>Add Task</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-header-and-edit">
+                        <div class="font-text">
+                            Contact Information
+                        </div>
+                        <div id="contact-details-edit" class="contact-edit font-text-16">
+                            <div w3-include-html="../img/pencilContacts.svg" style="display:flex"></div>
+                            <span>Edit Contact</span>
+                        </div>
+                    </div>
+                    <div id="contact-details-email" class="contact-details-email">
+                        <!-- rendered by showContactDetails(contactIndex) -->
+                    </div>
+                    <div id="contact-details-phone" class="contact-details-phone">
+                        <!-- rendered by showContactDetails(contactIndex) -->
+                    </div>
+                </div>
+            </div>
 
             <button class="new-contact dark-btn font-btn-21" onclick="openNewContactOverlay()">
                 <span>New contact</span>
@@ -79,12 +112,7 @@
                 <div class="form-contact-buttons">
                     <button type="button" class="light-btn font-text-21" onclick="closeNewContactOverlay()">
                         <span>Cancel</span>
-                        <!-- <img src="../img/clear_blue.svg"> -->
-                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12.5011 12.5001L17.7441 17.7431M7.25806 17.7431L12.5011 12.5001L7.25806 17.7431ZM17.7441 7.25708L12.5001 12.5001L17.7441 7.25708ZM12.5001 12.5001L7.25806 7.25708L12.5001 12.5001Z"
-                                stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+                        <div w3-include-html="../img/clear.svg" style="display:flex"></div>
                     </button>
                     <button type="submit" class="dark-btn font-btn-21">
                         <span>Create contact</span>
