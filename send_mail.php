@@ -45,7 +45,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $mailtext = '
 		<html>
 			<body>
-				<a href="https://gruppe-534.developerakademie.net/login/newPassword.html">Click here</a> for reset password.
+				<a href="https://gruppe-534.developerakademie.net/login-beta/newPassword.html">Click here</a> for reset password.
 			</body>
 		</html>
 		';
