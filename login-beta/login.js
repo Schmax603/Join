@@ -27,9 +27,7 @@ async function userLogin(){
   }
 }
 
-/**
- * Guest log in
- */
+/**Guest log in*/
 async function userGuest(){
   await backend.setItem('currentUser', JSON.stringify({'currentUser':''}));
   window.location.href = "../summary/summary.html"
