@@ -7,22 +7,29 @@ function initLogin(){ /**@alias module:initLogin */
   }, 1000);
 }
 
-/**
- * Check user login, if not create message
- * 
- * @param {string} userEmail - login email value
- * @param {string} userPassword - login password value
- * @param {number} i - user index
- */
+/**Check user input for login*/
 async function userLogin(){
   let userEmail = document.getElementById('loginEmail');
   let userPassword = document.getElementById('loginPassword');
-  let msgBox = document.getElementById('msg-box');
   let i = 0;
 
   let user = users.find(users => users.email.toLowerCase() == userEmail.value.toLowerCase() && users.password == userPassword.value); //tolowerCase = checks case-insensitive
 
+  checkUserInput(user, userEmail, userPassword, i);
+}
+
+/**Check user input and call back
+ * 
+ * @param {string} user activ usser
+ * @param {string} userEmail user login email
+ * @param {string} userPassword user login password
+ * @param {number} i array position
+ */
+async function checkUserInput(user, userEmail, userPassword, i){
+  let msgBox = document.getElementById('msg-box');
+
   msgBox.innerHTML = '';
+
   if (user) {
     checkRemember(userEmail, userPassword);
     while (user != users[i]) {
@@ -42,8 +49,7 @@ async function userGuest(){
   window.location.href = "../summary/summary.html"
 }
 
-/**
- * this function check the remember checkbox and save in the local storage
+/**this function check the remember checkbox and save in the local storage
  * 
  * @param {string} userEmail - login email value
  * @param {string} userPassword - login password value
