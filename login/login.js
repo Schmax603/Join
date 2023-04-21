@@ -1,11 +1,16 @@
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+// Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+let msg = params.msg;
 /**initiated login animation*/
-function initLogin(){ /**@alias module:initLogin */
-  let whiteLogo = document.getElementById('logo-white');
+// function initLogin(){ /**@alias module:initLogin */
+//   let whiteLogo = document.getElementById('logo-white');
   
-  setTimeout(function(){ 
-    whiteLogo.classList.add('d-none');
-  }, 1000);
-}
+//   setTimeout(function(){ 
+//     whiteLogo.classList.add('d-none');
+//   }, 1000);
+// }
 
 /**Check user input for login*/
 async function userLogin(){
@@ -86,13 +91,6 @@ async function logout(){
   await backend.setItem('currentUser', JSON.stringify({'currentUser':''}));
   window.location.href = '../index.html';
 }
-
-// todo querry param 
-const params = new Proxy(new URLSearchParams(window.location.search), {
-  get: (searchParams, prop) => searchParams.get(prop),
-});
-// Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-let msg = params.msg;
 
 function displayMessage(){
 let msgBox = document.getElementById('msg-box');
