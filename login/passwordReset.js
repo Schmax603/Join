@@ -1,6 +1,11 @@
-/**
- * Checks the email if it is registered
- */
+/**Save email into localStorage*/
+function saveRequesterLocal(){
+  let requestEmail = document.getElementById('requesterEmail');
+  localStorage.setItem('requestEmail', '');
+  localStorage.setItem('requestEmail', requestEmail.value);
+}
+
+/**Checks the email if it is registered*/
 function initNewPassword(){
   let requestEmail = localStorage.getItem('requestEmail');
   let checkedUser = users.find(users => users.email.toLowerCase() == requestEmail.toLowerCase()); //tolowerCase = checks case-insensitive
@@ -13,6 +18,7 @@ function initNewPassword(){
   }
 }
 
+/**Checks the password input*/
 async function confirmPassword(){
   let newPassword = document.getElementById('new-password');
   let confirmPassword = document.getElementById('confirm-password');
@@ -26,7 +32,7 @@ async function confirmPassword(){
           users[i]=user;
           await backend.setItem('users', JSON.stringify(users));
           resetEmail = localStorage.setItem('requestEmail', '');
-          window.location.href='../index.html?succsess=password';
+          window.location.href='../index.html?msg=You reset your password';
           console.log(users, resetEmail);
       }
   }
@@ -36,9 +42,7 @@ async function confirmPassword(){
 }
 
 
-/**
- * generate Feedback succes password change
- */
+/**generate Feedback succes password change*/
 function msgSuccesfullPasswordChange(){
   let overlayMsgBox = document.getElementById('overlay-msg-password');
   let msgBox = document.getElementById('msg-box-password');

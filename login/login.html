@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Join</title>
   <!-- favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
@@ -22,30 +22,56 @@
       change for index.html 
   -->
     <script src="login.js"></script>
-    <script src="loginFeature.js"></script>
-    <script src="loginTemplates.js"></script>
     <script src="registry.js"></script>
-    <script src="../summary/summaryTemplates.js"></script>
-    <script src="../forgotPasswordSucces/forgotPasswordSucces.js"></script>
 </head>
 
-<body onload="initLogin(); init(); remember()">
+<body onload="initLogin(); init(); remember(); displayMessage()">
   <main >
+
     <img id="logo-white" class="main-logo main-logo-white logo-animate-white" src="../img/logo.png" alt="join logo white">
     <img class="main-logo logo-animate" src="../img/logoSmall.png" alt="join logo">
     
     <div class="main-overlay">
       <div id="sign-up" class="main-login">
         <p class="cursor-d fs-21-400">Not a Join user?</p>
-        <button onclick="openSignUp()" class="btn-dark main-login-btn bg-c-db cursor-p fc-w fs-16-700">Sign up</button>
+        <button onclick="window.location.href= 'signUp.html'" class="btn-dark main-login-btn bg-c-db cursor-p fc-w fs-16-700">Sign up</button>
       </div>
     </div>
     
     <section id="overlay" class="overlay">
       
-      <div id="login-card" class="overlay-login bg-c-w"></div>
+      <div id="login-card" class="overlay-login bg-c-w">
+
+        <div class="overlay-login-header">
+          <h1 class="cursor-d fs-62-700">Log in</h1>
+          <div class="border"></div>
+        </div>
       
-      <div id="msg-box"></div>
+        <!--!!! return false =>  prevents the page from reloading-->
+        <form onsubmit="userLogin(); return false" class="overlay-login-form">
+          <input id="loginEmail" type="email" placeholder="Email" autocomplete="current-password" required>
+          <input id="loginPassword" class="password-img" type="password" placeholder="Password" autocomplete="current-password" required>
+          
+          <div class="overlay-login-selection">
+            
+            <div class="overlay-login-selection-support">
+              <div class="checkbox">
+                <input id="remember-me" type="checkbox" class="cursor-p">
+                <label for="remember" class="cursor-d fs-16-400 mr-35">Remember me</label>
+              </div>
+                <p onclick="window.location.href='forgotPassword.html'" class="cursor-p fc-lb fs-16-400">Forgot my password</p>
+            </div>
+            
+            <div class="overlay-login-buttons">
+              <button type="submit" class="btn-dark bg-c-db cursor-p fc-w fs-21-700">Log in</button>
+              <button onclick="userGuest(); return false" class="btn-bright bg-c-w cursor-p fs-21-700">Guest Log in</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+      
+      <div id="msg-box" class="d-none"></div>
     </section>
     <div class="animation-bg bg-animation"></div>
   </main>
