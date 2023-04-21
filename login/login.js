@@ -44,7 +44,7 @@ async function checkUserInput(user, userEmail, userPassword, i){
     console.log('geschafft')
     window.location.href = '../summary/summary.html';
   }else{
-    msgBox.innerHTML = generateHtmlWrongLogin();
+    window.location.href = 'index.html?msg=Incorrect email or password.';
   }
 }
 
