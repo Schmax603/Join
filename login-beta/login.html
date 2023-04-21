@@ -22,12 +22,11 @@
       change for index.html 
   -->
     <script src="login.js"></script>
-    <!-- <script src="loginTemplates.js"></script> -->
     <script src="registry.js"></script>
     <script src="forgotPasswordSucces.js"></script>
 </head>
 
-<body onload="initLogin(); init(); remember()">
+<body onload="initLogin(); init(); remember(); displayMessage()">
   <main >
 
     <img id="logo-white" class="main-logo main-logo-white logo-animate-white" src="../img/logo.png" alt="join logo white">
@@ -73,7 +72,7 @@
 
       </div>
       
-      <div id="msg-box"></div>
+      <div id="msg-box" class="d-none"></div>
     </section>
     <div class="animation-bg bg-animation"></div>
   </main>
