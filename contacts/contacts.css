@@ -127,12 +127,13 @@ Contact List
 ---------------------------------------------------*/
 .contacts-list-container {
     width: 40%;
+    max-width: 500px;
     background-color: white;
     overflow: auto;
     box-shadow: 4px 0px 6px 0px #00000014;
     display: flex;
     justify-content: center;
-    padding: 8px;
+    padding: 16px;
 }
 
 .contacts-list-container::-webkit-scrollbar {
@@ -149,7 +150,7 @@ Contact List
 }
 
 .contacts-list {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -179,6 +180,7 @@ Contact List
 
 .contact {
     width: 100%;
+    min-width: min-content;
     display: flex;
     gap: 35px;
     /* align-items: center; */
@@ -213,7 +215,7 @@ Contact List
 }
 
 .contact-list-icon {
-    width: 42px;
+    min-width: 42px;
     height: 42px;
 }
 
@@ -232,18 +234,18 @@ Contact List
 Contact Details
 ---------------------------------------------------*/
 .contacts-info-container {
-    width: 60%;
+    flex-grow: 1;
     padding: 89px 52px 67px 52px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 40px;
     overflow: hidden;
 }
 
 .contacts-header {
     display: flex;
     align-items: center;
+    margin-bottom: 40px;
 }
 
 .header-headline {
@@ -255,6 +257,13 @@ Contact Details
     height: 59px;
     border: 3px solid #29ABE2;
     border-radius: 2px;
+}
+
+.header-border-bottom {
+    width: 90px;
+    border: 3px solid #29ABE2;
+    border-radius: 2px;
+    display: none;
 }
 
 .header-subheadline {
@@ -285,7 +294,7 @@ Contact Details
 }
 
 .contact-overlay-icon {
-    width: 120px;
+    min-width: 120px;
     height: 120px;
     border: 2px solid white;
 }
@@ -355,6 +364,8 @@ Contact Details
 }
 
 .contact-created {
+    position: absolute;
+    bottom: 150px;
     width: fit-content;
     color: white;
     background-color: #2A3647;

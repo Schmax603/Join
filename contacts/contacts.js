@@ -282,7 +282,7 @@ function setCreateContactButtons() {
 
 function slideInCreateOrEditContactOverlay() {
     setTimeout(() => {
-        document.getElementById('create-or-edit-contact-overlay').classList.add('show-overlay');
+        showOverlay('create-or-edit-contact-overlay');
     }, 100);
 }
 
@@ -350,7 +350,7 @@ function deleteContact(contact) {
     contacts.splice(contactIndex, 1);
     closeCreateOrEditContactOverlay();
     renderContactList();
-    document.getElementById('contact-details-overlay').classList.remove('show-overlay');
+    hideOverlay('contact-details-overlay');
 }
 
 function editContact(contact) {
@@ -367,7 +367,7 @@ function editContact(contact) {
 
 
 function closeCreateOrEditContactOverlay() {
-    document.getElementById('create-or-edit-contact-overlay').classList.remove('show-overlay');
+    hideOverlay('create-or-edit-contact-overlay');
     setTimeout(unfreezeBackground, 220);
     document.getElementById('form-contact-info').reset();
 }
@@ -416,10 +416,10 @@ function scrollToID(id) {
 
 function showSuccessMessage(id) {
     setTimeout(() => {
-        document.getElementById(id).classList.add('show-overlay');
+        showOverlay(id);
     }, 500);
     setTimeout(() => {
-        document.getElementById(id).classList.remove('show-overlay');
+        hideOverlay(id);
     }, 2500);
 }
 
