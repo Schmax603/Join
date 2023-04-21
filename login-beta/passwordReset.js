@@ -1,6 +1,4 @@
-/**
- * Checks the email if it is registered
- */
+/**Checks the email if it is registered*/
 function initNewPassword(){
   let requestEmail = localStorage.getItem('requestEmail');
   let checkedUser = users.find(users => users.email.toLowerCase() == requestEmail.toLowerCase()); //tolowerCase = checks case-insensitive
@@ -13,6 +11,7 @@ function initNewPassword(){
   }
 }
 
+/**Checks the password input*/
 async function confirmPassword(){
   let newPassword = document.getElementById('new-password');
   let confirmPassword = document.getElementById('confirm-password');
@@ -36,9 +35,7 @@ async function confirmPassword(){
 }
 
 
-/**
- * generate Feedback succes password change
- */
+/**generate Feedback succes password change*/
 function msgSuccesfullPasswordChange(){
   let overlayMsgBox = document.getElementById('overlay-msg-password');
   let msgBox = document.getElementById('msg-box-password');
