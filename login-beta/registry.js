@@ -1,7 +1,6 @@
 let EmailIsAvailable = false;
 
-/**
-  *this function registry new User or checke Array users for existing email
+/**this function registry new User or checke Array users for existing email
   *
   *@param {Array} users - backend Array
   *@param {string} name - Name of the new user
@@ -15,7 +14,7 @@ async function userSignUp() {
 
   if (users.length === 0) {
     pushUserArray(name, email, password, contacts, tasks);
-    returnToLogin();
+    window.location.href = 'login.html?msg=You have successfully registered.';
   }else{
     checkEmailSignUp(name, email, password);
   }
@@ -25,8 +24,7 @@ async function userSignUp() {
   password.value = '';
 }
 
-/**
-  *this function checked registerd User email and set boolean true or false
+/**this function checked registerd User email and set boolean true or false
   *
   *@param {Array} users - backend Array
   *@param {string} name - Name of the new user
@@ -48,8 +46,8 @@ function checkEmailSignUp(name, email, password){
   checkEmailAvailable(name, email, password);
 }
 
-/**
-  *this function verify email
+/**this function verify email
+  * 
   *@param {string} email - email of the new user
   *@param {string} userEmailSignedUp - registered user email
  */
@@ -57,8 +55,7 @@ function EmailCheckAvailable(userEmailSignedUp, email){
   return userEmailSignedUp === email.value;
 }
 
-/**
-  *this function look for exsited email
+/**this function look for exsited email
   *
   *@param {string} name - Name of the new user
   *@param {string} email - email of the new user
@@ -67,17 +64,17 @@ function EmailCheckAvailable(userEmailSignedUp, email){
  */
 function checkEmailAvailable(name, email, password){
   if (EmailIsAvailable === true) {
-    renderMsgBoxEmailNotAvailable();
+    window.location.href = 'signUp.html?msg=Email already exists..';
+    // renderMsgBoxEmailNotAvailable();
     EmailIsAvailable = false;
   }else{
     pushUserArray(name, email, password, contacts, tasks);
-    returnToLogin();
+    window.location.href = 'login.html?msg=You have successfully registered.';
     EmailIsAvailable = false;
   }
 }
 
-/**
-  *this function push array into backend
+/**this function push array into backend
   *
   *@param {Array} users - backend Array
   *@param {*} backend - mini_backend.js variable
@@ -87,34 +84,28 @@ async function pushUserArray(name, email, password, contacts, tasks){
   await backend.setItem('users', JSON.stringify(users));
 }
 
-/**
-  *this function return to login
-  */
-//  todo rebuild
-function returnToLogin(){
-  let overlayCard = document.getElementById('login-card');
+/**this function return to login*/
+// //  todo rebuild
+// function returnToLogin(){
+//   let overlayCard = document.getElementById('login-card');
 
-  overlayCard.innerHTML = '';
-  overlayCard.innerHTML = generateHtmlLogin();
-  document.getElementById('sign-up').classList.remove('d-none');
-  renderMsgBoxRegestry();
-}
+//   overlayCard.innerHTML = '';
+//   overlayCard.innerHTML = generateHtmlLogin();
+//   document.getElementById('sign-up').classList.remove('d-none');
+//   renderMsgBoxRegestry();
+// }
 
-/**
-  *this function render message box "not available"
-  */
-function renderMsgBoxEmailNotAvailable(){
-  let msgBox = document.getElementById('msg-box');
+/**this function render message box "not available"*/
+// function renderMsgBoxEmailNotAvailable(){
+//   let msgBox = document.getElementById('msg-box');
 
-  msgBox.innerHTML = generateHtmlEmailNotAvailable();
-  setTimeout(() => {
-    msgBox.innerHTML = '';
-  }, 2000);
-}
+//   msgBox.innerHTML = generateHtmlEmailNotAvailable();
+//   setTimeout(() => {
+//     msgBox.innerHTML = '';
+//   }, 2000);
+// }
 
-/**
-  *this function render message box "registered"
-  */
+/**this function render message box "registered"*/
 function renderMsgBoxRegestry(){
   let msgBox = document.getElementById('msg-box');
 

@@ -86,3 +86,17 @@ async function logout(){
   await backend.setItem('currentUser', JSON.stringify({'currentUser':''}));
   window.location.href = '../index.html';
 }
+
+// todo querry param 
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+// Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+let msg = params.some_key; // "some_value"
+const msgBox = document.getElementById('msg-box');
+if(msg){
+  msgBox.classList.remove('d-none');
+  msgBox.innerHTML = msg;
+}else{
+  // msgBox.classList.add('d-none');
+}
