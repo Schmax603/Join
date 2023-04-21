@@ -17,6 +17,9 @@
     <script src="../headerNav/headerNav.js"></script>
 
     <link rel="stylesheet" href="contacts.css">
+    <link rel="stylesheet" href="newContact.css">
+    <link rel="stylesheet" href="contactsMediaQueries.css">
+    <link rel="stylesheet" href="showAndHide.css">
     <link rel="stylesheet" href="bgColors.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
 
@@ -42,12 +45,13 @@
                 <p class="header-headline mr-30">Contacts</p>
                 <div class="header-border-mid"></div>
                 <p class="header-subheadline ml-30">Better with a team</p>
+                <div class="header-border-bottom"></div>
             </div>
 
             <div class="contact-details-container">
                 <div id="contact-details-overlay" class="contact-details-overlay">
                     <div class="contact-icon-and-name">
-                        <div id="contact-details-icon" class="contact-icon contact-details-icon font-text-47 bg-0">
+                        <div id="contact-details-icon" class="contact-icon contact-overlay-icon font-text-47 bg-0">
                             <!-- rendered by showContactDetails(contactIndex) -->
                         </div>
                         <div class="contact-name-addTask">
@@ -61,7 +65,7 @@
                         </div>
                     </div>
                     <div class="contact-header-and-edit">
-                        <div class="font-text">
+                        <div class="font-text-21">
                             Contact Information
                         </div>
                         <div id="contact-details-edit" class="contact-edit font-text-16">
@@ -78,23 +82,32 @@
                 </div>
             </div>
 
-            <button class="new-contact dark-btn font-btn-21" onclick="openNewContactOverlay()">
+            <div id="contact-successfully-created" class="contact-created font-text-21">
+                Contact successfully created
+            </div>
+
+            <button class="new-contact dark-btn font-btn-21" onclick="openCreateContactOverlay()">
                 <span>New contact</span>
                 <img src="../img/addSymbol.png">
             </button>
         </div>
     </main>
 
-    <div id="new-contact-screen" class="overlay-bg d-none" onclick="closeNewContactOverlay()">
-        <div id="new-contact-overlay" class="new-contact-overlay" onclick="doNotClose(event)">
-            <div class="add-contact-header">
+    <div id="create-or-edit-contact-screen" class="overlay-bg d-none" onclick="closeCreateOrEditContactOverlay()">
+        <div id="create-or-edit-contact-overlay" class="create-or-edit-contact-overlay" onclick="doNotClose(event)">
+            <div class="create-or-edit-contact-header">
                 <img src="../img/logo.png">
-                <p class="header-headline mt-12 mb-12">Add contact</p>
-                <p class="font-text-27">Tasks are better with a team!</p>
+                <p id="create-or-edit-contact-headline" class="header-headline mt-12 mb-12">
+                    <!-- rendered by renderCreateContactHeadline() or renderEditContactHeadline() -->
+                </p>
+                <p id="create-or-edit-contact-subheadline" class="font-text-27">
+                    <!-- rendered by renderCreateContactHeadline() or renderEditContactHeadline() -->
+                </p>
                 <div class="header-border-bottom mt-12"></div>
             </div>
-            <div class="user-img">
-                <img src="../img/emptyImg.png">
+
+            <div id="create-or-edit-contact-icon-container">
+                <!-- rendered by renderCreateContactIcon() or renderEditContactIcon(contact) -->
             </div>
             <form id="form-contact-info" class="form-contact-info" onsubmit="addNewContact(); return false;">
                 <div class="input-field">
@@ -109,19 +122,24 @@
                     <input id="new-contact-phone" type="tel" title="" placeholder="Phone" required>
                     <img src="../img/phoneInput.png">
                 </div>
-                <div class="form-contact-buttons">
-                    <button type="button" class="light-btn font-text-21" onclick="closeNewContactOverlay()">
-                        <span>Cancel</span>
-                        <div w3-include-html="../img/clear.svg" style="display:flex"></div>
+                <div id="form-contact-buttons">
+                    <button id="form-contact-light-btn" type="button" class="light-btn font-text-21"
+                        onclick="closeCreateOrEditContactOverlay()">
+                        <span id="form-contact-light-btn-text">
+                            <!-- rendered by renderCreateContactButtons() or renderEditContactButtons() -->
+                        </span>
+                        <div id="form-contact-light-btn-symbol" w3-include-html="../img/clear.svg"></div>
                     </button>
-                    <button type="submit" class="dark-btn font-btn-21">
-                        <span>Create contact</span>
-                        <img src="../img/create.png">
+                    <button id="form-contact-dark-btn" type="submit" class="dark-btn font-btn-21">
+                        <span id="form-contact-dark-btn-text">
+                            <!-- rendered by renderCreateContactButtons() or renderEditContactButtons() -->
+                        </span>
+                        <img id="form-contact-dark-btn-symbol" src="../img/create.png">
                     </button>
                 </div>
-                <div class="close-new-contact" onclick="closeNewContactOverlay()"><img src="../img/close.png"></div>
+                <div class="close-new-contact" onclick="closeCreateOrEditContactOverlay()"><img src="../img/close.png">
+                </div>
             </form>
-
         </div>
     </div>
 </body>

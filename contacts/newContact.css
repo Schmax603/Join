@@ -1,0 +1,112 @@
+.overlay-bg {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    overflow: hidden;
+}
+
+.create-or-edit-contact-overlay {
+    max-width: fit-content;
+    height: 594px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F5F5F5;
+    border-radius: 30px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    transform: translateX(100vw);
+    transition: all 220ms ease-in-out;
+}
+
+.create-or-edit-contact-header {
+    width: 463px;
+    height: 100%;
+    background-color: #2A3647;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    padding: 46px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.create-or-edit-contact-header img {
+    width: 55px;
+    /* height: 100%; */
+}
+
+.header-border-bottom {
+    width: 90px;
+    border: 3px solid #29ABE2;
+    border-radius: 2px;
+}
+
+#create-or-edit-contact-icon-container {
+    width: 260px;
+    min-width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#create-or-edit-contact-icon-container img {
+    width: 120px;
+    height: 120px;
+}
+
+.form-contact-info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-grow: 1;
+    padding: 104px 53px 104px 0;
+    position: relative;
+}
+
+.form-contact-info .input-field {
+    height: 51px;
+    width: 422px;
+    border-radius: 10px;
+    padding: 13px 21px 13px 21px;
+    background-color: white;
+    border: 1px solid #d1d1d1;
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-contact-info .input-field input {
+    border: none;
+    outline: none;
+    font-size: 21px;
+    font-weight: 400;
+}
+
+#form-contact-buttons {
+    display: flex;
+    /* gap: 20px; */
+    margin-top: 30px;
+}
+
+#form-contact-buttons button {
+    gap: 10px;
+    margin-right: 24px;
+}
+
+.close-new-contact {
+    position: absolute;
+    top: 32px;
+    right: 64px;
+    cursor: pointer;
+}
