@@ -3,7 +3,7 @@
 ########### CONFIG ###############
 
 $recipient = $_REQUEST["requesterEmail"]; #fill with user email 'requesterEmail'
-$redirect = '/login-beta/forgotPassword.html?msg=An email has been send to you.'; #loading file after email send
+$redirect = '/login/forgotPassword.html?msg=An email has been send to you.'; #loading file after email send
 
 ########### CONFIG END ###########
 
@@ -45,7 +45,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $mailtext = '
 		<html>
 			<body>
-				<a href="https://gruppe-534.developerakademie.net/login-beta/newPassword.html">Click here</a> for reset password.
+				<a href="https://gruppe-534.developerakademie.net/login/newPassword.html">Click here</a> for reset password.
 			</body>
 		</html>
 		';
