@@ -92,11 +92,17 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
 // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-let msg = params.some_key; // "some_value"
-const msgBox = document.getElementById('msg-box');
+let msg = params.msg;
+
+function displayMessage(){
+let msgBox = document.getElementById('msg-box');
 if(msg){
   msgBox.classList.remove('d-none');
   msgBox.innerHTML = msg;
 }else{
-  // msgBox.classList.add('d-none');
+  msgBox.classList.add('d-none');
+}
+setTimeout(() => {
+  msgBox.classList.add('d-none');
+}, 2000);
 }
