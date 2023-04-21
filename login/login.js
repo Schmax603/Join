@@ -2,6 +2,9 @@
 function initLogin(){ /**@alias module:initLogin */
   let whiteLogo = document.getElementById('logo-white');
 
+  if (window.innerWidth >= 900) {
+    
+  }
   setTimeout(function(){ 
     whiteLogo.classList.add('d-none');
   }, 1000);
