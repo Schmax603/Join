@@ -13,7 +13,7 @@ async function userSignUp() {
   let password = document.getElementById('signUpPassword');
 
   if (users.length === 0) {
-    pushUserArray(name, email, password, contacts, tasks);
+    pushUserArray(name, email, password);
     window.location.href = 'login.html?msg=You have successfully registered.';
   }else{
     checkEmailSignUp(name, email, password);
@@ -68,7 +68,7 @@ async function checkEmailAvailable(name, email, password){
     window.location.href = 'signUp.html?msg=Email already exists.';
   }else{
     EmailIsAvailable = false;
-    await pushUserArray(name, email, password, contacts, tasks);
+    await pushUserArray(name, email, password);
   }
 }
 
@@ -77,7 +77,7 @@ async function checkEmailAvailable(name, email, password){
 *@param {Array} users - backend Array
 *@param {*} backend - mini_backend.js variable
 */
-async function pushUserArray(name, email, password, contacts, tasks){
+async function pushUserArray(name, email, password){
   users.push({name: name.value, email: email.value, password: password.value, contacts, tasks});
   await backend.setItem('users', JSON.stringify(users));
   window.location.href = 'login.html?msg=You have successfully registered.';
