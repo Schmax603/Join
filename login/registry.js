@@ -14,7 +14,7 @@ async function userSignUp() {
   let password = document.getElementById('signUpPassword');
 
   if (users.length === 0) {
-    pushUserArray(name, email, password);
+    pushUserArray(name, email, password, contacts, tasks);
     returnToLogin();
   }else{
     checkEmailSignUp(name, email, password);
@@ -70,7 +70,7 @@ function checkEmailAvailable(name, email, password){
     renderMsgBoxEmailNotAvailable();
     EmailIsAvailable = false;
   }else{
-    pushUserArray(name, email, password);
+    pushUserArray(name, email, password, contacts, tasks);
     returnToLogin();
     EmailIsAvailable = false;
   }
@@ -82,8 +82,8 @@ function checkEmailAvailable(name, email, password){
   *@param {Array} users - backend Array
   *@param {*} backend - mini_backend.js variable
  */
-async function pushUserArray(name, email, password){
-  users.push({name: name.value, email: email.value, password: password.value});
+async function pushUserArray(name, email, password, contacts, tasks){
+  users.push({name: name.value, email: email.value, password: password.value, contacts, tasks});
   await backend.setItem('users', JSON.stringify(users));
 }
 
