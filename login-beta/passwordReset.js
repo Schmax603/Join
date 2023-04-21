@@ -1,3 +1,10 @@
+/**Save email into localStorage*/
+function saveRequesterLocal(){
+  let requestEmail = document.getElementById('requesterEmail');
+  localStorage.setItem('requestEmail', '');
+  localStorage.setItem('requestEmail', requestEmail.value);
+}
+
 /**Checks the email if it is registered*/
 function initNewPassword(){
   let requestEmail = localStorage.getItem('requestEmail');
