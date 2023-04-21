@@ -1,3 +1,12 @@
+/**initiated login animation*/
+function initLogin(){ /**@alias module:initLogin */
+  let whiteLogo = document.getElementById('logo-white');
+
+  setTimeout(function(){ 
+    whiteLogo.classList.add('d-none');
+  }, 1000);
+}
+
 /**
  * Check user login, if not create message
  * 
