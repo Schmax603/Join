@@ -1,6 +1,8 @@
 // implement mini-backend.js before srcipt.js
 let users = [];
 let currentUser = [];
+let contacts = [];
+let tasks = [];
 setURL('https://gruppe-534.developerakademie.net/smallest_backend_ever');
 
 async function init() {
