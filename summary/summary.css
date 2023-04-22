@@ -161,8 +161,7 @@ Media Querry
 
 @media(max-width: 900px){
   .summary{
-    margin-bottom: 85px;
-    padding: 114px 35px 0 35px;
+    padding: 114px 35px 35px 35px;
     min-height: 100vh;
   }
 }
@@ -270,6 +269,12 @@ Media Querry
   }
   .summary-infos-tasks-card-amount{
     font-size: 47px;
+  }
+}
+
+@media (max-height: 850px){
+  .summary{
+    margin-bottom: 80px;
   }
 }
 /*--------------------------------------------------
