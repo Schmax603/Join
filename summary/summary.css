@@ -274,7 +274,7 @@ Media Querry
 
 @media (max-height: 850px){
   .summary{
-    margin-bottom: 80px;
+    padding-bottom: 86px;
   }
 }
 /*--------------------------------------------------
