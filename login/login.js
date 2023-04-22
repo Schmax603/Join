@@ -3,14 +3,16 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 });
 // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
 let msg = params.msg;
+
+
 /**initiated login animation*/
-// function initLogin(){ /**@alias module:initLogin */
-//   let whiteLogo = document.getElementById('logo-white');
+function initLogin(){ /**@alias module:initLogin */
+  let whiteLogo = document.getElementById('logo-white');
   
-//   setTimeout(function(){ 
-//     whiteLogo.classList.add('d-none');
-//   }, 1000);
-// }
+  setTimeout(function(){ 
+    whiteLogo.classList.add('d-none');
+  }, 1000);
+}
 
 /**Check user input for login*/
 async function userLogin(){
