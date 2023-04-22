@@ -161,6 +161,7 @@ Media Querry
 
 @media(max-width: 900px){
   .summary{
+    margin-bottom: 85px;
     padding: 114px 35px 0 35px;
     min-height: 100vh;
   }

@@ -1,3 +1,4 @@
+/* --> delete */
 .cursor-d{
   cursor: default;
 }
@@ -41,6 +42,8 @@
   width: 50px;
   height: 50px;
 }
+/* -----> ^ delete */
+
 .text-i-40px{
   text-indent: -40px;
 }
@@ -50,8 +53,9 @@
 .pl-35{
   padding-left: 35px;
 }
-
-/*<=========== Header*/
+/*--------------------------------------------------
+Header
+---------------------------------------------------*/
 header{
   padding-left: 116px;
   padding-right: 33px;
@@ -108,9 +112,11 @@ header{
     right: 33px;
   }
 }
-/*<=========== Nav*/
+/*--------------------------------------------------
+Navbar
+---------------------------------------------------*/
 nav{
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
@@ -157,8 +163,9 @@ nav{
   justify-content: flex-start;
   align-items: center;
 }
-
-/*<=========== legal*/
+/*--------------------------------------------------
+Overlay legal, help
+---------------------------------------------------*/
 .overlay {
   position: absolute;
   top: 0;
@@ -175,26 +182,25 @@ nav{
   flex-direction: row-reverse;
   justify-content: space-between;
 }
-
 .overlay-h1 {
   gap: 100%;
   display: flex;
 }
-
 .overlay-h1 img:hover {
   margin-left: 20px;
   cursor: pointer;
 }
-
 .bnt {
-
   top: 82.51px;
   right: 126.17px;
 }
-
-/*<=========== Media Querrys*/
+/*--------------------------------------------------
+Media Querry 
+---------------------------------------------------*/
 @media (max-width: 900px) {
-  /*<=========== Media Querrys max-width: 900px Header*/
+  /*--------------------------------------------------
+  <900 header
+  ---------------------------------------------------*/
   header{
     height: 80px;
     padding: 0 25px;
@@ -216,7 +222,9 @@ nav{
   .mobile-drdo-menu-box{
     display: flex;
   }
-  /*<=========== Media Querrys max-width: 900px Nav*/
+  /*--------------------------------------------------
+  <900 Navbar
+  ---------------------------------------------------*/
   nav{
     position: fixed;
     width: 100%;
@@ -254,29 +262,35 @@ nav{
   .n-more{
     display: none;
   }
-  /*<=========== Media Querrys max-width: 900px Overlay*/
+  /*--------------------------------------------------
+  <900 Overlay legal, help
+  ---------------------------------------------------*/
   .overlay{
     margin: 55px 0;
     padding: 10% 10% 0 10%;
     overflow-y: auto;
   }
-
   .overlay-h1 {
       gap: 50%;
   }
 }
-/*<=========== Media Querrys max-width: 400px Nav*/
+
 @media (max-width: 400px){
+  /*--------------------------------------------------
+  <400 Navbar
+  ---------------------------------------------------*/
   .nav-txt{
     font-size: 14px;
   }
 }
-/*<=========== Media Querrys max-width: 350px Overlay*/
+
 @media (max-width: 350px) {
+    /*--------------------------------------------------
+  <350 Overlay legal, help
+  ---------------------------------------------------*/
   .overlay-h1 {
       gap: 10%;
   }
-
   .overlay-h1 h1 {
       font-size: 40px;
   }
