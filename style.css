@@ -30,6 +30,22 @@ body{
   font-size: 21px;
   font-weight: 400;
 }
+.fs-36-400{
+  font-size: 36px;
+  font-weight: 400;
+}
+.fs-47-500{
+  font-size: 47px;
+  font-weight: 500;
+}
+.fs-47-600{
+  font-size: 47px;
+  font-weight: 600;
+}
+.fs-64-600{
+  font-size: 64px;
+  font-weight: 600;
+}
 .fs-16-700{
   font-size: 16px;
   font-weight: 700;
@@ -38,8 +54,16 @@ body{
   font-size: 21px;
   font-weight: 700;
 }
+.fs-47-700{
+  font-size: 47px;
+  font-weight: 700;
+}
 .fs-61-700{
   font-size: 61px;
+  font-weight: 700;
+}
+.fs-64-700{
+  font-size: 64px;
   font-weight: 700;
 }
 .img-16{
@@ -54,14 +78,17 @@ body{
   width: 41px;
   height: 41px;
 }
+.mb-10{
+  margin-bottom: 10px;
+}
+.mb-35{
+  margin-bottom: 35px;
+}
 .mr-20{
   margin-right: 20px;
 }
 .mr-35{
   margin-right: 35px;
-}
-.mb-35{
-  margin-bottom: 35px;
 }
 .px-50{
   padding: 0 50px;

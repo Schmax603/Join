@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-.font-count {
+.fs-64-600 {
     font-size: 64px;
     font-weight: 600;
 }
@@ -15,12 +15,12 @@
     font-weight: 700;
 }
 
-.font-count-47 {
+.fs-47-600 {
     font-size: 47px;
     font-weight: 600;
 }
 
-.font-text {
+.fs-21-400 {
     font-size: 21px;
     font-weight: 400;
 }
