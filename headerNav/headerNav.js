@@ -1,11 +1,11 @@
 checkMenu = false;
 
-
+/**load async w3-school template loader */
 async function initHeaderNav(){
   await includeHTML();
-  // document.getElementById('headline').innerHTML = 'Herzlich Willkommen';
 }
 
+/**Load HTML-templates */
 async function includeHTML(){
     // select all Elements with the same name "w3-include-html, [] = query ger.: abfrage"
   let includeElements = document.querySelectorAll('[w3-include-html]');
@@ -23,6 +23,7 @@ async function includeHTML(){
   }
 }
 
+/**Toggle Menu overlay */
 function toggleMenu(){
   let headerMenu = document.getElementById('mobile-drdo-menu');
   let body = document.getElementById('body');
@@ -33,6 +34,7 @@ function toggleMenu(){
   checkMenu = !checkMenu;
 }
 
+/**Close menu outside overlay*/
 function closeMenu(){
   let headerMenu = document.getElementById('mobile-drdo-menu');
   let body = document.getElementById('body');
@@ -43,14 +45,33 @@ function closeMenu(){
   checkMenu = !checkMenu;
 }
 
+/**
+ * Toggle folllowing Overlays legal, help, menu 
+ * 
+ * @param {string} className - fill id legal, help
+*/
 function toggleOverlays(className){  
   let callDocument = document.getElementById(`${className}`);
   let headerMenu = document.getElementById('mobile-drdo-menu');
 
   callDocument.classList.toggle('d-none')
+  checkOverlays(className, headerMenu);
+}
+
+/**
+ * Check overlays for closing or opening
+ * 
+ * @param {string} className - id legal, help
+ * @param {string} headerMenu - call id
+ */
+function checkOverlays(className, headerMenu){
   if (className == 'help') {
-    let helpIcon = document.getElementById('header-help-icon');
-    helpIcon.classList.toggle('d-none');
+    document.getElementById('header-help-icon').classList.toggle('d-none');
+    document.getElementById(`legal`).classList.add('d-none');
+  }
+  if (className == 'legal'){
+    document.getElementById('header-help-icon').classList.remove('d-none');
+    document.getElementById(`help`).classList.add('d-none');
   }
   if (checkMenu == true) {
     body.classList.remove('of-hidden');

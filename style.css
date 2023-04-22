@@ -1,0 +1,124 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter';
+}
+/*=================== global Variable */
+.bg-c-db{
+  background-color: #2A3647;
+}
+.bg-c-w{
+  background-color: #FFFFFF;
+}
+.cursor-d{
+  cursor: default;
+}
+.cursor-p{
+  cursor: pointer;
+}
+.c-lb{
+  color: #29ABE2;
+}
+.c-w{
+  color: #FFFFFF;
+}
+.fs-16-400{
+  font-size: 16px;
+  font-weight: 400;
+}
+.fs-21-400{
+  font-size: 21px;
+  font-weight: 400;
+}
+.fs-36-400{
+  font-size: 36px;
+  font-weight: 400;
+}
+.fs-47-500{
+  font-size: 47px;
+  font-weight: 500;
+}
+.fs-47-600{
+  font-size: 47px;
+  font-weight: 600;
+}
+.fs-64-600{
+  font-size: 64px;
+  font-weight: 600;
+}
+.fs-16-700{
+  font-size: 16px;
+  font-weight: 700;
+}
+.fs-21-700{
+  font-size: 21px;
+  font-weight: 700;
+}
+.fs-27-700{
+  font-size: 27px;
+  font-weight: 700;
+}
+.fs-47-700{
+  font-size: 47px;
+  font-weight: 700;
+}
+.fs-61-700{
+  font-size: 61px;
+  font-weight: 700;
+}
+.fs-64-700{
+  font-size: 64px;
+  font-weight: 700;
+}
+.img-16{
+  width: 16px;
+  height: 16px;
+}
+.img-20{
+  width: 20px;
+  height: 20px;
+}
+.img-24{
+  width: 24px;
+  height: 24px;
+}
+.img-30{
+  width: 30px;
+  height: 30px;
+}
+.img-32{
+  width: 32px;
+  height: 32px;
+}
+.img-41{
+  width: 41px;
+  height: 41px;
+}
+.img-50{
+  width: 50px;
+  height: 50px;
+}
+.m-0{
+  margin: 0;
+}
+.mb-10{
+  margin-bottom: 10px;
+}
+.mb-35{
+  margin-bottom: 35px;
+}
+.mr-20{
+  margin-right: 20px;
+}
+.mr-35{
+  margin-right: 35px;
+}
+.px-50{
+  padding: 0 50px;
+}
+.ta-c{
+  text-align: center;
+}
+.wmax-826{
+  max-width: 826px;
+}

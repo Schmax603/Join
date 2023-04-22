@@ -1,31 +1,13 @@
 Checked:
+cleanCode .css:
+  -login
+  -summary
+  -headerNav
 
--Sign up
-  - addUser to backend
-    - return to Login.html
-    - response Registry
-  - Check available Email
-    - response if true or false
-
-- Login
-  -Remember me checkbox -> save localStorage
-
-- Forgot Password
-  - send Email on submit
-    - return to login
-    - response Email was send
-
-- Email link "forgot Password"
-  - link to reset your Password (new side)
-   - double check new password
-  - submit return to Login 
-    - search for email into array overwrite password
-    - response reset Password
 
 ToDo:
 
-- Login
-  - Guest submit -> Summary greeting (Date time of day)
-  - Login submit check Email / Password
-    - Checked Login -> Summary greeting Name (Date time of day)
- 
+Login:
+  -rework style Desktop
+  -rework style Mobile
+  -rework animation Logo, Background, msgBox
