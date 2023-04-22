@@ -1,15 +1,8 @@
-/* body{
-  padding: 0;
-  margin: 0;
-} */
-.cu-default{
+.cursor-d{
   cursor: default;
 }
-.cu-pointer{
+.cursor-p{
   cursor: pointer;
-}
-.c-w{
-  color: #000000;
 }
 .c-w{
   color: #FFFFFF;
@@ -17,34 +10,34 @@
 .d-none{
   display: none;
 }
-.fs-16{
+.fs-16-400{
   font-size: 16px;
   font-weight: 400;
 }
-.fs-21{
+.fs-21-400{
   font-size: 21px;
   font-weight: 400;
 }
-.fs-27{
+.fs-27-700{
   font-size: 27px;
   font-weight: 700;
 }
-.fs-61{
+.fs-61-700{
   font-size: 61px;
   font-weight: 700;
 }
-.icon-20{
+.img-20{
   width: 20px;
   height: 20px;
 }
-.icon-30{
+.img-30{
   width: 30px;
   height: 30px;
 }
-.icon-32{
+.img-32{
   width: 32px;
 }
-.icon-50{
+.img-50{
   width: 50px;
   height: 50px;
 }
@@ -72,7 +65,7 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
+  z-index: 6;
 }
 .header-logo-small{
   display: none;
@@ -124,7 +117,7 @@ nav{
   width: 232px;
   background-color: #2A3647;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, .1);
-  z-index: 1;
+  z-index: 6;
 }
 .n-logo{
   padding: 60px 60px 60px 60px;
@@ -168,12 +161,14 @@ nav{
 /*<=========== legal*/
 .overlay {
   position: absolute;
-  height: calc(100vh - 89px - 82px);
+  top: 0;
+  height: calc(100vh - 89px);
   background-color: #F5F5F5;
   margin: 89px 0 0 232px;
   padding: 82px 128px 0 123px;
   display: flex;
   flex-direction: column;
+  z-index: 5;
 }
 .overlay-header{
   display: flex;

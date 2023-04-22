@@ -1,5 +1,8 @@
 Checked:
-
+cleanCode .css:
+  -login
+  -summary
+  -headerNav
 
 
 ToDo:
