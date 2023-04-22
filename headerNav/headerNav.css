@@ -249,11 +249,11 @@ Media Querry
     justify-content: space-around;
   }
   .n-nav-ul-li{
-    width: 75px;
+    width: 80px;
     flex-direction: column;
     justify-content: center;
     gap: 0;
-    padding: 10px;
+    padding: 1%;
   }
   .n-nav-ul-li p{
     margin-top: 14px;
