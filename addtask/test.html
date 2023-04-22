@@ -8,7 +8,36 @@
     <title>Document</title>
 </head>
 
-<body onload="">
+<body>
+    <button class="toggleable" id="button-1" onclick="toggleButton(1)">Button 1</button>
+    <button class="toggleable" id="button-2" onclick="toggleButton(2)">Button 2</button>
+    <button class="toggleable" id="button-3" onclick="toggleButton(3)">Button 3</button>
+
+    <style>
+        /* Default state */
+        .toggleable {
+            background-color: gray;
+        }
+
+        /* Active state */
+        .toggleable.active {
+            background-color: red;
+        }
+    </style>
+
+
+    <script>
+        function toggleButton(buttonNum) {
+            const buttons = document.querySelectorAll('.toggleable');
+            buttons.forEach(button => {
+                if (button.id === `button-${buttonNum}`) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
