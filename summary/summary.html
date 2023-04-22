@@ -16,6 +16,7 @@
   <link rel="manifest" href="../favicon/site.webmanifest" />
   <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
 <!-- summary style -->
+  <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="summary.css">
   <link rel="stylesheet" href="../fonts/fonts.css">
 <!-- mini backend -->
@@ -28,7 +29,7 @@
 
 </head>
 <body id="body" onload="initHeaderNav(); renderGreeting()" onclick="closeMenu()">
-  <div w3-include-html="../headerNav/headerNav.html"></div>
+  <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
   
   <main class="summary">
     <div class="summary-header">
@@ -44,45 +45,45 @@
       <div class="summary-infos-tasks">
 
         <div onclick="location.href='../board/board.html';" class="summary-infos-tasks-card hover grid1">
-          <p id="summary-infos-tasks-card-board" class="font-count">0</p>
-          <p class="font-text">Tasks in Board</p>
+          <p id="summary-infos-tasks-card-board" class="fs-64-600">0</p>
+          <p class="fs-21-400">Tasks in Board</p>
         </div>
         <div onclick="location.href='../board/board.html';" class="summary-infos-tasks-card hover grid2">
-          <p id="summary-infos-tasks-card-progress" class="font-count">0</p>
-          <p class="font-text">Tasks in Progress</p>
+          <p id="summary-infos-tasks-card-progress" class="fs-64-600">0</p>
+          <p class="fs-21-400">Tasks in Progress</p>
         </div>
         <div onclick="location.href='../board/board.html';" class="summary-infos-tasks-card hover grid3">
-          <p id="summary-infos-tasks-card-feedback" class="font-count">0</p>
-          <p class="font-text">Awaiting Feedback</p>
+          <p id="summary-infos-tasks-card-feedback" class="fs-64-600">0</p>
+          <p class="fs-21-400">Awaiting Feedback</p>
         </div>
 
         <div onclick="location.href='../board/board.html';" class="summary-infos-tasks-deadline hover grid4">
           <div class="summary-infos-tasks-deadline-priority">
             <img class="img-priority" src="../img/urgent.png" alt="prio">
-            <div class="ta-center">
-              <span class="font-count-47">0</span>
-              <p class="font-text-16">Urgent</p>
+            <div class="ta-c">
+              <span class="fs-47-600">0</span>
+              <p class="fs-16-400">Urgent</p>
             </div>
           </div>
           <div class="summary-infos-tasks-deadline-border"></div>
           <div class="summary-infos-tasks-deadline-time">
-            <p id="deadline-time" class="font-count-21 mb-10">fill innerHTML</p>
-            <p class="font-text-16">Upcoming Deadline</p>
+            <p id="deadline-time" class="fs-21-700 mb-10">fill innerHTML</p>
+            <p class="fs-16-400">Upcoming Deadline</p>
           </div>
         </div>
 
         <div onclick="location.href='../board/board.html';" class="summary-infos-tasks-progress-card hover grid5">
           <img class="img-progress" src="../img/pencil.svg" alt="pencil">
-          <div class="ta-center">
-            <span id="summary-infos-tasks-progress-card-todo-amount" class="font-count">0</span>
-            <p class="font-text">To-do</p>
+          <div class="ta-c">
+            <span id="summary-infos-tasks-progress-card-todo-amount" class="fs-64-600">0</span>
+            <p class="fs-21-400">To-do</p>
           </div>
         </div>
         <div onclick="location.href='../board/board.html';" class="summary-infos-tasks-progress-card hover grid6">
           <img class="img-progress" src="../img/check.svg" alt="check">
-          <div class="ta-center">
-            <span id="summary-infos-tasks-progress-card-Done-amount" class="font-count">0</span>
-            <p class="font-text">Done</p>
+          <div class="ta-c">
+            <span id="summary-infos-tasks-progress-card-Done-amount" class="fs-64-600">0</span>
+            <p class="fs-21-400">Done</p>
           </div>
         </div>
 
