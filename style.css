@@ -1,3 +1,74 @@
 body{
+  margin: 0;
+  padding: 0;
   font-family: 'Inter';
+}
+/*=================== global Variable */
+.bg-c-db{
+  background-color: #2A3647;
+}
+.bg-c-w{
+  background-color: #FFFFFF;
+}
+.cursor-d{
+  cursor: default;
+}
+.cursor-p{
+  cursor: pointer;
+}
+.c-lb{
+  color: #29ABE2;
+}
+.c-w{
+  color: #FFFFFF;
+}
+.fs-16-400{
+  font-size: 16px;
+  font-weight: 400;
+}
+.fs-21-400{
+  font-size: 21px;
+  font-weight: 400;
+}
+.fs-16-700{
+  font-size: 16px;
+  font-weight: 700;
+}
+.fs-21-700{
+  font-size: 21px;
+  font-weight: 700;
+}
+.fs-61-700{
+  font-size: 61px;
+  font-weight: 700;
+}
+.img-16{
+  width: 16px;
+  height: 16px;
+}
+.img-24{
+  width: 24px;
+  height: 24px;
+}
+.img-41{
+  width: 41px;
+  height: 41px;
+}
+.mr-20{
+  margin-right: 20px;
+}
+.mr-35{
+  margin-right: 35px;
+}
+.mb-35{
+  margin-bottom: 35px;
+}
+.px-50{
+  padding: 0 50px;
+}
+.ta-c{
+  text-align: center;
+}
+.wmax-826{
+  max-width: 826px;
 }

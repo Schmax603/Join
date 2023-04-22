@@ -1,7 +1,7 @@
-body{
+/* body{
   padding: 0;
   margin: 0;
-}
+} */
 .cu-default{
   cursor: default;
 }
@@ -18,22 +18,18 @@ body{
   display: none;
 }
 .fs-16{
-  font-family: 'Inter';
   font-size: 16px;
   font-weight: 400;
 }
 .fs-21{
-  font-family: 'Inter';
   font-size: 21px;
   font-weight: 400;
 }
 .fs-27{
-  font-family: 'Inter';
   font-size: 27px;
   font-weight: 700;
 }
 .fs-61{
-  font-family: 'Inter';
   font-size: 61px;
   font-weight: 700;
 }

@@ -24,10 +24,10 @@ body{
 .cursor-p{
   cursor: pointer;
 }
-.fc-lb{
+.c-lb{
   color: #29ABE2;
 }
-.fc-w{
+.c-w{
   color: #FFFFFF;
 }
 .fs-16-700{
@@ -38,11 +38,11 @@ body{
   font-size: 21px;
   font-weight: 700;
 }
-.fs-62-700{
+.fs-61-700{
   font-size: 61px;
   font-weight: 700;
 }
-.fs-62-700-pw{
+.fs-61-700-pw{
   font-size: 61px;
   font-weight: 700;
 }
@@ -251,10 +251,10 @@ input[type=checkbox]{
   .fs-21-700{
     font-size: 16px;
   }
-  .fs-62-700{
+  .fs-61-700{
     font-size: 47px;
   }
-  .fs-62-700-pw{
+  .fs-61-700-pw{
     font-size: 40px;
   }
   /* <=================== main overlay <900 */
