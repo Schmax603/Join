@@ -1,53 +1,9 @@
 *{
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter';
   box-sizing: border-box;
 }
-.font-count{
-  font-size: 64px;
-  font-weight: 600;
-}
-.font-count-21{
-  font-size: 21px;
-  font-weight: 700;
-}
-.font-count-47{
-  font-size: 47px;
-  font-weight: 600;
-}
-.font-text{
-  font-size: 21px;
-  font-weight: 400;
-}
-.font-text-16{
-  font-size: 16px;
-  font-weight: 400;
-}
-.font-text-36{
-  font-size: 36px;
-  font-weight: 400;
-}
-.font-text-47{
-  font-size: 47px;
-  font-weight: 500;
-}
-.ta-center{
-  text-align: center;
-}
-.mb-10{
-  margin-bottom: 10px;
-}
-.username{
-  font-size: 47px;
-  font-weight: 700;
-  color: #29ABE2;
-}
-.username-64{
-  font-size: 64px;
-  font-weight: 700;
-  color: #29ABE2;
-}
+/*--------------------------------------------------
+hover effekt
+---------------------------------------------------*/
 .hover{
   transition: 220ms ease-in-out;
 }
@@ -63,6 +19,9 @@
   filter: invert(1);
   transition: 220ms ease-in-out;
 }
+/*--------------------------------------------------
+Summary header
+---------------------------------------------------*/
 .summary{
   background-color: #F5F5F5;
   min-height: 100vh;
@@ -79,7 +38,7 @@
   font-size: 61px;
   font-weight: 700;
   width: 315px;
-  margin-right: 30px;
+  margin: 0 30px 0 0;
 }
 .summary-header-border-mid{
   height: 59px;
@@ -94,6 +53,9 @@
 .summary-header-border-bottom{
   display: none;
 }
+/*--------------------------------------------------
+Summary info body
+---------------------------------------------------*/
 .summary-infos{
   padding-top: 87px;
   display: flex;
@@ -173,6 +135,9 @@
   padding: 15px;
   background-color: #2A3647;
 }
+/*--------------------------------------------------
+Summary greetings
+---------------------------------------------------*/
 #summary-infos-greeting{
   display: flex;
   flex-direction: column;
@@ -182,7 +147,9 @@
 #mobile-overlay{
   display: none;
 }
-
+/*--------------------------------------------------
+Media Querry 
+---------------------------------------------------*/
 @media(max-width: 1270px){
   .summary-infos{
     width: 100%;
@@ -191,30 +158,32 @@
     display: none;
   }
 } 
+
 @media(max-width: 900px){
   .summary{
-    padding: 114px 35px 0 35px;
+    padding: 114px 35px 35px 35px;
     min-height: 100vh;
   }
 }
+
 @media (max-width: 850px){
-  .font-count{
+  .fs-64-600{
     font-size: 47px;
     font-weight: 600;
   }
-  .font-count-21{
+  .fs-21-700{
     font-size: 16px;
     font-weight: 700;
   }
-  .font-count-47{
+  .fs-47-600{
     font-size: 47px;
     font-weight: 600;
   }
-  .font-text{
+  .fs-21-400{
     font-size: 14px;
     font-weight: 400;
   }
-  .font-text-16{
+  .fs-16-400{
     font-size: 14px;
     font-weight: 400;
   }
@@ -233,6 +202,7 @@
     padding: 8px;
   }
 }
+
 @media(max-width: 755px){
   .summary-header{
     flex-direction: column;
@@ -281,22 +251,7 @@
     z-index: -1;
   }
 }
-@keyframes fadeBackground {
-  0% {
-      opacity: 100%;
-      z-index: 10;
-  }
-  50% {
-      opacity: 100%;
-  }
-  99% {
-      opacity: 0%;
-      z-index: 10;
-  }
-  100% {
-      z-index: -1;
-  }
-}
+
 @media (max-width: 400px){
   .summary{
     padding-left: 20px;
@@ -314,5 +269,30 @@
   }
   .summary-infos-tasks-card-amount{
     font-size: 47px;
+  }
+}
+
+@media (max-height: 850px){
+  .summary{
+    padding-bottom: 86px;
+  }
+}
+/*--------------------------------------------------
+Animation
+---------------------------------------------------*/
+@keyframes fadeBackground {
+  0% {
+      opacity: 100%;
+      z-index: 10;
+  }
+  50% {
+      opacity: 100%;
+  }
+  99% {
+      opacity: 0%;
+      z-index: 10;
+  }
+  100% {
+      z-index: -1;
   }
 }

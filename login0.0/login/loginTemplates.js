@@ -2,7 +2,7 @@ function generateHtmlLogin(){
   /**@alias module:generateHtmlLogin */
   return /*html*/`
   <div class="overlay-login-header">
-    <h1 class="cursor-d fs-62-700">Log in</h1>
+    <h1 class="cursor-d fs-61-700">Log in</h1>
     <div class="border"></div>
   </div>
 
@@ -18,12 +18,12 @@ function generateHtmlLogin(){
           <input id="remember-me" type="checkbox" class="cursor-p">
           <label for="remember" class="cursor-d fs-16-400 mr-35">Remember me</label>
         </div>
-          <p onclick="openForgotPassword()" class="cursor-p fc-lb fs-16-400">Forgot my password</p>
+          <p onclick="openForgotPassword()" class="cursor-p c-lb fs-16-400">Forgot my password</p>
       </div>
       
       <div class="overlay-login-buttons">
-        <button type="submit" class="btn-dark bg-c-db cursor-p fc-w fs-21-700">Log in</button>
-        <button onclick="location.href='../summary/summary.html'; generateHtmlGuest()" class="btn-bright bg-c-w cursor-p fs-21-700">Guest Log in</button>
+        <button type="submit" class="btn-dark bg-c-db cursor-p c-w fs-21-700">Log in</button>
+        <button onclick="userGuest(); return false" class="btn-bright bg-c-w cursor-p fs-21-700">Guest Log in</button>
       </div>
     </div>
   </form>
@@ -43,7 +43,7 @@ function generateHtmlSignUp(){
   <img onclick="closeSignup()" class="overlay-login-arrow arrow-black cursor-p img-16" src="../img/arrow_left.png" alt="arrow left black">
   <img onclick="closeSignup()" class="overlay-login-arrow arrow-blue cursor-p img-24" src="../img/arrow_left_blue.png" alt="arrow left blue">
      <div class="overlay-login-header">
-       <h1 class="cursor-d fs-62-700 ta-c">Sign up</h1>
+       <h1 class="cursor-d fs-61-700 ta-c">Sign up</h1>
        <div class="border"></div>
      </div>
 
@@ -55,7 +55,7 @@ function generateHtmlSignUp(){
        <input id="signUpPassword" class="password-img" type="password" placeholder="Password" autocomplete="current-password" required>
 
        <div class="overlay-login-buttons">
-        <button type="submit" class="btn-dark bg-c-db cursor-p fc-w fs-21-700">Sign up</button>
+        <button type="submit" class="btn-dark bg-c-db cursor-p c-w fs-21-700">Sign up</button>
       </div>
 
     </form>
@@ -83,20 +83,18 @@ function generateHtmlForgotPassword(){
   <img onclick="closeSignup()" class="overlay-login-arrow arrow-black cursor-p img-16" src="../img/arrow_left.png" alt="arrow left black">
   <img onclick="closeSignup()" class="overlay-login-arrow arrow-blue cursor-p img-24" src="../img/arrow_left_blue.png" alt="arrow left blue">
     <div class="overlay-login-header header-forgot-password">
-      <h1 class="cursor-d fs-62-700-pw ta-c">I forgot my password</h1>
+      <h1 class="cursor-d fs-61-700-pw ta-c">I forgot my password</h1>
       <div class="border"></div>
     </div>
 
     <!--!!! return false =>  prevents the page from reloading-->
-    <!-- <form action="https://gruppe-438.developerakademie.net/Kochwelten-438/send_mail.php" method="post" onsubmit="newPasswordEmail(); return false" class="overlay-login-form"> -->
-    <!-- ftp://f015a1bd@gruppe-534.developerakademie.net/send_mail.php -->
-    <form action="https://gruppe-534.developerakademie.net/send_mail.php" method="post" class="overlay-login-form">
+    <form onsubmit="saveRequesterLocal()" action="https://gruppe-534.developerakademie.net/send_mail.php" method="post" class="overlay-login-form">
       <p class="cursor-d fs-21-400 ta-c mb-35">Don´t worry! We will send you an email with the instructions to reset your password.</p>
       
       <input id="requesterEmail" name="requesterEmail" type="email" placeholder="Email" autocomplete="current-password" required>
       
       <div class="overlay-login-buttons">
-        <button type="submit" class="btn-dark btn-send bg-c-db cursor-p fc-w fs-21-700">Send me the email</button>
+        <button type="submit" class="btn-dark btn-send bg-c-db cursor-p c-w fs-21-700">Send me the email</button>
       </div>
     </form>
 `

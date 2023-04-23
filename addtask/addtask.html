@@ -28,140 +28,145 @@
 
 </head>
 
-<body id="body" onload="initHeaderNav(); init(); bnts();" onclick="closeMenu()">
+<body id="body" onload="initHeaderNav(); init();" onclick="closeMenu()">
 	<div w3-include-html="../headerNav/headerNav.html"></div>
 
-	<div class="amogus center-stuff">
-
-		<h6 class="addtask-gentext karben-text">Kanban Project Management Tool</h6>
-		<h1 class="addtask-title">Add Task</h1>
-
-		<div class="addtask-tasktitle addtask-gencon">
-			<div class="addtask-gentext">Title</div>
-			<textarea class="addtask-genimput" placeholder="Enter a title"></textarea>
+	<button class="addtask-create-bnt addtask-create-bnt-moba">
+		<div class="addtask-create-bnt-moba addtask-create-bnt-spacexkekw">
+			<div class="addtask-create-text">Create</div>
+			<img src="/img/check.svg">
 		</div>
+	</button>
 
-		<div class="addtask-description addtask-gencon">
-			<div class="addtask-gentext">Description</div>
-			<textarea class="addtask-description-input addtask-genimput" placeholder="Enter a Description"
-				type="text"></textarea>
-		</div>
+	<div class="lobby">
+		<div class="amogus center-stuff">
 
-		<div class="addtask-prio addtask-gencon">
-			<div class="addtask-gentext">Prio</div>
+			<h6 class="addtask-gentext karben-text">Kanban Project Management Tool</h6>
+			<h1 class="addtask-title">Add Task</h1>
 
-			<div class="addtask-prio-bnt center-stuff">
-				<button class="addtask-genimput center-stuff" id="addtask-prio-bnt-urgent" onclick="bnts();">Urgent <img
-						class="addtask-prio-img" id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
-				<button class="addtask-genimput center-stuff" id="addtask-prio-bnt-medium" onclick="bnts();">Medium <img
-						class="addtask-prio-img" id="addtask-prio-bnt-medium-img" src="../img/prio-medium.svg"></button>
-				<button class="addtask-genimput center-stuff" id="addtask-prio-bnt-low" onclick="bnts();">Low <img
-						class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
+			<div class="addtask-tasktitle addtask-gencon">
+				<div class="addtask-gentext">Title</div>
+				<textarea class="addtask-genimput" placeholder="Enter a title"></textarea>
+			</div>
+
+			<div class="addtask-description addtask-gencon">
+				<div class="addtask-gentext">Description</div>
+				<textarea class="addtask-description-input addtask-genimput" placeholder="Enter a Description"
+					type="text"></textarea>
+			</div>
+
+			<div class="addtask-prio">
+				<div class="addtask-gentext">Prio</div>
+
+				<div class="addtask-prio-bnts addtask-flex-moba center-stuff">
+					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff" id="addtask-prio-bnt-urgent" onclick="toggleButton(1)">Urgent <img class="addtask-prio-img" id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
+					<button class="addtask-prio-bnt addtask-prio-bnt-medium addtask-genimput center-stuff" id="addtask-prio-bnt-medium" onclick="bnts();">Medium <img class="addtask-prio-img" id="addtask-prio-bnt-medium-img" src="../img/prio-medium.svg"></button>
+					<button class="addtask-prio-bnt addtask-prio-bnt-low addtask-genimput center-stuff" id="addtask-prio-bnt-low" onclick="bnts();">Low <img class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
+				</div>
+
+			</div>
+
+			<div class="addtask-duedate addtask-gencon">
+				<div class="addtask-gentext">Due date</div>
+				<input style="display: block;" class="addtask-genimput" id="date" placeholder="dd/mm/yyyy" type="date"
+					min=""></input>
+			</div>
+
+			<script>
+				const today = new Date().toISOString().split('T')[0];
+				document.getElementById("date").setAttribute('min', today);
+			</script>
+
+
+			<div class="addtask-gencon">
+				<div class="addtask-gentext">Category</div>
+				<div class="addtask-gendrop-collapsible addtask-gendrop" id="collapsible">
+
+					<div class="paddings" id="currentItem" onclick="toggleActive(); dropdownValueCheck();">
+						Select task category
+					</div>
+					<div class="addtask-item paddings" onclick="newCategory()">New category
+
+					</div>
+					<div id="apicategory">
+						<div class="addtask-item paddings">
+							Content for section 2 goes here.
+						</div>
+						<div class="addtask-item paddings">
+							Content for section 3 goes here.
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="addtask-gencon">
+				<div class="addtask-gentext">Assigned to</div>
+				<div class="addtask-gendrop-collapsible addtask-gendrop" id="addtask-assignedto-collapsible">
+
+					<div class="paddings" id="currentItem" onclick="toggleActive(); dropdownValueCheck();">
+						Select contacts to assign
+					</div>
+					<div class="addtask-item paddings">New category
+
+					</div>
+					<div id="apicategory">
+						<div class="addtask-item paddings">
+							Content for section 2 goes here.
+						</div>
+						<div class="addtask-item paddings">
+							Content for section 3 goes here.
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="addtask-subtasks addtask-gencon">
+				<div class="addtask-gentext">Subtasks</div>
+				<textarea class="addtask-genimput" placeholder="Add new subtask"></textarea>
 			</div>
 
 		</div>
 
-		<div class="addtask-duedate addtask-gencon">
-			<div class="addtask-gentext">Due date</div>
-			<input style="display: block;" class="addtask-genimput" id="date" placeholder="dd/mm/yyyy" type="date"
-				min=""></input>
-		</div>
+		<div class="player"></div>
 
-		<script>
-			const today = new Date().toISOString().split('T')[0];
-			document.getElementById("date").setAttribute('min', today);
-		</script>
-
-		<style>
-			/* Style the collapsible */
-			.collapsible {
-				cursor: pointer;
-			}
-
-			.paddings {
-				padding-top: 13px !important;
-				padding-bottom: 13px !important;
-				padding-left: 21px !important;
-			}
-
-			/* Style the content inside the collapsible */
-			.content {
-				display: none;
-				padding: 0 18px;
-				overflow: hidden;
-			}
-
-			.content:hover {
-				background-color: #d8d4d4;
-			}
-
-			/* Show the content when the collapsible is clicked */
-
-
-			.collapsible.active .content {
-				display: block;
-			}
-
-			.addtask-genimput-dw {
-
-				background: #FFFFFF;
-				border: 1px solid #D1D1D1;
-				border-radius: 10px;
-				box-sizing: border-box;
-
-			}
-		</style>
-
-		<div class="addtask-description addtask-gencon">
-			<div class="addtask-gentext">Category</div>
-			<div class=" addtask-gendrop" id="collapsible">
-				<div class="paddings">Section 1</div>
-				<div class="addtask-gendrop-item paddings" id="addtask-gendrop-item">
-					Content for section 1 goes here.
-				</div>
-				<div class="addtask-gendrop-item paddings">
-					Content for section 2 goes here.
-				</div>
-				<div class="addtask-gendrop-item paddings">
-					Content for section 2 goes here.
-				</div>
+		<div class="impostor">
+			<div class="addtask-duedate-impostor addtask-gencon">
+				<div class="addtask-gentext">Due date</div>
+				<input style="display: block;" class="addtask-genimput" id="date" placeholder="dd/mm/yyyy" type="date"
+					min=""></input>
 			</div>
-		</div>
 
+			<div class="addtask-prio-impostor addtask-gencon">
+				<div class="addtask-gentext">Prio</div>
 
+				<div class="addtask-prio-bnt addtask-flex-moba center-stuff">
+					<button class="addtask-prio-bnt-cursor addtask-genimput center-stuff" id="addtask-prio-bnt-urgent" onclick="bnts();">Urgent <img class="addtask-prio-img" id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
+					<button class="addtask-prio-bnt-cursor addtask-genimput center-stuff" id="addtask-prio-bnt-medium" onclick="bnts();">Medium <img class="addtask-prio-img" id="addtask-prio-bnt-medium-img" src="../img/prio-medium.svg"></button>
+					<button class="addtask-prio-bnt-cursor addtask-genimput center-stuff" id="addtask-prio-bnt-low" onclick="bnts();">Low <img class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
+				</div>
 
-		<script>// Get all the collapsible elements
-			var coll = document.getElementById("collapsible");
+			</div>
 
-			// Loop through each collapsible element and add a click listener
-			for (var i = 0; i < coll.length; i++) {
-				coll[i].addEventListener("click", function () {
-					this.classList.toggle("active");
-					var content = document.getElementById("addtask-gendrop-item");
-					if (content.style.display === "block") {
-						content.style.display = "none";
-					} else {
-						content.style.display = "block";
-					}
-				});
-			}
+			<div class="addtask-subtasks-impostor addtask-gencon">
+				<div class="addtask-gentext">Subtasks</div>
+				<textarea class="addtask-genimput" placeholder="Add new subtask"></textarea>
+			</div>
 
-	// Add a click listener to the dropdown button
-
-		</script>
-
-		<div class="addtask-gencon">
-			<div class="addtask-gentext">Assigned to</div>
-			<select class="addtask-genimput addtask-gendrop">
-				<option value="option1">Option 1</option>
-				<option value="option2">Option 2</option>
-				<option value="option3">Option 3</option>
-			</select>
-		</div>
-
-		<div class="addtask-subtasks addtask-gencon">
-			<div class="addtask-gentext">Subtasks</div>
-			<textarea class="addtask-genimput" placeholder="Add new subtask"></textarea>
+			<div class="addtask-create-bnt-spacexkekw addtask-create-bnt-absolute">
+				<button class="addtask-clear-bnt">
+					<div class="addtask-create-bnt-bigscreen addtask-create-bnt-spacexkekw">
+						<div class="addtask-clear-text">Clear</div>
+						<img src="/img/close.svg">
+					</div>
+				</button>
+				<button class="addtask-create-bnt addtask-create-bnt-bigscreen">
+					<div class="addtask-create-bnt-bigscreen addtask-create-bnt-spacexkekw">
+						<div class="addtask-create-text">Create Task</div>
+						<img src="/img/check.svg">
+					</div>
+				</button>
+			</div>
 		</div>
 
 	</div>

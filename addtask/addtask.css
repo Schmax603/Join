@@ -5,6 +5,31 @@ body {
     background: #F5F5F5;
 }
 
+.addtask-create-bnt {
+    background: #2A3647;
+    z-index: 1;
+    border-radius: 10px;
+    width: 124px;
+    height: 51px;
+    cursor: pointer;
+}
+
+.addtask-create-bnt-spacexkekw {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.addtask-create-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    color: #FFFFFF;
+}
+
 textarea {
     resize: none;
     overflow: hidden;
@@ -18,6 +43,41 @@ textarea {
 
 .addtask-prio-img {
     padding-left: 10px;
+}
+
+.addtask-prio-bnt {
+    cursor: pointer !important;
+    gap: 10px;
+}
+
+.addtask-prio-bnt.active {
+    cursor: pointer !important;
+    gap: 10px;
+}
+
+.addtask-prio-bnt-urgent.active {
+    background-color: #ff3d00; 
+    box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px; 
+    border: 0px solid #D1D1D1; 
+    color: white;
+    background-image: url(/img/urgent-white.svg);
+}
+
+
+.addtask-prio-bnt-medium.active {
+    background-color: #ffac04; 
+    box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px; 
+    border: 0px solid #D1D1D1; 
+    color: white;
+    background-image: url(/img/medium-white.svg);
+}
+
+.addtask-prio-bnt-low.active {
+    background-color: #80e42c;
+    box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px; 
+    border: 0px solid #D1D1D1;
+    color: white;
+    background-image: url(/img/medium-white.svg);
 }
 
 .center-stuff {
@@ -47,6 +107,7 @@ textarea {
     line-height: 120%;
     padding-top: 8px;
     padding-bottom: 8px;
+    line-break: auto;
 }
 
 .addtask-title {
@@ -55,20 +116,6 @@ textarea {
     font-weight: 700;
     font-size: 47px;
     line-height: 120%;
-}
-
-.addtask-prio-bnt {
-    gap: 10px;
-}
-
-.addtask-prio-bnts {
-    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.3);
-    margin-bottom: 5px;
-    cursor: pointer !important;
-}
-
-.addtask-prio-bnts.img {
-    padding: 100px;
 }
 
 .addtask-genimput {
@@ -91,49 +138,186 @@ textarea {
 }
 
 .addtask-gendrop {
-    cursor: pointer;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     box-sizing: border-box;
-/*
-    background-image: url('../img/dropdown.svg');
-    background-repeat: no-repeat;
-    background-position: right 0.7rem top 50%;
-
-    background-size: 0.65rem auto;
-*/
 }
 
-.addtask-gendrop-item {
+.addtask-gendrop-collapsible {
+    cursor: pointer;
+}
+
+
+.addtask-gendrop-collapsible.active .addtask-item {
+    display: block;
+}
+
+.addtask-item {
     display: none;
     padding: 0 18px;
     overflow: hidden;
 }
 
-.addtask-gendrop:hover {
+.addtask-item:hover {
     background-color: #d8d4d4;
 }
-
-.addtask-gendrop.active .addtask-gendrop-item {
-    display: block;
-}
-
-
-option {
-    background: #FFFFFF;
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
-    white-space: pre-wrap;
-    height: 41px;
-
-}
-
-
-
 
 .addtask-description-input {
     height: 93px;
 
     padding: 18px;
+}
+
+@media (max-width: 415px) {
+    .addtask-flex-moba {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width: 900px) {
+    .amogus {
+        margin-left: 355px;
+    }
+
+    .karben-text {
+        display: none;
+    }
+}
+
+@media (max-width: 1300px) {
+    .h-menu {
+        display: none;
+    }
+
+    .impostor {
+        display: none;
+    }
+
+
+
+    .addtask-create-bnt {
+        position: absolute;
+        top: 14px;
+        right: 25px;
+    }
+
+    .addtask-create-bnt-bigscreen {
+        display: none;
+    }
+
+    .addtask-duedate-impostor {
+        display: flex;
+    }
+
+    .addtask-subtasks-impostor {
+        display: flex;
+    }
+
+    .addtask-prio-impostor {
+        display: flex;
+    }
+}
+
+@media (min-width: 1300px) {
+    .lobby {
+        display: flex;
+    }
+
+    .amogus {
+        display: flex;
+        order: 1;
+        float: left;
+        z-index: 100;
+        width: 33%;
+        margin-right: 0px;
+    }
+
+    .player {
+        order: 2;
+        width: 0px;
+        margin-top: 230px !important;
+        margin-bottom: -80px !important;
+        margin: 50px;
+        height: 551px;
+        border: 1px solid #D1D1D1;
+    }
+
+    .impostor {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        float: right;
+        margin-right: 123px;
+        margin-top: 213px;
+        width: 33%;
+        order: 3;
+    }
+
+    .h-menu {
+        display: flex;
+    }
+
+    .addtask-gentext {
+        padding-top: 34px;
+        padding-bottom: 8px;
+    }
+
+    .addtask-create-bnt {
+        bottom: 40%;
+        right: 108px;
+        width: 187px;
+        height: 55px;
+        top: unset;
+    }
+
+    .addtask-create-bnt:hover {
+        border: 1px solid #28aae2;
+        background-color: #28aae2;
+        box-shadow: 0px 20px 20px -10px #babdbd;
+    }
+
+    .addtask-create-bnt-moba {
+        display: none;
+    }
+
+    .addtask-clear-bnt {
+        border: 1px solid #2A3647;
+        border-radius: 10px;
+        box-sizing: border-box;
+        width: 136px;
+        height: 55px;
+        cursor: pointer;
+    }
+
+
+    .addtask-create-bnt-absolute {
+        position: absolute;
+        bottom: -100px;
+        gap: 25px;
+        right: -30px;
+    }
+
+    .addtask-clear-text {
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 21px;
+        line-height: 120%;
+        color: #2A3647;
+    }
+
+    .addtask-duedate {
+        display: none;
+    }
+
+    .addtask-subtasks {
+        display: none;
+    }
+
+    .addtask-prio {
+        display: none;
+    }
 }
