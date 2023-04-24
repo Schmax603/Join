@@ -18,6 +18,9 @@ Global Variable
 .cursor-p{
   cursor: pointer;
 }
+.c-db{
+  color: #2A3647;
+}
 .c-lb{
   color: #29ABE2;
 }

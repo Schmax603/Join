@@ -25,45 +25,33 @@
     <script src="registry.js"></script>
 </head>
 
-<body onload="initLogin(); loadUsers(); remember(); displayMessage();">
-  
+<body onload="loadUsers(); remember(); displayMessage()">
+
   <main class="main">
     <img class="logo" src="../img/logoBig.png" alt="join logo">
 
 <!-- return false =>  prevents the page from reloading-->
-    <form onsubmit="userLogin(); return false" class="form">
-      <h1 class="form-headline ta-c fs-61 fw-700">Log in</h1>
+    <form onsubmit="userSignUp(); return false" class="form">
+      <img onclick="window.location.href= '../index.html'" class="return-black cursor-p img-16" src="../img/arrow_left.png" alt="arrow left black">
+      <img onclick="window.location.href= '../index.html'" class="return-blue cursor-p img-24" src="../img/arrow_left_blue.png" alt="arrow left blue">
+      <h1 class="form-headline ta-c fs-61 fw-700">Sign in</h1>
       <div class="border"></div>
       
       <section class="form-verification">
-        <input id="loginEmail" type="email" placeholder="Email" autocomplete="current-password" required>
-        <input id="loginPassword" class="password-img" type="password" placeholder="Password" autocomplete="current-password" required>
-      </section>
-      
-      <section class="form-valuable">
-        <div class="checkbox">
-          <input id="remember-me" id="checkbox" type="checkbox">
-          <label for="checkbox" class="fw-400">Remember me</label>
-        </div>
-        <a href="forgotPassword.html" class="c-lb fw-400 td-n">Forgot my password</a>
+        <input id="signUpName" type="name" placeholder="Name" autocomplete="current-password" required>
+        <input id="signUpEmail" type="email" placeholder="Email" autocomplete="current-password" required>
+        <input id="signUpPassword" type="password" placeholder="Password" autocomplete="current-password" required>
       </section>
 
       <section class="form-submit">
-        <button type="submit" class="btn btn-py btn-w-145 btn-dark fs-21 fw-700">Log in</button>
-        <button onclick="userGuest(); return false" class="btn btn-py btn-w-145 btn-bright fs-21 fw-700">Guest Log in</button>
+        <button type="submit" class="btn btn-py btn-w-145 btn-dark fs-21 fw-700">Sign up</button>
       </section>
     </form>
-
-    <section class="sign-up">
-      <p class="fs-21 fw-400">Not a Join user?</p>
-      <button onclick="window.location.href= 'signUp.html'" class="btn btn-py btn-w-91 btn-dark fw-700">Sign up</button>
-    </section>
 
     <!-- todo rework -->
     <div id="msg-box" class="d-none"></div>
 
   </main>
-  
 
 </body>
 </html>

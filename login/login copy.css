@@ -2,8 +2,7 @@
 Global Elements
 ---------------------------------------------------*/
 .btn{
-  height: 49px;
-  border: 1px solid #2A3647; 
+  height: calc(51px - 2px);
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -12,8 +11,46 @@ Global Elements
 /*--------------------------------------------------
 local Elements
 ---------------------------------------------------*/
-.btn-small{
-  padding: 16px;
+.btn-py{
+  padding: 16px 0;
+}
+.btn-w-91{
+  width: 91px;
+}
+.btn-w-145{
+  width: 145px;
+}
+.btn-dark{
+  background-color: #2A3647;
+  color: #FFFFFF;
+  border: 1px solid #2A3647; 
+}
+.btn-dark:hover{
+  background-color: #29ABE2;
+  border: 1px solid #29ABE2; 
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.btn-dark:active{
+  background-color: #091931;
+  border: 1px solid #091931; 
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.btn-bright{
+  background-color: #FFFFFF;
+  color: #2A3647;
+  border: 1px solid #2A3647;
+}
+.btn-bright:hover{
+  background-color: #FFFFFF;
+  color: #29ABE2;
+  border: 1px solid #29ABE2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.btn-bright:active{
+  background-color: #FFFFFF;
+  color: #091931;
+  border: 1px solid #091931;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 /*--------------------------------------------------
 Main
@@ -48,12 +85,24 @@ Formular
 form{
   margin: 0 4%;
   padding: 35px 4%;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #FFFFFF;
   box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
   border-radius: 30px;
+}
+.return-black{
+  position: absolute;
+  top: 27px;
+  left: 33px;
+  display: none;
+}
+.return-blue{
+  position: absolute;
+  top: 41px;
+  left: 37px;
 }
 .form-headline{
   width: 100%;
@@ -73,6 +122,9 @@ form{
 .form-verification input:last-child{
   margin-bottom: 55px;
 }
+input:focus{
+outline: none;
+}
 input[type=email], input[type=name], input[type=password]{
   margin-bottom: 49px;
   padding: 13px 21px;
@@ -86,6 +138,9 @@ input[type=email], input[type=name], input[type=password]{
 }
 input[type=email]{
   background-image: url(../img/emailInput.png);
+}
+input[type=name]{
+  background-image: url(../img/nameInput.png);
 }
 input[type=password]{
   background-image: url(../img/lock.png);
@@ -105,6 +160,15 @@ input[type=password]{
   display: flex;
   gap: 35px;
 }
+#msg-box{
+  padding: 24px;
+  color: #FFFFFF;
+  background-color: #2A3647;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  position: absolute;
+  bottom: 5%;
+  }
 /*--------------------------------------------------
 Media Querry 
 ---------------------------------------------------*/
@@ -122,6 +186,12 @@ Media Querry
     right: unset;
     bottom: 4%;
   }
+  .return-black{
+    display: flex;
+  }
+  .return-blue{
+    display: none;
+  }
   .form-verification input:last-child{
     margin-bottom: 30px;
   }
@@ -133,9 +203,18 @@ Media Querry
     flex-direction: column;
     gap: 21px;
   }
+  .btn{
+    font-size: 16px;
+  }
 }
-@media(max-height: 750px){
+@media(max-height: 850px){
   .logo{
+    top: 20px;
     max-width: 40px;
+  }
+  .sign-up{
+    top: unset;
+    right: unset;
+    bottom: 1%;
   }
 }
