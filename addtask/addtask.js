@@ -1,18 +1,25 @@
 console.log("dadw")
 
-function whichBnt(buttonNum) {
+let buttons;
+
+function whichBnt(buttonNum, buttons) {
 
 
     if (buttonNum === 0) {
-        
-        document.querySelectorAll("addtask-prio-bnt-urgent").classList.add("active")
-
+        buttons = document.querySelectorAll('.addtask-prio-bnt-urgent');
         console.log("urgent", buttonNum)
+    } 
+    if (buttonNum === 1) {
+        buttons = document.querySelectorAll('.addtask-prio-bnt-medium');
+        console.log("medium", buttonNum)
+    } 
+    if (buttonNum === 2) {
+        buttons = document.querySelectorAll('.addtask-prio-bnt-urgent');
+        console.log("low", buttonNum)
     } 
 }
 
 function isActive(buttonNum) {
-    const buttons = document.querySelectorAll('.addtask-prio-bnt-urgent');
     buttons.forEach(button => {
         if (button.id === `button-${buttonNum}`) {
 
