@@ -30,7 +30,7 @@ async function confirmPassword(){
       if(resetEmail == user['email']){
           user.password = newPassword.value;
           users[i]=user;
-          await backend.setItem('users', JSON.stringify(users));
+          await setItem('users', JSON.stringify(users));
           resetEmail = localStorage.setItem('requestEmail', '');
           window.location.href='../index.html?msg=You reset your password';
           console.log(users, resetEmail);

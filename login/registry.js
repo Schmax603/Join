@@ -79,6 +79,6 @@ async function checkEmailAvailable(name, email, password){
 */
 async function pushUserArray(name, email, password){
   users.push({name: name.value, email: email.value, password: password.value, contacts, tasks});
-  await backend.setItem('users', JSON.stringify(users));
+  await setItem('users', JSON.stringify(users));
   window.location.href = '../index.html?msg=You have successfully registered.';
 }
