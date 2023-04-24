@@ -21,14 +21,13 @@
 	<!-- https://i.imgflip.com/52lvif.jpg -->
 	<script src="addtask.js"></script>
 	<script src="backend.js"></script>
-	<script src="../templets/mini_backend/mini_backend.js"></script>
-	<script src="../script.js"></script>
+	<script src="../backend.js"></script>
 	<script src="../headerNav/headerNav.js"></script>
 	<script src="../login/login.js"></script>
 
 </head>
 
-<body id="body" onload="initHeaderNav(); init();" onclick="closeMenu()">
+<body id="body" onload="initHeaderNav(); loadUsers();" onclick="closeMenu()">
 	<div w3-include-html="../headerNav/headerNav.html"></div>
 
 	<button class="addtask-create-bnt addtask-create-bnt-moba">

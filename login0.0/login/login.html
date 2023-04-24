@@ -15,8 +15,7 @@
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
   <!-- backend -->
-    <script src="../templets/mini_backend/mini_backend.js"></script>
-    <script src="../script.js"></script>
+    <script src="../backend.js"></script>
   <!-- 
       frontend functions
       change for index.html 
@@ -29,7 +28,7 @@
     <script src="../forgotPasswordSucces/forgotPasswordSucces.js"></script>
 </head>
 
-<body onload="initLogin(); init(); remember()">
+<body onload="initLogin(); loadUsers(); remember()">
   <main >
     <img id="logo-white" class="main-logo main-logo-white logo-animate-white" src="../img/logo.png" alt="join logo white">
     <img class="main-logo logo-animate" src="../img/logoSmall.png" alt="join logo">

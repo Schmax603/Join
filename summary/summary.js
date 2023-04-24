@@ -25,7 +25,7 @@ async function renderGreeting(){
   let greetings = document.getElementById('summary-infos-greeting');
   let mobileGreeting = document.getElementById('mobile-overlay');
 
-  await init();
+  await loadUsers();
   let activUser = currentUser.currentUser;
   renderTimeOfDay();
 

@@ -29,12 +29,12 @@
     <!-- https://i.imgflip.com/52lvif.jpg -->
     <script src="board.js"></script>
     <script src="backend.js"></script>
-    <script src="/script.js"></script>
+    <script src="/backend.js"></script>
     <script src="../login/login.js"></script>
 </head>
 
 
-<body onload="initHeaderNav(); init(); changeContentOnWindowSize(); consoleLOGS(); " onclick="closeMenu()" id="body">
+<body onload="initHeaderNav(); loadUsers(); changeContentOnWindowSize(); consoleLOGS(); " onclick="closeMenu()" id="body">
 
     <div style="display: none;" onclick="cardUnInspect(); " class="fullviewport" id="fullviewport"></div>
     <div w3-include-html="../headerNav/headerNav.html"></div>
