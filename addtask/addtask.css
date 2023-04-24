@@ -55,6 +55,11 @@ textarea {
     gap: 10px;
 }
 
+.addtask-prio-bnt:hover {
+    box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px; 
+    border: 0px solid #D1D1D1; 
+}
+
 .addtask-prio-bnt-urgent.active {
     background-color: #ff3d00; 
     box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px; 
