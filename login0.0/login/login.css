@@ -42,7 +42,7 @@ body{
   font-size: 61px;
   font-weight: 700;
 }
-.fs-61-700-pw{
+.fs-61-pw{
   font-size: 61px;
   font-weight: 700;
 }
@@ -254,7 +254,7 @@ input[type=checkbox]{
   .fs-61-700{
     font-size: 47px;
   }
-  .fs-61-700-pw{
+  .fs-61-pw{
     font-size: 40px;
   }
   /* <=================== main overlay <900 */

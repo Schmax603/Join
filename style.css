@@ -24,52 +24,39 @@ Global Variable
 .c-w{
   color: #FFFFFF;
 }
-.fs-16-400{
+/* ===font-size=== */
+.fs-16{
   font-size: 16px;
-  font-weight: 400;
 }
-.fs-21-400{
+.fs-21{
   font-size: 21px;
-  font-weight: 400;
 }
-.fs-36-400{
+.fs-27{
+  font-size: 27px;
+}
+.fs-36{
   font-size: 36px;
+}
+.fs-47{
+  font-size: 47px;
+}
+.fs-61{
+  font-size: 61px;
+}
+.fs-64{
+  font-size: 64px;
+}
+/* ===font-weight=== */
+.fw-400{
   font-weight: 400;
 }
-.fs-47-500{
-  font-size: 47px;
+.fw-500{
   font-weight: 500;
 }
-.fs-47-600{
-  font-size: 47px;
+.fw-600{
   font-weight: 600;
 }
-.fs-64-600{
-  font-size: 64px;
-  font-weight: 600;
-}
-.fs-16-700{
-  font-size: 16px;
-  font-weight: 700;
-}
-.fs-21-700{
-  font-size: 21px;
-  font-weight: 700;
-}
-.fs-27-700{
-  font-size: 27px;
-  font-weight: 700;
-}
-.fs-47-700{
-  font-size: 47px;
-  font-weight: 700;
-}
-.fs-61-700{
-  font-size: 61px;
-  font-weight: 700;
-}
-.fs-64-700{
-  font-size: 64px;
+.fw-700{
   font-weight: 700;
 }
 .img-16{
