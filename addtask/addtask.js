@@ -1,14 +1,31 @@
 console.log("dadw")
 
-function toggleButton(buttonNum) {
+function whichBnt(buttonNum) {
+
+
+    if (buttonNum === 0) {
+        
+        document.querySelectorAll("addtask-prio-bnt-urgent").classList.add("active")
+
+        console.log("urgent", buttonNum)
+    } 
+}
+
+function isActive(buttonNum) {
     const buttons = document.querySelectorAll('.addtask-prio-bnt-urgent');
     buttons.forEach(button => {
         if (button.id === `button-${buttonNum}`) {
-            button.classList.add('active');
-            console.log("0")
+
+            console.log(button.id)
+            button.classList.toggle('active');
+            console.log("add", buttonNum)
+
         } else {
+
+            console.log(button.id)
             button.classList.remove('active');
-            console.log("1")
+            console.log("remove", buttonNum)
+
         }
     });
 }
