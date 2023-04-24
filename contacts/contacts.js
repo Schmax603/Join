@@ -92,7 +92,7 @@ function renderLetterContacts(letter) {
     const container = document.getElementById('contacts-list');
     container.innerHTML += /*html*/`
         <div class="letter-container" id="letter-container-${letter}">
-            <div class="letter-header font-text-21">${letter}</div>
+            <div class="letter-header fs-21 fw-400">${letter}</div>
             <div class="letter-header-bottom-border"></div>
         </div>
     `;
@@ -109,12 +109,12 @@ function renderContact(contact) {
     const container = document.getElementById(`letter-container-${letter}`);
     container.innerHTML += /*html*/`
         <div id="contact-${contactIndex}" class="contact" onclick="showContactDetails(${contactIndex})">
-            <div class="contact-icon contact-list-icon font-text-12 ${contact.color}">
+            <div class="contact-icon contact-list-icon fs-12 fw-400 ${contact.color}">
                 ${getInitials(contact)}
             </div>
             <div class="contact-name-email">
-                <span class="contact-name font-text-21">${contact.name}</span>
-                <span class="contact-email font-text-16">${contact.email}</span>
+                <span class="contact-name fs-21 fw-400">${contact.name}</span>
+                <span class="contact-email fs-16 fw-400">${contact.email}</span>
             </div>
         </div>
     `;
@@ -182,7 +182,7 @@ function renderContactDetails(contact) {
 
 function renderContactDetailsIcon(contact) {
     const iconElement = document.getElementById('contact-details-icon');
-    iconElement.classList = `contact-icon contact-overlay-icon font-text-47 ${contact.color}`;
+    iconElement.classList = `contact-icon contact-overlay-icon fs-47 fw-500 ${contact.color}`;
     iconElement.innerHTML = getInitials(contact);
 }
 
@@ -213,6 +213,9 @@ function renderContactDetailsPhone(contact) {
 
 function setOpenEditContact(contact) {
     document.getElementById('contact-details-edit').onclick = () => {
+        openEditContactOverlay(contact);
+    };
+    document.getElementById('contact-details-edit-mobile').onclick = () => {
         openEditContactOverlay(contact);
     };
 }
@@ -339,7 +342,7 @@ function renderEditContactHeadline() {
 
 function renderEditContactIcon(contact) {
     document.getElementById('create-or-edit-contact-icon-container').innerHTML = /*html*/`
-        <div id="create-or-edit-contact-icon" class="contact-icon contact-overlay-icon font-text-47 ${contact.color}">
+        <div id="create-or-edit-contact-icon" class="contact-icon contact-overlay-icon fs-47 fw-500 ${contact.color}">
             ${getInitials(contact)}
         </div>
     `;
@@ -383,6 +386,13 @@ function deleteContact(contact) {
     closeCreateOrEditContactOverlay();
     renderContactList();
     hideOverlay('contact-details-overlay');
+
+    if (screenWidthIsAtMost('1200px')) {
+        setTimeout(() => {
+            showElement('contacts-list-container');
+            removeElement('contacts-info-container');
+        }, 220);
+    }
 }
 
 function editContact(contact) {

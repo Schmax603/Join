@@ -35,6 +35,11 @@
 
     <main class="contacts">
         <div id="contacts-list-container" class="contacts-list-container">
+            <button class="new-contact dark-btn fs-21 fw-700 mb-15 mobile-only" onclick="openCreateContactOverlay()">
+                <span>New contact</span>
+                <img src="../img/addSymbol.png">
+            </button>
+
             <div id="contacts-list" class="contacts-list">
                 <!-- rendered by renderContactList() -->
             </div>
@@ -42,6 +47,7 @@
 
         <div id="contacts-info-container" class="contacts-info-container">
             <div class="contacts-header">
+                <p class="header-superheadline fs-16 fw-400 mb-20 mobile-only">Kanban Project Managment Tool</p>
                 <p class="header-headline mr-30">Contacts</p>
                 <div class="header-border-mid"></div>
                 <p class="header-subheadline ml-30">Better with a team</p>
@@ -51,24 +57,24 @@
             <div class="contact-details-container">
                 <div id="contact-details-overlay" class="contact-details-overlay">
                     <div class="contact-icon-and-name">
-                        <div id="contact-details-icon" class="contact-icon contact-overlay-icon font-text-47 bg-0">
+                        <div id="contact-details-icon" class="contact-icon contact-overlay-icon fs-47 fw-500 bg-0">
                             <!-- rendered by showContactDetails(contactIndex) -->
                         </div>
                         <div class="contact-name-addTask">
-                            <span id="contact-details-name" class="contact-name font-text-47">
+                            <span id="contact-details-name" class="contact-name fs-47 fw-500">
                                 <!-- rendered by showContactDetails(contactIndex) -->
                             </span>
-                            <div class="contact-addTask font-text-16" onclick="openAddTaskOverlay()">
+                            <div class="contact-addTask fs-16 fw-400" onclick="openAddTaskOverlay()">
                                 <div w3-include-html="../img/addPlus.svg" style="display:flex"></div>
                                 <span>Add Task</span>
                             </div>
                         </div>
                     </div>
                     <div class="contact-header-and-edit">
-                        <div class="font-text-21">
+                        <div class="fs-21 fw-400">
                             Contact Information
                         </div>
-                        <div id="contact-details-edit" class="contact-edit font-text-16">
+                        <div id="contact-details-edit" class="contact-edit fs-16 fw-400 desktop-only">
                             <div w3-include-html="../img/pencilContacts.svg" style="display:flex"></div>
                             <span>Edit Contact</span>
                         </div>
@@ -82,17 +88,26 @@
                 </div>
             </div>
 
-            <div id="contact-successfully-created" class="contact-created font-text-21">
+            <div id="contact-successfully-created" class="contact-created fs-21 fw-400">
                 Contact successfully created
             </div>
 
-            <button class="new-contact dark-btn font-btn-21" onclick="openCreateContactOverlay()">
+            <button class="new-contact dark-btn fs-21 fw-700 desktop-only" onclick="openCreateContactOverlay()">
                 <span>New contact</span>
                 <img src="../img/addSymbol.png">
             </button>
 
-            <div id="close-contact-info" class="close-contact-info mobile" onclick="closeContactInfo()">
+            <div id="close-contact-info" class="close-contact-info mobile-only" onclick="closeContactInfo()">
                 <img src="../img/arrow_left.png">
+            </div>
+
+            <div id="contact-details-edit-mobile" class="contact-edit fs-16 fw-400 mobile-only"
+                onclick="openEditContactOverlay(getActiveContact())">
+                <img src="../img/editResponsive.png" class="img-50">
+            </div>
+
+            <div id="contact-delete-mobile" class="mobile-only" onclick="deleteContact(getActiveContact())">
+                <img src="../img/deleteButtonMobile.png" class="img-40">
             </div>
         </div>
     </main>
@@ -104,7 +119,7 @@
                 <p id="create-or-edit-contact-headline" class="header-headline mt-12 mb-12">
                     <!-- rendered by renderCreateContactHeadline() or renderEditContactHeadline() -->
                 </p>
-                <p id="create-or-edit-contact-subheadline" class="font-text-27">
+                <p id="create-or-edit-contact-subheadline" class="fs-27 fw-400">
                     <!-- rendered by renderCreateContactHeadline() or renderEditContactHeadline() -->
                 </p>
                 <div class="header-border-bottom mt-12"></div>
@@ -127,14 +142,14 @@
                     <img src="../img/phoneInput.png">
                 </div>
                 <div id="form-contact-buttons">
-                    <button id="form-contact-light-btn" type="button" class="light-btn font-text-21"
+                    <button id="form-contact-light-btn" type="button" class="light-btn fs-21 fw-400"
                         onclick="closeCreateOrEditContactOverlay()">
                         <span id="form-contact-light-btn-text">
                             <!-- rendered by renderCreateContactButtons() or renderEditContactButtons() -->
                         </span>
                         <div id="form-contact-light-btn-symbol" w3-include-html="../img/clear.svg"></div>
                     </button>
-                    <button id="form-contact-dark-btn" type="submit" class="dark-btn font-btn-21">
+                    <button id="form-contact-dark-btn" type="submit" class="dark-btn fs-21 fw-700">
                         <span id="form-contact-dark-btn-text">
                             <!-- rendered by renderCreateContactButtons() or renderEditContactButtons() -->
                         </span>
