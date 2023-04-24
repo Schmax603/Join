@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    <button class="toggleable" id="button-1" onclick="toggleButton(1)">Button 1</button>
-    <button class="toggleable" id="button-2" onclick="toggleButton(2)">Button 2</button>
-    <button class="toggleable" id="button-3" onclick="toggleButton(3)">Button 3</button>
+    <button class="toggleable" id="button-1" onclick="isActive(1)">Button 1</button>
+    <button class="toggleable" id="button-2" onclick="isActive(2)">Button 2</button>
+    <button class="toggleable" id="button-3" onclick="isActive(3)">Button 3</button>
 
     <style>
         /* Default state */
@@ -27,11 +27,11 @@
 
 
     <script>
-        function toggleButton(buttonNum) {
+        function isActive(buttonNum) {
             const buttons = document.querySelectorAll('.toggleable');
             buttons.forEach(button => {
                 if (button.id === `button-${buttonNum}`) {
-                    button.classList.add('active');
+                    button.classList.toggle('active');
                 } else {
                     button.classList.remove('active');
                 }
