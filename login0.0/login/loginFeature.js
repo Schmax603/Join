@@ -1,6 +1,5 @@
 /**
  * initiated login animation & generate login card
- * @module generateHtmlLogin
  */
 function initLogin(){ /**@alias module:initLogin */
   let overlayCard = document.getElementById('login-card');

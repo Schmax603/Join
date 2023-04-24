@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join</title>
+  <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+    <link rel="manifest" href="../favicon/site.webmanifest" />
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
+  <!-- login style -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="login copy.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+  <!-- backend -->
+    <script src="../templets/mini_backend/mini_backend.js"></script>
+    <script src="../script.js"></script>
+  <!-- 
+      frontend functions
+      change for index.html 
+  -->
+    <script src="login.js"></script>
+    <script src="registry.js"></script>
+</head>
+
+<body onload="initLogin(); init(); remember(); displayMessage();">
+  
+  <main class="main">
+    <img class="logo" src="../img/logoBig.png" alt="join logo">
+
+    <form class="form" action="">
+      <h1 class="form-headline ta-c">Log in</h1>
+      <div class="border"></div>
+      
+      <section class="form-verification">
+        <input id="loginEmail" type="email" placeholder="Email" autocomplete="current-password" required>
+        <input id="loginPassword" class="password-img" type="password" placeholder="Password" autocomplete="current-password" required>
+      </section>
+      
+      <section class="form-valuable">
+        <div class="checkbox">
+          <input id="checkbox" type="checkbox">
+          <label for="checkbox">Remember me</label>
+        </div>
+        <a href="">Forgot my password</a>
+      </section>
+
+      <section class="form-submit">
+        <button>Log in</button>
+        <button>Guest Log in</button>
+      </section>
+    </form>
+
+    <section class="sign-up">
+      <p>Not a Join user?</p>
+      <button>Sign up</button>
+    </section>
+
+  </main>
+  
+
+</body>
+</html>

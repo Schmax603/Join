@@ -1,0 +1,117 @@
+/*--------------------------------------------------
+Main
+---------------------------------------------------*/
+.main{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: #F5F5F5
+}
+.logo{
+  position: absolute;
+  top: 80px;
+  left: 77px;
+  max-width: 100px;
+}
+.sign-up{
+  position: absolute;
+  top: 67px;
+  right: 114px;
+  display: flex;
+}
+/*--------------------------------------------------
+Formular
+---------------------------------------------------*/
+form{
+  margin: 0 4%;
+  padding: 35px 4%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 30px;
+}
+.form-headline{
+  width: 100%;
+  margin: 0;
+}
+.border{
+  margin-top: 24px;
+  margin-bottom: 35px;
+  width: 50%;
+  max-width: 150px;
+  height: 3px;
+  background-color: #29ABE2;
+}
+.form-verification{
+  width: 100%;
+}
+.form-verification input:last-child{
+  margin-bottom: 55px;
+}
+input[type=email], input[type=name], input[type=password]{
+  margin-bottom: 49px;
+  padding: 13px 21px;
+  width: calc(100% - 42px - 2px);
+  border: 1px solid #D1D1D1;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: 95%;
+}
+input[type=email]{
+  background-image: url(../img/emailInput.png);
+}
+input[type=password]{
+  background-image: url(../img/lock.png);
+}
+.form-valuable{
+  margin-bottom: 35px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}
+.checkbox{
+  display: flex;
+  gap: 20px;
+}
+.form-submit{
+  display: flex;
+  gap: 35px;
+}
+/*--------------------------------------------------
+Media Querry 
+---------------------------------------------------*/
+@media(max-width: 900px){
+  .logo{
+    top: 38px;
+    left: 37px;
+    max-width: 64px;
+  }
+  .sign-up{
+    top: unset;
+    right: unset;
+    bottom: 4%;
+  }
+  .form-verification input:last-child{
+    margin-bottom: 30px;
+  }
+  .form-valuable{
+    flex-direction: column-reverse;
+    gap: 31px;
+  }
+  .form-submit{
+    flex-direction: column;
+    gap: 21px;
+  }
+}
+@media(max-height: 750px){
+  .logo{
+    max-width: 40px;
+  }
+}

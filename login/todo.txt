@@ -6,8 +6,11 @@ cleanCode .css:
 
 
 ToDo:
-
-Login:
+-Login:
   -rework style Desktop
   -rework style Mobile
   -rework animation Logo, Background, msgBox
+
+-Summary:
+  -checkup
+  -JS all number of Tasks
