@@ -39,6 +39,8 @@ Main
   top: 67px;
   right: 114px;
   display: flex;
+  align-items: center;
+  gap: 35px;
 }
 /*--------------------------------------------------
 Formular
@@ -79,6 +81,8 @@ input[type=email], input[type=name], input[type=password]{
   border-radius: 10px;
   background-repeat: no-repeat;
   background-position: 95%;
+  font-size: 21px;
+  font-weight: 400;
 }
 input[type=email]{
   background-image: url(../img/emailInput.png);
@@ -105,6 +109,9 @@ input[type=password]{
 Media Querry 
 ---------------------------------------------------*/
 @media(max-width: 900px){
+  .fs-61{
+    font-size: 47px;
+  }
   .logo{
     top: 38px;
     left: 37px;
