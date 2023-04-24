@@ -85,7 +85,14 @@ body {
     cursor: pointer;
     background-color: #29ABE2;
     color: white;
-    box-shadow: 0 4px 5px #5551;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.dark-btn:active {
+    background-color: #091931;
+    color: white;
+    box-shadow: 0px 4px 4px 0px #00000040;
+
 }
 
 .light-btn {
@@ -107,12 +114,22 @@ body {
     box-shadow: 0 4px 5px #5551;
 }
 
+.light-btn:active {
+    color: #091931;
+    border: 1px solid #091931;
+    box-shadow: 0 4px 5px #5551;
+}
+
 .light-btn svg path {
     transition: 220ms ease-in-out;
 }
 
 .light-btn:hover svg path {
     stroke: #29ABE2;
+}
+
+.light-btn:active svg path {
+    stroke: #091931;
 }
 
 main.contacts {
@@ -240,6 +257,7 @@ Contact Details
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
+    position: relative;
 }
 
 .contacts-header {
@@ -384,4 +402,11 @@ Contact Details
     height: 53px;
     align-self: flex-end;
     gap: 10px;
+}
+
+.close-contact-info {
+    position: absolute;
+    top: 34px;
+    right: 34px;
+    cursor: pointer;
 }

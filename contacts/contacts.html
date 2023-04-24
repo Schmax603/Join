@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../headerNav/headerNav.css">
     <script src="../headerNav/headerNav.js"></script>
 
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="contacts.css">
     <link rel="stylesheet" href="newContact.css">
     <link rel="stylesheet" href="contactsMediaQueries.css">
@@ -28,18 +29,18 @@
     <script src="../login/login.js"></script>
 </head>
 
-<body id="body" onload="initHeaderNav(); renderContactList();" onclick="closeMenu()">
+<body id="body" onload="initHeaderNav(); initContacts();" onclick="closeMenu()">
 
     <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
 
     <main class="contacts">
-        <div class="contacts-list-container">
+        <div id="contacts-list-container" class="contacts-list-container">
             <div id="contacts-list" class="contacts-list">
                 <!-- rendered by renderContactList() -->
             </div>
         </div>
 
-        <div class="contacts-info-container">
+        <div id="contacts-info-container" class="contacts-info-container">
             <div class="contacts-header">
                 <p class="header-headline mr-30">Contacts</p>
                 <div class="header-border-mid"></div>
@@ -89,6 +90,10 @@
                 <span>New contact</span>
                 <img src="../img/addSymbol.png">
             </button>
+
+            <div id="close-contact-info" class="close-contact-info mobile" onclick="closeContactInfo()">
+                <img src="../img/arrow_left.png">
+            </div>
         </div>
     </main>
 

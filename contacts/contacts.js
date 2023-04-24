@@ -67,7 +67,15 @@ let contacts = [
 ]
 
 const NUMBER_OF_BG_COLORS = 17; // see bgColors.css
+let contactInfoContainerIsActive = false;
 let activeContactIndex;
+
+
+function initContacts() {
+    changeContentOnWindowSize();
+    renderContactList();
+
+}
 
 
 function renderContactList() {
@@ -118,10 +126,15 @@ function showContactDetails(contactIndex, justEdited = false) {
         return;
 
     activateContact(contactIndex);
+    contactInfoContainerIsActive = true;
     // hideOverlay('contact-details-overlay');
 
     setTimeout(() => {
         const contact = contacts[contactIndex];
+        if (screenWidthIsAtMost('1200px')) {
+            showElement('contacts-info-container');
+            removeElement('contacts-list-container');
+        }
         renderContactDetails(contact);
         setOpenEditContact(contact);
         showOverlay('contact-details-overlay');
@@ -134,7 +147,18 @@ function activateContact(contactIndex) {
     contacts.forEach(c => {
         document.getElementById(`contact-${contacts.indexOf(c)}`).classList.remove('contact-active');
     });
-    document.getElementById(`contact-${contactIndex}`).classList.add('contact-active');
+
+    if (!screenWidthIsAtMost('1200px')) {
+        document.getElementById(`contact-${contactIndex}`).classList.add('contact-active');
+    }
+}
+
+
+function deactivateContact() {
+    activeContactIndex = undefined;
+    contacts.forEach(c => {
+        document.getElementById(`contact-${contacts.indexOf(c)}`).classList.remove('contact-active');
+    });
 }
 
 
@@ -230,6 +254,14 @@ function sortContactsByName() {
             return -1;
         }
     });
+}
+
+
+function closeContactInfo() {
+    contactInfoContainerIsActive = false;
+    deactivateContact();
+    removeElement('contacts-info-container');
+    showElement('contacts-list-container');
 }
 
 
@@ -470,4 +502,28 @@ function doNotClose(event) {
 
 function clearElement(id) {
     document.getElementById(id).innerHTML = '';
+}
+
+
+function changeContentOnWindowSize() {
+    if (screenWidthIsAtMost('1200px')) {
+        if (contactInfoContainerIsActive) {
+            removeElement('contacts-list-container');
+            showElement('contacts-info-container');
+        } else {
+            showElement('contacts-list-container');
+            removeElement('contacts-info-container');
+        }
+    }
+    else {
+        showElement('contacts-list-container');
+        showElement('contacts-info-container');
+    }
+}
+
+window.onresize = changeContentOnWindowSize;
+
+
+function screenWidthIsAtMost(screenWidth) {
+    return window.matchMedia(`(max-width: ${screenWidth})`).matches;
 }
