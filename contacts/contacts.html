@@ -119,16 +119,17 @@
                 <p id="create-or-edit-contact-headline" class="header-headline mt-12 mb-12">
                     <!-- rendered by renderCreateContactHeadline() or renderEditContactHeadline() -->
                 </p>
-                <p id="create-or-edit-contact-subheadline" class="fs-27 fw-400">
+                <p id="create-or-edit-contact-subheadline" class="header-subheadline">
                     <!-- rendered by renderCreateContactHeadline() or renderEditContactHeadline() -->
                 </p>
                 <div class="header-border-bottom mt-12"></div>
             </div>
 
-            <div id="create-or-edit-contact-icon-container">
-                <!-- rendered by renderCreateContactIcon() or renderEditContactIcon(contact) -->
-            </div>
+
             <form id="form-contact-info" class="form-contact-info" onsubmit="addNewContact(); return false;">
+                <div id="create-or-edit-contact-icon-container">
+                    <!-- rendered by renderCreateContactIcon() or renderEditContactIcon(contact) -->
+                </div>
                 <input id="new-contact-name" type="name" title="" placeholder="Name" required>
                 <input id="new-contact-email" type="email" title="" placeholder="Email" required>
                 <input id="new-contact-phone" type="tel" title="" placeholder="Phone" required>
@@ -147,9 +148,12 @@
                         <img id="form-contact-dark-btn-symbol" src="../img/create.png">
                     </button>
                 </div>
-                <div class="close-new-contact" onclick="closeCreateOrEditContactOverlay()"><img src="../img/close.png">
-                </div>
+
             </form>
+            <div class="close-new-contact" onclick="closeCreateOrEditContactOverlay()">
+                <img class="close-new-contact-img" src="../img/close.png">
+                <img class="close-new-contact-img-white" src="../img/close_white.png">
+            </div>
         </div>
     </div>
 </body>

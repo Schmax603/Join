@@ -238,9 +238,12 @@ Contact Details
 }
 
 .header-subheadline {
-    color: #2A3647;
     font-size: 27px;
     font-weight: 400;
+}
+
+.contacts-header .header-subheadline {
+    color: #2A3647;
     /* margin-left: calc(30px - 3px); */
 }
 
