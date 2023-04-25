@@ -1,7 +1,7 @@
 /*--------------------------------------------------
 Header
 ---------------------------------------------------*/
-header{
+header {
   padding-left: 116px;
   padding-right: 33px;
   position: absolute;
@@ -16,15 +16,18 @@ header{
   align-items: center;
   z-index: 6;
 }
-.header-logo-small{
+
+.header-logo-small {
   display: none;
 }
-.h-menu{
+
+.h-menu {
   display: flex;
   align-items: center;
   gap: 26px;
 }
-.mobile-drdo-menu{
+
+.mobile-drdo-menu {
   padding: 10px;
   flex-direction: column;
   position: absolute;
@@ -36,31 +39,37 @@ header{
   border-radius: 20px 0px 20px 20px;
   z-index: 10;
 }
-.mobile-drdo-menu-box{
+
+.mobile-drdo-menu-box {
   height: 33px;
   width: 110px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.mobile-only{
+
+.mobile-only {
   display: none;
 }
-.animation{
+
+.animation {
   animation: 250ms moveIn ease-in-out;
 }
-@keyframes moveIn{
-  from{
+
+@keyframes moveIn {
+  from {
     right: -130px;
   }
-  to{
+
+  to {
     right: 33px;
   }
 }
+
 /*--------------------------------------------------
 Navbar
 ---------------------------------------------------*/
-nav{
+nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -70,11 +79,13 @@ nav{
   box-shadow: 0px 0px 4px rgba(0, 0, 0, .1);
   z-index: 6;
 }
-.n-logo{
+
+.n-logo {
   padding: 60px 60px 60px 60px;
   max-width: 290px;
 }
-.n-nav{
+
+.n-nav {
   padding-bottom: 112px;
   height: calc(100vh - 242px - 112px);
   width: 100%;
@@ -84,12 +95,14 @@ nav{
   flex-direction: column;
   justify-content: space-between;
 }
-.n-nav-ul{
+
+.n-nav-ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.n-nav-ul-li{
+
+.n-nav-ul-li {
   padding-left: 54px;
   display: flex;
   gap: 21px;
@@ -97,17 +110,20 @@ nav{
   align-items: center;
   list-style: none;
 }
-.n-nav-ul-li:hover{
+
+.n-nav-ul-li:hover {
   background-color: #091931;
   cursor: pointer;
 }
-.n-more{
+
+.n-more {
   padding-left: 54px;
   display: flex;
   gap: 21px;
   justify-content: flex-start;
   align-items: center;
 }
+
 /*--------------------------------------------------
 Overlay legal, help
 ---------------------------------------------------*/
@@ -122,64 +138,78 @@ Overlay legal, help
   flex-direction: column;
   z-index: 5;
 }
-.overlay-header{
+
+.overlay-header {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
 }
+
 .overlay-h1 {
   gap: 100%;
   display: flex;
 }
+
 .overlay-h1 img:hover {
   margin-left: 20px;
   cursor: pointer;
 }
+
 .bnt {
   top: 82.51px;
   right: 126.17px;
 }
+
 /*--------------------------------------------------
 Media Querry 
 ---------------------------------------------------*/
 @media (max-width: 900px) {
+
   /*--------------------------------------------------
   <900 header
   ---------------------------------------------------*/
-  header{
+  header {
     height: 80px;
     padding: 0 25px;
     left: 0;
   }
-  .header-logo-small{
+
+  .header-logo-small {
     display: flex;
   }
-  .header-text{
+
+  .header-text {
     display: none;
   }
-  #header-help-icon{
+
+  #header-help-icon {
     display: none;
   }
-  .mobile-drdo-menu{
+
+  .mobile-drdo-menu {
     top: 80px;
     right: 25px;
   }
-  .mobile-drdo-menu-box{
+
+  .mobile-drdo-menu-box {
     display: flex;
   }
+
   /*--------------------------------------------------
   <900 Navbar
   ---------------------------------------------------*/
-  nav{
+  nav {
     position: fixed;
     width: 100%;
     height: 80px;
-    top:calc(100vh - 80px)
+    top: calc(100vh - 80px)
   }
-  .n-logo{
+
+  .n-logo {
     display: none;
   }
-  .n-nav{
+
+  .n-nav {
     padding-bottom: 0;
     height: 100%;
     flex-direction: row;
@@ -187,56 +217,65 @@ Media Querry
     left: 0;
     right: 0;
   }
-  .n-nav-ul{
+
+  .n-nav-ul {
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: space-around;
   }
-  .n-nav-ul-li{
-    width: 80px;
+
+  .n-nav-ul-li {
+    width: 90px;
     flex-direction: column;
     justify-content: center;
     gap: 0;
     padding: 1%;
   }
-  .n-nav-ul-li p{
+
+  .n-nav-ul-li p {
     margin-top: 14px;
     margin-bottom: 0;
   }
-  .n-more{
+
+  .n-more {
     display: none;
   }
+
   /*--------------------------------------------------
   <900 Overlay legal, help
   ---------------------------------------------------*/
-  .overlay{
+  .overlay {
     margin: 55px 0;
     padding: 10% 10% 0 10%;
     overflow-y: auto;
   }
+
   .overlay-h1 {
-      gap: 50%;
+    gap: 50%;
   }
 }
 
-@media (max-width: 400px){
+@media (max-width: 400px) {
+
   /*--------------------------------------------------
   <400 Navbar
   ---------------------------------------------------*/
-  .nav-txt{
+  .nav-txt {
     font-size: 14px;
   }
 }
 
 @media (max-width: 350px) {
-    /*--------------------------------------------------
+
+  /*--------------------------------------------------
   <350 Overlay legal, help
   ---------------------------------------------------*/
   .overlay-h1 {
-      gap: 10%;
+    gap: 10%;
   }
+
   .overlay-h1 h1 {
-      font-size: 40px;
+    font-size: 40px;
   }
 }

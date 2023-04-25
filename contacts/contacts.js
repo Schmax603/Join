@@ -295,6 +295,7 @@ function renderCreateContactIcon() {
 
 
 function renderCreateContactButtons() {
+    document.getElementById('form-contact-light-btn').classList.add('desktop-only');
     document.getElementById('form-contact-buttons').classList.remove('align-self-end');
 
     document.getElementById('form-contact-light-btn-text').innerHTML = 'Cancel';
@@ -357,7 +358,12 @@ function setEditContactInputValues(contact) {
 
 
 function renderEditContactButtons() {
-    document.getElementById('form-contact-buttons').classList.add('align-self-end');
+    if (screenWidthIsAtMost('1200px')) {
+        document.getElementById('form-contact-light-btn').classList.remove('desktop-only');
+    }
+    else {
+        document.getElementById('form-contact-buttons').classList.add('align-self-end');
+    }
 
     document.getElementById('form-contact-light-btn-text').innerHTML = 'Delete';
     document.getElementById('form-contact-light-btn-symbol').style.display = 'none';
