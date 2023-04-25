@@ -173,7 +173,7 @@ input[type=name]{
   display: flex;
   gap: 35px;
 }
-#msg-box{
+.msg-box{
   padding: 24px;
   color: #FFFFFF;
   background-color: #2A3647;
@@ -181,14 +181,17 @@ input[type=name]{
   border-radius: 20px;
   position: absolute;
   bottom: 5%;
-  /*     transition: 500ms ease-in-out;
-    transform: translateY(-144%); set transform */
+  transition: 500ms ease-in-out;
+  transform: translateY(25vh); 
   }
-  #label-confirm{
+.show-overlay{
+  transform: translate(0);
+}
+  /* #label-confirm{
     font-size: 12px;
     font-weight: 400;
     color: #FF8190;
-  }
+  } */
 /*--------------------------------------------------
 Media Querry 
 ---------------------------------------------------*/

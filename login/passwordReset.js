@@ -43,10 +43,10 @@ async function confirmPassword(){
 
 /**Generate message */
 function confirmMsg(){
-  window.location.href='newPassword.html?msg=You reset your password';
-  setTimeout(() => {
-    window.location.href='..index.html'
-  }, 1000);
+  window.location.href='../index.html?msg=You reset your password';
+  // setTimeout(() => {
+  //   window.location.href='..index.html'
+  // }, 1000);
 }
 
 function wrongPasswordInput(){

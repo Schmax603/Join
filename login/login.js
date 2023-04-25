@@ -110,12 +110,10 @@ async function logout(){
 function displayMessage(){
 let msgBox = document.getElementById('msg-box');
 if(msg){
-  msgBox.classList.remove('d-none');
+  msgBox.classList.add('show-overlay');
   msgBox.innerHTML = msg;
-}else{
-  msgBox.classList.add('d-none');
 }
 setTimeout(() => {
-  msgBox.classList.add('d-none');
+  msgBox.classList.remove('show-overlay');
 }, 2000);
 }

@@ -168,7 +168,9 @@ Global Variable
 .mr-35 {
   margin-right: 35px;
 }
-
+.o-flow-h{
+  overflow: hidden;
+}
 .px-50 {
   padding: 0 50px;
 }
