@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Join</title>
 
-  <!-- templates header, nav, help, legal-->
+<!-- templates header, nav, help, legal-->
   <link rel="stylesheet" href="../headerNav/headerNav.css">
   <script src="../headerNav/headerNav.js"></script>
-
+<!-- favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
@@ -19,15 +19,15 @@
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="summary.css">
   <link rel="stylesheet" href="../fonts/fonts.css">
-<!-- mini backend -->
-<script src="../backend.js"></script>
+<!-- backend -->
+  <script src="../backend.js"></script>
 <!-- scripts -->
-<script src="../login/login.js"></script>
-<script src="summary.js"></script>
+  <script src="../login/login.js"></script>
+  <script src="summary.js"></script>
   <script src="summaryTemplates.js"></script>
 
 </head>
-<body id="body" onload="initHeaderNav(); renderGreeting()" onclick="closeMenu()">
+<body id="body" onload="loadUsers(); initHeaderNav(); renderGreeting()" onclick="closeMenu()">
   <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
   
   <main class="summary">
@@ -44,45 +44,45 @@
       <div class="summary-infos-tasks">
 
         <div onclick="location.href='../board/board.html';" class="summary-infos-tasks-card hover grid1">
-          <p id="summary-infos-tasks-card-board" class="fs-64-600 m-0">0</p>
-          <p class="fs-21-400">Tasks in Board</p>
+          <p id="summary-infos-tasks-card-board" class="fs-64 fw-600 m-0">0</p>
+          <p class="fs-21 fw-400">Tasks in Board</p>
         </div>
         <div onclick="location.href='../board/board.html';" class="summary-infos-tasks-card hover grid2">
-          <p id="summary-infos-tasks-card-progress" class="fs-64-600 m-0">0</p>
-          <p class="fs-21-400">Tasks in Progress</p>
+          <p id="summary-infos-tasks-card-progress" class="fs-64 fw-600 m-0">0</p>
+          <p class="fs-21 fw-400">Tasks in Progress</p>
         </div>
         <div onclick="location.href='../board/board.html';" class="summary-infos-tasks-card hover grid3">
-          <p id="summary-infos-tasks-card-feedback" class="fs-64-600 m-0">0</p>
-          <p class="fs-21-400">Awaiting Feedback</p>
+          <p id="summary-infos-tasks-card-feedback" class="fs-64 fw-600 m-0">0</p>
+          <p class="fs-21 fw-400">Awaiting Feedback</p>
         </div>
 
         <div onclick="location.href='../board/board.html';" class="summary-infos-tasks-deadline hover grid4">
           <div class="summary-infos-tasks-deadline-priority">
             <img class="img-priority" src="../img/urgent.png" alt="prio">
             <div class="ta-c">
-              <span class="fs-47-600">0</span>
-              <p class="fs-16-400">Urgent</p>
+              <span class="fs-47 fw-600">0</span>
+              <p class="fs-16 fw-400">Urgent</p>
             </div>
           </div>
           <div class="summary-infos-tasks-deadline-border"></div>
           <div class="summary-infos-tasks-deadline-time">
-            <p id="deadline-time" class="fs-21-700 mb-10">fill innerHTML</p>
-            <p class="fs-16-400">Upcoming Deadline</p>
+            <p id="deadline-time" class="fs-21 fw-700 mb-10">fill innerHTML</p>
+            <p class="fs-16 fw-400">Upcoming Deadline</p>
           </div>
         </div>
 
         <div onclick="location.href='../board/board.html';" class="summary-infos-tasks-progress-card hover grid5">
           <img class="img-progress" src="../img/pencil.svg" alt="pencil">
           <div class="ta-c">
-            <span id="summary-infos-tasks-progress-card-todo-amount" class="fs-64-600">0</span>
-            <p class="fs-21-400">To-do</p>
+            <span id="summary-infos-tasks-progress-card-todo-amount" class="fs-64 fw-600">0</span>
+            <p class="fs-21 fw-400">To-do</p>
           </div>
         </div>
         <div onclick="location.href='../board/board.html';" class="summary-infos-tasks-progress-card hover grid6">
           <img class="img-progress" src="../img/check.svg" alt="check">
           <div class="ta-c">
-            <span id="summary-infos-tasks-progress-card-Done-amount" class="fs-64-600">0</span>
-            <p class="fs-21-400">Done</p>
+            <span id="summary-infos-tasks-progress-card-Done-amount" class="fs-64 fw-600">0</span>
+            <p class="fs-21 fw-400">Done</p>
           </div>
         </div>
 

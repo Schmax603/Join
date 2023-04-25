@@ -1,5 +1,10 @@
 let EmailIsAvailable = false;
 
+function initSignUp(){
+  loadUsers(); 
+  displayMessage();
+}
+
 /**this function registry new User or checke Array users for existing email
   *
   *@param {Array} users - backend Array

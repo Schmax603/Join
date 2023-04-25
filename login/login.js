@@ -5,12 +5,22 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 let msg = params.msg;
 
 
-/**initiated login animation*/
+/**initiated login*/
 function initLogin(){ /**@alias module:initLogin */
-  let whiteLogo = document.getElementById('logo-white');
+  loadUsers();  
+  animationLogin();
+  remember();
+  displayMessage();
+}
+
+/**Start, stop animation */
+function animationLogin(){
+  let animationLogin = document.getElementById('animation-join');
+  let joinLogo = document.getElementById('join-logo');
   
   setTimeout(function(){ 
-    whiteLogo.classList.add('d-none');
+    animationLogin.classList.add('d-none');
+    joinLogo.classList.remove('d-none');
   }, 1000);
 }
 
@@ -42,7 +52,8 @@ async function checkUserInput(user, userEmail, userPassword, i){
     while (user != users[i]) {
       i++;
     }
-    await setItem('currentUser', JSON.stringify({'currentUser':i}));
+    // currentUser.push({currentUser: i});
+    await setItem('currentUser', JSON.stringify(i));
     console.log('geschafft')
     window.location.href = '../summary/summary.html';
   }else{
@@ -52,7 +63,8 @@ async function checkUserInput(user, userEmail, userPassword, i){
 
 /**Guest log in*/
 async function userGuest(){
-  await setItem('currentUser', JSON.stringify({'currentUser':''}));
+  // currentUser.push({currentUser: ''});
+  await setItem('currentUser', JSON.stringify(''));
   window.location.href = "../summary/summary.html"
 }
 
@@ -90,19 +102,18 @@ function remember(){
 
 /**this function clear array "currentUser" and navigate to index.html*/
 async function logout(){
-  await setItem('currentUser', JSON.stringify({'currentUser':''}));
+  // currentUser.push({currentUser: ''});
+  await setItem('currentUser', JSON.stringify(''));
   window.location.href = '../index.html';
 }
 
 function displayMessage(){
 let msgBox = document.getElementById('msg-box');
 if(msg){
-  msgBox.classList.remove('d-none');
+  msgBox.classList.add('show-overlay');
   msgBox.innerHTML = msg;
-}else{
-  msgBox.classList.add('d-none');
 }
 setTimeout(() => {
-  msgBox.classList.add('d-none');
+  msgBox.classList.remove('show-overlay');
 }, 2000);
 }

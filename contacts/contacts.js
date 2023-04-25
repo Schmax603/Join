@@ -67,7 +67,15 @@ let contacts = [
 ]
 
 const NUMBER_OF_BG_COLORS = 17; // see bgColors.css
+let contactInfoContainerIsActive = false;
 let activeContactIndex;
+
+
+function initContacts() {
+    changeContentOnWindowSize();
+    renderContactList();
+
+}
 
 
 function renderContactList() {
@@ -84,7 +92,7 @@ function renderLetterContacts(letter) {
     const container = document.getElementById('contacts-list');
     container.innerHTML += /*html*/`
         <div class="letter-container" id="letter-container-${letter}">
-            <div class="letter-header font-text-21">${letter}</div>
+            <div class="letter-header fs-21 fw-400">${letter}</div>
             <div class="letter-header-bottom-border"></div>
         </div>
     `;
@@ -101,12 +109,12 @@ function renderContact(contact) {
     const container = document.getElementById(`letter-container-${letter}`);
     container.innerHTML += /*html*/`
         <div id="contact-${contactIndex}" class="contact" onclick="showContactDetails(${contactIndex})">
-            <div class="contact-icon contact-list-icon font-text-12 ${contact.color}">
+            <div class="contact-icon contact-list-icon fs-12 fw-400 ${contact.color}">
                 ${getInitials(contact)}
             </div>
             <div class="contact-name-email">
-                <span class="contact-name font-text-21">${contact.name}</span>
-                <span class="contact-email font-text-16">${contact.email}</span>
+                <span class="contact-name fs-21 fw-400">${contact.name}</span>
+                <span class="contact-email fs-16 fw-400">${contact.email}</span>
             </div>
         </div>
     `;
@@ -118,10 +126,15 @@ function showContactDetails(contactIndex, justEdited = false) {
         return;
 
     activateContact(contactIndex);
+    contactInfoContainerIsActive = true;
     // hideOverlay('contact-details-overlay');
 
     setTimeout(() => {
         const contact = contacts[contactIndex];
+        if (screenWidthIsAtMost('1200px')) {
+            showElement('contacts-info-container');
+            removeElement('contacts-list-container');
+        }
         renderContactDetails(contact);
         setOpenEditContact(contact);
         showOverlay('contact-details-overlay');
@@ -134,7 +147,18 @@ function activateContact(contactIndex) {
     contacts.forEach(c => {
         document.getElementById(`contact-${contacts.indexOf(c)}`).classList.remove('contact-active');
     });
-    document.getElementById(`contact-${contactIndex}`).classList.add('contact-active');
+
+    if (!screenWidthIsAtMost('1200px')) {
+        document.getElementById(`contact-${contactIndex}`).classList.add('contact-active');
+    }
+}
+
+
+function deactivateContact() {
+    activeContactIndex = undefined;
+    contacts.forEach(c => {
+        document.getElementById(`contact-${contacts.indexOf(c)}`).classList.remove('contact-active');
+    });
 }
 
 
@@ -158,7 +182,7 @@ function renderContactDetails(contact) {
 
 function renderContactDetailsIcon(contact) {
     const iconElement = document.getElementById('contact-details-icon');
-    iconElement.classList = `contact-icon contact-overlay-icon font-text-47 ${contact.color}`;
+    iconElement.classList = `contact-icon contact-overlay-icon fs-47 fw-500 ${contact.color}`;
     iconElement.innerHTML = getInitials(contact);
 }
 
@@ -189,6 +213,9 @@ function renderContactDetailsPhone(contact) {
 
 function setOpenEditContact(contact) {
     document.getElementById('contact-details-edit').onclick = () => {
+        openEditContactOverlay(contact);
+    };
+    document.getElementById('contact-details-edit-mobile').onclick = () => {
         openEditContactOverlay(contact);
     };
 }
@@ -233,6 +260,14 @@ function sortContactsByName() {
 }
 
 
+function closeContactInfo() {
+    contactInfoContainerIsActive = false;
+    deactivateContact();
+    removeElement('contacts-info-container');
+    showElement('contacts-list-container');
+}
+
+
 /*--------------------------------------------------
 Create Contact Overlay
 ---------------------------------------------------*/
@@ -260,6 +295,7 @@ function renderCreateContactIcon() {
 
 
 function renderCreateContactButtons() {
+    document.getElementById('form-contact-light-btn').classList.add('desktop-only');
     document.getElementById('form-contact-buttons').classList.remove('align-self-end');
 
     document.getElementById('form-contact-light-btn-text').innerHTML = 'Cancel';
@@ -307,7 +343,7 @@ function renderEditContactHeadline() {
 
 function renderEditContactIcon(contact) {
     document.getElementById('create-or-edit-contact-icon-container').innerHTML = /*html*/`
-        <div id="create-or-edit-contact-icon" class="contact-icon contact-overlay-icon font-text-47 ${contact.color}">
+        <div id="create-or-edit-contact-icon" class="contact-icon contact-overlay-icon fs-47 fw-500 ${contact.color}">
             ${getInitials(contact)}
         </div>
     `;
@@ -322,7 +358,12 @@ function setEditContactInputValues(contact) {
 
 
 function renderEditContactButtons() {
-    document.getElementById('form-contact-buttons').classList.add('align-self-end');
+    if (screenWidthIsAtMost('1200px')) {
+        document.getElementById('form-contact-light-btn').classList.remove('desktop-only');
+    }
+    else {
+        document.getElementById('form-contact-buttons').classList.add('align-self-end');
+    }
 
     document.getElementById('form-contact-light-btn-text').innerHTML = 'Delete';
     document.getElementById('form-contact-light-btn-symbol').style.display = 'none';
@@ -351,6 +392,13 @@ function deleteContact(contact) {
     closeCreateOrEditContactOverlay();
     renderContactList();
     hideOverlay('contact-details-overlay');
+
+    if (screenWidthIsAtMost('1200px')) {
+        setTimeout(() => {
+            showElement('contacts-list-container');
+            removeElement('contacts-info-container');
+        }, 220);
+    }
 }
 
 function editContact(contact) {
@@ -470,4 +518,28 @@ function doNotClose(event) {
 
 function clearElement(id) {
     document.getElementById(id).innerHTML = '';
+}
+
+
+function changeContentOnWindowSize() {
+    if (screenWidthIsAtMost('1200px')) {
+        if (contactInfoContainerIsActive) {
+            removeElement('contacts-list-container');
+            showElement('contacts-info-container');
+        } else {
+            showElement('contacts-list-container');
+            removeElement('contacts-info-container');
+        }
+    }
+    else {
+        showElement('contacts-list-container');
+        showElement('contacts-info-container');
+    }
+}
+
+window.onresize = changeContentOnWindowSize;
+
+
+function screenWidthIsAtMost(screenWidth) {
+    return window.matchMedia(`(max-width: ${screenWidth})`).matches;
 }

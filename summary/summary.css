@@ -167,25 +167,21 @@ Media Querry
 }
 
 @media (max-width: 850px){
-  .fs-64-600{
+  .fs-64{
     font-size: 47px;
-    font-weight: 600;
   }
-  .fs-21-700{
+  .fs-21{
     font-size: 16px;
-    font-weight: 700;
   }
-  .fs-47-600{
+  .fs-47{
     font-size: 47px;
     font-weight: 600;
   }
-  .fs-21-400{
+  .fs-21{
     font-size: 14px;
-    font-weight: 400;
   }
-  .fs-16-400{
+  .fs-16{
     font-size: 14px;
-    font-weight: 400;
   }
   .summary-infos-tasks{
     grid-auto-rows: minmax(140px, auto);

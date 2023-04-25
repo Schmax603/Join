@@ -1,8 +1,3 @@
-*{
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter';
-}
 body{
   height: 100vh;
   background-color: #F5F5F5;
@@ -10,81 +5,9 @@ body{
   justify-content: center;
   align-items: center;
 }
-
-/* <=================== global Variable */
-.bg-c-db{
-  background-color: #2A3647;
-}
-.bg-c-w{
-  background-color: #FFFFFF;
-}
-.cursor-d{
-  cursor: default;
-}
-.cursor-p{
-  cursor: pointer;
-}
-.c-lb{
-  color: #29ABE2;
-}
-.c-w{
-  color: #FFFFFF;
-}
-.fs-16-700{
-  font-size: 16px;
-  font-weight: 700;
-}
-.fs-21-700{
-  font-size: 21px;
-  font-weight: 700;
-}
-.fs-61-700{
-  font-size: 61px;
-  font-weight: 700;
-}
-.fs-61-700-pw{
-  font-size: 61px;
-  font-weight: 700;
-}
-.fs-16-400{
-  font-size: 16px;
-  font-weight: 400;
-}
-.fs-21-400{
-  font-size: 21px;
-  font-weight: 400;
-}
-.ta-c{
-  text-align: center;
-}
-.img-16{
-  width: 16px;
-  height: 16px;
-}
-.img-24{
-  width: 24px;
-  height: 24px;
-}
-.img-41{
-  width: 41px;
-  height: 41px;
-}
-.mr-20{
-  margin-right: 20px;
-}
-.mr-35{
-  margin-right: 35px;
-}
-.mb-35{
-  margin-bottom: 35px;
-}
-.px-50{
-  padding: 0 50px;
-}
-.wmax-826{
-  max-width: 826px;
-}
-/* <=================== global Elements */
+/*--------------------------------------------------
+Global elements
+---------------------------------------------------*/
 button{
   height: 49px;
   border-radius: 8px;
@@ -125,7 +48,9 @@ input:focus{
 input[type=checkbox]{
   margin-right: 20px;
 }
-/* <=================== btns */
+/*--------------------------------------------------
+Buttons
+---------------------------------------------------*/
 .main-login-btn{
   padding: 16px;
   display: flex;
@@ -147,7 +72,9 @@ input[type=checkbox]{
   background-color: #29ABE2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-/* <=================== main overlay */
+/*--------------------------------------------------
+Main overlay
+---------------------------------------------------*/
 .main-overlay{
   position: relative;
   width: 100vw;
@@ -173,7 +100,9 @@ input[type=checkbox]{
   gap: 35px;
   z-index: 1;
 }
-/* <=================== login overlay */
+/*--------------------------------------------------
+Login overlay
+---------------------------------------------------*/
 .overlay{
   position: absolute;
   top: 0;
@@ -185,16 +114,18 @@ input[type=checkbox]{
   align-items: center;
   flex-direction: column;
 }
-.msg-box{
-  margin-top: 25px;
+#msg-box{
+  /* margin-top: 25px; */
   padding: 24px;
   color: #FFFFFF;
   background-color: #2A3647;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
   position: absolute;
-  transform: translate(-50%);
-}
+  bottom: 5%;
+  /* transform: translate(-50%); */
+  z-index: 10;
+  }
 .overlay-login{
   margin: 0 15%;
   max-width: 826px;
@@ -245,19 +176,25 @@ input[type=checkbox]{
   width: 100%;
   max-width: 264px;
 }
-/*<=========== Media Querrys max-width: 900px Overlay*/
+/*--------------------------------------------------
+Media Querry 
+---------------------------------------------------*/
 @media (max-width: 900px){
-  /* <=================== change global <900 */
-  .fs-21-700{
+  /*--------------------------------------------------
+  <900 global
+  ---------------------------------------------------*/
+  .fs-21{
     font-size: 16px;
   }
-  .fs-61-700{
+  .fs-61{
     font-size: 47px;
   }
-  .fs-61-700-pw{
+  .fs-61-pw{
     font-size: 40px;
   }
-  /* <=================== main overlay <900 */
+  /*--------------------------------------------------
+  <900 main overlay
+  ---------------------------------------------------*/
   .main-overlay{
    justify-content: center;
    align-items: flex-end;
@@ -270,7 +207,9 @@ input[type=checkbox]{
     margin-right: 0;
     margin-bottom: 59px;
   }
-  /* <=================== login overlay <900 */
+  /*--------------------------------------------------
+  <900 login overlay
+  ---------------------------------------------------*/
   .overlay-login{
     margin: 10px;
     padding: 35px 22px;
@@ -314,10 +253,13 @@ input[type=checkbox]{
   }
 }
 
-/* <========== login animation */
+/*--------------------------------------------------
+Animation
+---------------------------------------------------*/
 .animation-bg{
   position: absolute;
   top: 0;
+  left: 0;
   height: 100vh;
   width: 100vw;
 }
@@ -349,7 +291,9 @@ input[type=checkbox]{
     z-index: 5;
   }
 }
-/* <========== login animation <900px */
+/*--------------------------------------------------
+Animation <900
+---------------------------------------------------*/
 @media(max-width: 900px){
   .logo-animate-white{
     animation: 1000ms moveLogo-white ease-in-out;
