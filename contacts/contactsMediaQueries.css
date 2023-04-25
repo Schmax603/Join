@@ -1,4 +1,89 @@
+.mobile-only {
+    display: none;
+}
+
+.desktop-only {
+    display: flex;
+}
+
 @media(max-width: 1200px) {
+    .mobile-only {
+        display: flex;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .contacts-list-container {
+        width: 100%;
+        max-width: unset;
+    }
+
+    .contacts-info-container {
+        padding: 34px 34px 80px 34px;
+    }
+
+    .header-superheadline {
+        display: none;
+    }
+
+    .contact-overlay-icon {
+        min-width: 80px;
+        height: 80px;
+        font-size: 27px;
+        font-weight: 400;
+    }
+
+    #contact-details-name {
+        font-size: 36px;
+        font-weight: 400;
+    }
+
+    .contact-header-and-edit {
+        height: unset;
+    }
+}
+
+@media(max-width: 900px) {
+    main.contacts {
+        padding: 80px 0 0 0;
+    }
+
+    .contacts-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-headline {
+        margin-bottom: 20px;
+        font-size: 47px;
+    }
+
+    .header-subheadline {
+        margin-left: 0;
+        margin-bottom: 32px;
+        font-size: 21px;
+    }
+
+    .header-superheadline {
+        display: flex;
+    }
+
+    .header-border-mid {
+        display: none;
+    }
+
+    .header-border-bottom {
+        display: block;
+    }
+
+    .close-contact-info {
+        top: 85px;
+    }
+}
+
+@media(max-width: 400px) {
     .contacts-list-container {
         padding: 8px;
     }
@@ -13,30 +98,9 @@
 
     .contact-name:not(#contact-details-name) {
         font-size: 18px;
-        /* TODO: font-Klasse mit JS hinzufügen? */
     }
 
     .contact-email:not(#contact-details-email) {
         font-size: 14px;
-        /* TODO: font-Klasse mit JS hinzufügen? */
-    }
-
-    .contacts-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .header-subheadline {
-        margin-left: 0;
-        margin-bottom: 20px;
-        /* TODO: margin-Klasse mit JS hinzufügen? */
-    }
-
-    .header-border-mid {
-        display: none;
-    }
-
-    .header-border-bottom {
-        display: block;
     }
 }

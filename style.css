@@ -1,122 +1,190 @@
-body{
+body {
   margin: 0;
   padding: 0;
   font-family: 'Inter';
 }
+
 /*--------------------------------------------------
 Global Variable
 ---------------------------------------------------*/
-.bg-c-db{
+.bg-c-db {
   background-color: #2A3647;
 }
-.bg-c-w{
+
+.bg-c-w {
   background-color: #FFFFFF;
 }
-.cursor-d{
+
+.cursor-d {
   cursor: default;
 }
-.cursor-p{
+
+.cursor-p {
   cursor: pointer;
 }
-.c-db{
+
+.c-db {
   color: #2A3647;
 }
-.c-lb{
+
+.c-lb {
   color: #29ABE2;
 }
-.c-w{
+
+.c-w {
   color: #FFFFFF;
 }
+
 /* ===font-size=== */
-.fs-16{
+.fs-16 {
   font-size: 16px;
 }
-.fs-21{
+
+.fs-21 {
   font-size: 21px;
 }
-.fs-27{
+
+.fs-27 {
   font-size: 27px;
 }
-.fs-36{
+
+.fs-36 {
   font-size: 36px;
 }
-.fs-47{
+
+.fs-47 {
   font-size: 47px;
 }
-.fs-61{
+
+.fs-61 {
   font-size: 61px;
 }
-.fs-64{
+
+.fs-64 {
   font-size: 64px;
 }
+
 /* ===font-weight=== */
-.fw-400{
+.fw-400 {
   font-weight: 400;
 }
-.fw-500{
+
+.fw-500 {
   font-weight: 500;
 }
-.fw-600{
+
+.fw-600 {
   font-weight: 600;
 }
-.fw-700{
+
+.fw-700 {
   font-weight: 700;
 }
-.img-16{
+
+.img-16 {
   width: 16px;
   height: 16px;
 }
-.img-20{
+
+.img-20 {
   width: 20px;
   height: 20px;
 }
-.img-24{
+
+.img-24 {
   width: 24px;
   height: 24px;
 }
-.img-30{
+
+.img-30 {
   width: 30px;
   height: 30px;
 }
-.img-32{
+
+.img-32 {
   width: 32px;
   height: 32px;
 }
-.img-41{
+
+.img-40 {
+  width: 40px;
+  height: 40px;
+}
+
+.img-41 {
   width: 41px;
   height: 41px;
 }
-.img-50{
+
+.img-50 {
   width: 50px;
   height: 50px;
 }
-.m-0{
+
+.m-0 {
   margin: 0;
 }
-.mb-10{
+
+.mt-12 {
+  margin-top: 12px;
+}
+
+.mt-34 {
+  margin-top: 34px;
+}
+
+.mb-10 {
   margin-bottom: 10px;
 }
-.mb-35{
+
+.mb-12 {
+  margin-bottom: 12px;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.mb-20 {
+  margin-bottom: 15px;
+}
+
+.mb-35 {
   margin-bottom: 35px;
 }
-.mr-20{
+
+.ml-30 {
+  margin-left: 30px;
+}
+
+.mr-20 {
   margin-right: 20px;
 }
-.mr-35{
+
+.mr-30 {
+  margin-right: 30px;
+}
+
+.mr-35 {
   margin-right: 35px;
 }
-.px-50{
+
+.px-50 {
   padding: 0 50px;
 }
-.ta-c{
+
+.ta-c {
   text-align: center;
 }
-.td-n{
+
+.td-n {
   text-decoration: none;
 }
-.wmax-826{
+
+.wmax-826 {
   max-width: 826px;
 }
+
 /*--------------------------------------------------
 Global Elements
 ---------------------------------------------------*/
