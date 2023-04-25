@@ -45,11 +45,11 @@
     /* height: 100%; */
 }
 
-.header-border-bottom {
+/* .header-border-bottom {
     width: 90px;
     border: 3px solid #29ABE2;
     border-radius: 2px;
-}
+} */
 
 #create-or-edit-contact-icon-container {
     width: 260px;
@@ -73,24 +73,33 @@
     position: relative;
 }
 
-.form-contact-info .input-field {
+input[type=email],
+input[type=name],
+input[type=tel] {
     height: 51px;
-    width: 422px;
+    width: calc(100% - 2px);
     border-radius: 10px;
-    padding: 13px 21px 13px 21px;
+    padding: 13px 21px;
     background-color: white;
     border: 1px solid #d1d1d1;
     margin: 25px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.form-contact-info .input-field input {
-    border: none;
     outline: none;
     font-size: 21px;
     font-weight: 400;
+    background-repeat: no-repeat;
+    background-position: 95%;
+}
+
+input[type=email] {
+    background-image: url(../img/emailInput.png);
+}
+
+input[type=name] {
+    background-image: url(../img/nameInput.png);
+}
+
+input[type=tel] {
+    background-image: url(../img/phoneInput.png);
 }
 
 #form-contact-buttons {
