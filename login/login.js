@@ -42,7 +42,8 @@ async function checkUserInput(user, userEmail, userPassword, i){
     while (user != users[i]) {
       i++;
     }
-    await setItem('currentUser', JSON.stringify({'currentUser':i}));
+    // currentUser.push({currentUser: i});
+    await setItem('currentUser', JSON.stringify(i));
     console.log('geschafft')
     window.location.href = '../summary/summary.html';
   }else{
@@ -52,7 +53,8 @@ async function checkUserInput(user, userEmail, userPassword, i){
 
 /**Guest log in*/
 async function userGuest(){
-  await setItem('currentUser', JSON.stringify({'currentUser':''}));
+  // currentUser.push({currentUser: ''});
+  await setItem('currentUser', JSON.stringify(''));
   window.location.href = "../summary/summary.html"
 }
 
@@ -90,7 +92,8 @@ function remember(){
 
 /**this function clear array "currentUser" and navigate to index.html*/
 async function logout(){
-  await setItem('currentUser', JSON.stringify({'currentUser':''}));
+  // currentUser.push({currentUser: ''});
+  await setItem('currentUser', JSON.stringify(''));
   window.location.href = '../index.html';
 }
 
