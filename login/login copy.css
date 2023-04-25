@@ -99,6 +99,9 @@ form{
   box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
   border-radius: 30px;
 }
+.form-SignIn{
+  max-width: 652px;
+}
 .return-black{
   position: absolute;
   top: 27px;
@@ -113,6 +116,10 @@ form{
 .form-headline{
   width: 100%;
   margin: 0;
+}
+.headline-newPassword{
+  padding: 21px 20px 0 20px;
+
 }
 .border{
   margin-top: 24px;
@@ -148,7 +155,7 @@ input[type=email]{
 input[type=name]{
   background-image: url(../img/nameInput.png);
 }
-input[type=password]{
+.img-password{
   background-image: url(../img/lock.png);
 }
 .form-valuable{
@@ -183,6 +190,15 @@ Media Querry
 @media(max-width: 900px){
   .fs-61{
     font-size: 47px;
+  }
+  .new-password{
+    padding: 35px 4%;
+  }
+  .headline-SendEmail{
+    font-size: 40px;
+  }
+  .headline-newPassword{
+    margin-top: 0;
   }
   .logo{
     top: 38px;
@@ -224,5 +240,10 @@ Media Querry
     top: unset;
     right: unset;
     bottom: 1%;
+  }
+}
+@media(max-width: 600px){
+  .headline-SendEmail{
+    margin-top: 21px;
   }
 }

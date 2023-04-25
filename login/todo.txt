@@ -3,12 +3,13 @@ cleanCode .css:
   -login
   -summary
   -headerNav
-
-
-ToDo:
 -Login:
   -rework style Desktop
   -rework style Mobile
+
+ToDo:
+-Login:
+  -Check Summary width (max-width:652px?)
   -rework animation Logo, Background, msgBox
 
 -Summary:

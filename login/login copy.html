@@ -14,6 +14,7 @@
   <!-- login style -->
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="login copy.css">
+    <link rel="stylesheet" href="login-animation copy.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
   <!-- backend -->
     <script src="../backend.js"></script>
@@ -25,38 +26,48 @@
     <script src="registry.js"></script>
 </head>
 
+<!-- todo animation JS -->
 <body onload="initLogin(); loadUsers(); remember(); displayMessage();">
   
+  <section id="animation-join">
+    <div class="screen-animation">
+    </div>
+    <div class="img-box">
+      <img class="logo-w-animation" src="../img/logo.png" alt="logo join white">
+      <img class="logo-b-animation" src="../img/logoBig.png" alt="join logo black">
+    </div>
+  </section>
+
   <main class="main">
     <img class="logo" src="../img/logoBig.png" alt="join logo">
 
 <!-- return false =>  prevents the page from reloading-->
     <form onsubmit="userLogin(); return false" class="form">
-      <h1 class="form-headline ta-c fs-61 fw-700">Log in</h1>
+      <h1 class="form-headline cursor-d ta-c fs-61 fw-700">Log in</h1>
       <div class="border"></div>
       
       <section class="form-verification">
         <input id="loginEmail" type="email" placeholder="Email" autocomplete="current-password" required>
-        <input id="loginPassword" class="password-img" type="password" placeholder="Password" autocomplete="current-password" required>
+        <input id="loginPassword" class="img-password" type="password" placeholder="Password" autocomplete="current-password" required>
       </section>
       
       <section class="form-valuable">
         <div class="checkbox">
-          <input id="remember-me" id="checkbox" type="checkbox">
+          <input id="remember-me" id="checkbox" class="cursor-p" type="checkbox">
           <label for="checkbox" class="fw-400">Remember me</label>
         </div>
         <a href="forgotPassword.html" class="c-lb fw-400 td-n">Forgot my password</a>
       </section>
 
       <section class="form-submit">
-        <button type="submit" class="btn btn-py btn-w-145 btn-dark fs-21 fw-700">Log in</button>
-        <button onclick="userGuest(); return false" class="btn btn-py btn-w-145 btn-bright fs-21 fw-700">Guest Log in</button>
+        <button type="submit" class="btn btn-py btn-w-145 btn-dark cursor-p fs-21 fw-700">Log in</button>
+        <button onclick="userGuest(); return false" class="btn btn-py btn-w-145 btn-bright cursor-p fs-21 fw-700">Guest Log in</button>
       </section>
     </form>
 
     <section class="sign-up">
-      <p class="fs-21 fw-400">Not a Join user?</p>
-      <button onclick="window.location.href= 'signUp.html'" class="btn btn-py btn-w-91 btn-dark fw-700">Sign up</button>
+      <p class="cursor-d fs-21 fw-400">Not a Join user?</p>
+      <button onclick="window.location.href= 'signUp.html'" class="btn btn-py btn-w-91 btn-dark cursor-p fw-700">Sign up</button>
     </section>
 
     <!-- todo rework -->
