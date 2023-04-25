@@ -6,12 +6,14 @@ cleanCode .css:
 -Login:
   -rework style Desktop
   -rework style Mobile
+   -Check Summary width (max-width:652px?)
+  -rework animation Logo, Background, msgBox
+
 
 ToDo:
 -Login:
-  -Check Summary width (max-width:652px?)
-  -rework animation Logo, Background, msgBox
-
+  - Login animation blink remove
+ 
 -Summary:
   -checkup
   -JS all number of Tasks

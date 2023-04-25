@@ -1,121 +1,179 @@
-body{
-  height: 100vh;
-  background-color: #F5F5F5;
+/*--------------------------------------------------
+Global Elements
+---------------------------------------------------*/
+.btn{
+  height: calc(51px - 2px);
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-/*--------------------------------------------------
-Global elements
----------------------------------------------------*/
-button{
-  height: 49px;
-  border-radius: 8px;
-}
-form{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-form input[type=email], input[type=name], input[type=password]{
-  margin-bottom: 49px;
-  width: 85%;
-  padding: 13px 21px;
-  font-size: 21px;
-  font-weight: 400;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #D1D1D1;
-  border-radius: 10px;
-}
-form input:last-child{
-  margin-bottom: 55px;
-}
-input[type=email]{
-  background-image: url(../img/emailInput.png);
-  background-repeat: no-repeat;
-  background-position: 95%;
-}
-.password-img{
-  background-image: url(../img/lock.png);
-  background-repeat: no-repeat;
-  background-position: 95%;
-}
-input:focus{
-  outline: none;
-}
-input[type=checkbox]{
-  margin-right: 20px;
+.d-none{
+  display: none;
 }
 /*--------------------------------------------------
-Buttons
+local Elements
 ---------------------------------------------------*/
-.main-login-btn{
-  padding: 16px;
-  display: flex;
-  align-items: center;
+.btn-py{
+  padding: 16px 0;
+}
+.btn-w-91{
+  width: 91px;
+}
+.btn-w-145{
+  width: 145px;
+}
+.btn-w-264{
+  width: 264px;
+}
+.btn-dark{
+  background-color: #2A3647;
+  color: #FFFFFF;
+  border: 1px solid #2A3647; 
+}
+.btn-dark:hover{
+  background-color: #29ABE2;
+  border: 1px solid #29ABE2; 
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.btn-dark:active{
+  background-color: #091931;
+  border: 1px solid #091931; 
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .btn-bright{
+  background-color: #FFFFFF;
+  color: #2A3647;
   border: 1px solid #2A3647;
 }
 .btn-bright:hover{
-  border: 1px solid #29ABE2;
+  background-color: #FFFFFF;
   color: #29ABE2;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-.btn-dark{
-  border: 1px solid #2A3647;
-}
-.btn-dark:hover{
   border: 1px solid #29ABE2;
-  background-color: #29ABE2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.btn-bright:active{
+  background-color: #FFFFFF;
+  color: #091931;
+  border: 1px solid #091931;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 /*--------------------------------------------------
-Main overlay
+Main
 ---------------------------------------------------*/
-.main-overlay{
+.main{
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-}
-.main-logo-white{
-  opacity: 0;
-}
-.main-logo{
-  width: 100px;
-  position: absolute;
-  top: 80px;
-  left: 77px;
-}
-.main-login{
-  margin-top: 67px;
-  margin-right: 114px;
-  display: flex;
-  align-items: center;
-  gap: 35px;
-  z-index: 1;
-}
-/*--------------------------------------------------
-Login overlay
----------------------------------------------------*/
-.overlay{
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: #F5F5F5
+}
+.logo{
+  position: absolute;
+  top: 80px;
+  left: 77px;
+  max-width: 100px;
+}
+.sign-up{
+  position: absolute;
+  top: 67px;
+  right: 114px;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+/*--------------------------------------------------
+Formular
+---------------------------------------------------*/
+form{
+  margin: 0 4%;
+  padding: 35px 4%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 30px;
+}
+.form-SignIn{
+  max-width: 652px;
+}
+.return-black{
+  position: absolute;
+  top: 27px;
+  left: 33px;
+  display: none;
+}
+.return-blue{
+  position: absolute;
+  top: 41px;
+  left: 37px;
+}
+.form-headline{
+  width: 100%;
+  margin: 0;
+}
+.headline-newPassword{
+  padding: 21px 20px 0 20px;
+
+}
+.border{
+  margin-top: 24px;
+  margin-bottom: 35px;
+  width: 50%;
+  max-width: 150px;
+  height: 3px;
+  background-color: #29ABE2;
+}
+.form-verification{
+  width: 100%;
+}
+.form-verification:last-child{
+  margin-bottom: 55px;
+}
+input:focus{
+outline: none;
+}
+input[type=email], input[type=name], input[type=password]{
+  margin-bottom: 49px;
+  padding: 13px 21px;
+  width: calc(100% - 42px - 2px);
+  border: 1px solid #D1D1D1;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: 95%;
+  font-size: 21px;
+  font-weight: 400;
+}
+input[type=email]{
+  background-image: url(../img/emailInput.png);
+}
+input[type=name]{
+  background-image: url(../img/nameInput.png);
+}
+.img-password{
+  background-image: url(../img/lock.png);
+}
+.form-valuable{
+  margin-bottom: 35px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}
+.checkbox{
+  display: flex;
+  gap: 20px;
+}
+.form-submit{
+  display: flex;
+  gap: 35px;
 }
 #msg-box{
-  /* margin-top: 25px; */
   padding: 24px;
   color: #FFFFFF;
   background-color: #2A3647;
@@ -123,202 +181,74 @@ Login overlay
   border-radius: 20px;
   position: absolute;
   bottom: 5%;
-  /* transform: translate(-50%); */
-  z-index: 10;
+  /*     transition: 500ms ease-in-out;
+    transform: translateY(-144%); set transform */
   }
-.overlay-login{
-  margin: 0 15%;
-  max-width: 826px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 35px 115px;
-  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
-  border-radius: 30px;
-  z-index: 1;
-}
-.overlay-login-arrow{
-  position: absolute;
-  top: 41px;
-  left: 37px;
-}
-.arrow-black{
-  display: none;
-}
-.overlay-login-header{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.border{
-  width: 150px;
-  height: 3px;
-  background-color: #29ABE2;
-  margin-top: 24px;
-  margin-bottom: 35px;
-}
-.overlay-login-selection-support{
-  display: flex;
-  margin-bottom: 35px;
-  align-items: baseline;
-}
-.overlay-login-buttons{
-  display: flex;
-  justify-content: space-between;
-}
-.overlay-login-buttons button{
-  width: 145px;
-}
-.overlay-login-buttons .btn-send{
-  padding-left: 30px;
-  padding-right: 30px;
-  width: 100%;
-  max-width: 264px;
-}
+  #label-confirm{
+    font-size: 12px;
+    font-weight: 400;
+    color: #FF8190;
+  }
 /*--------------------------------------------------
 Media Querry 
 ---------------------------------------------------*/
-@media (max-width: 900px){
-  /*--------------------------------------------------
-  <900 global
-  ---------------------------------------------------*/
-  .fs-21{
-    font-size: 16px;
-  }
+@media(max-width: 900px){
   .fs-61{
     font-size: 47px;
   }
-  .fs-61-pw{
+  .new-password{
+    padding: 35px 4%;
+  }
+  .headline-SendEmail{
     font-size: 40px;
   }
-  /*--------------------------------------------------
-  <900 main overlay
-  ---------------------------------------------------*/
-  .main-overlay{
-   justify-content: center;
-   align-items: flex-end;
-  }
-  .main-logo{
-    width: 64px;
-  }
-  .main-login{
+  .headline-newPassword{
     margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 59px;
   }
-  /*--------------------------------------------------
-  <900 login overlay
-  ---------------------------------------------------*/
-  .overlay-login{
-    margin: 10px;
-    padding: 35px 22px;
+  .logo{
+    top: 38px;
+    left: 37px;
+    max-width: 64px;
   }
-  .border{
-    width: 88px;
+  .sign-up{
+    top: unset;
+    right: unset;
+    bottom: 4%;
   }
-  .header-forgot-password{
-    padding-top: 21px;
-    text-align: center;
-  }
-  .overlay-login-arrow{
-    top: 27px;
-    left: 33px;
-  }
-  .arrow-black{
+  .return-black{
     display: flex;
   }
-  .arrow-blue{
+  .return-blue{
     display: none;
   }
-  .overlay-login-selection{
-    width: 100%;
-  }
-  form input:last-child{
+  .form-verification input:last-child{
     margin-bottom: 30px;
   }
-  .overlay-login-selection-support{
-    display: flex;
+  .form-valuable{
     flex-direction: column-reverse;
+    gap: 31px;
   }
-  .checkbox{
-    margin-top: 31px;
-  }
-  .overlay-login-buttons{
+  .form-submit{
     flex-direction: column;
-    align-items: center;
+    gap: 21px;
   }
-  .overlay-login-buttons :first-child{
-    margin-bottom: 21px;
-  }
-}
-
-/*--------------------------------------------------
-Animation
----------------------------------------------------*/
-.animation-bg{
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-}
-.bg-animation{ 
-  animation: 1000ms bg-fade-out ease-in;
-}
-.logo-animate{
- animation: 1000ms moveLogo ease-in-out;
-}
-@keyframes bg-fade-out{
-  from{
-    z-index: 10;
-    background-color: #F5F5F5;
-  }
-  to{
-    z-index: 0;
+  .btn{
+    font-size: 16px;
   }
 }
-@keyframes moveLogo{
-  from{
-    width: 50vw;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 15;
+@media(max-height: 850px){
+  .logo{
+    top: 20px;
+    max-width: 40px;
   }
-  to{
-    z-index: 5;
+  .sign-up{
+    top: unset;
+    right: unset;
+    bottom: 1%;
   }
 }
-/*--------------------------------------------------
-Animation <900
----------------------------------------------------*/
-@media(max-width: 900px){
-  .logo-animate-white{
-    animation: 1000ms moveLogo-white ease-in-out;
+@media(max-width: 600px){
+  .headline-SendEmail{
+    margin-top: 21px;
   }
-  @keyframes bg-fade-out{
-    from{
-      z-index: 10;
-      background-color: #2A3647;
-    }
-  }
-  @keyframes moveLogo-white{
-    from{
-      width: 50vw;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 1;
-      z-index: 20;
-    }
-    to{
-      opacity: 0;
-    }
-  }
-}
-.d-none{
-  display: none;
 }

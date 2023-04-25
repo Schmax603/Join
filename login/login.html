@@ -14,6 +14,7 @@
   <!-- login style -->
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="login-animation.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
   <!-- backend -->
     <script src="../backend.js"></script>
@@ -25,56 +26,55 @@
     <script src="registry.js"></script>
 </head>
 
+<!-- todo animation JS -->
 <body onload="initLogin(); loadUsers(); remember(); displayMessage();">
-  <main >
-
-    <img id="logo-white" class="main-logo main-logo-white logo-animate-white" src="../img/logo.png" alt="join logo white">
-    <img class="main-logo logo-animate" src="../img/logoSmall.png" alt="join logo">
-    
-    <div class="main-overlay">
-      <div id="sign-up" class="main-login">
-        <p class="cursor-d fs-21  fw-400">Not a Join user?</p>
-        <button onclick="window.location.href= 'signUp.html'" class="btn-dark main-login-btn bg-c-db cursor-p c-w fs-16 fw-700">Sign up</button>
-      </div>
+  
+  <section id="animation-join">
+    <div class="screen-animation">
     </div>
-    
-    <section id="overlay" class="overlay">
-      
-      <div id="login-card" class="overlay-login bg-c-w">
+    <div class="img-box">
+      <img class="logo-w-animation" src="../img/logo.png" alt="logo join white">
+      <img class="logo-b-animation" src="../img/logoBig.png" alt="join logo black">
+    </div>
+  </section>
 
-        <div class="overlay-login-header">
-          <h1 class="cursor-d fs-61 fw-700">Log in</h1>
-          <div class="border"></div>
+  <main class="main">
+    <img class="logo" src="../img/logoBig.png" alt="join logo">
+
+<!-- return false =>  prevents the page from reloading-->
+    <form onsubmit="userLogin(); return false" class="form">
+      <h1 class="form-headline cursor-d ta-c fs-61 fw-700">Log in</h1>
+      <div class="border"></div>
+      
+      <section class="form-verification">
+        <input id="loginEmail" type="email" placeholder="Email" autocomplete="current-password" required>
+        <input id="loginPassword" class="img-password" type="password" placeholder="Password" autocomplete="current-password" required>
+      </section>
+      
+      <section class="form-valuable">
+        <div class="checkbox">
+          <input id="remember-me" id="checkbox" class="cursor-p" type="checkbox">
+          <label for="checkbox" class="fw-400">Remember me</label>
         </div>
-      
-        <!--!!! return false =>  prevents the page from reloading-->
-        <form onsubmit="userLogin(); return false" class="overlay-login-form">
-          <input id="loginEmail" type="email" placeholder="Email" autocomplete="current-password" required>
-          <input id="loginPassword" class="password-img" type="password" placeholder="Password" autocomplete="current-password" required>
-          
-          <div class="overlay-login-selection">
-            
-            <div class="overlay-login-selection-support">
-              <div class="checkbox">
-                <input id="remember-me" type="checkbox" class="cursor-p">
-                <label for="remember" class="cursor-d fs-16 fw-400 mr-35">Remember me</label>
-              </div>
-                <p onclick="window.location.href='forgotPassword.html'" class="cursor-p c-lb fs-16 fw-400">Forgot my password</p>
-            </div>
-            
-            <div class="overlay-login-buttons">
-              <button type="submit" class="btn-dark bg-c-db cursor-p c-w fs-21 fw-700">Log in</button>
-              <button onclick="userGuest(); return false" class="btn-bright bg-c-w cursor-p fs-21 fw-700">Guest Log in</button>
-            </div>
-          </div>
-        </form>
+        <a href="forgotPassword.html" class="c-lb fw-400 td-n">Forgot my password</a>
+      </section>
 
-      </div>
-      
-      <div id="msg-box" class="d-none"></div>
+      <section class="form-submit">
+        <button type="submit" class="btn btn-py btn-w-145 btn-dark cursor-p fs-21 fw-700">Log in</button>
+        <button onclick="userGuest(); return false" class="btn btn-py btn-w-145 btn-bright cursor-p fs-21 fw-700">Guest Log in</button>
+      </section>
+    </form>
+
+    <section class="sign-up">
+      <p class="cursor-d fs-21 fw-400">Not a Join user?</p>
+      <button onclick="window.location.href= 'signUp.html'" class="btn btn-py btn-w-91 btn-dark cursor-p fw-700">Sign up</button>
     </section>
-    <div class="animation-bg bg-animation"></div>
+
+    <!-- todo rework -->
+    <div id="msg-box" class="d-none"></div>
+
   </main>
+  
 
 </body>
 </html>

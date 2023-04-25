@@ -5,12 +5,22 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 let msg = params.msg;
 
 
-/**initiated login animation*/
+/**initiated login*/
 function initLogin(){ /**@alias module:initLogin */
-  let whiteLogo = document.getElementById('logo-white');
+  loadUsers();  
+  animationLogin();
+  remember();
+  displayMessage();
+}
+
+/**Start, stop animation */
+function animationLogin(){
+  let animationLogin = document.getElementById('animation-join');
+  let joinLogo = document.getElementById('join-logo');
   
   setTimeout(function(){ 
-    whiteLogo.classList.add('d-none');
+    animationLogin.classList.add('d-none');
+    joinLogo.classList.remove('d-none');
   }, 1000);
 }
 

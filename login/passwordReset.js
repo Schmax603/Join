@@ -14,7 +14,7 @@ function initNewPassword(){
     console.log(requestEmail);
     confirmPassword();
   }else{
-    console.log('Wrong Email');
+    window.location.href='../index.html?msg=Email does not exist';
   }
 }
 
@@ -32,13 +32,30 @@ async function confirmPassword(){
           users[i]=user;
           await setItem('users', JSON.stringify(users));
           resetEmail = localStorage.setItem('requestEmail', '');
-          window.location.href='../index.html?msg=You reset your password';
-          console.log(users, resetEmail);
+          confirmMsg();
       }
   }
   }else{
+    wrongPasswordInput();
     console.log('Wrong Password');
   }
+}
+
+/**Generate message */
+function confirmMsg(){
+  window.location.href='newPassword.html?msg=You reset your password';
+  setTimeout(() => {
+    window.location.href='..index.html'
+  }, 1000);
+}
+
+function wrongPasswordInput(){
+  let newPassword = document.getElementById('new-password');
+  let confirmPassword = document.getElementById('confirm-password');
+
+  newPassword.value = '';
+  confirmPassword.value = '';
+  window.location.href='newPassword.html?msg=Make sure the second password you typed matches the first.';
 }
 
 

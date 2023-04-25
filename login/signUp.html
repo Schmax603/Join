@@ -25,43 +25,32 @@
     <script src="registry.js"></script>
 </head>
 
-<body onload="loadUsers(); remember(); displayMessage()">
-  <main >
+<body onload="initSignUp()">
 
-    <img id="logo-white" class="main-logo main-logo-white" src="../img/logo.png" alt="join logo white">
-    <img class="main-logo" src="../img/logoSmall.png" alt="join logo">   
-    
-    <section id="overlay" class="overlay">
-      
-      <div id="login-card" class="overlay-login bg-c-w">
-<!-- ! correct link '../index.html' -->
-        <img onclick="window.location.href= '../index.html'" class="overlay-login-arrow arrow-black cursor-p img-16" src="../img/arrow_left.png" alt="arrow left black">
-        <img onclick="window.location.href= '../index.html'" class="overlay-login-arrow arrow-blue cursor-p img-24" src="../img/arrow_left_blue.png" alt="arrow left blue">
-           <div class="overlay-login-header">
-             <h1 class="cursor-d fs-61 fw-700 ta-c">Sign up</h1>
-             <div class="border"></div>
-           </div>
-      
-           <!--!!! return false =>  prevents the page from reloading-->
-           <form onsubmit="userSignUp(); return false" class="overlay-login-form">
-      
-             <input id="signUpName" type="name" placeholder="Name" autocomplete="current-password" required>
-             <input id="signUpEmail" type="email" placeholder="Email" autocomplete="current-password" required>
-             <input id="signUpPassword" class="password-img" type="password" placeholder="Password" autocomplete="current-password" required>
-      
-             <div class="overlay-login-buttons">
-              <button type="submit" class="btn-dark bg-c-db cursor-p c-w fs-21 fw-700">Sign up</button>
-            </div>
-      
-          </form>
+  <main class="main">
+    <img class="logo" src="../img/logoBig.png" alt="join logo">
 
-      </div>
+<!-- return false =>  prevents the page from reloading-->
+    <form onsubmit="userSignUp(); return false" class="form form-SignIn">
+      <img onclick="window.location.href= '../index.html'" class="return-black cursor-p img-16" src="../img/arrow_left.png" alt="arrow left black">
+      <img onclick="window.location.href= '../index.html'" class="return-blue cursor-p img-24" src="../img/arrow_left_blue.png" alt="arrow left blue">
+      <h1 class="form-headline cursor-d ta-c fs-61 fw-700">Sign in</h1>
+      <div class="border"></div>
       
-      <div id="msg-box" class="d-none"></div>
+      <section class="form-verification">
+        <input id="signUpName" type="name" placeholder="Name" autocomplete="current-password" required>
+        <input id="signUpEmail" type="email" placeholder="Email" autocomplete="current-password" required>
+        <input id="signUpPassword" class="img-password" type="password" placeholder="Password" autocomplete="current-password" required>
+      </section>
 
-    </section>
+      <section class="form-submit">
+        <button type="submit" class="btn btn-py btn-w-145 btn-dark cursor-p fs-21 fw-700">Sign up</button>
+      </section>
+    </form>
 
-    <div class="animation-bg"></div>
+    <!-- todo rework -->
+    <div id="msg-box" class="d-none"></div>
+
   </main>
 
 </body>
