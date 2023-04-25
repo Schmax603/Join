@@ -24,6 +24,7 @@
     border-bottom-left-radius: 40px;
     transform: translateX(100vw);
     transition: all 220ms ease-in-out;
+    position: relative;
 }
 
 .create-or-edit-contact-header {
@@ -57,6 +58,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 40%;
+    left: 0px;
 }
 
 #create-or-edit-contact-icon-container img {
@@ -69,7 +73,7 @@
     flex-direction: column;
     height: 100%;
     flex-grow: 1;
-    padding: 104px 53px 104px 0;
+    padding: 104px 53px 104px 260px;
     position: relative;
 }
 
@@ -118,4 +122,12 @@ input[type=tel] {
     top: 32px;
     right: 64px;
     cursor: pointer;
+}
+
+.close-new-contact-img {
+    display: unset;
+}
+
+.close-new-contact-img-white {
+    display: none;
 }
