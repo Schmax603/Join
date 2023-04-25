@@ -19,8 +19,8 @@
 
 
 	<!-- https://i.imgflip.com/52lvif.jpg -->
-	<script src="addtask.js"></script>
 	<script src="backend.js"></script>
+	<script src="addtask.js"></script>
 	<script src="../backend.js"></script>
 	<script src="../headerNav/headerNav.js"></script>
 	<script src="../login/login.js"></script>
@@ -54,13 +54,14 @@
 					type="text"></textarea>
 			</div>
 
+
 			<div class="addtask-prio">
 				<div class="addtask-gentext">Prio</div>
 
-				<div class="addtask-prio-bnts addtask-flex-moba center-stuff">
-					<button class="addtask-prio-bnt addtask-prio-bnt-urgent  addtask-genimput center-stuff" id="addtask-prio-bnt-urgent" onclick="whichBnt(0)">Urgent <img class="addtask-prio-img" id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
-					<button class="addtask-prio-bnt addtask-prio-bnt-medium active addtask-genimput center-stuff" id="addtask-prio-bnt-medium" onclick="whichBnt(1);">Medium <img class="addtask-prio-img" id="addtask-prio-bnt-medium-img" src="../img/prio-medium.svg"></button>
-					<button class="addtask-prio-bnt addtask-prio-bnt-low active addtask-genimput center-stuff" id="addtask-prio-bnt-low" onclick="whichBnt(2);">Low <img class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
+				<div class="addtask-prio-whichBnt addtask-flex-moba center-stuff">
+					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff" id="addtask-prio-bnt-urgent" onclick="whichBnt(0)">Urgent <img class="addtask-prio-img" src="../img/prio-urgent.svg"></button>
+					<button class="addtask-prio-bnt addtask-prio-bnt-medium addtask-genimput center-stuff" id="addtask-prio-bnt-medium" onclick="whichBnt(1);">Medium <img class="addtask-prio-img" src="../img/prio-medium.svg"></button>
+					<button class="addtask-prio-bnt addtask-prio-bnt-low addtask-genimput center-stuff" id="addtask-prio-bnt-low" onclick="whichBnt(2);">Low <img class="addtask-prio-img" src="../img/prio-low.svg"></button>
 				</div>
 
 			</div>
@@ -79,7 +80,7 @@
 
 			<div class="addtask-gencon">
 				<div class="addtask-gentext">Category</div>
-				<div class="addtask-gendrop-collapsible addtask-gendrop" id="collapsible">
+				<div class="addtask-gendrop-collapsible addtask-gendrop" id="collapsible0">
 
 					<div class="paddings" id="currentItem" onclick="toggleActive(); dropdownValueCheck();">
 						Select task category
@@ -101,7 +102,7 @@
 
 			<div class="addtask-gencon">
 				<div class="addtask-gentext">Assigned to</div>
-				<div class="addtask-gendrop-collapsible addtask-gendrop" id="addtask-assignedto-collapsible">
+				<div class="addtask-gendrop-collapsible addtask-gendrop" id="collapsible1">
 
 					<div class="paddings" id="currentItem" onclick="toggleActive(); dropdownValueCheck();">
 						Select contacts to assign
@@ -139,19 +140,19 @@
 			<div class="addtask-prio-impostor addtask-gencon">
 				<div class="addtask-gentext">Prio</div>
 
-				<div class="addtask-prio-bnt addtask-flex-moba center-stuff">
-					<button class="addtask-prio-bnt-cursor addtask-genimput center-stuff" id="addtask-prio-bnt-urgent" onclick="whichBnt(3);">Urgent <img class="addtask-prio-img" id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
-					<button class="addtask-prio-bnt-cursor addtask-genimput center-stuff" id="addtask-prio-bnt-medium" onclick="whichBnt(4);">Medium <img class="addtask-prio-img" id="addtask-prio-bnt-medium-img" src="../img/prio-medium.svg"></button>
-					<button class="addtask-prio-bnt-cursor addtask-genimput center-stuff" id="addtask-prio-bnt-low" onclick="whichBnt(5);">Low <img class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
+				<div class="addtask-prio-bnt center-stuff">
+					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff" id="addtask-prio-bnt-urgent" onclick="whichBnt(0);">Urgent <img class="addtask-prio-img" src="../img/prio-urgent.svg"></button>
+					<button class="addtask-prio-bnt addtask-prio-bnt-medium addtask-genimput center-stuff" id="addtask-prio-bnt-medium" onclick="whichBnt(1);">Medium <img class="addtask-prio-img" src="../img/prio-medium.svg"></button>
+					<button class="addtask-prio-bnt addtask-prio-bnt-low addtask-genimput center-stuff" id="addtask-prio-bnt-low" onclick="whichBnt(2);">Low <img class="addtask-prio-img" src="../img/prio-low.svg"></button>
 				</div>
 
 			</div>
-
+			<!--
 			<div class="addtask-subtasks-impostor addtask-gencon">
 				<div class="addtask-gentext">Subtasks</div>
 				<textarea class="addtask-genimput" placeholder="Add new subtask"></textarea>
 			</div>
-
+			-->
 			<div class="addtask-create-bnt-spacexkekw addtask-create-bnt-absolute">
 				<button class="addtask-clear-bnt">
 					<div class="addtask-create-bnt-bigscreen addtask-create-bnt-spacexkekw">
