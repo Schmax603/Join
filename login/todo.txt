@@ -18,6 +18,7 @@ ToDo:
 -Summary:
   -render next Dedline (date)
   -JS all number of Tasks
+  - fix media querry
 
 +Contacts:
   -implement backend
