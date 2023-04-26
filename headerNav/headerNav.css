@@ -221,6 +221,7 @@ Media Querry
   .n-nav-ul {
     height: 100%;
     width: 100%;
+    color: white;
     display: flex;
     justify-content: space-around;
   }

@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="../headerNav/headerNav.css">
 
 	<link rel="stylesheet" href="addtask.css">
-
+	<link rel="stylesheet" href="../style.css">
 
 
 	<!-- https://i.imgflip.com/52lvif.jpg -->
@@ -59,9 +59,9 @@
 				<div class="addtask-gentext">Prio</div>
 
 				<div class="addtask-prio-whichBnt addtask-flex-moba center-stuff">
-					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff" id="addtask-prio-bnt-urgent" onclick="whichBnt(0)">Urgent <img class="addtask-prio-img" src="../img/prio-urgent.svg"></button>
-					<button class="addtask-prio-bnt addtask-prio-bnt-medium addtask-genimput center-stuff" id="addtask-prio-bnt-medium" onclick="whichBnt(1);">Medium <img class="addtask-prio-img" src="../img/prio-medium.svg"></button>
-					<button class="addtask-prio-bnt addtask-prio-bnt-low addtask-genimput center-stuff" id="addtask-prio-bnt-low" onclick="whichBnt(2);">Low <img class="addtask-prio-img" src="../img/prio-low.svg"></button>
+					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff" id="addtask-prio-bnt-urgent" onclick="setActiveButton(0)" onmouseover="bntHover(0)">Urgent <img class="addtask-prio-img" id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
+					<button class="addtask-prio-bnt addtask-prio-bnt-medium addtask-genimput center-stuff" id="addtask-prio-bnt-medium" onclick="setActiveButton(1);" onmouseover="bntHover(1)">Medium <img class="addtask-prio-img" id="addtask-prio-bnt-medium-img" src="../img/prio-medium.svg"></button>
+					<button class="addtask-prio-bnt addtask-prio-bnt-low addtask-genimput center-stuff" id="addtask-prio-bnt-low" onclick="setActiveButton(2);" onmouseover="bntHover(2)">Low <img class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
 				</div>
 
 			</div>
@@ -82,7 +82,7 @@
 				<div class="addtask-gentext">Category</div>
 				<div class="addtask-gendrop-collapsible addtask-gendrop" id="collapsible0">
 
-					<div class="paddings" id="currentItem" onclick="toggleActive(); dropdownValueCheck();">
+					<div class="paddings" id="currentItem" onclick="toggleActive(0); dropdownValueCheck();">
 						Select task category
 					</div>
 					<div class="addtask-item paddings" onclick="newCategory()">New category
@@ -104,7 +104,7 @@
 				<div class="addtask-gentext">Assigned to</div>
 				<div class="addtask-gendrop-collapsible addtask-gendrop" id="collapsible1">
 
-					<div class="paddings" id="currentItem" onclick="toggleActive(); dropdownValueCheck();">
+					<div class="paddings" id="currentItem" onclick="toggleActive(1); dropdownValueCheck();">
 						Select contacts to assign
 					</div>
 					<div class="addtask-item paddings">New category
