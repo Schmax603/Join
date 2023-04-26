@@ -1,8 +1,8 @@
 function setActiveButton(buttonId) {
     const buttons = [
-        { id: "addtask-prio-bnt-urgent", img: "/img/urgent-white.svg" },
-        { id: "addtask-prio-bnt-medium", img: "/img/medium-white.svg" },
-        { id: "addtask-prio-bnt-low", img: "/img/low-white.svg" },
+        { id: "addtask-prio-bnt-urgent", img: "/img/prio-urgent.svg", activeImg: "/img/urgent-white.svg" },
+        { id: "addtask-prio-bnt-medium", img: "/img/prio-medium.svg", activeImg: "/img/medium-white.svg" },
+        { id: "addtask-prio-bnt-low", img: "/img/prio-low.svg", activeImg: "/img/low-white.svg" },
     ];
 
     const selectedButton = buttons.find((button) => button.id === buttons[buttonId].id);
@@ -10,18 +10,19 @@ function setActiveButton(buttonId) {
     const selectedImgElement = document.getElementById(`${selectedButton.id}-img`);
 
     buttons.forEach((button) => {
-        if (button.id !== selectedButton.id) {
-            const element = document.getElementById(button.id);
-            const imgElement = document.getElementById(`${button.id}-img`);
+        const element = document.getElementById(button.id);
+        const imgElement = document.getElementById(`${button.id}-img`);
 
+        if (button.id !== selectedButton.id) {
             element.classList.remove("active");
             imgElement.src = button.img;
+        } else {
+            element.classList.add("active");
+            imgElement.src = button.activeImg;
         }
     });
-
-    selectedElement.classList.toggle("active");
-    selectedImgElement.src = selectedButton.img;
 }
+
 
 
 function checkActive(params) {
