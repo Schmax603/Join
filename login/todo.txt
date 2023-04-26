@@ -13,10 +13,12 @@ cleanCode .css:
 ToDo:
 -Login:
   - Login animation blink remove
+  - red border input wrong input? red label? (yet mesg box)
  
 -Summary:
-  -checkup
+  -render next Dedline (date)
   -JS all number of Tasks
 
 +Contacts:
   -implement backend
+  -fix headerNav, remove p{margin:0;} add m-0 from style.css
