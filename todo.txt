@@ -23,3 +23,5 @@ ToDo:
 +Contacts:
   -implement backend
   -fix headerNav, remove p{margin:0;} add m-0 from style.css
+
++Show hide css global implement

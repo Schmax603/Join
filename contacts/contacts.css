@@ -102,19 +102,6 @@ Contact List
     padding: 16px;
 }
 
-.contacts-list::-webkit-scrollbar {
-    width: 7px;
-}
-
-.contacts-list::-webkit-scrollbar-track {
-    background: white;
-}
-
-.contacts-list::-webkit-scrollbar-thumb {
-    background: #a8a8a8;
-    border-radius: 10px;
-}
-
 .contacts-list {
     width: 100%;
     display: flex;

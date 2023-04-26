@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
     <link rel="stylesheet" href="board.css">
+    <link rel="stylesheet" href="../showAndHide.css">
 <!-- backend -->
     <script src="../backend.js"></script>
 <!-- scripts  -->
@@ -27,28 +28,110 @@
 </head>
 
 
-<body id="body" onload="initHeaderNav();" >
+<body id="body" onload="initHeaderNav(); updateDragAndDropHTML();">
 
     <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
     
-    <section id="overlay-fullscreen" class="overlay-fullscreen d-none"></section>
+    <section id="overlay-fullscreen" class="overlay-fullscreen d-none" onclick="closeAddTaskOverlay()">
+
+        <article id="add-task-card" class="add-task-card d-none" onclick="doNotClose(event)">
+            <h2>WORK IN PROGRESS</h2><span>Add Task Overlay</span>
+            <div class="close-add-task-card" onclick="closeAddTaskOverlay()">
+                <img src="../img/close.png">
+            </div>
+        </article>
+        
+        <article class="board-card d-none">
+
+            <div class="card-close">
+              <img class="desktop-only" src="../img/close.png" alt="close">
+              <img class="mobile-only" src="../img/arrow_left.png" alt="back">
+            </div>
+    
+            <div class="edit-card">
+              <button class="btn-delete btn-animation-invert"></button>
+              <button class="btn-edit btn-animation"><img src="../img/pencil.svg" alt="edit"></button>
+            </div>
+    
+    <!-- Render Elements from Array -->
+            <span id="category" class="mobile-category fs-27 fw-400 mb-25 mobile-mb-32">Category</span>
+    
+            <h2 id="title" class="mobile-title fs-61 fw-700 m-0 mb-25">Title</h2>
+    
+            <p id="description" class="mobile-description fs-21 fw-400 m-0 mb-25">Description<br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, vel!</p>
+    
+            <div class="mobile-fs-16 fs-21 fw-700 mb-25 mobile-mb-35">Due Date:
+              <span id="dueDate" class="fw-400">Due Date</span>
+            </div>
+    
+            <div class="mobile-fs-16 fs-21 fw-700 mb-25 mobile-mb-29">Priority:
+              <span id="priority" class="fw-400">Priority</span>
+            </div>
+    
+            <div class="mobile-fs-16 fs-21 fw-700">Assign to:
+              <div id="assignTo" class="fw-400">Assign to</div>
+            </div>
+    <!-- Render Elements from Array -->
+        </article>
+
+    </section>
     
     <main>
-        <header>
-            <p class="subheadline m-0">Kanban Project Managment Tool</p>
+        <header class="board-header">
+            <p class="subheadline m-0 fs-16 fw-400 mb-20 mobile-only">Kanban Project Managment Tool</p>
 
-            <div>
+            <div class="headline-mobile">
                 <h2 class="headline fs-61 fw-700 m-0">Board</h2>
 
-                <button class="">
-                    <p>Add task</p>
-                    <img src="../img/add.png" alt="add">
+                <button class="dark-btn mobile-only">
+                    <img class="img-15" src="../img/add.png" alt="add">
                 </button>
             </div>
 
+            <div class="headline-desktop">
         <!-- todo innerstyle -->
-            <input class="searchbar fs-16 fw-400" type="text" placeholder="Find Task">
+                <div class="searchbar">
+                    <input class="search-input fs-16 fw-400" type="text" placeholder="Find Task">
+                    <img class="img-search img-20" src="../img/serach.png" alt="search">
+                </div>
+        
+                <button class="dark-btn btn-animation desktop-only" onclick="openAddTaskOverlay()">
+                    <p class="fs-21 fw-700 m-0">Add task</p>
+                    <img class="img-15" src="../img/add.png" alt="add">
+                </button>
+            </div>
         </header>
+
+        <section class="board">
+            <div id="board-column-todo" class="board-column" ondrop="moveTo('board-column-todo')" ondragover="allowDrop(event); highlight('board-column-todo')"
+            ondragleave="removeHighlight('board-column-todo')">
+                <div class="board-column-header">
+                    <h2 class="fs-21 fw-700">To do</h2>
+                    <div id="addBtn-todo" class="board-column-header-add-btn img-30" onclick="openAddTaskOverlay()"></div>
+                </div>
+            </div>
+            <div id="board-column-progress" class="board-column" ondrop="moveTo('board-column-progress')" ondragover="allowDrop(event); highlight('board-column-progress')"
+            ondragleave="removeHighlight('board-column-progress')">
+                <div class="board-column-header">
+                    <h2 class="fs-21 fw-700">In progress</h2>
+                    <div id="addBtn-progress" class="board-column-header-add-btn img-30" onclick="openAddTaskOverlay()"></div>
+                </div>
+            </div>
+            <div id="board-column-feedback" class="board-column" ondrop="moveTo('board-column-feedback')" ondragover="allowDrop(event); highlight('board-column-feedback')"
+            ondragleave="removeHighlight('board-column-feedback')">
+                <div class="board-column-header">
+                    <h2 class="fs-21 fw-700">Awaiting Feedback</h2>
+                    <div id="addBtn-feedback" class="board-column-header-add-btn img-30" onclick="openAddTaskOverlay()"></div>
+                </div>
+            </div>
+            <div id="board-column-done" class="board-column" ondrop="moveTo('board-column-done')" ondragover="allowDrop(event); highlight('board-column-done')"
+            ondragleave="removeHighlight('board-column-done')">
+                <div class="board-column-header">
+                    <h2 class="fs-21 fw-700">Done</h2>
+                    <div id="addBtn-done" class="board-column-header-add-btn img-30" onclick="openAddTaskOverlay()"></div>
+                </div>
+            </div>
+        </section>
     </main>
 
     
