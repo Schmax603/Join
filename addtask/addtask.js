@@ -6,9 +6,7 @@ function setActiveButton(buttonId) {
     ];
 
     const selectedButton = buttons.find((button) => button.id === buttons[buttonId].id);
-    const selectedElement = document.getElementById(selectedButton.id);
-    const selectedImgElement = document.getElementById(`${selectedButton.id}-img`);
-
+    
     buttons.forEach((button) => {
         const element = document.getElementById(button.id);
         const imgElement = document.getElementById(`${button.id}-img`);
