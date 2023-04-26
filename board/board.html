@@ -5,31 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Board</title>
+    <title>Join-Board</title>
+<!-- favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
     <link rel="manifest" href="../favicon/site.webmanifest" />
     <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
-    <!-- templates header, nav, help, legal-->
-
+<!-- templates header, nav, help, legal-->
     <link rel="stylesheet" href="../headerNav/headerNav.css">
     <script src="../headerNav/headerNav.js"></script>
-
+<!-- Board style -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
 
     <link rel="stylesheet" href="board.css">
     <link rel="stylesheet" href="trueboard.css">
-    <link rel="stylesheet" href="../fonts/fonts.css">
-    <link rel="stylesheet" href="../headerNav/headerNav.css">
-
-    <link rel="stylesheet" href="/addtask/addtask.css">
-    
-    <script src="/templets/mini_backend/mini_backend.js"></script>
+<!-- backend -->
+    <script src="../backend.js"></script>
+<!-- scripts  -->
     <script src="/addtask/addtask.js"></script>
     <!-- https://i.imgflip.com/52lvif.jpg -->
     <script src="board.js"></script>
-    <script src="backend.js"></script>
-    <script src="/backend.js"></script>
     <script src="../login/login.js"></script>
 </head>
 
@@ -37,7 +34,7 @@
 <body onload="initHeaderNav(); loadUsers(); changeContentOnWindowSize(); consoleLOGS(); " onclick="closeMenu()" id="body">
 
     <div style="display: none;" onclick="cardUnInspect(); " class="fullviewport" id="fullviewport"></div>
-    <div w3-include-html="../headerNav/headerNav.html"></div>
+    <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
 
 
     <div class="board">
