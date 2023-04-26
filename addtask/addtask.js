@@ -1,55 +1,48 @@
-let buttons;
+function setActiveButton(buttonId) {
+    const buttons = [
+        { id: "addtask-prio-bnt-urgent", img: "/img/urgent-white.svg" },
+        { id: "addtask-prio-bnt-medium", img: "/img/medium-white.svg" },
+        { id: "addtask-prio-bnt-low", img: "/img/low-white.svg" },
+    ];
 
-function whichBnt(buttonNum) {
-    if (buttonNum === 0) {
-        buttonNum = document.querySelectorAll('.addtask-prio-bnt-urgent');
-        buttonNum.id = "0"
-    } 
-    if (buttonNum === 1) {
-        buttonNum = document.querySelectorAll('.addtask-prio-bnt-medium');
-        buttonNum.id = "1"
-    } 
-    if (buttonNum === 2) {
-        buttonNum = document.querySelectorAll('.addtask-prio-bnt-low');
-        buttonNum.id = "2"
-    } 
-    purgeActive(buttonNum)
+    const selectedButton = buttons.find((button) => button.id === buttons[buttonId].id);
+    const selectedElement = document.getElementById(selectedButton.id);
+    const selectedImgElement = document.getElementById(`${selectedButton.id}-img`);
+
+    buttons.forEach((button) => {
+        if (button.id !== selectedButton.id) {
+            const element = document.getElementById(button.id);
+            const imgElement = document.getElementById(`${button.id}-img`);
+
+            element.classList.remove("active");
+            imgElement.src = button.img;
+        }
+    });
+
+    selectedElement.classList.toggle("active");
+    selectedImgElement.src = selectedButton.img;
 }
 
-function purgeActive(buttonNum) {
-    if (buttonNum.id === "0") {
-        document.getElementById('addtask-prio-bnt-medium').classList.remove('active');
-        document.getElementById('addtask-prio-bnt-low').classList.remove('active');
+
+function checkActive(params) {
+
+}
+
+function bntHover(params) {
+    const myElement = document.getElementById("addtask-prio-bnt-urgent");
+
+    myElement.addEventListener("mouseover", () => {
+        console.log("The element is being hovered over.");
+    });
+}
+
+
+function toggleActive(condition) {
+    if (condition === 0) {
+        document.getElementById("collapsible0").classList.toggle("active")
     }
-    if (buttonNum.id === "1") {
-        document.getElementById('addtask-prio-bnt-low').classList.remove('active');
-        document.getElementById('addtask-prio-bnt-urgent').classList.remove('active');
-    }
-    if (buttonNum.id === "2") {
-        document.getElementById('addtask-prio-bnt-medium').classList.remove('active');
-        document.getElementById('addtask-prio-bnt-urgent').classList.remove('active');
-    }
-    isActive(buttonNum)
-}
-
-
-function isActive(buttonNum) {
-    buttonNum[0].classList.toggle('active');
-}
-
-function hover(params) {
-    
-}
-
-
-
-function toggleActive() {
-
-    for (let i = 0; i < 2; i++) {
-
-        document.getElementById("collapsible`${i}`").classList.toggle("active")
-        document.getElementById("collapsible`${i}`").classList.toggle("active")
-
+    if (condition === 1) {
+        document.getElementById("collapsible1").classList.toggle("active")
     }
 }
 

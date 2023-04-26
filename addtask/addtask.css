@@ -65,7 +65,6 @@ textarea {
     box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px; 
     border: 0px solid #D1D1D1; 
     color: white;
-    background-image: url(/img/urgent-white.svg);
 }
 
 
@@ -74,7 +73,6 @@ textarea {
     box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px; 
     border: 0px solid #D1D1D1; 
     color: white;
-    background-image: url(/img/medium-white.svg);
 }
 
 .addtask-prio-bnt-low.active {
@@ -82,7 +80,6 @@ textarea {
     box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px; 
     border: 0px solid #D1D1D1;
     color: white;
-    background-image: url(/img/medium-white.svg);
 }
 
 .center-stuff {
@@ -170,7 +167,6 @@ textarea {
 
 .addtask-description-input {
     height: 93px;
-
     padding: 18px;
 }
 
