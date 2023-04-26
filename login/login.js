@@ -107,6 +107,7 @@ async function logout(){
   window.location.href = '../index.html';
 }
 
+/**Show hide message */
 function displayMessage(){
 let msgBox = document.getElementById('msg-box');
 if(msg){
