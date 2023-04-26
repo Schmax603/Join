@@ -32,7 +32,7 @@ async function renderGreeting(){
   greetings.innerHTML = '';
   mobileGreeting.innerHTML = '';
 
-  if(activUser == ''){
+  if(activUser === ''){
     generateHTMLGreetingGuest(greetings, mobileGreeting, timeOfDay)
   }else{
     generateHTMLGreetingUser(greetings, mobileGreeting, activUser, timeOfDay)
