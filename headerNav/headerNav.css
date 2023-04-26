@@ -279,3 +279,6 @@ Media Querry
     font-size: 40px;
   }
 }
+.d-none{
+  display: none;
+}
