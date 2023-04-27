@@ -14,7 +14,7 @@
 
 .create-or-edit-contact-overlay {
     max-width: fit-content;
-    height: 594px;
+    height: 70%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -63,8 +63,9 @@
     left: 0px;
 }
 
-#create-or-edit-contact-icon-container img {
-    width: 120px;
+#create-or-edit-contact-icon-container img,
+#create-or-edit-contact-icon {
+    min-width: 120px;
     height: 120px;
 }
 
@@ -73,7 +74,7 @@
     flex-direction: column;
     height: 100%;
     flex-grow: 1;
-    padding: 104px 53px 104px 260px;
+    padding: 10vh 53px 10vh 260px;
     position: relative;
 }
 
@@ -81,12 +82,12 @@ input[type=email],
 input[type=name],
 input[type=tel] {
     height: 51px;
-    width: calc(100% - 2px);
+    width: 100%;
     border-radius: 10px;
     padding: 13px 21px;
     background-color: white;
     border: 1px solid #d1d1d1;
-    margin: 25px 0;
+    margin: 3vh 0;
     outline: none;
     font-size: 21px;
     font-weight: 400;
@@ -109,10 +110,11 @@ input[type=tel] {
 #form-contact-buttons {
     display: flex;
     /* gap: 20px; */
-    margin-top: 30px;
+    margin-top: 3vh;
 }
 
-#form-contact-buttons button {
+#form-contact-dark-btn,
+#form-contact-light-btn {
     gap: 10px;
     margin-right: 24px;
 }

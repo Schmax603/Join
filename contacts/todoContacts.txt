@@ -1,0 +1,3 @@
+- Backend einbinden
+- JSDoc Kommentierung
+- globales CSS auslagern (z.B. Buttons)
