@@ -26,6 +26,7 @@
     <script src="board.js"></script>
     <script src="dragAndDrop.js"></script>
     <script src="showAndHide.js"></script>
+    <script src="search.js"></script>
     <script src="../login/login.js"></script>
 </head>
 
@@ -94,7 +95,8 @@
             <div class="headline-desktop">
                 <!-- todo innerstyle -->
                 <div class="searchbar">
-                    <input class="search-input fs-16 fw-400" type="text" placeholder="Find Task">
+                    <input id="search-input" class="search-input fs-16 fw-400" type="text" name="q"
+                        placeholder="Find Task" onkeyup="search()">
                     <img class="img-search img-20" src="../img/serach.png" alt="search">
                 </div>
 

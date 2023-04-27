@@ -80,7 +80,7 @@ function renderEmptyCategory() {
 function renderCard(task) {
     let index = tasks.indexOf(task);
     return `
-        <div class="task" draggable="true" ondragstart="startDragging(${index})">
+        <div id="task-${index}" class="task" draggable="true" ondragstart="startDragging(${index})">
             <h3>${task.title}</h3>
             <span class="ta-c">${task.description}</span>
         </div>
