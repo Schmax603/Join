@@ -9,8 +9,22 @@ function openAddTaskOverlay() {
 function closeAddTaskOverlay() {
     hideOverlay('add-task-card');
     setTimeout(() => {
+        removeElement('add-task-card');
         unfreezeBackground('overlay-fullscreen');
     }, 220);
+}
+
+
+function openBoardCardOverlay() {
+    freezeBackground('overlay-fullscreen');
+    // renderBoardCard();
+    showElement('board-card');
+}
+
+
+function closeBoardCardOverlay() {
+    removeElement('board-card');
+    unfreezeBackground('overlay-fullscreen');
 }
 
 

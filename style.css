@@ -81,10 +81,11 @@ Global Variable
   font-weight: 700;
 }
 
-.img-15{
+.img-15 {
   width: 15px;
   height: 15px;
 }
+
 .img-16 {
   width: 16px;
   height: 16px;
@@ -152,7 +153,8 @@ Global Variable
 .mb-20 {
   margin-bottom: 20px;
 }
-.mb-25{
+
+.mb-25 {
   margin-bottom: 25px;
 }
 
@@ -175,9 +177,11 @@ Global Variable
 .mr-35 {
   margin-right: 35px;
 }
-.o-flow-h{
+
+.o-flow-h {
   overflow: hidden;
 }
+
 .px-50 {
   padding: 0 50px;
 }
@@ -201,10 +205,17 @@ Global Elements
 ::-webkit-scrollbar {
   width: 7px;
 }
+
 ::-webkit-scrollbar-track {
   background: white;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #a8a8a8;
   border-radius: 10px;
+}
+
+/* ===buttons=== */
+button {
+  cursor: pointer;
 }

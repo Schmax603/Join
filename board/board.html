@@ -35,7 +35,8 @@
 
     <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
 
-    <section id="overlay-fullscreen" class="overlay-fullscreen d-none" onclick="closeAddTaskOverlay()">
+    <section id="overlay-fullscreen" class="overlay-fullscreen d-none"
+        onclick="closeAddTaskOverlay(); closeBoardCardOverlay();">
 
         <article id="add-task-card" class="add-task-card d-none" onclick="doNotClose(event)">
             <h2>WORK IN PROGRESS</h2><span>Add Task Overlay</span>
@@ -44,16 +45,17 @@
             </div>
         </article>
 
-        <article class="board-card d-none">
+        <article id="board-card" class="board-card d-none" onclick="doNotClose(event)">
 
-            <div class="card-close">
+            <div class="card-close" onclick="closeBoardCardOverlay()">
                 <img class="desktop-only" src="../img/close.png" alt="close">
                 <img class="mobile-only" src="../img/arrow_left.png" alt="back">
             </div>
 
-            <div class="edit-card">
+            <div id="edit-card" class="edit-card">
                 <button class="btn-delete btn-animation-invert"></button>
-                <button class="btn-edit btn-animation"><img src="../img/pencil.svg" alt="edit"></button>
+                <button class="btn-edit btn-animation"><img src="../img/pencilBoard.svg" class="img-30"
+                        alt="edit"></button>
             </div>
 
             <!-- Render Elements from Array -->
