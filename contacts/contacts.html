@@ -24,12 +24,13 @@
     <link rel="stylesheet" href="bgColors.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
 
-    <script src="contacts.js"></script>
+
     <script src="../backend.js"></script>
     <script src="../login/login.js"></script>
+    <script src="contacts.js"></script>
 </head>
 
-<body id="body" onload="initHeaderNav(); initContacts();" onclick="closeMenu()">
+<body id="body" onload="initHeaderNav(); initContacts(); loadUsers();" onclick="closeMenu()">
 
     <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
 
@@ -54,7 +55,7 @@
                 <div class="header-border-bottom"></div>
             </div>
 
-            <div class="contact-details-container">
+            <div class="contact-details-container mb-10">
                 <div id="contact-details-overlay" class="contact-details-overlay">
                     <div class="contact-icon-and-name">
                         <div id="contact-details-icon" class="contact-icon contact-overlay-icon fs-47 fw-500 bg-0">

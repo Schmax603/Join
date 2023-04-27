@@ -6,6 +6,10 @@
     display: flex;
 }
 
+
+/*--------------------------------------------------
+Media Queries for Width
+---------------------------------------------------*/
 @media(max-width: 1200px) {
     .mobile-only {
         display: flex;
@@ -69,13 +73,15 @@
         left: -225px;
     }
 
+    #create-or-edit-contact-icon-container img,
     #create-or-edit-contact-icon {
         min-width: 120px;
         height: 120px;
     }
 
     .form-contact-info {
-        padding: 104px 27px 104px 80px;
+        /* padding: 104px 27px 104px 80px; */
+        padding: 10vh 27px 10vh 80px;
     }
 
     #form-contact-buttons {
@@ -93,7 +99,7 @@
 
 @media(max-width: 900px) {
     main.contacts {
-        padding: 80px 0 0 0;
+        margin: 80px 0 0 0;
     }
 
     .contacts-header {
@@ -147,17 +153,22 @@
         left: 0;
     }
 
-
     .form-contact-info {
-        padding: 48px 27px;
+        /* padding: 48px 27px; */
+        padding: 5vh 27px;
         height: unset;
     }
 
     input[type=email],
     input[type=name],
     input[type=tel] {
-        margin: 0 0 35px 0;
+        /* margin: 0 0 35px 0; */
+        margin: 0 0 4vh 0;
         height: 44px;
+    }
+
+    #form-contact-buttons {
+        margin-top: 0;
     }
 
     .close-new-contact {
@@ -193,5 +204,57 @@
 
     .contact-email:not(#contact-details-email) {
         font-size: 14px;
+    }
+}
+
+
+/*--------------------------------------------------
+Media Queries for Height
+---------------------------------------------------*/
+@media(max-height: 700px) {
+    .contacts-info-container {
+        padding: 34px 34px 80px 34px;
+    }
+
+    .header-headline {
+        font-size: 47px;
+    }
+
+    .header-subheadline {
+        font-size: 21px;
+    }
+
+    .header-superheadline {
+        display: none;
+    }
+
+    .header-border-mid {
+        height: 50px;
+    }
+
+    .contact-overlay-icon {
+        min-width: 80px;
+        height: 80px;
+        font-size: 27px;
+        font-weight: 400;
+    }
+
+    #contact-details-name {
+        font-size: 36px;
+        font-weight: 400;
+    }
+
+    .contact-header-and-edit {
+        height: unset;
+    }
+
+    .create-or-edit-contact-overlay {
+        height: 95%;
+    }
+
+    #create-or-edit-contact-icon-container img,
+    #create-or-edit-contact-icon {
+        min-width: 100px;
+        height: 100px;
     }
 }

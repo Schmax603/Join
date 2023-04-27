@@ -1,6 +1,7 @@
 // aus backend: currentUser = getItem('currentUser') 
 // users[currentUser].contacts 
-let contacts = [
+
+let guestContacts = [
     {
         "name": "AntonMayer",
         "email": "antom@gmail.com",
@@ -64,11 +65,18 @@ let contacts = [
         "color": "bg-7",
         "tasks": []
     }
-]
+];
+
+contacts = loggedInAsGuest() ? guestContacts : users[currentUser].contacts;
 
 const NUMBER_OF_BG_COLORS = 17; // see bgColors.css
 let contactInfoContainerIsActive = false;
 let activeContactIndex;
+
+
+function loggedInAsGuest() {
+    return currentUser.length === 0;
+}
 
 
 function initContacts() {

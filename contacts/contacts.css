@@ -10,7 +10,8 @@ body {
     overflow: hidden;
 }
 
-p {
+main p,
+.overlay-bg p {
     margin: 0;
 }
 
@@ -83,8 +84,8 @@ p {
 
 main.contacts {
     background-color: #F5F5F5;
-    height: 100vh;
-    padding: 89px 0 0 232px;
+    height: calc(100vh - 89px);
+    margin: 89px 0 0 232px;
     display: flex;
 }
 
@@ -102,15 +103,15 @@ Contact List
     padding: 16px;
 }
 
-.contacts-list::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 7px;
 }
 
-.contacts-list::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: white;
 }
 
-.contacts-list::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #a8a8a8;
     border-radius: 10px;
 }
@@ -249,8 +250,18 @@ Contact Details
 
 .contact-details-container {
     flex-grow: 1;
-    overflow: hidden;
+    /* overflow: hidden; */
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none;
+    /* Hide scrollbar for Firefox */
 }
+
+.contact-details-container::-webkit-scrollbar {
+    display: none;
+}
+
 
 .contact-details-overlay {
     height: 380px;
