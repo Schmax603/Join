@@ -5,349 +5,136 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Board</title>
+    <title>Join-Board</title>
+<!-- favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
     <link rel="manifest" href="../favicon/site.webmanifest" />
     <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
-    <!-- templates header, nav, help, legal-->
-
+<!-- templates header, nav, help, legal-->
     <link rel="stylesheet" href="../headerNav/headerNav.css">
     <script src="../headerNav/headerNav.js"></script>
-
-
-    <link rel="stylesheet" href="board.css">
-    <link rel="stylesheet" href="trueboard.css">
+<!-- Board style -->
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
-    <link rel="stylesheet" href="../headerNav/headerNav.css">
-
-    <link rel="stylesheet" href="/addtask/addtask.css">
-    
-    <script src="/templets/mini_backend/mini_backend.js"></script>
-    <script src="/addtask/addtask.js"></script>
-    <!-- https://i.imgflip.com/52lvif.jpg -->
+    <link rel="stylesheet" href="board.css">
+    <link rel="stylesheet" href="../showAndHide.css">
+<!-- backend -->
+    <script src="../backend.js"></script>
+<!-- scripts  -->
     <script src="board.js"></script>
-    <script src="backend.js"></script>
-    <script src="/backend.js"></script>
     <script src="../login/login.js"></script>
 </head>
 
 
-<body onload="initHeaderNav(); loadUsers(); changeContentOnWindowSize(); consoleLOGS(); " onclick="closeMenu()" id="body">
+<body id="body" onload="initHeaderNav(); updateDragAndDropHTML();">
 
-    <div style="display: none;" onclick="cardUnInspect(); " class="fullviewport" id="fullviewport"></div>
-    <div w3-include-html="../headerNav/headerNav.html"></div>
+    <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
+    
+    <section id="overlay-fullscreen" class="overlay-fullscreen d-none" onclick="closeAddTaskOverlay()">
 
+        <article id="add-task-card" class="add-task-card d-none" onclick="doNotClose(event)">
+            <h2>WORK IN PROGRESS</h2><span>Add Task Overlay</span>
+            <div class="close-add-task-card" onclick="closeAddTaskOverlay()">
+                <img src="../img/close.png">
+            </div>
+        </article>
+        
+        <article class="board-card d-none">
 
-    <div class="board">
-        <div style="display: none;" class="board-kanban" id="board-kanban">Kanban Project Managment Tool</div>
+            <div class="card-close">
+              <img class="desktop-only" src="../img/close.png" alt="close">
+              <img class="mobile-only" src="../img/arrow_left.png" alt="back">
+            </div>
+    
+            <div class="edit-card">
+              <button class="btn-delete btn-animation-invert"></button>
+              <button class="btn-edit btn-animation"><img src="../img/pencil.svg" alt="edit"></button>
+            </div>
+    
+    <!-- Render Elements from Array -->
+            <span id="category" class="mobile-category fs-27 fw-400 mb-25 mobile-mb-32">Category</span>
+    
+            <h2 id="title" class="mobile-title fs-61 fw-700 m-0 mb-25">Title</h2>
+    
+            <p id="description" class="mobile-description fs-21 fw-400 m-0 mb-25">Description<br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, vel!</p>
+    
+            <div class="mobile-fs-16 fs-21 fw-700 mb-25 mobile-mb-35">Due Date:
+              <span id="dueDate" class="fw-400">Due Date</span>
+            </div>
+    
+            <div class="mobile-fs-16 fs-21 fw-700 mb-25 mobile-mb-29">Priority:
+              <span id="priority" class="fw-400">Priority</span>
+            </div>
+    
+            <div class="mobile-fs-16 fs-21 fw-700">Assign to:
+              <div id="assignTo" class="fw-400">Assign to</div>
+            </div>
+    <!-- Render Elements from Array -->
+        </article>
 
-        <div class="board-text">
-            Board
-            <div style="display: none;" class="board-Addtask" id="board-AddtaskRe"
-                onclick="window.location.href='../addtask/add_task.html'">
+    </section>
+    
+    <main>
+        <header class="board-header">
+            <p class="subheadline m-0 fs-16 fw-400 mb-20 mobile-only">Kanban Project Managment Tool</p>
 
-                <div class="board-Addtask-plusicon">
-                    <div class="board-Addtask-plusicon-linev"></div>
-                    <div class="board-Addtask-plusicon-line"></div>
+            <div class="headline-mobile">
+                <h2 class="headline fs-61 fw-700 m-0">Board</h2>
+
+                <button class="dark-btn mobile-only">
+                    <img class="img-15" src="../img/add.png" alt="add">
+                </button>
+            </div>
+
+            <div class="headline-desktop">
+        <!-- todo innerstyle -->
+                <div class="searchbar">
+                    <input class="search-input fs-16 fw-400" type="text" placeholder="Find Task">
+                    <img class="img-search img-20" src="../img/serach.png" alt="search">
+                </div>
+        
+                <button class="dark-btn btn-animation desktop-only" onclick="openAddTaskOverlay()">
+                    <p class="fs-21 fw-700 m-0">Add task</p>
+                    <img class="img-15" src="../img/add.png" alt="add">
+                </button>
+            </div>
+        </header>
+
+        <section class="board">
+            <div id="board-column-todo" class="board-column" ondrop="moveTo('board-column-todo')" ondragover="allowDrop(event); highlight('board-column-todo')"
+            ondragleave="removeHighlight('board-column-todo')">
+                <div class="board-column-header">
+                    <h2 class="fs-21 fw-700">To do</h2>
+                    <div id="addBtn-todo" class="board-column-header-add-btn img-30" onclick="openAddTaskOverlay()"></div>
                 </div>
             </div>
-        </div>
-        <div class="board-searchAddtask">
-            <div class="board-search" id="board-search">
-                <input class="board-search-input" id="board-search-input" placeholder="Find Task" type="text">
-                <div class="board-searchAndicon">
-                    <div class="board-search-spaceline"></div>
-                    <img class="board-search-icon" src="../img/boardSearchicon.png" onclick="test()">
+            <div id="board-column-progress" class="board-column" ondrop="moveTo('board-column-progress')" ondragover="allowDrop(event); highlight('board-column-progress')"
+            ondragleave="removeHighlight('board-column-progress')">
+                <div class="board-column-header">
+                    <h2 class="fs-21 fw-700">In progress</h2>
+                    <div id="addBtn-progress" class="board-column-header-add-btn img-30" onclick="openAddTaskOverlay()"></div>
                 </div>
             </div>
-            <div class="board-Addtask" id="board-Addtask" onclick="window.location.href='../addtask/add_task.html'">
-                <div class="board-Addtask-text" id="board-Addtask-text">Add task</div>
-                <div class="board-Addtask-plusicon" id="board-Addtask-plusicon">
-                    <div class="board-Addtask-plusicon-linev" id="board-Addtask-plusicon-linev"></div>
-                    <div class="board-Addtask-plusicon-line" id="board-Addtask-plusicon-line"></div>
+            <div id="board-column-feedback" class="board-column" ondrop="moveTo('board-column-feedback')" ondragover="allowDrop(event); highlight('board-column-feedback')"
+            ondragleave="removeHighlight('board-column-feedback')">
+                <div class="board-column-header">
+                    <h2 class="fs-21 fw-700">Awaiting Feedback</h2>
+                    <div id="addBtn-feedback" class="board-column-header-add-btn img-30" onclick="openAddTaskOverlay()"></div>
                 </div>
             </div>
-        </div>
-    </div>
-    </div>
-
-    <div class="trueboard">
-
-        <div class="trueboard-maincon" id="trueboard-maincon">
-            <div class="trueboard-textAddSing">
-                <div class="trueboard-text">To do</div>
-                <div class="trueboard-addSing">
-                    <div class="trueboard-addSing-h"></div>
-                    <div class="trueboard-addSing-v"></div>
+            <div id="board-column-done" class="board-column" ondrop="moveTo('board-column-done')" ondragover="allowDrop(event); highlight('board-column-done')"
+            ondragleave="removeHighlight('board-column-done')">
+                <div class="board-column-header">
+                    <h2 class="fs-21 fw-700">Done</h2>
+                    <div id="addBtn-done" class="board-column-header-add-btn img-30" onclick="openAddTaskOverlay()"></div>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <div class="trueboard-scroll">
-                <div class="trueboard-taskcard" onclick="cardInspect();">
-
-                    <div class="trueboard-init">
-                        <div class="trueboard-tag trueboard-tag-test">
-                            <div class="trueboard-tag-text">Design</div>
-                        </div>
-
-                        <div class="trueboard-text">
-                            <div class="trueboard-text-title">
-                                Website redesign
-                            </div>
-                            <div class="trueboard-text-desciption">
-                                <div style="word-break: break-word;">Modify the contents of the main website...</div>
-                            </div>
-                        </div>
-
-                        <div class="trueboard-progress">
-                            <div class="trueboard-progress-init">
-                                <progress class="trueboard-progress-bar" id="trueboard-progress-bar" max="2" value="1"></progress>
-                            </div>
-
-                            <div class="trueboard-progress-num" id="placeholder">1/2 Done</div>
-                        </div>
-
-                        <div class="trueboard-userIcoPrio">
-
-                            <div class="trueboard-userIco">
-                                <div class="trueboard-userIco-text trueboard-userIco-start"
-                                    id="trueboard-userIco-start">MV</div>
-                                <div class="trueboard-userIco-text trueboard-userIco-medium"
-                                    id="trueboard-userIco-medium">MV</div>
-                                <div class="trueboard-userIco-text trueboard-userIco-end" id="trueboard-userIco-end">DE
-                                </div>
-                                <!-- Js in need
-                            <div class="trueboard-userIco-text trueboard-userIco-plus">+2</div>
-                            -->
-                            </div>
-
-                            <div class="trueboard-Prio">
-                                <img class="trueboard-Prio-low" src="../img/prio-low.svg">
-                                <!-- Js in need
-                                <img class="trueboard-Prio-medium" src="../img/prio-medium.svg">
-                                <img class="trueboard-Prio-high" src="../img/prio-urgent.svg">
-                            -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="trueboard-maincon" id="trueboard-maincon">
-            <div class="trueboard-textAddSing">
-                <div class="trueboard-text">In progress</div>
-                <div class="trueboard-addSing">
-                    <div class="trueboard-addSing-h"></div>
-                    <div class="trueboard-addSing-v"></div>
-                </div>
-            </div>
-
-            <div class="trueboard-scroll">
-                <div class="trueboard-taskcard" onclick="cardInspect();">
-                    <div class="trueboard-init">
-                        <div class="trueboard-tag trueboard-tag-test">
-                            <div class="trueboard-tag-text">Sales</div>
-                        </div>
-                        <div class="trueboard-text">
-                            <div class="trueboard-text-title"></div>
-                            <div class="trueboard-text-desciption"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="trueboard-maincon" id="trueboard-maincon">
-            <div class="trueboard-textAddSing">
-                <div class="trueboard-text">Awaiting Feedback</div>
-                <div class="trueboard-addSing">
-                    <div class="trueboard-addSing-h"></div>
-                    <div class="trueboard-addSing-v"></div>
-                </div>
-            </div>
-
-            <div class="trueboard-scroll">
-                <div class="trueboard-taskcard" onclick="cardInspect();">
-                    <div class="trueboard-init">
-                        <div class="trueboard-tag trueboard-tag-test">
-                            <div class="trueboard-tag-text">Backoffice</div>
-                        </div>
-                        <div class="trueboard-text">
-                            <div class="trueboard-text-title">AccountingAccountingAc</div>
-                            <div class="trueboard-text-desciption"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="trueboard-taskcard" onclick="cardInspect();">
-                    <div class="trueboard-init">
-                        <div class="trueboard-tag trueboard-tag-test">
-                            <div class="trueboard-tag-text">Media</div>
-                        </div>
-                        <div class="trueboard-text">
-                            <div class="trueboard-text-title"></div>
-                            <div class="trueboard-text-desciption"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="trueboard-maincon" id="trueboard-maincon">
-            <div class="trueboard-textAddSing">
-                <div class="trueboard-text">Done</div>
-                <div class="trueboard-addSing">
-                    <div class="trueboard-addSing-h"></div>
-                    <div class="trueboard-addSing-v"></div>
-                </div>
-            </div>
-
-            <div class="trueboard-scroll">
-                <div class="trueboard-taskcard" onclick="cardInspect();">
-                    <div class="trueboard-init">
-                        <div class="trueboard-tagid">
-                            <div class="trueboard-tag trueboard-tag-test">
-                                <div class="trueboard-tag-text">Marketing</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="trueboard-text">
-                        <div class="trueboard-text-title"></div>
-                        <div class="trueboard-text-desciption"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <div class="thebnt" id="thebnt" style="display: none;">
-        <div class="taskcard-inspect" id="taskcard-inspect" style="display: none;">
-            <div class="taskcard-inspect-cross">
-                <div class="taskcard-inspect-cross-init">
-                    <div class="taskcard-inspect-cross-line"></div>
-                    <div class="taskcard-inspect-cross-lineone"></div>
-                </div>
-            </div>
-            <div class="trueboard-tag trueboard-tag-test trueboard-tag-text">Sales</div>
-            <div class="taskcard-inspect-title">Call potential clients</div>
-            <div class="taskcard-inspect-description">Make the product presentation to prospective buyers</div>
-
-            <div class="taskcard-inspect-dueDate">
-                <div class="taskcard-inspect-dueDate-text">Due date: </div>
-                <div class="taskcard-inspect-dueDate-date">05-08-2022</div>
-            </div>
-
-            <div class="taskcard-inspect-prio">
-                <div class="taskcard-inspect-prio-text">Priority: </div>
-                <!-- Js in need -->
-                <div class="taskcard-inspect-prio-tag">
-                    <div class="taskcard-inspect-prio-tag-text">Urgent</div>
-                    <img src="../img/prio-urgent.svg">
-                </div>
-
-            </div>
-
-            <div class="taskcard-inspect-prio-assignedTo">
-                <div class="taskcard-inspect-prio-assignedTo-text">Assigned To:</div>
-                <div class="taskcard-inspect-prio-assignedTo-scroll">
-                    <!-- Js in need -->
-                    <div class="taskcard-inspect-prio-assignedTo-scroll-person">
-                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico">
-                            <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico-name">DE</div>
-                        </div>
-                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-name">David Eisenberg</div>
-                    </div>
-                    <div class="taskcard-inspect-prio-assignedTo-scroll-person">
-                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico">
-                            <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico-name">DE</div>
-                        </div>
-                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-name">David Eisenberg</div>
-                    </div>
-                    <div class="taskcard-inspect-prio-assignedTo-scroll-person">
-                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico">
-                            <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico-name">DE</div>
-                        </div>
-                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-name">David Eisenberg</div>
-                    </div>
-                    <div class="taskcard-inspect-prio-assignedTo-scroll-person">
-                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico">
-                            <div class="taskcard-inspect-prio-assignedTo-scroll-person-ico-name">DE</div>
-                        </div>
-                        <div class="taskcard-inspect-prio-assignedTo-scroll-person-name">David Eisenberg</div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="taskcard-inspect-prio-edit" onclick="test();">
-                <img class="taskcard-inspect-prio-edit-ico" src="../img/pencilBoard.svg">
-            </div>
-        </div>
-        <div class="taskcard-edit" style="display: none;">
-            <!-- https://i.imgflip.com/52lvif.jpg -->
-            <div class="taskcard-inspect-cross" onclick="">
-                <div class="taskcard-inspect-cross-init">
-                    <div class="taskcard-inspect-cross-line"></div>
-                    <div class="taskcard-inspect-cross-lineone"></div>
-                </div>
-            </div>
-            <div class="title">
-                <p class="text">Title</p>
-                <input class="task-board-input-fields" type="text" placeholder="Enter a Title" required=""
-                    id="input-title" maxlength="22">
-            </div>
-            <div class="description">
-                <p class="text">Description</p>
-                <textarea id="input-description" placeholder="Enter a Description" required="" minlength="3"></textarea>
-            </div>
-            <div class="date">
-                <p class="text">Due date</p>
-                <input class="task-board-input-fields" type="date" id="input-date">
-            </div>
-            <div>
-                <p class="text">Prio</p>
-                <div class="prios">
-                    <div class="prio" id="urgent" onclick="test()">
-                        <div class="d-flex">
-                            <p>Urgent</p>
-                            <img id="urgent-img" src="../img/prio-urgent.svg">
-                        </div>
-                    </div>
-
-                    <div class="prio" id="medium" onclick="test()">
-                        <div class="d-flex">
-                            <p>Medium</p>
-                            <img id="medium-img" src="../img/prio-medium.svg">
-                        </div>
-                    </div>
-
-                    <div class="prio" id="low" onclick="test()">
-                        <div class="d-flex">
-                            <p>Low</p>
-                            <img id="low-img" src="../addtask/">
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <p class="text">Assign to</p>
-                    <div id="assignToContainer" class="categoryContainer">
-                        <div class="category" onclick="openAssignToList()" id="assignToInput">
-                            <div>
-                                <input class="categoryInputField" type="text" placeholder="Assign to">
-                            </div>
-                            <div>
-                                <img src="../img/dropdown.svg">
-                            </div>
-                        </div>
-                        <div id="assignToList" class="d-none categoryList"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </body>
 
 </html>

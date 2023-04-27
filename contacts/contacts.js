@@ -272,12 +272,12 @@ function closeContactInfo() {
 Create Contact Overlay
 ---------------------------------------------------*/
 function openCreateContactOverlay() {
-    freezeBackground();
+    freezeBackground('create-or-edit-contact-screen');
     renderCreateContactHeadline();
     renderCreateContactIcon();
     renderCreateContactButtons();
     setCreateContactButtons();
-    slideInCreateOrEditContactOverlay();
+    slideInOverlay('create-or-edit-contact-overlay');
 }
 
 
@@ -316,21 +316,21 @@ function setCreateContactButtons() {
 }
 
 
-function slideInCreateOrEditContactOverlay() {
+function slideInOverlay(id) {
     setTimeout(() => {
-        showOverlay('create-or-edit-contact-overlay');
+        showOverlay(id);
     }, 100);
 }
 
 
 function openEditContactOverlay(contact) {
-    freezeBackground();
+    freezeBackground('create-or-edit-contact-screen');
     renderEditContactHeadline();
     renderEditContactIcon(contact);
     setEditContactInputValues(contact);
     renderEditContactButtons();
     setEditContactButtons();
-    slideInCreateOrEditContactOverlay();
+    slideInOverlay('create-or-edit-contact-overlay');
 }
 
 
@@ -416,19 +416,21 @@ function editContact(contact) {
 
 function closeCreateOrEditContactOverlay() {
     hideOverlay('create-or-edit-contact-overlay');
-    setTimeout(unfreezeBackground, 220);
+    setTimeout(() => {
+            unfreezeBackground('create-or-edit-contact-screen');
+        }, 220);
     document.getElementById('form-contact-info').reset();
 }
 
 
-function freezeBackground() {
-    showElement('create-or-edit-contact-screen');
+function freezeBackground(id) {
+    showElement(id);
     document.getElementById('body').classList.add('no-scrolling');
 }
 
 
-function unfreezeBackground() {
-    removeElement('create-or-edit-contact-screen');
+function unfreezeBackground(id) {
+    removeElement(id);
     document.getElementById('body').classList.remove('no-scrolling');
 }
 

@@ -1,7 +1,7 @@
 /*--------------------------------------------------
 Header
 ---------------------------------------------------*/
-header {
+.header-headerNav {
   padding-left: 116px;
   padding-right: 33px;
   position: absolute;
@@ -168,7 +168,7 @@ Media Querry
   /*--------------------------------------------------
   <900 header
   ---------------------------------------------------*/
-  header {
+  .header-headerNav {
     height: 80px;
     padding: 0 25px;
     left: 0;
