@@ -26,6 +26,8 @@ function moveContent(destination) {
 }
 
 
+let lastClickedImage = null;
+
 function setActiveButton(buttonId) {
     const buttons = [
         { id: "addtask-prio-bnt-urgent", img: "/img/prio-urgent.svg", activeImg: "/img/urgent-white.svg" },
@@ -42,14 +44,18 @@ function setActiveButton(buttonId) {
         if (button.id !== selectedButton.id) {
             element.classList.remove("active");
             imgElement.src = button.img;
-            console.log("if")
         } else {
             element.classList.toggle("active");
-            imgElement.src = button.activeImg;
-            console.log("else")
+            if (element.classList.contains("active")) {
+                lastClickedImage = imgElement.src;
+                imgElement.src = button.activeImg;
+            } else {
+                imgElement.src = lastClickedImage || button.img;
+            }
         }
     });
 }
+
 
 function checkActive(params) {
 
