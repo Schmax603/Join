@@ -24,23 +24,22 @@ main p,
     background-color: #2A3647;
     border-radius: 10px;
     border: none;
-    transition: 220ms ease-in-out;
+    transition: 100ms ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px 10px;
+    padding: 18px 15px;
+    gap: 10px;
+    white-space: nowrap;
 }
 
 .dark-btn:hover {
-    cursor: pointer;
     background-color: #29ABE2;
-    color: white;
     box-shadow: 0px 4px 4px 0px #00000040;
 }
 
 .dark-btn:active {
     background-color: #091931;
-    color: white;
     box-shadow: 0px 4px 4px 0px #00000040;
 
 }
@@ -50,11 +49,13 @@ main p,
     background-color: white;
     border-radius: 10px;
     border: 1px solid #2A3647;
-    transition: 220ms ease-in-out;
+    transition: 100ms ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px 10px;
+    padding: 20px;
+    gap: 13px;
+    white-space: nowrap;
 }
 
 .light-btn:hover {
@@ -71,7 +72,7 @@ main p,
 }
 
 .light-btn svg path {
-    transition: 220ms ease-in-out;
+    transition: 100ms ease-in-out;
 }
 
 .light-btn:hover svg path {
