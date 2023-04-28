@@ -19,7 +19,7 @@ function moveContent(destination) {
     const prio = document.getElementById("addtask-prio");
     const duedate = document.getElementById("addtask-duedate");
     const subtasks = document.getElementById("addtask-subtasks");
-    
+
     container.appendChild(prio);
     container.appendChild(duedate);
     container.appendChild(subtasks);
@@ -56,20 +56,6 @@ function setActiveButton(buttonId) {
     });
 }
 
-
-function checkActive(params) {
-
-}
-
-function bntHover(params) {
-    const myElement = document.getElementById("addtask-prio-bnt-urgent");
-
-    myElement.addEventListener("mouseover", () => {
-        console.log("The element is being hovered over.");
-    });
-}
-
-
 function toggleActive(condition) {
     if (condition === 0) {
         document.getElementById("collapsible0").classList.toggle("active")
@@ -88,4 +74,14 @@ function dropdownValueCheck() {
         return dropid.length
     }
 
+}
+
+
+
+function bntHover(params) {
+    const myElement = document.getElementById("addtask-prio-bnt-urgent");
+
+    myElement.addEventListener("mouseover", () => {
+        console.log("The element is being hovered over.");
+    });
 }

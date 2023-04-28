@@ -3,21 +3,46 @@ body {
     font-family: 'Inter';
     font-style: normal;
     background: #F5F5F5;
+    user-select: text;
+}
+
+.addtask-tasktitle {
+    order: 1;
+}
+
+.addtask-description {
+    order: 2;
+}
+
+.addtask-prio {
+    order: 3;
+}
+
+.addtask-duedate {
+    order: 4;
+}
+
+.addtask-category {
+    order: 5;
+}
+
+.addtask-assigned-to {
+    order: 6;
+}
+
+.addtask-subtasks {
+    order: 7;
 }
 
 .addtask-create {
-    background: #2A3647;
     z-index: 6;
-    border-radius: 10px;
-    width: 124px;
-    height: 51px;
     cursor: pointer;
 }
 
 .addtask-bnt-center {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-content: center;
     justify-content: space-around;
 }
@@ -28,10 +53,6 @@ body {
     font-weight: 700;
     font-size: 21px;
     color: #FFFFFF;
-}
-
-.addtask-clear-bnt {
-    display: none;
 }
 
 textarea {
@@ -206,14 +227,55 @@ textarea {
         display: none;
     }
 
+    .d-nonemax1300 {
+        display: none;
+    }
+
     .addtask-create {
         position: absolute !important;
         top: 14px;
         right: 25px;
+        width: 124px;
+        height: 51px;
+        background: #2A3647;
+        border-radius: 10px;
+
     }
 }
 
 @media (min-width: 1300px) {
+    .d-nonemin1300 {
+        display: none;
+    }
+
+    .addtask-tasktitle {
+        order: 1;
+    }
+
+    .addtask-description {
+        order: 2;
+    }
+
+    .addtask-prio {
+        order: 6;
+    }
+
+    .addtask-duedate {
+        order: 5;
+    }
+
+    .addtask-category {
+        order: 3;
+    }
+
+    .addtask-assigned-to {
+        order: 4;
+    }
+
+    .addtask-subtasks {
+        order: 7;
+    }
+
     .lobby {
         display: flex;
     }
@@ -257,20 +319,6 @@ textarea {
         padding-bottom: 8px;
     }
 
-    .addtask-create-bnt {
-        bottom: 40%;
-        right: 108px;
-        width: 187px;
-        height: 55px;
-        top: unset;
-    }
-
-    .addtask-create-bnt:hover {
-        border: 1px solid #28aae2;
-        background-color: #28aae2;
-        box-shadow: 0px 20px 20px -10px #babdbd;
-    }
-
     .addtask-clear-bnt {
         border: 1px solid #2A3647;
         border-radius: 10px;
@@ -283,13 +331,24 @@ textarea {
 
     .addtask-create {
         position: absolute;
-        bottom: -100px;
+        z-index: 10;
         gap: 25px;
-        right: -30px;
+        bottom: 10%;
+        right: 10%;
+        border: unset;
     }
 
-    .addtask-clear-bnt {
-        display: none;
+    .addtask-create-bnt {
+        background: #2A3647;
+        width: 187px;
+        height: 55px;
+        border-radius: 10px;
+    }
+
+    .addtask-create-bnt:hover {
+        border: 1px solid #28aae2;
+        background-color: #28aae2;
+        box-shadow: 0px 20px 20px -10px #babdbd;
     }
 
     .addtask-clear-text {
