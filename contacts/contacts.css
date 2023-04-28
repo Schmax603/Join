@@ -99,7 +99,7 @@ Contact List
     box-shadow: 4px 0px 6px 0px #00000014;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 16px;
 }
 

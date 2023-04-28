@@ -24,3 +24,36 @@ ToDo:
   -implement backend
 
 +Show hide css global implement
+
++ addTask
+
+tasks = [
+    {
+        title.value
+        discription.value
+        Categorys[
+            {
+                category.value
+                colorCategory.value
+            }
+            ]
+
+        AssignTo[
+            Contact.value
+            contact.value
+        ] 
+
+        Prio.value
+        Due Date.value
+
+        Subtasks[
+            subtask
+        ]
+
+        columnCategory.value (default)
+    }
+
+]
+
+
+subtasks.length * abgeschlossen subtask / 100%

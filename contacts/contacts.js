@@ -67,12 +67,27 @@ let guestContacts = [
     }
 ];
 
-contacts = loggedInAsGuest() ? guestContacts : users[currentUser].contacts;
+let activUserContacts;
+// contacts = loggedInAsGuest() ? guestContacts : users[currentUser].contacts;
 
 const NUMBER_OF_BG_COLORS = 17; // see bgColors.css
 let contactInfoContainerIsActive = false;
 let activeContactIndex;
 
+async function onload(){
+    await loadUsers(); 
+    initHeaderNav();
+
+    activUserContacts = loggedInAsGuest() ? guestContacts : users[currentUser].contacts;
+    initContacts();
+    // if(currentUser === ""){
+    //     let activUser = conta
+    //     initContacts();
+    // }else{
+    //     let activUser = users[currentUser].contacts;
+    //     initContacts(activUser);
+    // } 
+}
 
 function loggedInAsGuest() {
     return currentUser.length === 0;
@@ -104,7 +119,7 @@ function renderLetterContacts(letter) {
             <div class="letter-header-bottom-border"></div>
         </div>
     `;
-    contacts.forEach(contact => {
+    activUserContacts.forEach(contact => {
         if (getInitialLetter(contact) === letter)
             renderContact(contact);
     });
@@ -113,7 +128,7 @@ function renderLetterContacts(letter) {
 
 function renderContact(contact) {
     const letter = getInitialLetter(contact);
-    const contactIndex = contacts.indexOf(contact);
+    const contactIndex = activUserContacts.indexOf(contact);
     const container = document.getElementById(`letter-container-${letter}`);
     container.innerHTML += /*html*/`
         <div id="contact-${contactIndex}" class="contact" onclick="showContactDetails(${contactIndex})">
@@ -138,7 +153,7 @@ function showContactDetails(contactIndex, justEdited = false) {
     // hideOverlay('contact-details-overlay');
 
     setTimeout(() => {
-        const contact = contacts[contactIndex];
+        const contact = activUserContacts[contactIndex];
         if (screenWidthIsAtMost('1200px')) {
             showElement('contacts-info-container');
             removeElement('contacts-list-container');
@@ -152,8 +167,8 @@ function showContactDetails(contactIndex, justEdited = false) {
 
 function activateContact(contactIndex) {
     activeContactIndex = contactIndex;
-    contacts.forEach(c => {
-        document.getElementById(`contact-${contacts.indexOf(c)}`).classList.remove('contact-active');
+    activUserContacts.forEach(c => {
+        document.getElementById(`contact-${activUserContacts.indexOf(c)}`).classList.remove('contact-active');
     });
 
     if (!screenWidthIsAtMost('1200px')) {
@@ -164,14 +179,14 @@ function activateContact(contactIndex) {
 
 function deactivateContact() {
     activeContactIndex = undefined;
-    contacts.forEach(c => {
-        document.getElementById(`contact-${contacts.indexOf(c)}`).classList.remove('contact-active');
+    activUserContacts.forEach(c => {
+        document.getElementById(`contact-${activUserContacts.indexOf(c)}`).classList.remove('contact-active');
     });
 }
 
 
 function getActiveContact() {
-    return contacts[activeContactIndex];
+    return activUserContacts[activeContactIndex];
 }
 
 
@@ -231,7 +246,7 @@ function setOpenEditContact(contact) {
 
 function getInitialLetters() {
     const initialLetters = [];
-    contacts.forEach(contact => {
+    activUserContacts.forEach(contact => {
         const initialLetter = getInitialLetter(contact);
         if (!initialLetters.includes(initialLetter))
             initialLetters.push(initialLetter);
@@ -260,7 +275,7 @@ function getInitials(contact) {
 
 
 function sortContactsByName() {
-    return contacts.sort((a, b) => {
+    return activUserContacts.sort((a, b) => {
         if (a.name < b.name) {
             return -1;
         }
@@ -395,8 +410,9 @@ function setEditContactButtons() {
 
 
 function deleteContact(contact) {
-    const contactIndex = contacts.indexOf(contact);
-    contacts.splice(contactIndex, 1);
+    const contactIndex = activUserContacts.indexOf(contact);
+    activUserContacts.splice(contactIndex, 1);
+    
     closeCreateOrEditContactOverlay();
     renderContactList();
     hideOverlay('contact-details-overlay');
@@ -407,6 +423,8 @@ function deleteContact(contact) {
             removeElement('contacts-info-container');
         }, 220);
     }
+
+    updateUserContacts();
 }
 
 function editContact(contact) {
@@ -416,9 +434,11 @@ function editContact(contact) {
     closeCreateOrEditContactOverlay();
     renderContactList();
 
-    const contactIndex = contacts.indexOf(contact);
+    const contactIndex = activUserContacts.indexOf(contact);
     showContactDetails(contactIndex, true);
     scrollToContact(contactIndex);
+
+    updateUserContacts();
 }
 
 
@@ -443,7 +463,7 @@ function unfreezeBackground(id) {
 }
 
 
-function addNewContact() {
+async function addNewContact() {
     const newContact = {
         "name": document.getElementById('new-contact-name').value,
         "email": document.getElementById('new-contact-email').value,
@@ -451,14 +471,22 @@ function addNewContact() {
         "color": getRandomColorClass(),
         "tasks": []
     };
-    contacts.push(newContact);
+    activUserContacts.push(newContact);
+       
     closeCreateOrEditContactOverlay();
     renderContactList();
-
-    const contactIndex = contacts.indexOf(newContact);
+    const contactIndex = activUserContacts.indexOf(newContact);
     showContactDetails(contactIndex);
     scrollToContact(contactIndex);
     showSuccessMessage('contact-successfully-created');
+    
+    updateUserContacts();
+}
+
+async function updateUserContacts(){
+    if(!loggedInAsGuest()){
+        await setItem('users', JSON.stringify(users));
+    }
 }
 
 
