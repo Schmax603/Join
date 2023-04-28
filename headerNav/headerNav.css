@@ -4,7 +4,7 @@ Header
 .header-headerNav {
   padding-left: 116px;
   padding-right: 33px;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 232px;
