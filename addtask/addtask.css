@@ -5,16 +5,16 @@ body {
     background: #F5F5F5;
 }
 
-.addtask-create-bnt {
+.addtask-create {
     background: #2A3647;
-    z-index: 1;
+    z-index: 6;
     border-radius: 10px;
     width: 124px;
     height: 51px;
     cursor: pointer;
 }
 
-.addtask-create-bnt-spacexkekw {
+.addtask-bnt-center {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -28,6 +28,10 @@ body {
     font-weight: 700;
     font-size: 21px;
     color: #FFFFFF;
+}
+
+.addtask-clear-bnt {
+    display: none;
 }
 
 textarea {
@@ -90,9 +94,10 @@ textarea {
 
 .amogus {
     flex-direction: column;
-    margin-top: 96px;
+    margin-top: 60px;
     margin-left: 31px;
     margin-right: 14px;
+    margin-bottom: 100px;
 }
 
 .karben-text {
@@ -107,7 +112,7 @@ textarea {
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
-    padding-top: 8px;
+    padding-top: 34px;
     padding-bottom: 8px;
     line-break: auto;
 }
@@ -180,6 +185,7 @@ textarea {
 @media (min-width: 900px) {
     .amogus {
         margin-left: 355px;
+        margin-top: 96px;
     }
 
     .karben-text {
@@ -192,34 +198,10 @@ textarea {
         display: none;
     }
 
-    .impostor {
-        display: none;
-    }
-
-
-
-    .addtask-create-bnt {
-        position: absolute;
+    .addtask-create {
+        position: absolute !important;
         top: 14px;
         right: 25px;
-    }
-
-    .addtask-create-bnt-bigscreen {
-        display: none;
-    }
-
-
-
-    .addtask-duedate-impostor {
-        display: flex;
-    }
-
-    .addtask-subtasks-impostor {
-        display: flex;
-    }
-
-    .addtask-prio-impostor {
-        display: flex;
     }
 }
 
@@ -237,7 +219,18 @@ textarea {
         margin-right: 0px;
     }
 
-    .player {
+    .imposter {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        float: right;
+        margin-right: 123px;
+        margin-top: 194px;
+        width: 33%;
+        order: 3;
+    }
+
+    .line {
         order: 2;
         width: 0px;
         margin-top: 230px !important;
@@ -245,17 +238,6 @@ textarea {
         margin: 50px;
         height: 551px;
         border: 1px solid #D1D1D1;
-    }
-
-    .impostor {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        float: right;
-        margin-right: 123px;
-        margin-top: 213px;
-        width: 33%;
-        order: 3;
     }
 
     .h-menu {
@@ -281,10 +263,6 @@ textarea {
         box-shadow: 0px 20px 20px -10px #babdbd;
     }
 
-    .addtask-create-bnt-moba {
-        display: none;
-    }
-
     .addtask-clear-bnt {
         border: 1px solid #2A3647;
         border-radius: 10px;
@@ -295,15 +273,18 @@ textarea {
     }
 
 
-    .addtask-create-bnt-absolute {
+    .addtask-create {
         position: absolute;
         bottom: -100px;
         gap: 25px;
         right: -30px;
     }
 
-    .addtask-clear-text {
+    .addtask-clear-bnt {
+        display: none;
+    }
 
+    .addtask-clear-text {
         font-family: 'Inter';
         font-style: normal;
         font-weight: 400;
@@ -313,14 +294,10 @@ textarea {
     }
 
     .addtask-duedate {
-        display: none;
+        display: unset;
     }
 
     .addtask-subtasks {
-        display: none;
-    }
-
-    .addtask-prio {
-        display: none;
+        display: unset;
     }
 }

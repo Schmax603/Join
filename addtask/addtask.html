@@ -27,18 +27,22 @@
 
 </head>
 
-<body id="body" onload="initHeaderNav(); loadUsers();" onclick="closeMenu()">
+<body id="body" onload="initHeaderNav(); loadUsers(); media();" onclick="closeMenu()">
 	<div w3-include-html="../headerNav/headerNav.html"></div>
 
-	<button class="addtask-create-bnt addtask-create-bnt-moba">
-		<div class="addtask-create-bnt-moba addtask-create-bnt-spacexkekw">
+	<button class="addtask-create">
+		<div class="addtask-clear-bnt addtask-bnt-center">
+			<div class="addtask-clear-text">Clear</div>
+			<img src="/img/close.svg">
+		</div>
+		<div class="addtask-create-bnt addtask-bnt-center">
 			<div class="addtask-create-text">Create</div>
 			<img src="/img/check.svg">
 		</div>
 	</button>
 
 	<div class="lobby">
-		<div class="amogus center-stuff">
+		<div class="amogus center-stuff" id="amogus">
 
 			<h6 class="addtask-gentext karben-text">Kanban Project Management Tool</h6>
 			<h1 class="addtask-title">Add Task</h1>
@@ -55,18 +59,26 @@
 			</div>
 
 
-			<div class="addtask-prio">
+			<div class="addtask-prio" id="addtask-prio">
 				<div class="addtask-gentext">Prio</div>
 
 				<div class="addtask-prio-whichBnt addtask-flex-moba center-stuff">
-					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff" id="addtask-prio-bnt-urgent" onclick="setActiveButton(0)" onmouseover="bntHover(0)">Urgent <img class="addtask-prio-img" id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
-					<button class="addtask-prio-bnt addtask-prio-bnt-medium addtask-genimput center-stuff" id="addtask-prio-bnt-medium" onclick="setActiveButton(1);" onmouseover="bntHover(1)">Medium <img class="addtask-prio-img" id="addtask-prio-bnt-medium-img" src="../img/prio-medium.svg"></button>
-					<button class="addtask-prio-bnt addtask-prio-bnt-low addtask-genimput center-stuff" id="addtask-prio-bnt-low" onclick="setActiveButton(2);" onmouseover="bntHover(2)">Low <img class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
+					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff"
+						id="addtask-prio-bnt-urgent" onclick="setActiveButton(0)" onmouseover="bntHover(0)">Urgent <img
+							class="addtask-prio-img" id="addtask-prio-bnt-urgent-img"
+							src="../img/prio-urgent.svg"></button>
+					<button class="addtask-prio-bnt addtask-prio-bnt-medium addtask-genimput center-stuff"
+						id="addtask-prio-bnt-medium" onclick="setActiveButton(1);" onmouseover="bntHover(1)">Medium <img
+							class="addtask-prio-img" id="addtask-prio-bnt-medium-img"
+							src="../img/prio-medium.svg"></button>
+					<button class="addtask-prio-bnt addtask-prio-bnt-low addtask-genimput center-stuff"
+						id="addtask-prio-bnt-low" onclick="setActiveButton(2);" onmouseover="bntHover(2)">Low <img
+							class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
 				</div>
 
 			</div>
 
-			<div class="addtask-duedate addtask-gencon">
+			<div class="addtask-gencon addtask-duedate" id="addtask-duedate">
 				<div class="addtask-gentext">Due date</div>
 				<input style="display: block;" class="addtask-genimput" id="date" placeholder="dd/mm/yyyy" type="date"
 					min=""></input>
@@ -78,7 +90,7 @@
 			</script>
 
 
-			<div class="addtask-gencon">
+			<div class="addtask-gencon addtask-category">
 				<div class="addtask-gentext">Category</div>
 				<div class="addtask-gendrop-collapsible addtask-gendrop" id="collapsible0">
 
@@ -100,7 +112,7 @@
 			</div>
 
 
-			<div class="addtask-gencon">
+			<div class="addtask-gencon addtask-assigned-to">
 				<div class="addtask-gentext">Assigned to</div>
 				<div class="addtask-gendrop-collapsible addtask-gendrop" id="collapsible1">
 
@@ -121,55 +133,23 @@
 				</div>
 			</div>
 
-			<div class="addtask-subtasks addtask-gencon">
+			<div class="addtask-subtasks addtask-gencon" id="addtask-subtasks">
 				<div class="addtask-gentext">Subtasks</div>
 				<textarea class="addtask-genimput" placeholder="Add new subtask"></textarea>
+				<table>
+					<td>
+						dwad
+					</td>
+				</table>
 			</div>
 
 		</div>
+		
+		<div class="line"></div>
 
-		<div class="player"></div>
-
-		<div class="impostor">
-			<div class="addtask-duedate-impostor addtask-gencon">
-				<div class="addtask-gentext">Due date</div>
-				<input style="display: block;" class="addtask-genimput" id="date" placeholder="dd/mm/yyyy" type="date"
-					min=""></input>
-			</div>
-
-			<div class="addtask-prio-impostor addtask-gencon">
-				<div class="addtask-gentext">Prio</div>
-
-				<div class="addtask-prio-bnt center-stuff">
-					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff" id="addtask-prio-bnt-urgent" onclick="whichBnt(0);">Urgent <img class="addtask-prio-img" src="../img/prio-urgent.svg"></button>
-					<button class="addtask-prio-bnt addtask-prio-bnt-medium addtask-genimput center-stuff" id="addtask-prio-bnt-medium" onclick="whichBnt(1);">Medium <img class="addtask-prio-img" src="../img/prio-medium.svg"></button>
-					<button class="addtask-prio-bnt addtask-prio-bnt-low addtask-genimput center-stuff" id="addtask-prio-bnt-low" onclick="whichBnt(2);">Low <img class="addtask-prio-img" src="../img/prio-low.svg"></button>
-				</div>
-
-			</div>
-			<!--
-			<div class="addtask-subtasks-impostor addtask-gencon">
-				<div class="addtask-gentext">Subtasks</div>
-				<textarea class="addtask-genimput" placeholder="Add new subtask"></textarea>
-			</div>
-			-->
-			<div class="addtask-create-bnt-spacexkekw addtask-create-bnt-absolute">
-				<button class="addtask-clear-bnt">
-					<div class="addtask-create-bnt-bigscreen addtask-create-bnt-spacexkekw">
-						<div class="addtask-clear-text">Clear</div>
-						<img src="/img/close.svg">
-					</div>
-				</button>
-				<button class="addtask-create-bnt addtask-create-bnt-bigscreen">
-					<div class="addtask-create-bnt-bigscreen addtask-create-bnt-spacexkekw">
-						<div class="addtask-create-text">Create Task</div>
-						<img src="/img/check.svg">
-					</div>
-				</button>
-			</div>
-		</div>
-
+		<div class="imposter" id="imposter"></div>
 	</div>
+
 
 </body>
 

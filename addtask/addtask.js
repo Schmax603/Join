@@ -1,3 +1,31 @@
+window.addEventListener('resize', media);
+let minwidth = window.matchMedia('(min-width: 1300px)')
+
+
+function media() {
+    const imposter = document.getElementById("imposter");
+    const amogus = document.getElementById("amogus");
+
+    if (minwidth.matches) {
+        moveContent("imposter");
+    } else {
+        moveContent("amogus");
+    }
+}
+
+function moveContent(destination) {
+    const container = document.getElementById(destination);
+
+    const prio = document.getElementById("addtask-prio");
+    const duedate = document.getElementById("addtask-duedate");
+    const subtasks = document.getElementById("addtask-subtasks");
+    
+    container.appendChild(prio);
+    container.appendChild(duedate);
+    container.appendChild(subtasks);
+}
+
+
 function setActiveButton(buttonId) {
     const buttons = [
         { id: "addtask-prio-bnt-urgent", img: "/img/prio-urgent.svg", activeImg: "/img/urgent-white.svg" },
@@ -6,7 +34,7 @@ function setActiveButton(buttonId) {
     ];
 
     const selectedButton = buttons.find((button) => button.id === buttons[buttonId].id);
-    
+
     buttons.forEach((button) => {
         const element = document.getElementById(button.id);
         const imgElement = document.getElementById(`${button.id}-img`);
@@ -20,8 +48,6 @@ function setActiveButton(buttonId) {
         }
     });
 }
-
-
 
 function checkActive(params) {
 

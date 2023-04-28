@@ -9,34 +9,39 @@
 </head>
 
 <body>
-    <button class="toggleable" id="button-1" onclick="isActive(1)">Button 1</button>
-    <button class="toggleable" id="button-2" onclick="isActive(2)">Button 2</button>
-    <button class="toggleable" id="button-3" onclick="isActive(3)">Button 3</button>
-
-    <style>
-        /* Default state */
-        .toggleable {
-            background-color: gray;
-        }
-
-        /* Active state */
-        .toggleable.active {
-            background-color: red;
-        }
-    </style>
-
-
     <script>
-        function isActive(buttonNum) {
-            const buttons = document.querySelectorAll('.toggleable');
-            buttons.forEach(button => {
-                if (button.id === `button-${buttonNum}`) {
-                    button.classList.toggle('active');
-                } else {
-                    button.classList.remove('active');
-                }
-            });
-        }
+
+
+
+        function moveContent() {
+
+
+            // Get references to the element and containers
+            var element = document.getElementById("addtask-prio");
+            var newContainer = document.getElementById("imposter");
+            var oldContainer = element.parentNode;
+
+            // Move the element to the new container
+            newContainer.appendChild(element);
+
+            // Remove the element from the old container
+            // oldContainer.removeChild(element);
+
+
+
+            /*
+                const newContainer = document.getElementById("imposter");
+            
+            
+                const prio = document.getElementById("addtask-prio");
+                const duedate = document.getElementById("addtask-duedate");
+            
+            
+                imposter.appendChild(prio);
+                prio.parentNode.removeChild(prio);
+                */
+
+        } 
     </script>
 </body>
 
