@@ -57,13 +57,12 @@ function setActiveButton(buttonId) {
 }
 
 function toggleActive(condition) {
-    if (condition === 0) {
-        document.getElementById("collapsible0").classList.toggle("active")
-    }
-    if (condition === 1) {
-        document.getElementById("collapsible1").classList.toggle("active")
-    }
+    document.querySelector('.addtask-gendrop-coll.collapsible').classList.toggle('collapsed');
+
+    
 }
+
+
 
 function dropdownValueCheck() {
     var coll = document.getElementById("apicategory");

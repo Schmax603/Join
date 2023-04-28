@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="section">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="section collapsible collapsed">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="section">
+         <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+      
+      <button id="toggle-button">Toggle collapse</button>      
+    <style>
+        .section {
+            overflow: hidden;
+            transition: transform 0.3s ease-out;
+            height: auto;
+            transform: scaleY(1);
+            transform-origin: top;
+        }
+
+        .section.collapsed {
+            transform: scaleY(0);
+        }
+    </style>
+    <script>
+        document.querySelector('#toggle-button').addEventListener('click', function () {
+            document.querySelector('.section.collapsible').classList.toggle('collapsed');
+        });
+    </script>
 </body>
+
 </html>
