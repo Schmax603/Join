@@ -19,12 +19,14 @@ function moveContent(destination) {
     const prio = document.getElementById("addtask-prio");
     const duedate = document.getElementById("addtask-duedate");
     const subtasks = document.getElementById("addtask-subtasks");
-    
+
     container.appendChild(prio);
     container.appendChild(duedate);
     container.appendChild(subtasks);
 }
 
+
+let lastClickedImage = null;
 
 function setActiveButton(buttonId) {
     const buttons = [
@@ -43,24 +45,16 @@ function setActiveButton(buttonId) {
             element.classList.remove("active");
             imgElement.src = button.img;
         } else {
-            element.classList.add("active");
-            imgElement.src = button.activeImg;
+            element.classList.toggle("active");
+            if (element.classList.contains("active")) {
+                lastClickedImage = imgElement.src;
+                imgElement.src = button.activeImg;
+            } else {
+                imgElement.src = lastClickedImage || button.img;
+            }
         }
     });
 }
-
-function checkActive(params) {
-
-}
-
-function bntHover(params) {
-    const myElement = document.getElementById("addtask-prio-bnt-urgent");
-
-    myElement.addEventListener("mouseover", () => {
-        console.log("The element is being hovered over.");
-    });
-}
-
 
 function toggleActive(condition) {
     if (condition === 0) {
@@ -80,4 +74,14 @@ function dropdownValueCheck() {
         return dropid.length
     }
 
+}
+
+
+
+function bntHover(params) {
+    const myElement = document.getElementById("addtask-prio-bnt-urgent");
+
+    myElement.addEventListener("mouseover", () => {
+        console.log("The element is being hovered over.");
+    });
 }
