@@ -42,9 +42,11 @@ function setActiveButton(buttonId) {
         if (button.id !== selectedButton.id) {
             element.classList.remove("active");
             imgElement.src = button.img;
+            console.log("if")
         } else {
-            element.classList.add("active");
+            element.classList.toggle("active");
             imgElement.src = button.activeImg;
+            console.log("else")
         }
     });
 }

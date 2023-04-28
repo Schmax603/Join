@@ -60,28 +60,28 @@ textarea {
 }
 
 .addtask-prio-bnt:hover {
-    box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px; 
-    border: 0px solid #D1D1D1; 
+    box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
+    border: 0px solid #D1D1D1;
 }
 
 .addtask-prio-bnt-urgent.active {
-    background-color: #ff3d00; 
-    box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px; 
-    border: 0px solid #D1D1D1; 
+    background-color: #ff3d00;
+    box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
+    border: 0px solid #D1D1D1;
     color: white;
 }
 
 
 .addtask-prio-bnt-medium.active {
-    background-color: #ffac04; 
-    box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px; 
-    border: 0px solid #D1D1D1; 
+    background-color: #ffac04;
+    box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
+    border: 0px solid #D1D1D1;
     color: white;
 }
 
 .addtask-prio-bnt-low.active {
     background-color: #80e42c;
-    box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px; 
+    box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
     border: 0px solid #D1D1D1;
     color: white;
 }
@@ -131,13 +131,21 @@ textarea {
     align-items: center;
     padding: 11px 21px;
     width: 100%;
+    height: 41px;
     box-sizing: border-box;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     white-space: pre-wrap;
-    height: 41px;
+}
 
+.addtask-genimput:placeholder-shown {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #D1D1D1;
 }
 
 .addtask-genimput:hover {
@@ -171,7 +179,7 @@ textarea {
 }
 
 .addtask-description-input {
-    height: 93px;
+    height: 119px;
     padding: 18px;
 }
 
