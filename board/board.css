@@ -1,9 +1,11 @@
 * {
 	font-family: 'Inter';
 }
-#body{
+
+#body {
 	overflow: hidden;
 }
+
 .mobile-only {
 	display: none;
 }
@@ -135,7 +137,7 @@ Header
 	gap: 5%;
 }
 
-.dark-btn {
+/* .dark-btn {
 	width: 180px;
 	height: 55px;
 	color: white;
@@ -147,7 +149,7 @@ Header
 	padding: 10px 10px;
 	gap: 10px;
 	white-space: nowrap;
-}
+} */
 
 .btn-animation:hover {
 	background: #29ABE2;
@@ -386,7 +388,7 @@ Media Querry
 		font-size: 47px;
 	}
 
-	.dark-btn {
+	.dark-btn-mobile {
 		height: 40px;
 		width: 40px;
 	}
