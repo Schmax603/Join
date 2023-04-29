@@ -85,7 +85,6 @@ textarea {
     cursor: pointer !important;
     gap: 10px;
 }
-
 .addtask-prio-bnt:hover {
     box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
     border: 0px solid #D1D1D1;
@@ -189,24 +188,37 @@ textarea {
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     box-sizing: border-box;
-    
 }
 
 .addtask-gendrop-coll.collapsed {
-    max-height: 150px !important;
+    max-height: 200px !important;
+}
+
+.addtask-gendrop-scroll {
+    max-height: 145px;
+    overflow: scroll;
 }
 
 .addtask-item:hover {
     background-color: #d8d4d4;
 }
 
+.inline-img{
+    position: relative;
+}
 .select-task-category {
     cursor: pointer;
-    background-repeat: no-repeat;
-    background-position: 95%;
-    background-image: url(../img/dropdown.svg);
+    position: relative;
 }
-
+.select-task-category-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* transform: translate(-50%, 50%); */
+}
 
     
 

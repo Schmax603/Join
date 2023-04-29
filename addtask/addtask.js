@@ -56,31 +56,43 @@ function setActiveButton(buttonId) {
     });
 }
 
-function toggleActive(condition) {
-    document.querySelector('.addtask-gendrop-coll.collapsible').classList.toggle('collapsed');
-
-    
+function toggleActive(dropMaster) {
+    if (dropMaster === 0) {
+        document.querySelector(".addtask-gendrop-coll.collapsible").classList.toggle("collapsed");
+    } else {
+        document.getElementById("addtask-gendrop-coll").classList.toggle("collapsed");
+    }
 }
-
 
 
 function dropdownValueCheck() {
-    var coll = document.getElementById("apicategory");
-    const divs = coll.getElementsByTagName("div");
+    let dropNameQuery = document.querySelectorAll("[id*=dropNum]")
+    const dropNameArray = [];
 
-    for (let dropid = 0; dropid < divs.length; dropid++) {
-        divs[dropid].setAttribute("id", "apicategory-" + dropid);
-        return dropid.length
-    }
+    dropNameQuery.forEach((element) => {
+        const dropNameMatch = element.id.match(/\((.*)\)/);
+        const dropName = dropNameMatch[1];
+        dropNameArray.push(dropName);
+
+
+    });
+    console.log(dropNameArray)
+
+
+    for (let i = 0; i < dropNameArray.length; i++) {
+        const someNumber = i + 1;
+        const id = `dropNameArray-${someNumber}`;
+        console.log(id);
+      }
 
 }
 
 
 
-function bntHover(params) {
-    const myElement = document.getElementById("addtask-prio-bnt-urgent");
+function bntHover(prio) {
+    const hoveredBtn = document.getElementById(`addtask-prio-bnt-${prio}`);
 
-    myElement.addEventListener("mouseover", () => {
+    hoveredBtn.addEventListener("mouseover", () => {
         console.log("The element is being hovered over.");
     });
 }

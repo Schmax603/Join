@@ -21,15 +21,18 @@
 
 	<!-- https://i.imgflip.com/52lvif.jpg -->
 	<script src="backend.js"></script>
-	<script src="addtask.js"></script>
+	<script src="addtask.js" defer></script>
 	<script src="../backend.js"></script>
 	<script src="../headerNav/headerNav.js"></script>
 	<script src="../login/login.js"></script>
 
+	<script src="test.js"></script>
+
 </head>
 
-<body id="body" onload="initHeaderNav(); loadUsers(); media();" onclick="closeMenu()">
-	<div w3-include-html="../headerNav/headerNav.html"></div>
+<body id="body" onload="initHeaderNav(); loadUsers(); media(); setMinDate(); dropdownValueCheck();"
+	onclick="closeMenu()">
+	<div w3-include-html="../headerNav/headerNav.html" style="height: 0;"></div>
 
 	<button class="addtask-create addtask-bnt-center">
 		<div class="addtask-clear-bnt addtask-bnt-center d-nonemax1300">
@@ -49,125 +52,176 @@
 		<div class="amogus center-stuff" id="amogus">
 
 			<h6 class="addtask-gentext karben-text">Kanban Project Management Tool</h6>
-			<h1 class="addtask-title">Add Task</h1>
+			<h1 class="addtask-title cursor-d">Add Task</h1>
 
 			<div class="addtask-tasktitle addtask-gencon">
-				<div class="addtask-gentext">Title</div>
+				<div class="addtask-gentext cursor-d">Title</div>
 				<textarea class="addtask-genimput" placeholder="Enter a title"></textarea>
 			</div>
 
 			<div class="addtask-description addtask-gencon">
-				<div class="addtask-gentext">Description</div>
+				<div class="addtask-gentext cursor-d">Description</div>
 				<textarea class="addtask-description-input addtask-genimput" placeholder="Enter a Description"
 					type="text"></textarea>
 			</div>
 
 
 			<div class="addtask-prio" id="addtask-prio">
-				<div class="addtask-gentext">Prio</div>
+				<div class="addtask-gentext cursor-d">Prio</div>
 
 				<div class="addtask-prio-whichBnt addtask-flex-moba center-stuff">
-					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff"
-						id="addtask-prio-bnt-urgent" onclick="setActiveButton(0)" onmouseover="bntHover(0)">Urgent <img
-							class="addtask-prio-img" id="addtask-prio-bnt-urgent-img"
-							src="../img/prio-urgent.svg"></button>
-					<button class="addtask-prio-bnt addtask-prio-bnt-medium addtask-genimput center-stuff"
-						id="addtask-prio-bnt-medium" onclick="setActiveButton(1);" onmouseover="bntHover(1)">Medium <img
-							class="addtask-prio-img" id="addtask-prio-bnt-medium-img"
-							src="../img/prio-medium.svg"></button>
-					<button class="addtask-prio-bnt addtask-prio-bnt-low addtask-genimput center-stuff"
-						id="addtask-prio-bnt-low" onclick="setActiveButton(2);" onmouseover="bntHover(2)">Low <img
+					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff fs-16 fw-400"
+						id="addtask-prio-bnt-urgent" onclick="setActiveButton(0)"
+						onmouseover="bntHover('urgent')">Urgent <img class="addtask-prio-img"
+							id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
+
+					<button class="addtask-prio-bnt addtask-prio-bnt-medium addtask-genimput center-stuff fs-16 fw-400"
+						id="addtask-prio-bnt-medium" onclick="setActiveButton(1);"
+						onmouseover="bntHover('medium')">Medium <img class="addtask-prio-img"
+							id="addtask-prio-bnt-medium-img" src="../img/prio-medium.svg"></button>
+
+					<button class="addtask-prio-bnt addtask-prio-bnt-low addtask-genimput center-stuff fs-16 fw-400"
+						id="addtask-prio-bnt-low" onclick="setActiveButton(2);" onmouseover="bntHover('low')">Low <img
 							class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
 				</div>
 
 			</div>
 
 			<div class="addtask-gencon addtask-duedate" id="addtask-duedate">
-				<div class="addtask-gentext">Due date</div>
-				<input style="display: block;" class="addtask-genimput" id="date" placeholder="dd/mm/yyyy" type="date"
-					min=""></input>
+				<div class="addtask-gentext cursor-d">Due date</div>
+				<input style="display: block; font-family: 'Inter';" class="addtask-genimput" id="date"
+					placeholder="dd/mm/yyyy" type="date" min=""></input>
 			</div>
 
 			<div class="addtask-gencon addtask-category">
-				<div class="addtask-gentext">Category</div>
+				<div class="addtask-gentext cursor-d">Category</div>
 				<div class="addtask-gendrop" id="drop">
 
 
-					<div class="addtask-gendrop-coll collapsible collapsed" id="addtask-gendrop-coll" onclick="toggleActive();">
+					<div class="addtask-gendrop-coll collapsible inline-img" onclick="toggleActive(0);">
+
+						<div class="select-task-category-img img-44">
+							<img src="../img/dropdown.svg" alt="drop down">
+						</div>
+
+
+
 						<div class="select-task-category paddings" id="currentItem">
 							Select task category
 						</div>
-						<div class="addtask-item paddings" onclick="newCategory();">
-							New category
-						</div>
+						<div class="addtask-gendrop-scroll">
 
-						<div id="apicategory">
-							<div class="addtask-item paddings">
-								Content for section 2 goes here.
+							<div class="addtask-item paddings" onclick="newCategory();">
+								New category
 							</div>
-							<div class="addtask-item paddings">
-								Content for section 3 goes here.
+
+							<div id="dropNum(category)">
+								<div class="addtask-item paddings">
+									Content for section 2 goes here.
+								</div>
+								<div class="addtask-item paddings">
+									Content for section 3 goes here.
+								</div>
+								<div class="addtask-item paddings">
+									Content for section 4 goes here.
+								</div>
+								<div class="addtask-item paddings">
+									Content for section 5 goes here.
+								</div>
+								<div class="addtask-item paddings">
+									Content for section 5 goes here.
+								</div>
+								<div class="addtask-item paddings">
+									Content for section 5 goes here.
+								</div>
+								<div class="addtask-item paddings">
+									Content for section 5 goes here.
+								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="addtask-gencon addtask-assigned-to">
-				<div class="addtask-gentext"><span>Assigned to</span></div>
-				
-				<div class="addtask-gendrop-coll collapsible addtask-gendrop">
+				<div class="addtask-gentext cursor-d"><span>Assigned to</span></div>
 
-					<div class="select-task-category paddings" id="currentItem" onclick="">
-						Select contacts to assign
-					</div>
-					<div class="addtask-item paddings">New category
+				<div class="addtask-gendrop-coll collapsible inline-img" id="addtask-gendrop-coll"
+					onclick="toggleActive(1);">
 
+					<div class="select-task-category-img img-44">
+						<img src="../img/dropdown.svg" alt="drop down">
 					</div>
-					<div id="apicategory">
-						<div class="addtask-item paddings">
-							Content for section 2 goes here.
+
+					<div class="select-task-category paddings" id="currentItem">
+						Select task category
+					</div>
+					<div class="addtask-gendrop-scroll">
+
+						<div class="addtask-item paddings" onclick="newContact();">
+							New category
 						</div>
-						<div class="addtask-item paddings">
-							Content for section 3 goes here.
+
+						<div id="dropNum(assigned)">
+							<div class="addtask-item paddings">
+								Content for section 2 goes here.
+							</div>
+							<div class="addtask-item paddings">
+								Content for section 3 goes here.
+							</div>
+							<div class="addtask-item paddings">
+								Content for section 4 goes here.
+							</div>
+							<div class="addtask-item paddings">
+								Content for section 5 goes here.
+							</div>
+							<div class="addtask-item paddings">
+								Content for section 5 goes here.
+							</div>
+							<div class="addtask-item paddings">
+								Content for section 5 goes here.
+							</div>
+							<div class="addtask-item paddings">
+								Content for section 5 goes here.
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
 
-			<div class="addtask-subtasks addtask-gencon" id="addtask-subtasks">
-				<div class="addtask-gentext">Subtasks</div>
+		<div class="addtask-subtasks addtask-gencon" id="addtask-subtasks">
+			<div class="addtask-gentext cursor-d">Subtasks</div>
 
-				<div class="addTask-selection">
-					<textarea class="addtask-genimput addtask-subtasks-textarea"
-						placeholder="Add new subtask"></textarea>
+			<div class="addTask-selection">
+				<textarea class="addtask-genimput addtask-subtasks-textarea" placeholder="Add new subtask"></textarea>
 
-					<div class="selection-img">
-						<img src="../img/plus.svg" alt="add">
+				<div class="selection-img">
+					<img src="../img/plus.svg" alt="add">
 
-						<!-- change add-img remove & add d-none -->
-						<div class="selection-img selection-img-activ d-none">
-							<img class="px-5" src="../img/cancel.png" alt="cancel">
-							<img class="border px-5" src="../img/check-black.svg" alt="check">
-						</div>
-
+					<!-- change add-img remove & add d-none -->
+					<div class="selection-img selection-img-activ d-none">
+						<img class="px-5" src="../img/cancel.png" alt="cancel">
+						<img class="border px-5" src="../img/check-black.svg" alt="check">
 					</div>
 
 				</div>
 
-				<table>
-					<td>
-						dwad
-					</td>
-				</table>
 			</div>
 
+			<table id="dropNum(subtask)">
+				<td>
+					dwad
+				</td>
+			</table>
 		</div>
 
 		<div class="line"></div>
 
 		<div class="imposter" id="imposter"></div>
+		</div>
 	</div>
 
 

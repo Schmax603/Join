@@ -21,7 +21,19 @@
         </div>
       </div>
       
-      <button id="toggle-button">Toggle collapse</button>      
+      <div>
+        <h1>Button hover Test</h1>
+
+        <button id="btn-0" class="btn">urgent <img src="../img/prio-urgent.svg" alt=""></button>
+        <button id="btn-1" class="btn">mid <img src="../img/prio-medium.svg" alt=""></button>
+        <button id="btn-2" class="btn">low <img src="../img/prio-low.svg" alt=""></button>
+      </div>
+
+      
+      <script>
+
+      </script>
+
     <style>
         .section {
             overflow: hidden;
@@ -34,12 +46,27 @@
         .section.collapsed {
             transform: scaleY(0);
         }
+        .red{
+            background-color: #ff3d00;
+            color: white;
+        }
+        .yellow{
+            background-color: #ffac04;
+            color: white;
+        }
+        .green{
+            background-color: #80e42c;
+            color: white;
+        }
+        .btn:hover{
+            box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
+            border: 0px solid #D1D1D1;
+        }
+        .activ{
+            box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
+            border: 0px solid #D1D1D1;
+        }
     </style>
-    <script>
-        document.querySelector('#toggle-button').addEventListener('click', function () {
-            document.querySelector('.section.collapsible').classList.toggle('collapsed');
-        });
-    </script>
 </body>
 
 </html>

@@ -47,7 +47,7 @@ tasks = [
         Due Date.value
 
         Subtasks[
-            subtask
+            subtask + checkbox
         ]
 
         columnCategory.value (default)
