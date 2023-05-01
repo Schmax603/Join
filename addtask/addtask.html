@@ -40,7 +40,7 @@
 			<img src="/img/close.svg">
 		</div>
 		<div class="addtask-create-bnt addtask-bnt-center">
-			<div class="addtask-create-text">
+			<div onclick="addTask()" class="addtask-create-text">
 				<p class="d-nonemin1300">Create</p>
 				<p class="d-nonemax1300">Create Task</p>
 			</div>
@@ -56,13 +56,13 @@
 
 			<div class="addtask-tasktitle addtask-gencon">
 				<div class="addtask-gentext cursor-d">Title</div>
-				<textarea class="addtask-genimput" placeholder="Enter a title"></textarea>
+				<textarea id="task-title" class="addtask-genimput" placeholder="Enter a title"></textarea>
 			</div>
 
 			<div class="addtask-description addtask-gencon">
 				<div class="addtask-gentext cursor-d">Description</div>
-				<textarea class="addtask-description-input addtask-genimput" placeholder="Enter a Description"
-					type="text"></textarea>
+				<textarea id="task-discription" class="addtask-description-input addtask-genimput"
+					placeholder="Enter a Description" type="text"></textarea>
 			</div>
 
 
@@ -71,18 +71,16 @@
 
 				<div class="addtask-prio-whichBnt addtask-flex-moba center-stuff">
 					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff fs-16 fw-400"
-						id="addtask-prio-bnt-urgent" onclick="setActiveButton(0)"
-						onmouseover="bntHover('urgent')">Urgent <img class="addtask-prio-img"
+						id="addtask-prio-bnt-urgent" onclick="setActiveButton(0)">Urgent <img class="addtask-prio-img"
 							id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
 
 					<button class="addtask-prio-bnt addtask-prio-bnt-medium addtask-genimput center-stuff fs-16 fw-400"
-						id="addtask-prio-bnt-medium" onclick="setActiveButton(1);"
-						onmouseover="bntHover('medium')">Medium <img class="addtask-prio-img"
+						id="addtask-prio-bnt-medium" onclick="setActiveButton(1);">Medium <img class="addtask-prio-img"
 							id="addtask-prio-bnt-medium-img" src="../img/prio-medium.svg"></button>
 
 					<button class="addtask-prio-bnt addtask-prio-bnt-low addtask-genimput center-stuff fs-16 fw-400"
-						id="addtask-prio-bnt-low" onclick="setActiveButton(2);" onmouseover="bntHover('low')">Low <img
-							class="addtask-prio-img" id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
+						id="addtask-prio-bnt-low" onclick="setActiveButton(2);">Low <img class="addtask-prio-img"
+							id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
 				</div>
 
 			</div>
@@ -98,16 +96,19 @@
 				<div class="addtask-gendrop" id="drop">
 
 
-					<div class="addtask-gendrop-coll collapsible inline-img" onclick="toggleActive(0);">
+					<div id="category-selection" class="addtask-gendrop-coll collapsible inline-img" onclick="toggleActive(0);">
 
 						<div class="select-task-category-img img-44">
-							<img src="../img/dropdown.svg" alt="drop down">
+							<img id="category-img-dropdown" src="../img/dropdown.svg" alt="drop down">
 						</div>
 
 
 
-						<div class="select-task-category paddings" id="currentItem">
-							Select task category
+						<div class="select-task-category" id="currentItem">
+
+							<div class="paddings">
+								Select task category
+							</div>
 						</div>
 						<div class="addtask-gendrop-scroll">
 
@@ -116,27 +117,14 @@
 							</div>
 
 							<div id="dropNum(category)">
-								<div class="addtask-item paddings">
-									Content for section 2 goes here.
-								</div>
-								<div class="addtask-item paddings">
-									Content for section 3 goes here.
-								</div>
-								<div class="addtask-item paddings">
-									Content for section 4 goes here.
-								</div>
-								<div class="addtask-item paddings">
-									Content for section 5 goes here.
-								</div>
-								<div class="addtask-item paddings">
-									Content for section 5 goes here.
-								</div>
-								<div class="addtask-item paddings">
-									Content for section 5 goes here.
-								</div>
-								<div class="addtask-item paddings">
-									Content for section 5 goes here.
-								</div>
+								<div class="addtask-item paddings">Content for section 2 goes here.</div>
+								<div class="addtask-item paddings">Content for section 3 goes here.</div>
+								<div class="addtask-item paddings">Content for section 4 goes here.</div>
+								<div class="addtask-item paddings">Content for section 5 goes here.</div>
+								<div class="addtask-item paddings">Content for section 6 goes here.</div>
+								<div class="addtask-item paddings">Content for section 7 goes here.</div>
+								<div class="addtask-item paddings">Content for section 8 goes here.</div>
+								<div class="addtask-item paddings">Content for section 9 goes here.</div>
 							</div>
 
 						</div>
@@ -164,27 +152,13 @@
 						</div>
 
 						<div id="dropNum(assigned)">
-							<div class="addtask-item paddings">
-								Content for section 2 goes here.
-							</div>
-							<div class="addtask-item paddings">
-								Content for section 3 goes here.
-							</div>
-							<div class="addtask-item paddings">
-								Content for section 4 goes here.
-							</div>
-							<div class="addtask-item paddings">
-								Content for section 5 goes here.
-							</div>
-							<div class="addtask-item paddings">
-								Content for section 5 goes here.
-							</div>
-							<div class="addtask-item paddings">
-								Content for section 5 goes here.
-							</div>
-							<div class="addtask-item paddings">
-								Content for section 5 goes here.
-							</div>
+							<div class="addtask-item paddings">Content for section 2 goes here.</div>
+							<div class="addtask-item paddings">Content for section 3 goes here.</div>
+							<div class="addtask-item paddings">Content for section 4 goes here.</div>
+							<div class="addtask-item paddings">Content for section 5 goes here.</div>
+							<div class="addtask-item paddings">Content for section 5 goes here.</div>
+							<div class="addtask-item paddings">Content for section 5 goes here.</div>
+							<div class="addtask-item paddings">Content for section 5 goes here.</div>
 						</div>
 					</div>
 				</div>
@@ -210,18 +184,23 @@
 				</div>
 
 			</div>
-
-			<table id="dropNum(subtask)">
-				<td>
-					dwad
-				</td>
-			</table>
+			<div id="dropNum(subtask)">
+				<table>
+					</tbody>
+						<div><input type="checkbox" name="" id="0">dwad</div>
+						<div><input type="checkbox" name="" id="">dwad</div>
+						<div><input type="checkbox" name="" id="">dwad</div>
+						<div><input type="checkbox" name="" id="">dwad</div>
+						<div><input type="checkbox" name="" id="">dwad</div>
+					</tbody>
+				</table>
+			</div>
 		</div>
 
 		<div class="line"></div>
 
 		<div class="imposter" id="imposter"></div>
-		</div>
+	</div>
 	</div>
 
 

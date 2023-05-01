@@ -16,8 +16,36 @@ function newCategory() {
 
 /* lul */
 
-/* beispiel für imports und das warten auf die api bis Category apt content geladen ist */
+//impro api
 
-function myFunction(params) {
-    console("import und async await hat funktioniert")
-}
+let improapi = [
+    {
+        title: "",
+        description: "",
+        Categorys: [
+            {
+                category: "",
+                colorCategory: ""
+            }
+        ],
+        AssignTo: [
+            {
+                Contact: "",
+                contact: ""
+            }
+        ],
+        Prio: "",
+        DueDate: "",
+        Subtasks: [
+            {
+                subtask: "",
+                checkbox: false
+            }
+        ],
+        columnCategory: "default"
+    }
+];
+
+console.log(); // Outputs the array of objects
+
+

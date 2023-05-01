@@ -219,6 +219,13 @@ textarea {
     right: 0;
     /* transform: translate(-50%, 50%); */
 }
+.new-category{
+    border: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+}
 
     
 
