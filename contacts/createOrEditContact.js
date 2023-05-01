@@ -1,0 +1,177 @@
+/*--------------------------------------------------
+Create Contact Overlay
+---------------------------------------------------*/
+function openCreateContactOverlay() {
+    freezeBackground('create-or-edit-contact-screen');
+    renderCreateContactHeadline();
+    renderCreateContactIcon();
+    renderCreateContactButtons();
+    setCreateContactButtons();
+    slideInOverlay('create-or-edit-contact-overlay');
+}
+
+
+function renderCreateContactHeadline() {
+    document.getElementById('create-or-edit-contact-headline').classList = 'header-headline mt-12 mb-12';
+    document.getElementById('create-or-edit-contact-headline').innerHTML = 'Add contact';
+    showElement('create-or-edit-contact-subheadline');
+    document.getElementById('create-or-edit-contact-subheadline').innerHTML = 'Tasks are better with a team!';
+}
+
+
+function renderCreateContactIcon() {
+    document.getElementById('create-or-edit-contact-icon-container').innerHTML = '<img src="../img/emptyImg.png">';
+}
+
+
+function renderCreateContactButtons() {
+    document.getElementById('form-contact-light-btn').classList.add('desktop-only');
+    document.getElementById('form-contact-buttons').classList.remove('align-self-end');
+
+    document.getElementById('form-contact-light-btn-text').innerHTML = 'Cancel';
+    document.getElementById('form-contact-light-btn-symbol').style.display = 'flex';
+
+    document.getElementById('form-contact-dark-btn').style.padding = '15px 10px';
+    document.getElementById('form-contact-dark-btn-text').innerHTML = 'Create contact';
+    document.getElementById('form-contact-dark-btn-symbol').style.display = 'flex';
+}
+
+
+function setCreateContactButtons() {
+    document.getElementById('form-contact-light-btn').onclick = closeCreateOrEditContactOverlay;
+    document.getElementById('form-contact-info').onsubmit = () => {
+        addNewContact();
+        return false;
+    };
+}
+
+
+function openEditContactOverlay(contact) {
+    freezeBackground('create-or-edit-contact-screen');
+    renderEditContactHeadline();
+    renderEditContactIcon(contact);
+    setEditContactInputValues(contact);
+    renderEditContactButtons();
+    setEditContactButtons();
+    slideInOverlay('create-or-edit-contact-overlay');
+}
+
+
+function renderEditContactHeadline() {
+    document.getElementById('create-or-edit-contact-headline').classList = 'header-headline mt-34';
+    document.getElementById('create-or-edit-contact-headline').innerHTML = 'Edit contact';
+    removeElement('create-or-edit-contact-subheadline');
+}
+
+
+function renderEditContactIcon(contact) {
+    document.getElementById('create-or-edit-contact-icon-container').innerHTML = /*html*/`
+        <div id="create-or-edit-contact-icon" class="contact-icon contact-overlay-icon fs-47 fw-500 ${contact.color}">
+            ${getInitials(contact)}
+        </div>
+    `;
+}
+
+
+function setEditContactInputValues(contact) {
+    document.getElementById('new-contact-name').value = contact.name;
+    document.getElementById('new-contact-email').value = contact.email;
+    document.getElementById('new-contact-phone').value = contact.phone;
+}
+
+
+function renderEditContactButtons() {
+    if (screenWidthIsAtMost('1200px')) {
+        document.getElementById('form-contact-light-btn').classList.remove('desktop-only');
+    }
+    else {
+        document.getElementById('form-contact-buttons').classList.add('align-self-end');
+    }
+
+    document.getElementById('form-contact-light-btn-text').innerHTML = 'Delete';
+    document.getElementById('form-contact-light-btn-symbol').style.display = 'none';
+
+    document.getElementById('form-contact-dark-btn').style.padding = '15px 50px';
+    document.getElementById('form-contact-dark-btn-text').innerHTML = 'Save';
+    document.getElementById('form-contact-dark-btn-symbol').style.display = 'none';
+
+}
+
+
+function setEditContactButtons() {
+    document.getElementById('form-contact-light-btn').onclick = () => {
+        deleteContact(getActiveContact());
+    };
+    document.getElementById('form-contact-info').onsubmit = () => {
+        editContact(getActiveContact());
+        return false;
+    };
+}
+
+
+function deleteContact(contact) {
+    const contactIndex = activUserContacts.indexOf(contact);
+    activUserContacts.splice(contactIndex, 1);
+
+    closeCreateOrEditContactOverlay();
+    renderContactList();
+    hideOverlay('contact-details-overlay');
+
+    if (screenWidthIsAtMost('1200px')) {
+        setTimeout(() => {
+            showElement('contacts-list-container');
+            removeElement('contacts-info-container');
+        }, 220);
+    }
+
+    saveUserData();
+}
+
+function editContact(contact) {
+    contact.name = document.getElementById('new-contact-name').value;
+    contact.email = document.getElementById('new-contact-email').value;
+    contact.phone = document.getElementById('new-contact-phone').value;
+    closeCreateOrEditContactOverlay();
+    renderContactList();
+
+    const contactIndex = activUserContacts.indexOf(contact);
+    showContactDetails(contactIndex, true);
+    scrollToContact(contactIndex);
+
+    saveUserData();
+}
+
+
+function closeCreateOrEditContactOverlay() {
+    hideOverlay('create-or-edit-contact-overlay');
+    setTimeout(() => {
+        unfreezeBackground('create-or-edit-contact-screen');
+    }, 220);
+    document.getElementById('form-contact-info').reset();
+}
+
+
+async function addNewContact() {
+    const newContact = {
+        "name": document.getElementById('new-contact-name').value,
+        "email": document.getElementById('new-contact-email').value,
+        "phone": document.getElementById('new-contact-phone').value,
+        "color": getRandomColorClass(),
+        "tasks": []
+    };
+    activUserContacts.push(newContact);
+
+    closeCreateOrEditContactOverlay();
+    renderContactList();
+    const contactIndex = activUserContacts.indexOf(newContact);
+    showContactDetails(contactIndex);
+    scrollToContact(contactIndex);
+    showThenHideOverlay('contact-successfully-created');
+
+    saveUserData();
+}
+
+
+function scrollToContact(contactIndex) {
+    scrollToID(`contact-${contactIndex}`);
+}
