@@ -89,7 +89,8 @@ async function addTask() {
         "prio": priority,
         "category": category[selectCategory],
         "assignTo": contacts,
-        "subtasks": subtasksChecked
+        "subtasks": subtasksChecked,
+        "boardColumn": 'board-column-todo'
     };
     // Abfragen einfügen ?
     users[currentUser].tasks.push(newTask);
