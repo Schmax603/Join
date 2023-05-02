@@ -30,7 +30,7 @@ ToDo:
 tasks = [
     {
         title.value
-        discription.value
+        description.value
         Categorys[
             {
                 category.value

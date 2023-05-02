@@ -8,7 +8,7 @@ function showContactDetails(contactIndex, justEdited = false) {
         return;
     activateContact(contactIndex);
     setTimeout(() => {
-        const contact = activUserContacts[contactIndex];
+        const contact = activeUserContacts[contactIndex];
         if (screenWidthIsAtMost('1200px')) {
             showElement('contacts-info-container');
             removeElement('contacts-list-container');
@@ -57,8 +57,8 @@ function highlightActiveContact(contactIndex) {
  * Unhighlights all contacts in the contacts list.
  */
 function unhighlightAllContacts() {
-    activUserContacts.forEach(c => {
-        document.getElementById(`contact-${activUserContacts.indexOf(c)}`).classList.remove('contact-active');
+    activeUserContacts.forEach(c => {
+        document.getElementById(`contact-${activeUserContacts.indexOf(c)}`).classList.remove('contact-active');
     });
 }
 
@@ -68,7 +68,7 @@ function unhighlightAllContacts() {
  * @returns {Object|undefined} - The currently active contact, or undefined if there is none.
  */
 function getActiveContact() {
-    return activUserContacts[activeContactIndex];
+    return activeUserContacts[activeContactIndex];
 }
 
 

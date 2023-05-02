@@ -2,6 +2,7 @@
 Global Constants and Variables
 ---------------------------------------------------*/
 const NUMBER_OF_BG_COLORS = 17; // see bgColors.css
+let activeUser;
 
 
 /*--------------------------------------------------
@@ -145,8 +146,16 @@ function doNotClose(event) {
 
 
 /*--------------------------------------------------
-Storage
+User Data
 ---------------------------------------------------*/
+/**
+* Sets the active user to guest or current signed user.
+*/
+function setActiveUser() {
+    activeUser = loggedInAsGuest() ? guestUser : users[currentUser];
+}
+
+
 /**
 * Saves the user data to local storage (guest) or backend (signed user).
 */

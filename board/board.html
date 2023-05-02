@@ -20,19 +20,20 @@
     <link rel="stylesheet" href="../fonts/fonts.css">
     <link rel="stylesheet" href="board.css">
     <link rel="stylesheet" href="../showAndHide.css">
+    <link rel="stylesheet" href="../bgColors.css">
     <!-- backend -->
     <script src="../backend.js"></script>
     <!-- scripts  -->
+    <script src="../guestUserData.js"></script>
     <script src="../script.js"></script>
     <script src="board.js"></script>
     <script src="dragAndDrop.js"></script>
-    <script src="showAndHide.js"></script>
     <script src="search.js"></script>
     <script src="../login/login.js"></script>
 </head>
 
 
-<body id="body" onload="initHeaderNav(); updateDragAndDropHTML(); loadUsers();">
+<body id="body" onload="initBoard()">
 
     <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
 

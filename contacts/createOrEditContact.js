@@ -110,8 +110,8 @@ function setEditContactButtons() {
 
 
 function deleteContact(contact) {
-    const contactIndex = activUserContacts.indexOf(contact);
-    activUserContacts.splice(contactIndex, 1);
+    const contactIndex = activeUserContacts.indexOf(contact);
+    activeUserContacts.splice(contactIndex, 1);
 
     closeCreateOrEditContactOverlay();
     renderContactList();
@@ -134,7 +134,7 @@ function editContact(contact) {
     closeCreateOrEditContactOverlay();
     renderContactList();
 
-    const contactIndex = activUserContacts.indexOf(contact);
+    const contactIndex = activeUserContacts.indexOf(contact);
     showContactDetails(contactIndex, true);
     scrollToContact(contactIndex);
 
@@ -159,11 +159,11 @@ async function addNewContact() {
         "color": getRandomColorClass(),
         "tasks": []
     };
-    activUserContacts.push(newContact);
+    activeUserContacts.push(newContact);
 
     closeCreateOrEditContactOverlay();
     renderContactList();
-    const contactIndex = activUserContacts.indexOf(newContact);
+    const contactIndex = activeUserContacts.indexOf(newContact);
     showContactDetails(contactIndex);
     scrollToContact(contactIndex);
     showThenHideOverlay('contact-successfully-created');

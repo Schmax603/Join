@@ -1,4 +1,4 @@
-let activUserContacts;
+let activeUserContacts;
 let contactInfoContainerIsActive = false;
 let activeContactIndex;
 
@@ -8,11 +8,12 @@ let activeContactIndex;
  */
 async function initContacts() {
     await loadUserData();
+    setActiveUser();
 
     initHeaderNav();
     changeContentOnWindowSize();
 
-    activUserContacts = loggedInAsGuest() ? guestUser.contacts : users[currentUser].contacts;
+    activeUserContacts = activeUser.contacts;
     renderContactList();
 }
 

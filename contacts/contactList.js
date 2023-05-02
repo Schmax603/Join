@@ -18,7 +18,7 @@ function renderContactList() {
  */
 function renderLetterContacts(letter) {
     renderLetterHeader(letter);
-    activUserContacts.forEach(contact => {
+    activeUserContacts.forEach(contact => {
         if (getInitialLetter(contact) === letter)
             renderContact(contact);
     });
@@ -46,7 +46,7 @@ function renderLetterHeader(letter) {
  */
 function renderContact(contact) {
     const letter = getInitialLetter(contact);
-    const contactIndex = activUserContacts.indexOf(contact);
+    const contactIndex = activeUserContacts.indexOf(contact);
     const container = document.getElementById(`letter-container-${letter}`);
     container.innerHTML += /*html*/`
         <div id="contact-${contactIndex}" class="contact" onclick="showContactDetails(${contactIndex})">
@@ -69,7 +69,7 @@ function renderContact(contact) {
  */
 function getInitialLetters() {
     const initialLetters = [];
-    activUserContacts.forEach(contact => {
+    activeUserContacts.forEach(contact => {
         const initialLetter = getInitialLetter(contact);
         if (!initialLetters.includes(initialLetter))
             initialLetters.push(initialLetter);
@@ -108,12 +108,12 @@ function getInitials(contact) {
 
 
 /**
- * Sorts the `activUserContacts` array of contacts by name, in alphabetical order.
+ * Sorts the `activeUserContacts` array of contacts by name, in alphabetical order.
  *
- * @returns {Array} The sorted `activUserContacts` array.
+ * @returns {Array} The sorted `activeUserContacts` array.
  */
 function sortContactsByName() {
-    return activUserContacts.sort((a, b) => {
+    return activeUserContacts.sort((a, b) => {
         if (a.name < b.name) {
             return -1;
         }

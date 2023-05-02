@@ -84,7 +84,7 @@ async function addTask() {
     await saveCheckedSubtasks();
     const newTask = {
         "title": document.getElementById('task-title').value,
-        "discription": document.getElementById('task-discription').value,
+        "description": document.getElementById('task-description').value,
         "dueDate": document.getElementById('date').value,
         "prio": priority,
         "category": category[selectCategory],
