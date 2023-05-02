@@ -1,11 +1,13 @@
 /**init onload functions */
-async function initAddTask(){
-    await initHeaderNav(); 
-    await loadUsers(); 
-    media(); 
-    setMinDate(); 
+async function initAddTask() {
+    await initHeaderNav();
+    await loadUsers();
+    media();
+    setMinDate();
     // dropdownValueCheck(); 
-    renderContacts()
+    renderCategory();
+    await renderContacts()
+    giveContactListId();
 }
 
 window.addEventListener('resize', media);
@@ -69,6 +71,7 @@ function setActiveButton(buttonId) {
 function toggleActive(dropMaster) {
     if (dropMaster === 'category-selection') {
         document.getElementById("category-selection").classList.toggle("collapsed");
+        document.getElementById('color-pick').classList.add('d-none');
 
     } else if (dropMaster === 'mail-selection') {
         document.getElementById("mail-selection").classList.toggle("collapsed");
@@ -77,15 +80,15 @@ function toggleActive(dropMaster) {
 
 /**Save values into backend */
 async function addTask() {
-    await saveCheckedSubtasks();
     await saveCheckedContacts();
+    await saveCheckedSubtasks();
     const newTask = {
         "title": document.getElementById('task-title').value,
         "discription": document.getElementById('task-discription').value,
         "dueDate": document.getElementById('date').value,
         "prio": priority,
-        // "category": .value, (Zuordnung einer Kategorie)
-        // "assignTo": assignToChecked,
+        "category": category[selectCategory],
+        "assignTo": contacts,
         "subtasks": subtasksChecked
     };
     // Abfragen einfügen ?
@@ -94,85 +97,72 @@ async function addTask() {
     // Zurücksetzen der Eingabefelder
 }
 
-/**Render all contacts */
-function renderContacts(){
-    let contactList = document.getElementById('apicontact-list');
-    let contactsArray = users[currentUser].contacts;
-
-    for (let i = 0; i < contactsArray.length; i++) {
-        const contact = contactsArray[i].name;
-        
-        contactList.innerHTML += /*html*/`
-        <div class="addtask-item paddings addtask-id-contact">${contact}
-			<div id="addtask-checkbox${i}" class="addtask-checkbox"> 
-                <div id="addtask-checkbox-active${i}" class="addtask-checkbox-active"></div>
-            </div>
-		</div>
-        `;
-    }
-}
-
-/**Color pick */
-function addColorCategory(id){
-    let editContainer = document.getElementById('category-selection');
-    let editColor = document.getElementById('color-selected');
-
-    editContainer.classList.add('d-flex');
-    editContainer.classList.add('a-item');
-
-    editColor.classList.add(`bg-${id}`);
-    document.getElementById('color-pick').classList.add('d-none');
-}
-
 /**Render input field for new Catergory */
 function newInput(section) {
-    if(section === 'category'){
+    if (section === 'category') {
         generateHTMLNewCategory();
         document.getElementById('color-pick').classList.remove('d-none');
     }
-    else if (section === 'new-mail' ) {
-        window.location.href='../contacts/contacts.html';
-    // Figma Version
-    // removeHTMLSubtaskImg();
+    else if (section === 'new-mail') {
+        window.location.href = '../contacts/contacts.html';
+        // Figma Version
+        // removeHTMLSubtaskImg();
     }
-    else if (section === 'subtask' ) {
+    else if (section === 'subtask') {
         setHTMLSubtaskImg();
     }
 }
 
 /**Cancel input and load drop down list */
-function cancelSection(section){
-    if(section === 'category'){
-        generateHTMLSelectCategory();
-    }else if (section === 'new-mail' ) {
+function cancelSection(section) {
+    if (section === 'category') {
+        resetCetegory('category');
+        renderCategory();
+    } else if (section === 'new-mail') {
         generateHTMLSelectMail();
-    }else if (section === 'subtask' ) {
+    } else if (section === 'subtask') {
         removeHTMLSubtaskImg();
     }
 }
 
-/**Change subtask img*/
-function setHTMLSubtaskImg(){
-    document.getElementById('subtask-img-add').classList.add('d-none');
-    document.getElementById('subtask-img-activ').classList.remove('d-none');
+function selectedCategory(i) {
+    let showSelectedCategory = document.getElementById('selected-element');
+
+    selectCategory = i
+
+    showSelectedCategory.innerHTML = `
+        <div>${category[i].name}</div>
+        <div class="addtask-item-color color-cicle img-20 bg-${category[i].color}"></div>
+    `;
 }
 
-/**Reset subtask img*/
-function removeHTMLSubtaskImg(){
-    document.getElementById('subtask-img-add').classList.remove('d-none');
-    document.getElementById('subtask-img-activ').classList.add('d-none');
-    
-    document.getElementById('subtask').value = '';
+/**Load all categorys with color */
+function renderCategory() {
+    let categoryList = document.getElementById('dropNum(category)');
+
+    for (let i = 0; i < category.length; i++) {
+        let categoryElement = category[i];
+
+        categoryList.innerHTML += /*html*/`
+        <div onclick="selectedCategory(${i})" class="addtask-item paddings addtask-id">
+            ${categoryElement.name}
+            <div class="addtask-item-color color-cicle img-20 bg-${categoryElement.color}"></div>
+		</div>
+        `;
+    }
 }
 
 /**Save new category */
-async function saveNewCategory(section){
-    if(section === 'category'){
-        let inputValue = document.getElementById('new-category').value; 
-// bg-color als globale zwischen speichern
-        category.push(inputValue);
-    // Save backend
-    // await setItem('category', JSON.stringify(category));
+async function saveNewCategory(section) {
+    if (section === 'category') {
+        let inputValue = document.getElementById('new-category');
+        if (categoryColorPick !== undefined && inputValue.value !== '') {
+            category.push({ name: inputValue.value, color: categoryColorPick });
+            // Save backend
+            await setItem('category', JSON.stringify(category));
+            resetCetegory(inputValue);
+            renderCategory();
+        }
     }
     // Figma Version
     // else if (section === 'new-mail' ) {
@@ -182,66 +172,139 @@ async function saveNewCategory(section){
     // Save backend
     // await setItem('assignTo', JSON.stringify(assignTo));
     // }
-    else if (section === 'subtask' ) {
+    else if (section === 'subtask') {
         initSubtask();
     }
 }
 
+/**After save new category, reset the selection */
+function resetCetegory(inputValue) {
+    let editColor = document.getElementById('color-selected');
+    let editContainer = document.getElementById('category-selection');
+
+    document.getElementById('color-pick').classList.add('d-none');
+    editColor.classList.remove(`bg-${categoryColorPick}`);
+    editContainer.classList.remove('d-flex');
+    editContainer.classList.remove('a-item');
+    inputValue.value = '';
+    categoryColorPick = undefined;
+    generateHTMLSelectCategory();
+}
+
+/**Color pick category */
+function addColorCategory(id) {
+    let editContainer = document.getElementById('category-selection');
+    let editColor = document.getElementById('color-selected');
+
+    editContainer.classList.add('d-flex');
+    editContainer.classList.add('a-item');
+
+    categoryColorPick = id;
+    editColor.classList.add(`bg-${id}`);
+    document.getElementById('color-pick').classList.add('d-none');
+}
+
+/**Render all contacts */
+async function renderContacts() {
+    let contactList = document.getElementById('apicontact-list');
+    let contactsArray = users[currentUser].contacts;
+
+    for (let i = 0; i < contactsArray.length; i++) {
+        const contact = contactsArray[i].name;
+
+        contactList.innerHTML += /*html*/`
+        <div class="addtask-item paddings pos-re" onclick="checkboxSwitch(id)">${contact}
+            <input id="contact-checkbox${i}" type="checkbox">
+        <!-- <div id="addtask-checkbox${i}" class="addtask-checkbox"> 
+                <div id="addtask-checkbox-active${i}" class="addtask-checkbox-active"></div>
+            </div> -->
+		</div>
+        `;
+    }
+}
+
+/**Save checked Contacts */
+async function saveCheckedContacts() {
+    let contactsArray = users[currentUser].contacts;
+
+    for (let i = 0; i < contactsArray.length; i++) {
+        const contact = contactsArray[i];
+        if (document.getElementById(`contact-checkbox${i}`).checked == true) {
+            contacts.push(contact);
+        }
+    }
+}
+
 /**Save & load subtasks */
-function initSubtask(){
-    let inputValue = document.getElementById('subtask'); 
+function initSubtask() {
+    let inputValue = document.getElementById('subtask');
     subtasks.push(inputValue.value);    // Save temporary subtasks
     inputValue.value = '';
     renderSubtaskArray();
 }
 
+/**Save only checked Subtasks */
+async function saveCheckedSubtasks() {
+    for (let i = 0; i < subtasks.length; i++) {
+        const subtask = subtasks[i];
+        if (document.getElementById(`subtask-checkbox${i}`).checked == true) {
+            subtasksChecked.push(subtask);
+        }
+    }
+}
+
 /**Load temporary Subtasks */
-function renderSubtaskArray()
+function renderSubtaskArray() {
     let subtaskList = document.getElementById("dropNum(subtask)");
 
     subtaskList.innerHTML = '';
     for (let i = 0; i < subtasks.length; i++) {
         const subtask = subtasks[i];
 
-    subtaskList.innerHTML += /*html*/`
+        subtaskList.innerHTML += /*html*/`
     <div>
         <input type="checkbox" name="" id="subtask-checkbox${i}">
         <label for="subtask-checkbox${i}">${subtask}</label>
     </div>
     `;
+    }
 }
 
-function giveContactList(params) {
-    const activeList = document.querySelector('.addtask-id');
-    for (let index = 0; index < array.length; index++) {
-        const element = array[index];
-        
+/**Change subtask img*/
+function setHTMLSubtaskImg() {
+    document.getElementById('subtask-img-add').classList.add('d-none');
+    document.getElementById('subtask-img-activ').classList.remove('d-none');
+}
+
+/**Reset subtask img*/
+function removeHTMLSubtaskImg() {
+    document.getElementById('subtask-img-add').classList.remove('d-none');
+    document.getElementById('subtask-img-activ').classList.add('d-none');
+
+
+    document.getElementById('subtask').value = '';
+}
+
+function giveContactListId(params) {
+    const idList = document.getElementById('apicontact-list');
+
+    const childElements = idList.children;
+    for (let index = 2; index <= childElements.length + 1; index++) {
+        const currentElement = childElements[index - 2];
+        currentElement.setAttribute('id', `contact-${index}`);
     }
-    /*
-    childElements[index].setAttribute("id", + "contact"[index] + "-" + index);
-    */
-   console.log(activeList)
-    activeList.forEach
-} 
-/*
- async function trueFalesTranslater(params) {
+}
+
+
+function checkboxSwitch(id) {
+
+}
+
+
+async function trueFalesTranslater(params) {
 
     const activeList = document.querySelectorAll('.addtask-id-contact');
     console.log(activeList)
-}
-*/
-/**Save only checked Subtasks */
-async function saveCheckedSubtasks(){
-    for (let i = 0; i < subtasks.length; i++) {
-        const subtask = subtasks[i];
-        if (document.getElementById(`subtask-checkbox${i}`).checked == true) {
-            subtasksChecked.push(subtask)
-        }
-    }
-}
-
-async function saveCheckedContacts(){
-    
 }
 
 /*
@@ -263,12 +326,12 @@ function dropSelectValue(params) {
         console.log("id")
     }
     if (condition) {
-        
-    }    
-    if (condition) {
-        
+
     }
-    
+    if (condition) {
+
+    }
+
 
 }
 /*

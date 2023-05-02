@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="addtask.css">
 	<link rel="stylesheet" href="../style.css">
 	<link rel="stylesheet" href="../showAndHide.css">
-	<link rel="stylesheet" href="../contacts/bgColors.css">
+	<link rel="stylesheet" href="../bgColors.css">
 
 
 	<!-- https://i.imgflip.com/52lvif.jpg -->
@@ -33,7 +33,7 @@
 
 </head>
 
-<body id="body" onload="initAddTask(), trueFalesTranslater()" onclick="closeMenu()">
+<body id="body" onload="initAddTask();" onclick="closeMenu()">
 	<div w3-include-html="../headerNav/headerNav.html" style="height: 0;"></div>
 
 	<button class="addtask-create addtask-bnt-center">
@@ -110,7 +110,7 @@
 
 						<div class="select-task-category" id="currentItem">
 
-							<div class="paddings" onclick="toggleActive('category-selection');">
+							<div id="selected-element" class="paddings" onclick="toggleActive('category-selection');">
 								Select task category
 							</div>
 						</div>
@@ -122,7 +122,7 @@
 							</div>
 
 							<div id="dropNum(category)">
-								<div class="addtask-item paddings addtask-id">Design <div class="addtask-item-color">
+								<!-- <div class="addtask-item paddings addtask-id">Design <div class="addtask-item-color">
 									</div>
 								</div>
 								<div class="addtask-item paddings addtask-id">Sales <div class="addtask-item-color">
@@ -136,7 +136,7 @@
 								</div>
 								<div class="addtask-item paddings addtask-id">Marketing <div class="addtask-item-color">
 									</div>
-								</div>
+								</div> -->
 							</div>
 
 						</div>
@@ -156,21 +156,21 @@
 			<div class="addtask-gencon addtask-assigned-to">
 				<div class="addtask-gentext cursor-d"><span>Assigned to</span></div>
 
-				<div id="mail-selection" class="addtask-gendrop-coll collapsible inline-img"
-					onclick="toggleActive('mail-selection');">
+				<div id="mail-selection" class="addtask-gendrop-coll collapsible inline-img">
 
 					<div class="select-task-category-img img-44">
 						<img id="mail-img-dropdown" src="../img/dropdown.svg" alt="drop down">
 					</div>
 
-					<div class="select-task-category paddings" id="currentItem">
+					<div class="select-task-category paddings" id="currentItem"
+						onclick="toggleActive('mail-selection');">
 						Select task contacts to assign
 					</div>
 					<div id="contact-list" class="addtask-gendrop-scroll">
 
-						<div class="addtask-item paddings addtask-id-contact" onclick="assignToCheckbox(id)">You
-							<div class="addtask-checkbox ">
-								<div class="addtask-checkbox-active"></div>
+						<div class="addtask-item paddings pos-re" id="contact-0" onclick="checkboxSwitch(id)">You
+							<div class="addtask-checkbox">
+								<div class="addtask-checkbox-active addtask-checkbox-active"></div>
 							</div>
 						</div>
 
@@ -178,7 +178,7 @@
 
 						</div>
 
-						<div class="addtask-item paddings addtask-id-contact" style="position: relative;"
+						<div class="addtask-item paddings" id="contact-1" style="position: relative;"
 							onclick="newInput('new-mail');">
 							Invite new contact <div class="select-task-category-img-2"> <img
 									src="/img/contactsaddtask.svg" alt=""></div>

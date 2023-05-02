@@ -7,7 +7,8 @@ let currentUser = [];
 let contacts = [];
 let tasks = [];
 let category = [];
-let assignToChecked = [];
+let categoryColorPick;
+let selectCategory;
 let subtasks = [];
 let subtasksChecked = [];   //Save temporary
 
@@ -16,9 +17,15 @@ async function loadUsers(){
     try {
         users = JSON.parse(await getItem('users'));
         currentUser = JSON.parse(await getItem('currentUser'));
+        category = JSON.parse(await getItem('category'));
     } catch(e){
         console.error('Loading error:', e);
     }
+}
+
+async function pushEmptyArray() {
+	users=[];
+    await setItem('users', JSON.stringify(users));
 }
 
 /**Onload Array addTask */
