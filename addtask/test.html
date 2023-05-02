@@ -9,63 +9,68 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="section">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-        <div class="section collapsible collapsed">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="section">
-         <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-      </div>
-      
-      <div>
-        <h1>Button hover Test</h1>
-
-        <button id="btn-0" class="btn">urgent <img src="../img/prio-urgent.svg" alt=""></button>
-        <button id="btn-1" class="btn">mid <img src="../img/prio-medium.svg" alt=""></button>
-        <button id="btn-2" class="btn">low <img src="../img/prio-low.svg" alt=""></button>
-      </div>
-
-      
-      <script>
-
-      </script>
-
+    <input type="checkbox" id="myCheckbox">
+    <label for="myCheckbox">My Checkbox</label>
+    
     <style>
-        .section {
-            overflow: hidden;
-            transition: transform 0.3s ease-out;
-            height: auto;
-            transform: scaleY(1);
-            transform-origin: top;
-        }
 
-        .section.collapsed {
-            transform: scaleY(0);
-        }
-        .red{
-            background-color: #ff3d00;
-            color: white;
-        }
-        .yellow{
-            background-color: #ffac04;
-            color: white;
-        }
-        .green{
-            background-color: #80e42c;
-            color: white;
-        }
-        .btn:hover{
-            box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
-            border: 0px solid #D1D1D1;
-        }
-        .activ{
-            box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
-            border: 0px solid #D1D1D1;
-        }
+
+
+
+/* Hide the default checkbox */
+#myCheckbox {
+    display: none;
+}
+
+/* Style the label to look like a checkbox */
+label[for="myCheckbox"] {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding-left: 25px;
+    margin-right: 15px;
+    font-size: 18px;
+    user-select: none;
+}
+
+/* Style the label's ::before pseudo-element to create the checkmark */
+label[for="myCheckbox"]::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.2s;
+}
+
+/* Style the label's ::after pseudo-element to display the checkmark */
+label[for="myCheckbox"]::after {
+    content: '\2713';
+    display: inline-block;
+    position: absolute;
+    left: 4px;
+    top: 0px;
+    font-size: 14px;
+    color: #000;
+    transition: all 0.2s;
+    opacity: 0;
+}
+
+/* Style the label's ::before and ::after pseudo-elements when the checkbox is checked */
+#myCheckbox:checked + label[for="myCheckbox"]::before {
+    background-color: #000;
+    border-color: #000;
+}
+
+#myCheckbox:checked + label[for="myCheckbox"]::after {
+    opacity: 1;
+}
+
     </style>
 </body>
 

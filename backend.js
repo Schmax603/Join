@@ -6,12 +6,27 @@ let users = [];
 let currentUser = [];
 let contacts = [];
 let tasks = [];
+let category = [];
+let assignToChecked = [];
+let subtasks = [];
+let subtasksChecked = [];   //Save temporary
 
 /**Onload Array */
 async function loadUsers(){
     try {
         users = JSON.parse(await getItem('users'));
         currentUser = JSON.parse(await getItem('currentUser'));
+    } catch(e){
+        console.error('Loading error:', e);
+    }
+}
+
+/**Onload Array addTask */
+async function loadSupportArraysAddTask(){
+    try {
+        category = JSON.parse(await getItem('category'));
+        assignTo = JSON.parse(await getItem('assignTo'));
+        subtasks = JSON.parse(await getItem('subtasks'));
     } catch(e){
         console.error('Loading error:', e);
     }
