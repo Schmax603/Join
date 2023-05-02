@@ -164,11 +164,10 @@ async function saveUserData() {
 * Loads the user data from local storage (guest) or backend (signed user).
 */
 async function loadUserData() {
+    await loadUsers();
+
     if (loggedInAsGuest()) {
         loadGuestUserFromLocalStorage();
-    }
-    else {
-        await loadUsers();
     }
 }
 
