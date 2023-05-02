@@ -120,7 +120,10 @@ Global Variable
   width: 41px;
   height: 41px;
 }
-
+.img-44{
+  width: 44px;
+  height: 44px;
+}
 .img-50 {
   width: 50px;
   height: 50px;
@@ -218,4 +221,72 @@ Global Elements
 /* ===buttons=== */
 button {
   cursor: pointer;
+}
+
+.dark-btn {
+  color: white;
+  background-color: #2A3647;
+  border-radius: 10px;
+  border: none;
+  transition: 100ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 18px 15px; */
+  padding: 15px 10px;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.dark-btn:hover {
+  background-color: #29ABE2;
+  box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.dark-btn:active {
+  background-color: #091931;
+  box-shadow: 0px 4px 4px 0px #00000040;
+
+}
+
+.light-btn {
+  color: #2A3647;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #2A3647;
+  transition: 100ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 13px;
+  white-space: nowrap;
+}
+
+.light-btn:hover {
+  cursor: pointer;
+  color: #29ABE2;
+  border: 1px solid #29ABE2;
+  box-shadow: 0 4px 5px #5551;
+}
+
+.light-btn:active {
+  color: #091931;
+  border: 1px solid #091931;
+  box-shadow: 0 4px 5px #5551;
+}
+
+.cancel-icon {
+  background-image: url(../img/cancel.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: 100ms ease-in-out;
+}
+
+.light-btn:hover .cancel-icon {
+  background-image: url(../img/cancelHover.png);
+}
+
+.light-btn:active .cancel-icon {
+  background-image: url(../img/cancelActive.png);
 }

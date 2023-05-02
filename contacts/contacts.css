@@ -19,7 +19,7 @@ main p,
     align-self: flex-end;
 }
 
-.dark-btn {
+/* .dark-btn {
     color: white;
     background-color: #2A3647;
     border-radius: 10px;
@@ -71,17 +71,20 @@ main p,
     box-shadow: 0 4px 5px #5551;
 }
 
-.light-btn svg path {
+.cancel-icon {
+    background-image: url(../img/cancel.png);
+    background-repeat: no-repeat;
+    background-position: center;
     transition: 100ms ease-in-out;
 }
 
-.light-btn:hover svg path {
-    stroke: #29ABE2;
+.light-btn:hover .cancel-icon {
+    background-image: url(../img/cancelHover.png);
 }
 
-.light-btn:active svg path {
-    stroke: #091931;
-}
+.light-btn:active .cancel-icon {
+    background-image: url(../img/cancelActive.png);
+} */
 
 main.contacts {
     background-color: #F5F5F5;
@@ -100,7 +103,7 @@ Contact List
     box-shadow: 4px 0px 6px 0px #00000014;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 16px;
 }
 

@@ -22,6 +22,38 @@ ToDo:
 
 +Contacts:
   -implement backend
-  -fix headerNav, remove p{margin:0;} add m-0 from style.css
 
 +Show hide css global implement
+
++ addTask
+
+tasks = [
+    {
+        title.value
+        discription.value
+        Categorys[
+            {
+                category.value
+                colorCategory.value
+            }
+            ]
+
+        AssignTo[
+            Contact.value
+            contact.value
+        ] 
+
+        Prio.value
+        Due Date.value
+
+        Subtasks[
+            subtask + checkbox
+        ]
+
+        columnCategory.value (default)
+    }
+
+]
+
+
+subtasks.length * abgeschlossen subtask / 100%

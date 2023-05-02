@@ -23,6 +23,7 @@
     <!-- backend -->
     <script src="../backend.js"></script>
     <!-- scripts  -->
+    <script src="../script.js"></script>
     <script src="board.js"></script>
     <script src="dragAndDrop.js"></script>
     <script src="showAndHide.js"></script>
@@ -31,7 +32,7 @@
 </head>
 
 
-<body id="body" onload="initHeaderNav(); updateDragAndDropHTML();">
+<body id="body" onload="initHeaderNav(); updateDragAndDropHTML(); loadUsers();">
 
     <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
 
@@ -89,7 +90,7 @@
             <div class="headline-mobile">
                 <h2 class="headline fs-61 fw-700 m-0">Board</h2>
 
-                <button class="dark-btn mobile-only">
+                <button class="dark-btn dark-btn-mobile mobile-only">
                     <img class="img-15" src="../img/add.png" alt="add">
                 </button>
             </div>

@@ -18,19 +18,22 @@
 
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="contacts.css">
-    <link rel="stylesheet" href="newContact.css">
+    <link rel="stylesheet" href="createOrEditContact.css">
     <link rel="stylesheet" href="contactsMediaQueries.css">
     <link rel="stylesheet" href="../showAndHide.css">
-    <link rel="stylesheet" href="bgColors.css">
+    <link rel="stylesheet" href="../bgColors.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
 
 
     <script src="../backend.js"></script>
     <script src="../login/login.js"></script>
+    <script src="../guestUserData.js"></script>
+    <script src="../script.js"></script>
     <script src="contacts.js"></script>
+    <script src="createOrEditContact.js"></script>
 </head>
 
-<body id="body" onload="initHeaderNav(); initContacts(); loadUsers();" onclick="closeMenu()">
+<body id="body" onload="initContacts()" onclick="closeMenu()">
 
     <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
 
@@ -140,7 +143,7 @@
                         <span id="form-contact-light-btn-text">
                             <!-- rendered by renderCreateContactButtons() or renderEditContactButtons() -->
                         </span>
-                        <div id="form-contact-light-btn-symbol" w3-include-html="../img/clear.svg"></div>
+                        <div id="form-contact-light-btn-symbol" class="cancel-icon img-24"></div>
                     </button>
                     <button id="form-contact-dark-btn" type="submit" class="dark-btn fs-21 fw-700">
                         <span id="form-contact-dark-btn-text">

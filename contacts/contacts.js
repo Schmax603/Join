@@ -1,88 +1,15 @@
-// aus backend: currentUser = getItem('currentUser') 
-// users[currentUser].contacts 
-
-let guestContacts = [
-    {
-        "name": "AntonMayer",
-        "email": "antom@gmail.com",
-        "phone": "+49 1111 111 11 1",
-        "color": "bg-0",
-        "tasks": []
-    }
-    ,
-    {
-        "name": "Anja Schulz",
-        "email": "schulz@hotmail.com",
-        "phone": "+49 1111 111 11 1",
-        "color": "bg-1",
-        "tasks": []
-    }
-    ,
-    {
-        "name": "David Eisenberg",
-        "email": "davidberg@gmail.com",
-        "phone": "+49 1111 111 11 1",
-        "color": "bg-2",
-        "tasks": []
-    }
-    ,
-    {
-        "name": "Benedict Ziegler",
-        "email": "benedict@gmail.com",
-        "phone": "+49 1111 111 11 1",
-        "color": "bg-3",
-        "tasks": []
-    }
-    ,
-    {
-        "name": "Eva Fischer",
-        "email": "eva@gmail.com",
-        "phone": "+49 1111 111 11 1",
-        "color": "bg-4",
-        "tasks": []
-    }
-    ,
-    {
-        "name": "Emmanuel Mauer",
-        "email": "emmanuelMa@gmail.com",
-        "phone": "+49 1111 111 11 1",
-        "color": "bg-5",
-        "tasks": []
-    }
-    ,
-    {
-        "name": "Marcel Bauer",
-        "email": "bauer@gmail.com",
-        "phone": "+49 1111 111 11 1",
-        "color": "bg-6",
-        "tasks": []
-    }
-    ,
-    {
-        "name": "Tatjana Wolf",
-        "email": "wolf@gmail.com",
-        "phone": "+49 1111 111 11 1",
-        "color": "bg-7",
-        "tasks": []
-    }
-];
-
-contacts = loggedInAsGuest() ? guestContacts : users[currentUser].contacts;
-
-const NUMBER_OF_BG_COLORS = 17; // see bgColors.css
+let activUserContacts;
 let contactInfoContainerIsActive = false;
 let activeContactIndex;
 
+async function initContacts() {
+    await loadUserData();
 
-function loggedInAsGuest() {
-    return currentUser.length === 0;
-}
-
-
-function initContacts() {
+    initHeaderNav();
     changeContentOnWindowSize();
-    renderContactList();
 
+    activUserContacts = loggedInAsGuest() ? guestUser.contacts : users[currentUser].contacts;
+    renderContactList();
 }
 
 
@@ -97,6 +24,15 @@ function renderContactList() {
 
 
 function renderLetterContacts(letter) {
+    renderLetterHeader(letter);
+    activUserContacts.forEach(contact => {
+        if (getInitialLetter(contact) === letter)
+            renderContact(contact);
+    });
+}
+
+
+function renderLetterHeader(letter) {
     const container = document.getElementById('contacts-list');
     container.innerHTML += /*html*/`
         <div class="letter-container" id="letter-container-${letter}">
@@ -104,16 +40,12 @@ function renderLetterContacts(letter) {
             <div class="letter-header-bottom-border"></div>
         </div>
     `;
-    contacts.forEach(contact => {
-        if (getInitialLetter(contact) === letter)
-            renderContact(contact);
-    });
 }
 
 
 function renderContact(contact) {
     const letter = getInitialLetter(contact);
-    const contactIndex = contacts.indexOf(contact);
+    const contactIndex = activUserContacts.indexOf(contact);
     const container = document.getElementById(`letter-container-${letter}`);
     container.innerHTML += /*html*/`
         <div id="contact-${contactIndex}" class="contact" onclick="showContactDetails(${contactIndex})">
@@ -135,10 +67,9 @@ function showContactDetails(contactIndex, justEdited = false) {
 
     activateContact(contactIndex);
     contactInfoContainerIsActive = true;
-    // hideOverlay('contact-details-overlay');
 
     setTimeout(() => {
-        const contact = contacts[contactIndex];
+        const contact = activUserContacts[contactIndex];
         if (screenWidthIsAtMost('1200px')) {
             showElement('contacts-info-container');
             removeElement('contacts-list-container');
@@ -152,8 +83,8 @@ function showContactDetails(contactIndex, justEdited = false) {
 
 function activateContact(contactIndex) {
     activeContactIndex = contactIndex;
-    contacts.forEach(c => {
-        document.getElementById(`contact-${contacts.indexOf(c)}`).classList.remove('contact-active');
+    activUserContacts.forEach(c => {
+        document.getElementById(`contact-${activUserContacts.indexOf(c)}`).classList.remove('contact-active');
     });
 
     if (!screenWidthIsAtMost('1200px')) {
@@ -164,14 +95,14 @@ function activateContact(contactIndex) {
 
 function deactivateContact() {
     activeContactIndex = undefined;
-    contacts.forEach(c => {
-        document.getElementById(`contact-${contacts.indexOf(c)}`).classList.remove('contact-active');
+    activUserContacts.forEach(c => {
+        document.getElementById(`contact-${activUserContacts.indexOf(c)}`).classList.remove('contact-active');
     });
 }
 
 
 function getActiveContact() {
-    return contacts[activeContactIndex];
+    return activUserContacts[activeContactIndex];
 }
 
 
@@ -231,7 +162,7 @@ function setOpenEditContact(contact) {
 
 function getInitialLetters() {
     const initialLetters = [];
-    contacts.forEach(contact => {
+    activUserContacts.forEach(contact => {
         const initialLetter = getInitialLetter(contact);
         if (!initialLetters.includes(initialLetter))
             initialLetters.push(initialLetter);
@@ -260,7 +191,7 @@ function getInitials(contact) {
 
 
 function sortContactsByName() {
-    return contacts.sort((a, b) => {
+    return activUserContacts.sort((a, b) => {
         if (a.name < b.name) {
             return -1;
         }
@@ -277,260 +208,8 @@ function closeContactInfo() {
 
 
 /*--------------------------------------------------
-Create Contact Overlay
+Responsiveness
 ---------------------------------------------------*/
-function openCreateContactOverlay() {
-    freezeBackground('create-or-edit-contact-screen');
-    renderCreateContactHeadline();
-    renderCreateContactIcon();
-    renderCreateContactButtons();
-    setCreateContactButtons();
-    slideInOverlay('create-or-edit-contact-overlay');
-}
-
-
-function renderCreateContactHeadline() {
-    document.getElementById('create-or-edit-contact-headline').classList = 'header-headline mt-12 mb-12';
-    document.getElementById('create-or-edit-contact-headline').innerHTML = 'Add contact';
-    showElement('create-or-edit-contact-subheadline');
-    document.getElementById('create-or-edit-contact-subheadline').innerHTML = 'Tasks are better with a team!';
-}
-
-
-function renderCreateContactIcon() {
-    document.getElementById('create-or-edit-contact-icon-container').innerHTML = '<img src="../img/emptyImg.png">';
-}
-
-
-function renderCreateContactButtons() {
-    document.getElementById('form-contact-light-btn').classList.add('desktop-only');
-    document.getElementById('form-contact-buttons').classList.remove('align-self-end');
-
-    document.getElementById('form-contact-light-btn-text').innerHTML = 'Cancel';
-    document.getElementById('form-contact-light-btn-symbol').style.display = 'flex';
-
-    document.getElementById('form-contact-dark-btn').style.padding = '15px 10px';
-    document.getElementById('form-contact-dark-btn-text').innerHTML = 'Create contact';
-    document.getElementById('form-contact-dark-btn-symbol').style.display = 'flex';
-}
-
-
-function setCreateContactButtons() {
-    document.getElementById('form-contact-light-btn').onclick = closeCreateOrEditContactOverlay;
-    document.getElementById('form-contact-info').onsubmit = () => {
-        addNewContact();
-        return false;
-    };
-}
-
-
-function slideInOverlay(id) {
-    setTimeout(() => {
-        showOverlay(id);
-    }, 100);
-}
-
-
-function openEditContactOverlay(contact) {
-    freezeBackground('create-or-edit-contact-screen');
-    renderEditContactHeadline();
-    renderEditContactIcon(contact);
-    setEditContactInputValues(contact);
-    renderEditContactButtons();
-    setEditContactButtons();
-    slideInOverlay('create-or-edit-contact-overlay');
-}
-
-
-function renderEditContactHeadline() {
-    document.getElementById('create-or-edit-contact-headline').classList = 'header-headline mt-34';
-    document.getElementById('create-or-edit-contact-headline').innerHTML = 'Edit contact';
-    removeElement('create-or-edit-contact-subheadline');
-}
-
-
-function renderEditContactIcon(contact) {
-    document.getElementById('create-or-edit-contact-icon-container').innerHTML = /*html*/`
-        <div id="create-or-edit-contact-icon" class="contact-icon contact-overlay-icon fs-47 fw-500 ${contact.color}">
-            ${getInitials(contact)}
-        </div>
-    `;
-}
-
-
-function setEditContactInputValues(contact) {
-    document.getElementById('new-contact-name').value = contact.name;
-    document.getElementById('new-contact-email').value = contact.email;
-    document.getElementById('new-contact-phone').value = contact.phone;
-}
-
-
-function renderEditContactButtons() {
-    if (screenWidthIsAtMost('1200px')) {
-        document.getElementById('form-contact-light-btn').classList.remove('desktop-only');
-    }
-    else {
-        document.getElementById('form-contact-buttons').classList.add('align-self-end');
-    }
-
-    document.getElementById('form-contact-light-btn-text').innerHTML = 'Delete';
-    document.getElementById('form-contact-light-btn-symbol').style.display = 'none';
-
-    document.getElementById('form-contact-dark-btn').style.padding = '15px 50px';
-    document.getElementById('form-contact-dark-btn-text').innerHTML = 'Save';
-    document.getElementById('form-contact-dark-btn-symbol').style.display = 'none';
-
-}
-
-
-function setEditContactButtons() {
-    document.getElementById('form-contact-light-btn').onclick = () => {
-        deleteContact(getActiveContact());
-    };
-    document.getElementById('form-contact-info').onsubmit = () => {
-        editContact(getActiveContact());
-        return false;
-    };
-}
-
-
-function deleteContact(contact) {
-    const contactIndex = contacts.indexOf(contact);
-    contacts.splice(contactIndex, 1);
-    closeCreateOrEditContactOverlay();
-    renderContactList();
-    hideOverlay('contact-details-overlay');
-
-    if (screenWidthIsAtMost('1200px')) {
-        setTimeout(() => {
-            showElement('contacts-list-container');
-            removeElement('contacts-info-container');
-        }, 220);
-    }
-}
-
-function editContact(contact) {
-    contact.name = document.getElementById('new-contact-name').value;
-    contact.email = document.getElementById('new-contact-email').value;
-    contact.phone = document.getElementById('new-contact-phone').value;
-    closeCreateOrEditContactOverlay();
-    renderContactList();
-
-    const contactIndex = contacts.indexOf(contact);
-    showContactDetails(contactIndex, true);
-    scrollToContact(contactIndex);
-}
-
-
-function closeCreateOrEditContactOverlay() {
-    hideOverlay('create-or-edit-contact-overlay');
-    setTimeout(() => {
-            unfreezeBackground('create-or-edit-contact-screen');
-        }, 220);
-    document.getElementById('form-contact-info').reset();
-}
-
-
-function freezeBackground(id) {
-    showElement(id);
-    document.getElementById('body').classList.add('no-scrolling');
-}
-
-
-function unfreezeBackground(id) {
-    removeElement(id);
-    document.getElementById('body').classList.remove('no-scrolling');
-}
-
-
-function addNewContact() {
-    const newContact = {
-        "name": document.getElementById('new-contact-name').value,
-        "email": document.getElementById('new-contact-email').value,
-        "phone": document.getElementById('new-contact-phone').value,
-        "color": getRandomColorClass(),
-        "tasks": []
-    };
-    contacts.push(newContact);
-    closeCreateOrEditContactOverlay();
-    renderContactList();
-
-    const contactIndex = contacts.indexOf(newContact);
-    showContactDetails(contactIndex);
-    scrollToContact(contactIndex);
-    showSuccessMessage('contact-successfully-created');
-}
-
-
-function scrollToContact(contactIndex) {
-    scrollToID(`contact-${contactIndex}`);
-}
-
-
-function scrollToID(id) {
-    location.hash = `#${id}`;
-}
-
-
-function showSuccessMessage(id) {
-    setTimeout(() => {
-        showOverlay(id);
-    }, 500);
-    setTimeout(() => {
-        hideOverlay(id);
-    }, 2500);
-}
-
-
-function getRandomColorClass() {
-    return `bg-${getRandomInt(NUMBER_OF_BG_COLORS)}`;
-}
-
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
-
-
-/*--------------------------------------------------
-Show / Hide
----------------------------------------------------*/
-function showElement(id) {
-    document.getElementById(id).classList.remove('d-none');
-    document.getElementById(id).classList.remove('hidden');
-}
-
-
-function hideElement(id) {
-    document.getElementById(id).classList.add('hidden');
-}
-
-
-function removeElement(id) {
-    document.getElementById(id).classList.add('d-none');
-}
-
-
-function showOverlay(id) {
-    document.getElementById(id).classList.add('show-overlay');
-}
-
-
-function hideOverlay(id) {
-    document.getElementById(id).classList.remove('show-overlay');
-}
-
-
-function doNotClose(event) {
-    event.stopPropagation();
-}
-
-
-function clearElement(id) {
-    document.getElementById(id).innerHTML = '';
-}
-
-
 function changeContentOnWindowSize() {
     if (screenWidthIsAtMost('1200px')) {
         if (contactInfoContainerIsActive) {

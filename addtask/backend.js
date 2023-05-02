@@ -15,3 +15,37 @@ function newCategory() {
 
 
 /* lul */
+
+//impro api
+
+let improapi = [
+    {
+        title: "",
+        description: "",
+        Categorys: [
+            {
+                category: "",
+                colorCategory: ""
+            }
+        ],
+        AssignTo: [
+            {
+                Contact: "",
+                contact: ""
+            }
+        ],
+        Prio: "",
+        DueDate: "",
+        Subtasks: [
+            {
+                subtask: "",
+                checkbox: false
+            }
+        ],
+        columnCategory: "default"
+    }
+];
+
+console.log(); // Outputs the array of objects
+
+

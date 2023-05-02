@@ -1,12 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="section">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="section collapsible collapsed">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="section">
+         <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+      
+      <div>
+        <h1>Button hover Test</h1>
+
+        <button id="btn-0" class="btn">urgent <img src="../img/prio-urgent.svg" alt=""></button>
+        <button id="btn-1" class="btn">mid <img src="../img/prio-medium.svg" alt=""></button>
+        <button id="btn-2" class="btn">low <img src="../img/prio-low.svg" alt=""></button>
+      </div>
+
+      
+      <script>
+
+      </script>
+
+    <style>
+        .section {
+            overflow: hidden;
+            transition: transform 0.3s ease-out;
+            height: auto;
+            transform: scaleY(1);
+            transform-origin: top;
+        }
+
+        .section.collapsed {
+            transform: scaleY(0);
+        }
+        .red{
+            background-color: #ff3d00;
+            color: white;
+        }
+        .yellow{
+            background-color: #ffac04;
+            color: white;
+        }
+        .green{
+            background-color: #80e42c;
+            color: white;
+        }
+        .btn:hover{
+            box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
+            border: 0px solid #D1D1D1;
+        }
+        .activ{
+            box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
+            border: 0px solid #D1D1D1;
+        }
+    </style>
 </body>
+
 </html>

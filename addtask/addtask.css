@@ -5,6 +5,12 @@ body {
     background: #F5F5F5;
     user-select: text;
 }
+/*--------------------------------------------------
+Global Elements
+---------------------------------------------------*/
+textarea:focus, input:focus{
+    outline: none;
+}
 
 .addtask-tasktitle {
     order: 1;
@@ -79,7 +85,6 @@ textarea {
     cursor: pointer !important;
     gap: 10px;
 }
-
 .addtask-prio-bnt:hover {
     box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
     border: 0px solid #D1D1D1;
@@ -173,30 +178,76 @@ textarea {
     cursor: text;
 }
 
-.addtask-gendrop {
+
+.addtask-gendrop-coll {
+    overflow: hidden;
+    transition: all 100ms ease-in;
+    max-height: 46px;
+    transform-origin: top;
     background: #FFFFFF;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
     box-sizing: border-box;
 }
 
-.addtask-gendrop-collapsible {
-    cursor: pointer;
+.addtask-gendrop-coll.collapsed {
+    max-height: 200px !important;
 }
 
-
-.addtask-gendrop-collapsible.active .addtask-item {
-    display: block;
-}
-
-.addtask-item {
-    display: none;
-    padding: 0 18px;
-    overflow: hidden;
+.addtask-gendrop-scroll {
+    max-height: 145px;
+    overflow: scroll;
 }
 
 .addtask-item:hover {
     background-color: #d8d4d4;
+}
+
+.inline-img{
+    position: relative;
+}
+.select-task-category {
+    cursor: pointer;
+    position: relative;
+}
+.select-task-category-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* transform: translate(-50%, 50%); */
+}
+.new-category{
+    border: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+    
+
+
+.addTask-selection{
+    position: relative;
+}
+.selection-img{
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* translate: -100% -50%; */
+}
+.border{
+    border-left: 1px solid #D1D1D1;
+}
+.px-5{
+    padding: 0 5px;
+}
+.selection-img-activ{
+    display: flex;
 }
 
 .addtask-description-input {

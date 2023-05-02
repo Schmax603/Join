@@ -27,6 +27,7 @@ function moveContent(destination) {
 
 
 let lastClickedImage = null;
+let priority;
 
 function setActiveButton(buttonId) {
     const buttons = [
@@ -34,8 +35,8 @@ function setActiveButton(buttonId) {
         { id: "addtask-prio-bnt-medium", img: "/img/prio-medium.svg", activeImg: "/img/medium-white.svg" },
         { id: "addtask-prio-bnt-low", img: "/img/prio-low.svg", activeImg: "/img/low-white.svg" },
     ];
-
     const selectedButton = buttons.find((button) => button.id === buttons[buttonId].id);
+    priority = buttonId;
 
     buttons.forEach((button) => {
         const element = document.getElementById(button.id);
@@ -56,32 +57,95 @@ function setActiveButton(buttonId) {
     });
 }
 
-function toggleActive(condition) {
-    if (condition === 0) {
-        document.getElementById("collapsible0").classList.toggle("active")
+function toggleActive(dropMaster) {
+    if (dropMaster === 0) {
+        document.querySelector(".addtask-gendrop-coll.collapsible").classList.toggle("collapsed");
+    } else {
+        document.getElementById("addtask-gendrop-coll").classList.toggle("collapsed");
     }
-    if (condition === 1) {
-        document.getElementById("collapsible1").classList.toggle("active")
-    }
+}
+
+async function addTask() {
+    const newTask = {
+        "title": document.getElementById('task-title').value,
+        "discription": document.getElementById('task-discription').value,
+        "dueDate": document.getElementById('date').value,
+        "prio": priority,
+        // "category": .value, (Zuordnung einer Kategorie)
+        // "assignTo": [],
+        // "subtask": []
+    };
+    // Abfragen einfügen ?
+    users[currentUser].tasks.push(newTask);
+    await setItem('users', JSON.stringify(users));
+    // Zurücksetzen der Eingabefelder
+}
+
+function newCategory() {
+    // let imgfield = document.getElementById('category-img');
+    let selectField = document.getElementById('category-selection');
+    let imgDropdown = document.getElementById('category-img-dropdown');
+
+    imgDropdown.classList.add('d-none');
+
+    selectField.innerHTML = /*html*/`
+    <input class="new-category select-task-category paddings" type="name" placeholder="New category name">
+    <div class="selection-img selection-img-activ">
+	    <img onclick="cancelNewCategory()" class="img-24 px-5" src="../img/clear.svg" alt="cancel">
+	    <img class="border img-24 px-5" src="../img/check-black.svg" alt="check">
+    </div>
+    `;
+}
+
+function cancelNewCategory(){
+    let selectField = document.getElementById('category-selection');
+    selectField.innerHTML = /*html*/`
+    <div class="select-task-category-img img-44">
+		<img id="category-img-dropdown" src="../img/dropdown.svg" alt="drop down">
+	</div>
+
+	<div class="select-task-category" id="currentItem">
+		<div class="paddings">
+			Select task category
+		</div>
+	</div>
+	<div class="addtask-gendrop-scroll">
+		<div class="addtask-item paddings" onclick="newCategory();">
+			New category
+		</div>
+
+		<div id="dropNum(category)">
+			<div class="addtask-item paddings">Content for section 2 goes here.</div>
+			<div class="addtask-item paddings">Content for section 3 goes here.</div>
+			<div class="addtask-item paddings">Content for section 4 goes here.</div>
+			<div class="addtask-item paddings">Content for section 5 goes here.</div>
+			<div class="addtask-item paddings">Content for section 6 goes here.</div>
+			<div class="addtask-item paddings">Content for section 7 goes here.</div>
+			<div class="addtask-item paddings">Content for section 8 goes here.</div>
+			<div class="addtask-item paddings">Content for section 9 goes here.</div>
+		</div>
+
+	</div>
+    `;
+}
+
+function newContact() {
+
 }
 
 function dropdownValueCheck() {
-    var coll = document.getElementById("apicategory");
-    const divs = coll.getElementsByTagName("div");
+    let dropNameQuery = document.querySelectorAll("[id*=dropNum]")
+    const dropNameArray = [];
 
-    for (let dropid = 0; dropid < divs.length; dropid++) {
-        divs[dropid].setAttribute("id", "apicategory-" + dropid);
-        return dropid.length
-    }
-
-}
-
-
-
-function bntHover(params) {
-    const myElement = document.getElementById("addtask-prio-bnt-urgent");
-
-    myElement.addEventListener("mouseover", () => {
-        console.log("The element is being hovered over.");
+    dropNameQuery.forEach((element) => {
+        const dropNameMatch = element.id.match(/\((.*)\)/);
+        const dropName = dropNameMatch[1];
+        dropNameArray.push(dropName);
     });
+
+    for (let inum = 0; inum < 3; inum++) {
+        let apiOutPutElements = document.getElementById("dropNum(" + dropNameArray[inum] + ")")
+        let childElements = apiOutPutElements.querySelectorAll("*")
+        childElements.forEach((element, index) => {element.setAttribute("id", dropNameArray[inum] + "-" + index);})
+    }
 }
