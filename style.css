@@ -36,6 +36,10 @@ Global Variable
 }
 
 /* ===font-size=== */
+.fs-12 {
+	font-size: 12px;
+}
+
 .fs-16 {
 	font-size: 16px;
 }
@@ -291,4 +295,13 @@ button {
 
 .light-btn:active .cancel-icon {
 	background-image: url(../img/cancelActive.png);
+}
+
+/* ===icons=== */
+.contact-icon {
+	color: white;
+	border-radius: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

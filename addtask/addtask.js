@@ -88,7 +88,7 @@ async function addTask() {
         "dueDate": document.getElementById('date').value,
         "prio": priority,
         "category": category[selectCategory],
-        "assignTo": contacts,
+        "assignedTo": contacts,
         "subtasks": subtasksChecked,
         "boardColumn": 'board-column-todo'
     };
@@ -169,9 +169,9 @@ async function saveNewCategory(section) {
     // else if (section === 'new-mail' ) {
     //     let inputValue = document.getElementById('new-mail').value; 
 
-    //     assignTo.push(inputValue);
+    //     assignedTo.push(inputValue);
     // Save backend
-    // await setItem('assignTo', JSON.stringify(assignTo));
+    // await setItem('assignedTo', JSON.stringify(assignedTo));
     // }
     else if (section === 'subtask') {
         initSubtask();
@@ -309,7 +309,7 @@ async function trueFalesTranslater(params) {
 }
 
 /*
-function assignToCheckbox(id) {
+function assignedToCheckbox(id) {
 
             document.getElementById(id).classList.toggle("collapsed");
     

@@ -5,7 +5,7 @@ let guestUser = {
 
 guestUser.contacts = [
     {
-        "name": "AntonMayer",
+        "name": "Anton Mayer",
         "email": "antom@gmail.com",
         "phone": "+49 1111 111 11 1",
         "color": "bg-0",
@@ -66,5 +66,62 @@ guestUser.contacts = [
         "phone": "+49 1111 111 11 1",
         "color": "bg-7",
         "tasks": []
+    }
+];
+
+guestUser.tasks = [
+    {
+        "title": "Website redesign",
+        "description": "Modify the contents of the main website...",
+        "dueDate": "2023-05-16",
+        "prio": 0,
+        "category": { name: "Design", color: 0 },
+        "assignedTo": guestUser.contacts.slice(0, 3),
+        "subtasks": ["sub 1", "sub 2"],
+        "boardColumn": "board-column-todo"
+    }
+    ,
+    {
+        "title": "Call potential clients",
+        "description": "Make the product presentation to prospective buyers",
+        "dueDate": "2023-05-06",
+        "prio": 2,
+        "category": { name: "Sales", color: 3 },
+        "assignedTo": guestUser.contacts.slice(-4),
+        "subtasks": [],
+        "boardColumn": "board-column-progress"
+    }
+    ,
+    {
+        "title": "Accounting invoices",
+        "description": "Write open invoices for customer",
+        "dueDate": "2023-05-10",
+        "prio": 1,
+        "category": { name: "Backoffice", color: 15 },
+        "assignedTo": guestUser.contacts.slice(2),
+        "subtasks": [],
+        "boardColumn": "board-column-feedback"
+    }
+    ,
+    {
+        "title": "Video cut",
+        "description": "Edit the new company video",
+        "dueDate": "2023-05-11",
+        "prio": 1,
+        "category": { name: "Media", color: 7 },
+        "assignedTo": guestUser.contacts.slice(-1),
+        "subtasks": [],
+        "boardColumn": "board-column-feedback"
+    }
+    ,
+    {
+        "title": "Social media strategy",
+        "description": "Develop an ad campaign for brand positioning",
+        "dueDate": "2023-05-05",
+        "prio": 0,
+        "category": { name: "Marketing", color: 12 },
+        "assignedTo": guestUser.contacts.slice(3, 5),
+        "subtasks": ["sub 1", "sub 2", "sub 3"],
+        "boardColumn": "board-column-done"
     }
 ];

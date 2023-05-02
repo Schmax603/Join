@@ -26,7 +26,7 @@ function allowDrop(event) {
  * @param {string} boardColumn - The target column.
  */
 function moveTo(boardColumn) {
-    tasks[currentDraggedElement].boardColumn = boardColumn;
+    activeUser.tasks[currentDraggedElement].boardColumn = boardColumn;
     renderBoardColumns();
     removeHighlight(boardColumn);
 }
@@ -37,7 +37,7 @@ function moveTo(boardColumn) {
  * @param {string} boardColumn - The column to be highlighted.
  */
 function highlight(boardColumn) {
-    if (tasks[currentDraggedElement].boardColumn !== boardColumn)
+    if (activeUser.tasks[currentDraggedElement].boardColumn !== boardColumn)
         document.getElementById(boardColumn).classList.add('drag-area-highlight');
 }
 

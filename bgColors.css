@@ -1,3 +1,7 @@
+.bg-theme {
+    background-color: #2A3647;
+}
+
 .bg-0 {
     background-color: #FF7A00;
 }
@@ -59,7 +63,7 @@
 }
 
 .bg-15 {
-    background-color: #27ffdf;
+    background-color: #1FD7C1;
 }
 
 .bg-16 {

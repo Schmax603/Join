@@ -165,13 +165,13 @@ Contact List
     border: 1px solid white;
 }
 
-.contact-icon {
+/* .contact-icon {
     color: white;
     border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
 .contact-list-icon {
     min-width: 42px;

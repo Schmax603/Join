@@ -244,10 +244,9 @@ Board
 }
 
 .task {
-	height: 150px;
 	display: flex;
 	flex-direction: column;
-	/* align-items: center; */
+	align-items: flex-start;
 	border: none;
 	background-color: white;
 	border-radius: 30px;
@@ -260,6 +259,56 @@ Board
 	color: white;
 	border-radius: 8px;
 	padding: 4px 25px 4px 25px;
+}
+
+.progressbar-container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+
+.progressbar {
+	flex-grow: 1;
+	height: 8px;
+	background-color: #f4f4f4;
+	border-radius: 2px;
+}
+
+.progress {
+	height: 100%;
+	background-color: #29ABE2;
+	border-radius: 2px;
+}
+
+.assignedTo-and-prio {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.assigned-contacts {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.contact-icon-board {
+	min-width: 35px;
+	height: 35px;
+	border: 1px solid white;
+}
+
+.contact-icon-board:not(:first-child) {
+	margin-left: -6px;
+}
+
+.contact-overlay-icon-board {
+	min-width: 45px;
+	height: 45px;
+	border: 2px solid white;
 }
 
 .drag-area-highlight {

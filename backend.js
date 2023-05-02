@@ -13,28 +13,28 @@ let subtasks = [];
 let subtasksChecked = [];   //Save temporary
 
 /**Onload Array */
-async function loadUsers(){
+async function loadUsers() {
     try {
         users = JSON.parse(await getItem('users'));
         currentUser = JSON.parse(await getItem('currentUser'));
         category = JSON.parse(await getItem('category'));
-    } catch(e){
+    } catch (e) {
         console.error('Loading error:', e);
     }
 }
 
 async function pushEmptyArray() {
-	users=[];
+    users = [];
     await setItem('users', JSON.stringify(users));
 }
 
 /**Onload Array addTask */
-async function loadSupportArraysAddTask(){
+async function loadSupportArraysAddTask() {
     try {
         category = JSON.parse(await getItem('category'));
-        assignTo = JSON.parse(await getItem('assignTo'));
+        assignedTo = JSON.parse(await getItem('assignedTo'));
         subtasks = JSON.parse(await getItem('subtasks'));
-    } catch(e){
+    } catch (e) {
         console.error('Loading error:', e);
     }
 }
@@ -60,7 +60,7 @@ async function getItem(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
     return fetch(url).then(res => res.json()).then(res => {
         // Verbesserter code
-        if (res.data) { 
+        if (res.data) {
             return res.data.value;
         } throw `Could not find data with key "${key}".`;
     });
