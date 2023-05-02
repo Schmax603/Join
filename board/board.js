@@ -26,22 +26,3 @@ function closeBoardCardOverlay() {
     removeElement('board-card');
     unfreezeBackground('overlay-fullscreen');
 }
-
-
-function freezeBackground(id) {
-    showElement(id);
-    document.getElementById('body').classList.add('no-scrolling');
-}
-
-
-function unfreezeBackground(id) {
-    removeElement(id);
-    document.getElementById('body').classList.remove('no-scrolling');
-}
-
-
-function slideInOverlay(id) {
-    setTimeout(() => {
-        showOverlay(id);
-    }, 100);
-}
