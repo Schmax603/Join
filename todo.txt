@@ -20,8 +20,15 @@ ToDo:
 -subtasks: Status speichern (done)
 
 
+-Board: 
+  -dark-btn
+  -card: assigned to, subtasks
+  -edit onsubmit: zurück zu overlay card
+
+
   FeedBack:
 
+-Gast: Beispielkontakte/-tasks
   -Summary Zählung
   -Add Task
     -Prüfung Eingabefelder (Title, discr., category, due Date, prio)
