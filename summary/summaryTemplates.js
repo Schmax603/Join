@@ -7,13 +7,13 @@ function generateHTMLGreetingGuest(greetings, mobileGreeting, timeOfDay) {
 `;
 }
 
-function generateHTMLGreetingUser(greetings, mobileGreeting, activeUser, timeOfDay) {
+function generateHTMLGreetingUser(greetings, mobileGreeting, userIndex, timeOfDay) {
   greetings.innerHTML = /*html*/`
       <p class="fs-47 fw-500 m-0">${timeOfDay},</p>
-      <p class="fs-64 fw-700 c-lb m-0">${users[activeUser].name}</p>
+      <p class="fs-64 fw-700 c-lb m-0">${users[userIndex].name}</p>
     `;
   return mobileGreeting.innerHTML = /*html*/`
     <p class="fs-36 fw-400 m-0">${timeOfDay},</p>
-    <p class="fs-47 fw-700 c-lb m-0">${users[activeUser].name}</p>
+    <p class="fs-47 fw-700 c-lb m-0">${users[userIndex].name}</p>
   `;
 }
