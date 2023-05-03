@@ -56,7 +56,9 @@ async function checkUserInput(user, userEmail, userPassword, i) {
     await setItem('currentUser', JSON.stringify(i));
     window.location.href = '../summary/summary.html';
   } else {
-    window.location.href = 'index.html?msg=Incorrect email or password.';
+    await errorBox('loginEmail', 'loginEmail-label')
+    await errorBox('loginPassword', 'loginPassword-label')
+    // window.location.href = 'index.html?msg=Incorrect email or password.';
   }
 }
 
@@ -119,15 +121,16 @@ function displayMessage() {
 }
 
 /**Set error box */
-function errorBox(inputID, labelID){
+async function errorBox(inputID, labelID){
   let errorBoxInput = document.getElementById(inputID);
   let errorBoxLabel = document.getElementById(labelID);
   errorBoxInput.classList.add('error-box');
+  errorBoxInput.value = '';
   errorBoxLabel.classList.remove('d-none');
 }
 
 /**Reset error box */
-function resetErrorBox(inputID, labelID){
+async function resetErrorBox(inputID, labelID){
   let resetErrorBoxInput = document.getElementById(inputID);
   let resetErrorBoxLabel = document.getElementById(labelID);
   resetErrorBoxInput.classList.remove('error-box');

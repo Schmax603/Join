@@ -46,8 +46,11 @@
       <div class="border"></div>
       
       <section class="form-verification">
-        <input id="loginEmail" type="email" placeholder="Email" autocomplete="current-password" required>
-        <input id="loginPassword" class="img-password" type="password" placeholder="Password" autocomplete="current-password" required>
+        <label for="loginEmail" id="loginEmail-label" class="d-none c-red fs-12">Incorrect email or password.</label>
+        <input id="loginEmail" onclick="resetErrorBox('loginEmail', 'loginEmail-label')" type="email" placeholder="Email" autocomplete="current-password" required>
+
+        <label for="loginPassword" id="loginPassword-label" class="d-none c-red fs-12">Incorrect email or password.</label>
+        <input id="loginPassword" onclick="resetErrorBox('loginPassword', 'loginPassword-label')" class="img-password" type="password" placeholder="Password" autocomplete="current-password" required>
       </section>
       
       <section class="form-valuable">
