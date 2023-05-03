@@ -69,8 +69,9 @@ function EmailCheckAvailable(userEmailSignedUp, email) {
  */
 async function checkEmailAvailable(name, email, password) {
 	if (EmailIsAvailable === true) {
+		errorBox('signUpEmail', 'signUpEmail-label')
 		EmailIsAvailable = false;
-		window.location.href = 'signUp.html?msg=Email already exists.';
+		// window.location.href = 'signUp.html?msg=Email already exists.';
 	} else {
 		EmailIsAvailable = false;
 		await pushUserArray(name, email, password);

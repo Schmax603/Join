@@ -117,3 +117,19 @@ function displayMessage() {
     msgBox.classList.remove('show-overlay');
   }, 2000);
 }
+
+/**Set error box */
+function errorBox(inputID, labelID){
+  let errorBoxInput = document.getElementById(inputID);
+  let errorBoxLabel = document.getElementById(labelID);
+  errorBoxInput.classList.add('error-box');
+  errorBoxLabel.classList.remove('d-none');
+}
+
+/**Reset error box */
+function resetErrorBox(inputID, labelID){
+  let resetErrorBoxInput = document.getElementById(inputID);
+  let resetErrorBoxLabel = document.getElementById(labelID);
+  resetErrorBoxInput.classList.remove('error-box');
+  resetErrorBoxLabel.classList.add('d-none');
+}

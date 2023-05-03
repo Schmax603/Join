@@ -39,7 +39,10 @@
       
       <section class="form-verification">
         <input id="signUpName" type="name" placeholder="Name" autocomplete="current-password" required>
-        <input id="signUpEmail" type="email" placeholder="Email" autocomplete="current-password" required>
+
+        <label for="signUpEmail" id="signUpEmail-label" class="d-none c-red fs-12">Email already exists.</label>
+        <input id="signUpEmail" onclick="resetErrorBox('signUpEmail', 'signUpEmail-label')" type="email" placeholder="Email" autocomplete="current-password" required>
+
         <input id="signUpPassword" class="img-password" type="password" placeholder="Password" autocomplete="current-password" required>
       </section>
 
