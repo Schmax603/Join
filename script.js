@@ -136,6 +136,15 @@ function hideElement(id) {
 }
 
 /**
+ * Function to hide an element with a given ID by adding the 'd-none' class.
+ * @param {string} id - The ID of the element to hide.
+ */
+
+function hideElementDisplay(id) {
+    document.getElementById(id).classList.add('d-none');
+}
+
+/**
  * Function to remove an element with a given ID by adding the 'd-none' class.
  * @param {string} id - The ID of the element to remove.
  */

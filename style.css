@@ -219,6 +219,14 @@ Global Variable
 	max-width: 826px;
 }
 
+.pos-r {
+	position: relative;
+}
+.pos-a {
+	position: absolute;
+}
+
+
 /*--------------------------------------------------
 Global Elements
 ---------------------------------------------------*/

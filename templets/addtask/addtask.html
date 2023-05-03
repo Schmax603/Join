@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Add Task</title>
+
+
+
+
+
+	<link rel="stylesheet" href="../fonts/fonts.css">
+
+
+	<link rel="stylesheet" href="/templets/addtask/addtask.css">
+	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../showAndHide.css">
+	<link rel="stylesheet" href="../bgColors.css">
+
+
+	<!-- https://i.imgflip.com/52lvif.jpg -->
+	<script src="/templets/addtask/addtask.js"></script>
+
+
+	<script src="/templets/addtask/templates.js"></script>
+
+	<script src="test.js"></script>
+
+</head>
+
+<body id="body" onload="initAddTask();" onclick="closeMenu()">
+
+
+			<div class="addtask-tasktitle addtask-gencon">
+				<div class="addtask-gentext cursor-d" style="padding-top: 0px;">Title</div>
+				<input id="task-title" class="addtask-genimput" placeholder="Enter a title"></input>
+			</div>
+
+			<div class="addtask-description addtask-gencon">
+				<div class="addtask-gentext cursor-d">Description</div>
+				<textarea id="task-description" class="addtask-description-input addtask-genimput"
+					placeholder="Enter a Description" type="text"></textarea>
+			</div>
+
+			<div class="addtask-gencon addtask-duedate" id="addtask-duedate">
+				<div class="addtask-gentext cursor-d">Due date</div>
+				<input style="display: block; font-family: 'Inter';" class="addtask-genimput" id="date"
+					placeholder="dd/mm/yyyy" type="date" min=""></input>
+			</div>
+
+			<div class="addtask-prio" id="addtask-prio">
+				<div class="addtask-gentext cursor-d" id="addtask-prio-text">Prio</div>
+
+				<div class="addtask-prio-whichBnt addtask-flex-moba center-stuff">
+					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff fs-16 fw-400"
+						id="addtask-prio-bnt-urgent" onclick="setActiveButton(0)">Urgent <img class="addtask-prio-img"
+							id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
+
+					<button class="addtask-prio-bnt addtask-prio-bnt-medium addtask-genimput center-stuff fs-16 fw-400"
+						id="addtask-prio-bnt-medium" onclick="setActiveButton(1);">Medium <img class="addtask-prio-img"
+							id="addtask-prio-bnt-medium-img" src="../img/prio-medium.svg"></button>
+
+					<button class="addtask-prio-bnt addtask-prio-bnt-low addtask-genimput center-stuff fs-16 fw-400"
+						id="addtask-prio-bnt-low" onclick="setActiveButton(2);">Low <img class="addtask-prio-img"
+							id="addtask-prio-bnt-low-img" src="../img/prio-low.svg"></button>
+				</div>
+
+			</div>
+
+			<div class="addtask-gencon addtask-assigned-to">
+				<div class="addtask-gentext cursor-d"><span>Assigned to</span></div>
+
+				<div id="mail-selection" class="addtask-gendrop-coll collapsible inline-img">
+
+					<div class="select-task-category-img img-44">
+						<img id="mail-img-dropdown" src="../img/dropdown.svg" alt="drop down">
+					</div>
+
+					<div class="select-task-category paddings" id="currentItem"
+						onclick="toggleActive('mail-selection');">
+						Select task contacts to assign
+					</div>
+					<div id="contact-list" class="addtask-gendrop-scroll">
+
+						<div class="addtask-item paddings pos-re" id="contact-0" onclick="checkboxSwitch(id)">You
+							<div id="checkbox-0" class="addtask-checkbox">
+								<div id="checkbox-active-0" class="addtask-checkbox-active"></div>
+							</div>
+						</div>
+
+						<div id="apicontact-list">
+
+						</div>
+
+						<div class="addtask-item paddings" id="contact-1" style="position: relative;"
+							onclick="newInput('new-mail');">
+							Invite new contact <div class="select-task-category-img-2"> <img
+									src="/img/contactsaddtask.svg" alt=""></div>
+						</div>
+
+
+
+						<!-- <div id="dropNum(assigned)">
+							
+							<div class="addtask-item paddings addtask-id" onclick="assignedToCheckbox(id)">Someone
+								<div class="addtask-checkbox "> <div class="addtask-checkbox-active"></div></div>
+							</div>
+							
+						</div> -->
+					</div>
+				</div>
+			</div>
+
+</body>
+
+</html>
