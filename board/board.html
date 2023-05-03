@@ -55,13 +55,14 @@
             </div>
 
             <div id="edit-card" class="edit-card">
-                <button class="btn-delete btn-animation-invert"></button>
-                <button class="btn-edit btn-animation"><img src="../img/pencilBoard.svg" class="img-30"
-                        alt="edit"></button>
+                <button id="board-card-btn-delete" class="btn-delete btn-animation-invert"></button>
+                <button id="board-card-btn-edit" class="btn-edit btn-animation"><img src="../img/pencilBoard.svg"
+                        class="img-30" alt="edit"></button>
             </div>
 
             <!-- Render Elements from Array -->
-            <span id="category" class="mobile-category fs-27 fw-400 mb-25 mobile-mb-32">Category</span>
+            <span id="category"
+                class="board-card-category mobile-category fs-27 fw-400 mb-25 mobile-mb-32">Category</span>
 
             <h2 id="title" class="mobile-title fs-61 fw-700 m-0 mb-25">Title</h2>
 
@@ -69,18 +70,64 @@
                 amet consectetur adipisicing elit. Nostrum, vel!</p>
 
             <div class="mobile-fs-16 fs-21 fw-700 mb-25 mobile-mb-35">Due Date:
-                <span id="dueDate" class="fw-400">Due Date</span>
+                <span id="dueDate" class="fw-400 ml-25">Due Date</span>
             </div>
 
-            <div class="mobile-fs-16 fs-21 fw-700 mb-25 mobile-mb-29">Priority:
-                <span id="priority" class="fw-400">Priority</span>
+            <div class="board-card-prio mobile-fs-16 fs-21 fw-700 mb-25 mobile-mb-29">Priority:
+                <div id="prio-container-board" class="prio-container-board bg-urgent ml-25">
+                    <span id="priority" class="fw-400">Priority</span>
+                    <img id="priority-icon" src="../img/prio-2_white.svg">
+                </div>
             </div>
 
-            <div class="mobile-fs-16 fs-21 fw-700">Assign to:
-                <div id="assignedTo" class="fw-400">Assign to</div>
+            <div class="board-card-assigned mobile-fs-16 fs-21 fw-700">Assigned To:
+                <div id="assignedTo">Assigned to</div>
             </div>
             <!-- Render Elements from Array -->
         </article>
+
+        <form id="board-card-edit" class="board-card d-none" onclick="doNotClose(event)">
+
+            <div class="card-close" onclick="closeBoardCardOverlay()">
+                <img class="desktop-only" src="../img/close.png" alt="close">
+                <img class="mobile-only" src="../img/arrow_left.png" alt="back">
+            </div>
+
+            <div class="edit-card">
+                <button type="submit" id="board-card-btn-save" class="dark-btn">
+                    <span class="fs-21 fw-700">Ok</span>
+                    <img src="../img/check.svg">
+                </button>
+            </div>
+
+            <!-- Render Elements from Array -->
+            <div id="title-edit" class="edit-input fs-21 fw-400 m-0 mb-20">
+                <span>Title</span>
+                <input id="title-edit-input" class="fs-21 fw-400" type="text" title="" required>
+            </div>
+
+            <div id="description-edit" class="edit-input fs-21 fw-400 m-0 mb-30">
+                <span>Description</span>
+                <textarea id="description-edit-input" class="fs-21 fw-400" title="" required></textarea>
+            </div>
+
+            <div id="dueDate-edit" class="edit-input fs-21 fw-400 m-0 mb-30">
+                <span>Due Date</span>
+                <input id="dueDate-edit-input" class="fs-21 fw-400" type="date" title="" required>
+            </div>
+
+            <!-- <div class="board-card-prio mobile-fs-16 fs-21 fw-700 mb-25 mobile-mb-29">Priority:
+                <div id="prio-container-board-edit" class="prio-container-board bg-urgent ml-25">
+                    <span id="priority-edit" class="fw-400">Priority</span>
+                    <img id="priority-icon-edit" src="../img/prio-2_white.svg">
+                </div>
+            </div>
+
+            <div class="board-card-assigned mobile-fs-16 fs-21 fw-700">Assigned To:
+                <div id="assignedTo-edit">Assigned to</div>
+            </div>
+            Render Elements from Array -->
+        </form>
 
     </section>
 
@@ -91,7 +138,7 @@
             <div class="headline-mobile">
                 <h2 class="headline cursor-d fs-61 fw-700 m-0">Board</h2>
 
-                <button class="dark-btn dark-btn-mobile mobile-only">
+                <button class="dark-btn dark-btn-mobile mobile-only" onclick="openAddTaskOverlay()">
                     <img class="img-15" src="../img/add.png" alt="add">
                 </button>
             </div>

@@ -1,42 +1,3 @@
-// tasks = [{
-//     "title": 'Putzen',
-//     "description": 'Alles muss sauber sein',
-//     "dueDate": "2023-05-06",
-//     "prio": 2,
-//     "category": { name: 'Category 1', color: 0 },
-//     "assignedTo": guestUser.contacts,
-//     "subtasks": ['sub 1', 'sub 2', 'sub 3'],
-//     "boardColumn": 'board-column-todo'
-// }, {
-//     "title": 'Kochen',
-//     "description": 'Alles muss lecker sein',
-//     "dueDate": "2023-05-06",
-//     "prio": 1,
-//     "category": { name: 'Category 2', color: 1 },
-//     "assignedTo": guestUser.contacts,
-//     "subtasks": ['sub 1', 'sub 2', 'sub 3'],
-//     "boardColumn": 'board-column-todo'
-// }, {
-//     "title": 'Einkaufen',
-//     "description": 'Alles muss da sein',
-//     "dueDate": "2023-05-06",
-//     "prio": 0,
-//     "category": { name: 'Category 3', color: 2 },
-//     "assignedTo": guestUser.contacts,
-//     "subtasks": ['sub 1', 'sub 2', 'sub 3'],
-//     "boardColumn": 'board-column-progress'
-// }, {
-//     "title": 'Ausruhen',
-//     "description": 'Alles muss entspannt sein',
-//     "dueDate": "2023-05-06",
-//     "prio": 2,
-//     "category": { name: 'Category 1', color: 0 },
-//     "assignedTo": guestUser.contacts,
-//     "subtasks": ['sub 1', 'sub 2', 'sub 3'],
-//     "boardColumn": 'board-column-done'
-// }];
-
-
 /**
  * Initializes the board by loading user data, initializing header navigation and rendering the board columns.
  */
@@ -107,8 +68,8 @@ function renderEmptyColumn() {
 function renderCard(task) {
     let index = activeUser.tasks.indexOf(task);
     return /*html*/`
-        <div id="task-${index}" class="task" draggable="true" ondragstart="startDragging(${index})" onclick="openBoardCardOverlay()">
-            <div class="board-card-category fs-16 fw-400 bg-${task.category.color} mb-20">${task.category.name}</div>
+        <div id="task-${index}" class="task" draggable="true" ondragstart="startDragging(${index})" onclick="openBoardCardOverlay(${index})">
+            <div class="task-card-category fs-16 fw-400 bg-${task.category.color} mb-20">${task.category.name}</div>
             <h3 class="fs-16 fw-700 m-0 mb-10">${task.title}</h3>
             <span class="fs-16 fw-400 mb-20">${task.description}</span>
             ${renderProgressBar(task)}
@@ -184,26 +145,10 @@ function renderAssignedContacts(task) {
 /*--------------------------------------------------
 Overlays
 ---------------------------------------------------*/
-function openAddTaskOverlay() {
+function openBoardCardOverlay(taskIndex) {
+    let task = activeUser.tasks[taskIndex];
     freezeBackground('overlay-fullscreen');
-    // renderAddTaskCard();
-    showElement('add-task-card');
-    slideInOverlay('add-task-card');
-}
-
-
-function closeAddTaskOverlay() {
-    hideOverlay('add-task-card');
-    setTimeout(() => {
-        removeElement('add-task-card');
-        unfreezeBackground('overlay-fullscreen');
-    }, 220);
-}
-
-
-function openBoardCardOverlay() {
-    freezeBackground('overlay-fullscreen');
-    // renderBoardCardOverlay();
+    renderBoardCardOverlay(task);
     showElement('board-card');
 }
 
@@ -211,4 +156,88 @@ function openBoardCardOverlay() {
 function closeBoardCardOverlay() {
     removeElement('board-card');
     unfreezeBackground('overlay-fullscreen');
+}
+
+
+function renderBoardCardOverlay(task) {
+    document.getElementById('category').innerHTML = task.category.name;
+    document.getElementById('category').classList.add(`bg-${task.category.color}`);
+    document.getElementById('title').innerHTML = task.title;
+    document.getElementById('description').innerHTML = task.description;
+    document.getElementById('dueDate').innerHTML = task.dueDate;
+    document.getElementById('prio-container-board').classList = `prio-container-board bg-${getPriorityAsString(task.prio).toLowerCase()} ml-25`;
+    document.getElementById('priority').innerHTML = getPriorityAsString(task.prio);
+    document.getElementById('priority-icon').src = `../img/prio-${task.prio}_white.svg`;
+    document.getElementById('assignedTo').innerHTML = renderAssignedContactsForOverlay(task);
+    setBoardCardButtons(task);
+}
+
+
+function getPriorityAsString(prioAsNumber) {
+    switch (prioAsNumber) {
+        case 0:
+            return 'Low';
+        case 1:
+            return 'Medium';
+        case 2:
+            return 'Urgent';
+        default:
+            return 'No priority defined';
+    }
+}
+
+
+function renderAssignedContactsForOverlay(task) {
+    let html = '';
+    for (let i = 0; i < task.assignedTo.length; i++) {
+        const contact = task.assignedTo[i];
+        html += `
+            <div class="assigned-contact">
+                <div class="contact-icon contact-overlay-icon-board fs-16 fw-400 ${contact.color}">
+                    ${getInitials(contact)}
+                </div>
+                <span class="fs-21 fw-400">${contact.name}</span>
+            </div>
+        `;
+    }
+    return html;
+}
+
+
+function setBoardCardButtons(task) {
+    let index = activeUser.tasks.indexOf(task);
+    document.getElementById('board-card-btn-edit').onclick = () => {
+        openBoardCardEditing(index);
+    };
+    document.getElementById('board-card-btn-delete').onclick = () => {
+        deleteTask(index);
+        closeBoardCardOverlay();
+        renderBoardColumns();
+        // update storage
+    };
+}
+
+
+function openBoardCardEditing(taskIndex) {
+    removeElement('board-card');
+    showElement('board-card-edit');
+    renderBoardCardEditing(taskIndex);
+}
+
+
+function renderBoardCardEditing(taskIndex) {
+
+    setEditTaskSubmitButton(taskIndex);
+}
+
+
+function setEditTaskSubmitButton(taskIndex) {
+    let task = activeUser.tasks[taskIndex];
+    document.getElementById('board-card-edit').onsubmit = () => {
+        saveEditedTask(task);
+        closeBoardCardOverlay();
+        renderBoardColumns();
+        // update storage
+        return false;
+    };
 }

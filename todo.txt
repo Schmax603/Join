@@ -17,6 +17,8 @@ ToDo:
 -add Task 
   -hover Effekt clearBtn
 
+-subtasks: Status speichern (done)
+
 
   FeedBack:
 

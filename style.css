@@ -30,7 +30,8 @@ Global Variable
 .c-lb {
 	color: #29ABE2;
 }
-.c-red{
+
+.c-red {
 	color: red;
 }
 
@@ -170,8 +171,16 @@ Global Variable
 	margin-bottom: 25px;
 }
 
+.mb-30 {
+	margin-bottom: 30px;
+}
+
 .mb-35 {
 	margin-bottom: 35px;
+}
+
+.ml-25 {
+	margin-left: 25px;
 }
 
 .ml-30 {

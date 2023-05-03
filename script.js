@@ -94,6 +94,28 @@ function getInitials(contact) {
 
 
 /*--------------------------------------------------
+Overlays
+---------------------------------------------------*/
+function openAddTaskOverlay() {
+    // freezeBackground('overlay-fullscreen');
+    // // renderAddTaskCard();
+    // showElement('add-task-card');
+    // slideInOverlay('add-task-card');
+
+    location.href = '../addtask/addtask.html';
+}
+
+
+function closeAddTaskOverlay() {
+    hideOverlay('add-task-card');
+    setTimeout(() => {
+        removeElement('add-task-card');
+        unfreezeBackground('overlay-fullscreen');
+    }, 220);
+}
+
+
+/*--------------------------------------------------
 Show / Hide
 ---------------------------------------------------*/
 /**

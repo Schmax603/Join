@@ -2,6 +2,18 @@
     background-color: #2A3647;
 }
 
+.bg-urgent {
+    background-color: #FF3D00;
+}
+
+.bg-medium {
+    background-color: #FFA800;
+}
+
+.bg-low {
+    background-color: #7AE229;
+}
+
 .bg-0 {
     background-color: #FF7A00;
 }
