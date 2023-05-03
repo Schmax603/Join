@@ -30,6 +30,7 @@
     <script src="dragAndDrop.js"></script>
     <script src="search.js"></script>
     <script src="../login/login.js"></script>
+    <script src="/templets/addtask/addtask.js"></script>
 </head>
 
 
@@ -56,12 +57,13 @@
 
             <div id="edit-card" class="edit-card">
                 <button class="btn-delete btn-animation-invert"></button>
-                <button class="btn-edit btn-animation"><img src="../img/pencilBoard.svg" class="img-30"
-                        alt="edit"></button>
+                <button class="btn-edit btn-animation"
+                    onclick="hideElementDisplay('board-card'); showElement('board-edit')"><img
+                        src="../img/pencilBoard.svg" class="img-30" alt="edit"></button>
             </div>
 
             <!-- Render Elements from Array -->
-            <span id="category" class="mobile-category fs-27 fw-400 mb-25 mobile-mb-32">Category</span>
+            <span id="category" class="mobile-category fs-27 fw-400 mb-25 mobile-mb-32">test</span>
 
             <h2 id="title" class="mobile-title fs-61 fw-700 m-0 mb-25">Title</h2>
 
@@ -80,6 +82,25 @@
                 <div id="assignedTo" class="fw-400">Assign to</div>
             </div>
             <!-- Render Elements from Array -->
+
+        </article>
+
+        <article id="board-edit" class="board-card d-none" style="flex-direction: unset; gap: 18px;" onclick="doNotClose(event)">
+            <div w3-include-html="/templets/addtask/addtask.html" style="order: 1; float: left;"></div>
+
+            <div style="order: 2; float: right; ">
+                <div class="card-close" onclick="closeBoardCardOverlay()">
+                    <img class="desktop-only" src="../img/close.png" alt="close">
+                    <img class="mobile-only" src="../img/arrow_left.png" alt="back">
+                </div>
+
+                <button class="dark-btn btn-animation desktop-only pos-a"
+                    style="top: calc(95% - 50px); width: 93px; height: 50px;" onclick="openAddTaskOverlay()">
+                    <p class="fs-21 fw-700 m-0">Ok</p>
+                    <img class="img-15" src="../img/check.svg" alt="add">
+                </button>
+            </div>
+
         </article>
 
     </section>
