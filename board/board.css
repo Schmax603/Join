@@ -354,7 +354,7 @@ Media Querry
 	Overlay <900
 	---------------------------------------------------*/
 	.overlay-fullscreen {
-		top: 84px;
+		top: 80px;
 		height: calc(100vh - 84px - 80px);
 	}
 

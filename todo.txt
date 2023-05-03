@@ -13,3 +13,6 @@ ToDo:
 
 -Contacts:
   -hover Effekt deleteBtn, editBtn? mobile
+
+-add Task 
+  -hover Effekt clearBtn
