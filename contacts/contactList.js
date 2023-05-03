@@ -33,7 +33,7 @@ function renderLetterHeader(letter) {
     const container = document.getElementById('contacts-list');
     container.innerHTML += /*html*/`
         <div class="letter-container" id="letter-container-${letter}">
-            <div class="letter-header fs-21 fw-400">${letter}</div>
+            <div class="letter-header cursor-d fs-21 fw-400">${letter}</div>
             <div class="letter-header-bottom-border"></div>
         </div>
     `;

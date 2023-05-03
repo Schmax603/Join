@@ -96,7 +96,7 @@ function renderCards(arrayOfTasks) {
  * This function renders an empty board-column.
  */
 function renderEmptyColumn() {
-    return `<div class="empty-column fs-16 fw-400 ta-c">No tasks here</div>`;
+    return `<div class="empty-column cursor-d fs-16 fw-400 ta-c">No tasks here</div>`;
 }
 
 

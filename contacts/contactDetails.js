@@ -90,7 +90,7 @@ function renderContactDetails(contact) {
  */
 function renderContactDetailsIcon(contact) {
     const iconElement = document.getElementById('contact-details-icon');
-    iconElement.classList = `contact-icon contact-overlay-icon fs-47 fw-500 ${contact.color}`;
+    iconElement.classList = `contact-icon contact-overlay-icon cursor-d fs-47 fw-500 ${contact.color}`;
     iconElement.innerHTML = getInitials(contact);
 }
 

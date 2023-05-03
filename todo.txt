@@ -1,59 +1,15 @@
-Checked:
-cleanCode .css:
-  -login
-  -summary
-  -headerNav
--Login:
-  -rework style Desktop
-  -rework style Mobile
-   -Check Summary width (max-width:652px?)
-  -rework animation Logo, Background, msgBox
-
-
 ToDo:
 -Login:
   - Login animation blink remove
-  - red border input wrong input? red label? (yet mesg box)
  
 -Summary:
-  -render next Dedline (date)
+  -render next Deadline (date)
   -JS all number of Tasks
   - fix media querry
-
-+Contacts:
-  -implement backend
 
 +Show hide css global implement
 
 + addTask
 
-tasks = [
-    {
-        title.value
-        description.value
-        Categorys[
-            {
-                category.value
-                colorCategory.value
-            }
-            ]
-
-        AssignTo[
-            Contact.value
-            contact.value
-        ] 
-
-        Prio.value
-        Due Date.value
-
-        Subtasks[
-            subtask + checkbox
-        ]
-
-        columnCategory.value (default)
-    }
-
-]
-
-
-subtasks.length * abgeschlossen subtask / 100%
+-Contacts:
+  -hover Effekt deleteBtn, editBtn? mobile

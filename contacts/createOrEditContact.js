@@ -12,7 +12,7 @@ function openCreateContactOverlay() {
 
 
 function renderCreateContactHeadline() {
-    document.getElementById('create-or-edit-contact-headline').classList = 'header-headline mt-12 mb-12';
+    document.getElementById('create-or-edit-contact-headline').classList = 'header-headline cursor-d mt-12 mb-12';
     document.getElementById('create-or-edit-contact-headline').innerHTML = 'Add contact';
     showElement('create-or-edit-contact-subheadline');
     document.getElementById('create-or-edit-contact-subheadline').innerHTML = 'Tasks are better with a team!';
