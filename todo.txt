@@ -1,37 +1,34 @@
-ToDo:
- 
--Summary:
-  - fix media querry
+Abgabe Ziele:
 
-+Show hide css global implement
+    Prio hoch
+1. Board karten werden in der richtigen spalte gespeichert. (überschreiben des arrays und column neu setzen)
+2. Board suche ist funktionsfähig
+3. Board karten sind gestylt und subtasks werden in der progressbar korrekt angezeigt.
+4. Board addTask splaten karten werden in der entsprechenden spalte gespeichert.
+5. Board drag&drop funktioniert in der mobile version
 
--Contacts:
-  -hover Effekt deleteBtn, editBtn? mobile
+====> Abgabe Join
 
--add Task 
-  -hover Effekt clearBtn
+    Prio niedrig
+1. legal Manu adresse
+2. Login Animation blink entfernen
+3. addTask  category: category und color nebeneinander
+            assignTo: checkbox rechts anordnen
+4. Contacts: hover Effekt deleteBtn, editBtn? mobile
+5. add Task: hover Effekt clearBtn
+6. Summary fix media querry height
 
 
+Info:
 
-  FeedBack:
+-CurrentUser bugfix alles mit Test markiert, currentUser wird nun im localStorage gespeichert(individuell).
 
--CurrentUser fix alles mit Test markiert
--Board .....tasks[] muss überschrieben und gespeichert werden
 
-Simon:
+FeedBack Simon:
+
 -Login Animation blink entfernen
 - suche funktioniert nicht board?? eventuell selection falsch gesetzt(tasks[..] und nicht users[..].tasks[..]!!)
 -board responsive(mobile): drag&drop, anzeige
 -addTask category: category und color nebeneinander
           assignTo: checkbox rechts anordnen
 -legal Manu adresse
-
-
--Gast: Beispielkontakte/-tasks
-  -Add Task
-    -Reset eingafelder
-    -Assign to, laden der individuellen Contactlist, link zu Contacts
-    -Subtask muss bei erstellung über die Checkboxen bestätigt werden ansonsten werden diese nicht gespeichert.
--Board
-  -Aus zeitmanagment ist add Task ein link
-  -Board card edit & delete card
