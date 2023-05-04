@@ -78,6 +78,14 @@ function toggleActive(dropMaster) {
     }
 }
 
+async function keyframe() {
+    document.getElementById("addtask-create-task").classList.remove("d-none");
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log("Delayed for 1 second.");
+    document.getElementById("addtask-create-task").classList.add("d-none");
+  }
+  
+
 /**Save values into backend */
 async function addTask() {
     await saveCheckedContacts();
@@ -94,8 +102,6 @@ async function addTask() {
         "boardColumn": 'board-column-todo'
     };
 
-
-
     console.log(priority)
 
     const prioIsWhat = document.querySelector('#addtask-prio .addtask-prio-bnt.active');
@@ -111,9 +117,9 @@ async function addTask() {
     }
 
     if (prioIsWhat === null || prioIsWhat === undefined) {
-        document.getElementById('addtask-prio').style.border = "1px solid #ff0000";
+        document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ff0000";
     } else {
-        document.getElementById('addtask-prio').style.border = "1px solid #ffffff";
+        document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ffffff";
     }
 
     if (!title.value.trim()) {
@@ -143,14 +149,11 @@ async function addTask() {
     ) {
         // Abfragen einfügen ?
         console.log("true XD")
+        await keyframe();
         users[currentUser].tasks.push(newTask);
         await setItem('users', JSON.stringify(users));
         // Zurücksetzen der Eingabefelder
     }
-
-
-
-
 }
 
 /**Render input field for new Catergory */

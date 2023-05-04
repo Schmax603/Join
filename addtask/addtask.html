@@ -37,10 +37,11 @@
 	<div w3-include-html="../headerNav/headerNav.html" style="height: 0;"></div>
 
 	<button class="addtask-create addtask-bnt-center">
-		<div class="addtask-clear-bnt addtask-bnt-center d-nonemax1300">
+		<div class="addtask-clear-bnt addtask-bnt-center d-nonemax1300" onclick="rel()">
 			<div class="addtask-clear-text">Clear</div>
 			<img src="/img/close.svg">
 		</div>
+		<script>function rel() {location.reload();}</script>
 		<div class="addtask-create-bnt addtask-bnt-center">
 			<div onclick="addTask()" class="addtask-create-text">
 				<p class="d-nonemin1300">Create</p>
@@ -49,6 +50,8 @@
 			<img src="/img/check.svg">
 		</div>
 	</button>
+
+
 
 	<div class="lobby">
 		<div class="amogus center-stuff" id="amogus">
@@ -71,7 +74,7 @@
 			<div class="addtask-prio" id="addtask-prio">
 				<div class="addtask-gentext cursor-d">Prio</div>
 
-				<div class="addtask-prio-whichBnt addtask-flex-moba center-stuff">
+				<div class="addtask-prio-whichBnt addtask-flex-moba center-stuff" id="addtask-prio-whichBnt">
 					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff fs-16 fw-400"
 						id="addtask-prio-bnt-urgent" onclick="setActiveButton(0)">Urgent <img class="addtask-prio-img"
 							id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
@@ -229,7 +232,9 @@
 	</div>
 	</div>
 
-
+	<div id="addtask-create-task" class="addtask-create-task pos-a d-none">
+		Task added to board <img src="/img/boardNav.png" alt="" srcset="">
+	</div>
 </body>
 
 </html>
