@@ -155,7 +155,9 @@ function openBoardCardOverlay(taskIndex) {
 
 function closeBoardCardOverlay() {
     removeElement('board-card');
+    removeElement('board-card-edit');
     unfreezeBackground('overlay-fullscreen');
+    renderBoardColumns();
 }
 
 
@@ -213,7 +215,7 @@ function setBoardCardButtons(task) {
         deleteTask(index);
         closeBoardCardOverlay();
         renderBoardColumns();
-        // update storage
+        saveUserData();
     };
 }
 
@@ -226,18 +228,69 @@ function openBoardCardEditing(taskIndex) {
 
 
 function renderBoardCardEditing(taskIndex) {
+    let task = activeUser.tasks[taskIndex];
+    document.getElementById('title-edit-input').value = task.title;
+    document.getElementById('description-edit-input').value = task.description;
+    document.getElementById('dueDate-edit-input').value = task.dueDate;
+    activatePrioButton(task.prio);
+    // todo: assigned contacts
+    renderAssignedContactsForEditing(task);
 
     setEditTaskSubmitButton(taskIndex);
 }
 
 
+function renderAssignedContactsForEditing(task) {
+    let container = document.getElementById('assignedTo-icons');
+    container.innerHTML = '';
+    for (let i = 0; i < task.assignedTo.length; i++) {
+        const contact = task.assignedTo[i];
+        container.innerHTML += `
+            <div class="contact-icon contact-icon-board fs-12 fw-400 ${contact.color}">
+                ${getInitials(contact)}
+            </div>
+        `;
+    }
+}
+
+
 function setEditTaskSubmitButton(taskIndex) {
-    let task = activeUser.tasks[taskIndex];
     document.getElementById('board-card-edit').onsubmit = () => {
+        let task = activeUser.tasks[taskIndex];
         saveEditedTask(task);
-        closeBoardCardOverlay();
-        renderBoardColumns();
-        // update storage
+        removeElement('board-card-edit');
+        renderBoardCardOverlay(task);
+        showElement('board-card');
+        saveUserData();
         return false;
     };
+}
+
+
+function saveEditedTask(task) {
+    task.title = document.getElementById('title-edit-input').value;
+    task.description = document.getElementById('description-edit-input').value;
+    task.dueDate = document.getElementById('dueDate-edit-input').value;
+    task.prio = getPrioViaActiveButton();
+    // todo: assigned contacts
+}
+
+
+function deleteTask(taskIndex) {
+    activeUser.tasks.splice(taskIndex, 1);
+}
+
+
+function activatePrioButton(prioAsNumber) {
+    document.getElementById('edit-prio-btn-urgent').classList.remove('active');
+    document.getElementById('edit-prio-btn-medium').classList.remove('active');
+    document.getElementById('edit-prio-btn-low').classList.remove('active');
+    document.getElementById(`edit-prio-btn-${getPriorityAsString(prioAsNumber).toLowerCase()}`).classList.add('active');
+}
+
+
+function getPrioViaActiveButton() {
+    if (document.getElementById('edit-prio-btn-urgent').classList.contains('active')) return 2;
+    if (document.getElementById('edit-prio-btn-medium').classList.contains('active')) return 1;
+    if (document.getElementById('edit-prio-btn-low').classList.contains('active')) return 0;
 }

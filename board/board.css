@@ -7,11 +7,11 @@
 }
 
 .mobile-only {
-	display: none;
+	display: none !important;
 }
 
 .desktop-only {
-	display: flex;
+	display: flex !important;
 }
 
 /*--------------------------------------------------
@@ -171,6 +171,77 @@ Overlay
 	border: 1px solid #D1D1D1;
 	border-radius: 10px;
 	outline: none;
+}
+
+#prio-edit {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	gap: 10px;
+}
+
+.edit-prio-btn {
+	border-radius: 10px;
+	padding: 18px 10px;
+	box-shadow: 0px 0px 4px 0px #0000001A;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	border: 1px solid #D1D1D1;
+	box-sizing: border-box;
+	background-color: white;
+	width: calc(34% - 10px);
+}
+
+.prio-image {
+	display: flex;
+}
+
+.prio-image-active {
+	display: none;
+}
+
+.edit-prio-btn.active {
+	color: white;
+	box-shadow: 0px 4px 4px 0px #00000040;
+	font-weight: 700;
+	border: none;
+}
+
+.edit-prio-btn.active .prio-image {
+	display: none;
+}
+
+.edit-prio-btn.active .prio-image-active {
+	display: flex;
+}
+
+.edit-prio-btn:hover {
+	box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
+	border: none;
+}
+
+.edit-prio-btn-urgent.active {
+	background-color: #ff3d00;
+	/* box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
+    border: 0px solid #D1D1D1;
+    color: white; */
+}
+
+
+.edit-prio-btn-medium.active {
+	background-color: #FFA800;
+	/* box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
+    border: 0px solid #D1D1D1;
+    color: white; */
+}
+
+.edit-prio-btn-low.active {
+	background-color: #7AE229;
+	/* box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
+    border: 0px solid #D1D1D1;
+    color: white; */
 }
 
 
@@ -415,11 +486,11 @@ Media Querry
 
 @media(max-width: 900px) {
 	.mobile-only {
-		display: flex;
+		display: flex !important;
 	}
 
 	.desktop-only {
-		display: none;
+		display: none !important;
 	}
 
 	/*--------------------------------------------------

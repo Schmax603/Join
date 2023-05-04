@@ -179,6 +179,10 @@ Global Variable
 	margin-bottom: 35px;
 }
 
+.mb-45 {
+	margin-bottom: 45px;
+}
+
 .ml-25 {
 	margin-left: 25px;
 }
@@ -222,6 +226,7 @@ Global Variable
 .pos-r {
 	position: relative;
 }
+
 .pos-a {
 	position: absolute;
 }
