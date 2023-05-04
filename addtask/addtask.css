@@ -13,30 +13,39 @@ textarea:focus,
 input:focus {
     outline: none;
 }
-.color-cicle{
+
+.color-cicle {
     display: flex;
     border-radius: 50%;
     border: 2px solid #FFFFFF;
 }
-.color-cicle:hover{
+
+.color-cicle:hover {
     box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
     border: 0px solid #D1D1D1;
 }
-.color-pick{
+
+.color-pick {
     margin-top: 17px;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
-.d-flex{
+
+.d-flex {
     display: flex;
 }
-.a-item{
+
+.a-item {
     align-items: center;
 }
 
 .pos-re {
     position: relative;
+}
+
+.pos-a {
+    position: absolute;
 }
 
 .addtask-tasktitle {
@@ -71,6 +80,40 @@ input:focus {
     z-index: 6;
     cursor: pointer;
 }
+
+.addtask-create-task {
+    z-index: 10;
+    position: absolute;
+    right: 47%;
+    left: 47%;
+    bottom: -10%;
+    color: white;
+    background-color: #2A3647;
+    border-radius: 10px;
+    transition: 100ms ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 326px;
+    height: 74px;
+    animation-duration: 1s;
+    animation-name: slidedtou;
+
+}
+
+@keyframes slidedtou {
+    from {
+        margin-bottom: -10%;
+
+    }
+
+    to {
+        margin-bottom: 20%;
+
+    }
+}
+
 
 .addtask-bnt-center {
     display: flex;
@@ -499,5 +542,10 @@ textarea {
 
     .addtask-subtasks {
         display: unset;
+    }
+
+    .addtask-create-task {
+        right: 50%;
+        left: 50%;
     }
 }
