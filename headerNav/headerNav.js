@@ -54,6 +54,7 @@ function toggleOverlays(className) {
   let callDocument = document.getElementById(`${className}`);
   let headerMenu = document.getElementById('mobile-drdo-menu');
 
+  document.getElementById('body').classList.toggle('o-flow-h');
   callDocument.classList.toggle('d-none')
   checkOverlays(className, headerMenu);
 }

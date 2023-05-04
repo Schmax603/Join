@@ -25,6 +25,16 @@ ToDo:
 
   FeedBack:
 
+Simon:
+-Login Animation blink entfernen
+- media witdth 320 oder 350 
+- suche funktioniert nicht board??
+-board responsive(mobile): drag&drop, anzeige
+-addTask category: category und color nebeneinander
+          assignTo: checkbox rechts anordnen
+-legal notice richtig befüllen evtl.auch Hilfe
+
+
 -Gast: Beispielkontakte/-tasks
   -Add Task
     -Reset eingafelder

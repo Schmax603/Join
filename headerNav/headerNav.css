@@ -137,6 +137,7 @@ Overlay legal, help
   display: flex;
   flex-direction: column;
   z-index: 5;
+  overflow: auto;
 }
 
 .overlay-header {
@@ -247,9 +248,12 @@ Media Querry
   <900 Overlay legal, help
   ---------------------------------------------------*/
   .overlay {
-    margin: 55px 0;
+    margin: unset;
     padding: 10% 10% 0 10%;
     overflow-y: auto;
+    top: 80px;
+    left: 0;
+    height: calc(100vh - 80px - 80px);
   }
 
   .overlay-h1 {
