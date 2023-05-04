@@ -1,13 +1,9 @@
 ToDo:
--Login:
-  - Login animation blink remove
  
 -Summary:
   - fix media querry
 
 +Show hide css global implement
-
-+ addTask
 
 -Contacts:
   -hover Effekt deleteBtn, editBtn? mobile
@@ -15,24 +11,20 @@ ToDo:
 -add Task 
   -hover Effekt clearBtn
 
--subtasks: Status speichern (done)
-
-
--Board: 
-  -dark-btn
-  -card: assigned to, subtasks
 
 
   FeedBack:
 
+-CurrentUser fix alles mit Test markiert
+-Board .....tasks[] muss überschrieben und gespeichert werden
+
 Simon:
 -Login Animation blink entfernen
-- media witdth 320 oder 350 
-- suche funktioniert nicht board??
+- suche funktioniert nicht board?? eventuell selection falsch gesetzt(tasks[..] und nicht users[..].tasks[..]!!)
 -board responsive(mobile): drag&drop, anzeige
 -addTask category: category und color nebeneinander
           assignTo: checkbox rechts anordnen
--legal notice richtig befüllen evtl.auch Hilfe
+-legal Manu adresse
 
 
 -Gast: Beispielkontakte/-tasks

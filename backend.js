@@ -3,7 +3,8 @@ const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 const STORAGE_TOKEN = 'JJER0W91PS930CDVAOULS02PWMPNBAIWOL417IW7';
 
 let users = [];
-let currentUser = [];
+// !!Test
+// let currentUser = [];
 let contacts = [];
 let tasks = [];
 let category = [];
@@ -16,13 +17,31 @@ let subtasksChecked = [];   //Save temporary
 async function loadUsers() {
     try {
         users = JSON.parse(await getItem('users'));
-        currentUser = JSON.parse(await getItem('currentUser'));
+        // currentUser = JSON.parse(await getItem('currentUser'));
+        // !!Test
+        loadCurrentUserFromLocalStorage()
         category = JSON.parse(await getItem('category'));
     } catch (e) {
         console.error('Loading error:', e);
     }
 }
+// !!Test
+/**
+* Saves the currentUSer data to local storage.
+*/
+function saveCurrentUserToLocalStorage(currentUser) {
+    let currentUserAsText = JSON.stringify(currentUser);
+    localStorage.setItem('currentUser', currentUserAsText);
+}
 
+/**
+* Loads the currentUser data from local storage.
+*/
+function loadCurrentUserFromLocalStorage() {
+    let currentUserAsText = localStorage.getItem('currentUser');
+    currentUser = JSON.parse(currentUserAsText);
+}
+// !!Test
 async function pushEmptyArray() {
     users = [];
     await setItem('users', JSON.stringify(users));

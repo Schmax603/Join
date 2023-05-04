@@ -52,20 +52,22 @@ async function checkUserInput(user, userEmail, userPassword, i) {
     while (user != users[i]) {
       i++;
     }
-    // currentUser.push({currentUser: i});
-    await setItem('currentUser', JSON.stringify(i));
+    //!!Test
+    saveCurrentUserToLocalStorage(i);
+    // await setItem('currentUser', JSON.stringify(i));
     window.location.href = '../summary/summary.html';
   } else {
     await errorBox('loginEmail', 'loginEmail-label')
     await errorBox('loginPassword', 'loginPassword-label')
-    // window.location.href = 'index.html?msg=Incorrect email or password.';
   }
 }
 
 /**Guest log in*/
 async function userGuest() {
   // currentUser.push({currentUser: ''});
-  await setItem('currentUser', JSON.stringify(''));
+  //!!Test
+  saveCurrentUserToLocalStorage('');
+  // await setItem('currentUser', JSON.stringify(''));
   window.location.href = "../summary/summary.html"
 }
 
@@ -104,7 +106,9 @@ function remember() {
 /**this function clear array "currentUser" and navigate to index.html*/
 async function logout() {
   // currentUser.push({currentUser: ''});
-  await setItem('currentUser', JSON.stringify(''));
+  //!!Test
+  saveCurrentUserToLocalStorage('');
+  // await setItem('currentUser', JSON.stringify(''));
   window.location.href = '../index.html';
 }
 
