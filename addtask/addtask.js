@@ -1,7 +1,8 @@
 /**init onload functions */
 async function initAddTask() {
     await initHeaderNav();
-    await loadUsers();
+    await loadUserData();
+    setActiveUser();
     media();
     setMinDate();
     // dropdownValueCheck(); 
@@ -143,8 +144,10 @@ async function addTask() {
     ) {
         // Abfragen einfügen ?
         console.log("true XD")
-        users[currentUser].tasks.push(newTask);
-        await setItem('users', JSON.stringify(users));
+        activeUser.tasks.push(newTask);
+        // await setItem('users', JSON.stringify(users));
+        await saveUserData();
+        location.href = '../board/board.html';
         // Zurücksetzen der Eingabefelder
     }
 
@@ -215,7 +218,8 @@ async function saveNewCategory(section) {
         if (categoryColorPick !== undefined && inputValue.value !== '') {
             category.push({ name: inputValue.value, color: categoryColorPick });
             // Save backend
-            await setItem('category', JSON.stringify(category));
+            // await setItem('category', JSON.stringify(category));
+            await saveUserData();
             resetCetegory(inputValue);
             renderCategory();
         }
@@ -263,7 +267,7 @@ function addColorCategory(id) {
 /**Render all contacts */
 async function renderContacts() {
     let contactList = document.getElementById('apicontact-list');
-    let contactsArray = users[currentUser].contacts;
+    let contactsArray = activeUser.contacts;
 
     for (let i = 0; i < contactsArray.length; i++) {
         const contact = contactsArray[i].name;
@@ -281,7 +285,7 @@ async function renderContacts() {
 
 /**Save checked Contacts */
 async function saveCheckedContacts() {
-    let contactsArray = users[currentUser].contacts;
+    let contactsArray = activeUser.contacts;
 
     for (let i = 0; i < contactsArray.length; i++) {
         const contact = contactsArray[i];
