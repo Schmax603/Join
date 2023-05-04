@@ -1,5 +1,15 @@
 let timeOfDay;
 
+
+async function initSummary() {
+  await loadUserData();
+  setActiveUser();
+  initHeaderNav();
+  renderGreeting();
+  renderNumbers();
+}
+
+
 /**
  * Generate time of Day 
  */
@@ -25,17 +35,85 @@ async function renderGreeting() {
   let greetings = document.getElementById('summary-infos-greeting');
   let mobileGreeting = document.getElementById('mobile-overlay');
 
-  await loadUsers();
-  let activeUser = currentUser;
+  // await loadUsers();
+  // let activeUser = currentUser;
   renderTimeOfDay();
 
   greetings.innerHTML = '';
   mobileGreeting.innerHTML = '';
 
-  if (activeUser === '') {
+  if (loggedInAsGuest()) {
     generateHTMLGreetingGuest(greetings, mobileGreeting, timeOfDay)
   } else {
-    generateHTMLGreetingUser(greetings, mobileGreeting, activeUser, timeOfDay)
+    generateHTMLGreetingUser(greetings, mobileGreeting, currentUser, timeOfDay)
   }
 
+}
+
+
+function renderNumbers() {
+  document.getElementById('summary-infos-tasks-card-board').innerHTML = activeUser.tasks.length;
+  document.getElementById('summary-infos-tasks-card-progress').innerHTML = getNumberOfTasksInBoardColumn('board-column-progress');
+  document.getElementById('summary-infos-tasks-card-feedback').innerHTML = getNumberOfTasksInBoardColumn('board-column-feedback');
+  document.getElementById('summary-infos-tasks-progress-card-todo-amount').innerHTML = getNumberOfTasksInBoardColumn('board-column-todo');
+  document.getElementById('summary-infos-tasks-progress-card-Done-amount').innerHTML = getNumberOfTasksInBoardColumn('board-column-done');
+
+  document.getElementById('number-of-urgent-tasks').innerHTML = getNumberOfUrgentTasks();
+
+  renderUpcomingDeadline()
+}
+
+
+function getNumberOfTasksInBoardColumn(columnID) {
+  let tasksInProgress = activeUser.tasks.filter(task =>
+    task.boardColumn === columnID
+  );
+  return tasksInProgress.length;
+}
+
+
+function getNumberOfUrgentTasks() {
+  let urgentTasks = activeUser.tasks.filter(task =>
+    task.prio === 2
+  );
+  return urgentTasks.length;
+}
+
+
+function renderUpcomingDeadline() {
+  let urgentTasks = activeUser.tasks.filter(task =>
+    task.prio === 2
+  );
+
+  if (urgentTasks.length) {
+    let urgentDates = [];
+    urgentTasks.forEach(task => urgentDates.push(task.dueDate))
+    urgentDates.sort();
+    document.getElementById('deadline-time').innerHTML = urgentDates[0];
+  }
+}
+
+
+function nearestDate(dates, target) {
+  if (!target) {
+    target = Date.now()
+  } else if (target instanceof Date) {
+    target = target.getTime()
+  }
+
+  let nearest = Infinity
+  let winner = -1
+
+  dates.forEach(function (date, index) {
+    if (date instanceof Date) {
+      date = date.getTime()
+    }
+    let distance = Math.abs(date - target)
+    if (distance < nearest) {
+      nearest = distance
+      winner = index
+    }
+  })
+
+  return winner
 }

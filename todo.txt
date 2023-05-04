@@ -3,8 +3,6 @@ ToDo:
   - Login animation blink remove
  
 -Summary:
-  -render next Deadline (date)
-  -JS all number of Tasks
   - fix media querry
 
 +Show hide css global implement
@@ -23,18 +21,15 @@ ToDo:
 -Board: 
   -dark-btn
   -card: assigned to, subtasks
-  -edit onsubmit: zurück zu overlay card
 
 
   FeedBack:
 
 -Gast: Beispielkontakte/-tasks
-  -Summary Zählung
   -Add Task
-    -Prüfung Eingabefelder (Title, discr., category, due Date, prio)
     -Reset eingafelder
     -Assign to, laden der individuellen Contactlist, link zu Contacts
     -Subtask muss bei erstellung über die Checkboxen bestätigt werden ansonsten werden diese nicht gespeichert.
 -Board
-  -Aus zeitmanagment ist add Task ein link!!! colum´s auch link
+  -Aus zeitmanagment ist add Task ein link
   -Board card edit & delete card
