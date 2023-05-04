@@ -136,7 +136,7 @@ Overlay legal, help
   padding: 82px 128px 0 123px;
   display: flex;
   flex-direction: column;
-  z-index: 5;
+  z-index: 101;
   overflow: auto;
 }
 
