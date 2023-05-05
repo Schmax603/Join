@@ -10,7 +10,8 @@ async function initContacts() {
     await loadUserData();
     setActiveUser();
 
-    initHeaderNav();
+    await initHeaderNav();
+    activateNavSection('nav-contacts');
     changeContentOnWindowSize();
 
     activeUserContacts = activeUser.contacts;

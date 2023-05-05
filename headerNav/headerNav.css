@@ -109,11 +109,15 @@ nav {
   justify-content: flex-start;
   align-items: center;
   list-style: none;
+  cursor: pointer;
 }
 
 .n-nav-ul-li:hover {
+  background-color: #0919314d;
+}
+
+.n-nav-ul-li.active {
   background-color: #091931;
-  cursor: pointer;
 }
 
 .n-more {
@@ -284,6 +288,7 @@ Media Querry
     font-size: 40px;
   }
 }
-.d-none{
+
+.d-none {
   display: none;
 }

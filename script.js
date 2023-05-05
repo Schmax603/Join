@@ -93,6 +93,15 @@ function getInitials(contact) {
 }
 
 
+function activateNavSection(sectionID) {
+    document.getElementById('nav-summary').classList.remove('active');
+    document.getElementById('nav-board').classList.remove('active');
+    document.getElementById('nav-addtask').classList.remove('active');
+    document.getElementById('nav-contacts').classList.remove('active');
+    document.getElementById(sectionID).classList.add('active');
+}
+
+
 /*--------------------------------------------------
 Overlays
 ---------------------------------------------------*/

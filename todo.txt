@@ -19,10 +19,11 @@ Abgabe Ziele:
 5. add Task: hover Effekt clearBtn
 6. Summary fix media querry height
 
-7. Nav: aktive Seite kennzeichnen
+7. ERLEDIGT    Nav: aktive Seite kennzeichnen
 8. Addtask: rote Umrandung runden
 9. padding <main>
-10. phone type=number?
+10. ERLEDIGT    phone type=number?
+11. input-Felder: immer title=""
 
 
 Info:

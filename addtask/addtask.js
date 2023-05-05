@@ -1,6 +1,7 @@
 /**init onload functions */
 async function initAddTask() {
     await initHeaderNav();
+    activateNavSection('nav-addtask');
     await loadUserData();
     setActiveUser();
     media();

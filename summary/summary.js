@@ -4,7 +4,8 @@ let timeOfDay;
 async function initSummary() {
   await loadUserData();
   setActiveUser();
-  initHeaderNav();
+  await initHeaderNav();
+  activateNavSection('nav-summary');
   renderGreeting();
   renderNumbers();
 }

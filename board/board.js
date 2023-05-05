@@ -5,7 +5,8 @@ async function initBoard() {
     await loadUserData();
     setActiveUser();
 
-    initHeaderNav();
+    await initHeaderNav();
+    activateNavSection('nav-board');
     renderBoardColumns();
 }
 
