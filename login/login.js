@@ -20,8 +20,10 @@ function animationLogin() {
 
   setTimeout(function () {
     animationLogin.classList.add('d-none');
+    document.getElementById('screen-animation').classList.add('d-none');
+    document.getElementById('logo-animation').classList.add('d-none');
     joinLogo.classList.remove('d-none');
-  }, 1000);
+  }, 900);
 }
 
 /**Check user input for login*/

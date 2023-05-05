@@ -11,7 +11,7 @@ Abgabe Ziele:
 
     Prio niedrig
 1. legal Manu adresse
-2. Login Animation blink entfernen
+    ERLEDIGT    2. Login Animation blink entfernen
 3. addTask  category: category und color nebeneinander
             assignTo: checkbox rechts anordnen
 4. Contacts: hover Effekt deleteBtn, editBtn? mobile

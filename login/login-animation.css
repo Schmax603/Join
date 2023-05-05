@@ -7,7 +7,7 @@
   background-color: #F5F5F5;
   z-index: 1;
   opacity: 1;
-  animation: 1000ms opacity ease-in-out;
+  animation: 1100ms opacity ease-in-out;
 }
 @keyframes opacity{
   from{
@@ -29,7 +29,7 @@
   left: 50%;
   width: 274px;
   transform: translate(-50%, -50%);
-  animation: 1000ms position ease-in-out;
+  animation: 1100ms position ease-in-out;
   z-index: 5;
 }
 @keyframes position{
@@ -61,18 +61,18 @@ Media Querry
 @media (max-width: 900px) {
   .screen-animation{
     background-color: #2A3647;
-    animation: 1000ms opacity ease-in-out;
+    animation: 1100ms opacity ease-in-out;
   }
   .logo-b-animation, .logo-w-animation{
     width: 100px;
   }
   .logo-b-animation{
     opacity: 0;
-    animation: 1000ms position-b-mobile ease-in-out;
+    animation: 1100ms position-b-mobile ease-in-out;
   }
   .logo-w-animation{
     opacity: 1;
-    animation: 1000ms position-w-mobile ease-in-out;
+    animation: 1100ms position-w-mobile ease-in-out;
   }
   @keyframes position-w-mobile{
     0%{
