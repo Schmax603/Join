@@ -29,6 +29,7 @@ function moveTo(boardColumn) {
     activeUser.tasks[currentDraggedElement].boardColumn = boardColumn;
     renderBoardColumns();
     removeHighlight(boardColumn);
+    saveUserData();
 }
 
 

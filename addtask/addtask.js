@@ -151,7 +151,7 @@ async function addTask() {
         // Abfragen einfügen ?
         console.log("true XD")
         await keyframe();
-        users[currentUser].tasks.push(newTask);
+        activeUser.tasks.push(newTask);
         await saveUserData();
         // Zurücksetzen der Eingabefelder
     }

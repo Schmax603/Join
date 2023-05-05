@@ -1,16 +1,17 @@
 Abgabe Ziele:
 
     Prio hoch
-1. Board karten werden in der richtigen spalte gespeichert. (überschreiben des arrays und column neu setzen)
+1. ERLEDIGT    Board karten werden in der richtigen spalte gespeichert. (überschreiben des arrays und column neu setzen)
 2. ERLEDIGT    Board suche ist funktionsfähig
 3. Board karten sind gestylt und subtasks werden in der progressbar korrekt angezeigt.
-4. Board addTask splaten karten werden in der entsprechenden spalte gespeichert.
+4. Board addTask spalten karten werden in der entsprechenden spalte gespeichert (auf Board umleiten?).
 5. Board drag&drop funktioniert in der mobile version
+6. ERLEDIGT    add task: bei guest im localstorage speichern
 
 ====> Abgabe Join
 
     Prio niedrig
-1. legal Manu adresse
+1. legal Maximilian adresse
 2.  ERLEDIGT    Login Animation blink entfernen
 3. addTask  category: category und color nebeneinander
             assignTo: checkbox rechts anordnen
@@ -21,22 +22,9 @@ Abgabe Ziele:
 7. Nav: aktive Seite kennzeichnen
 8. Addtask: rote Umrandung runden
 9. padding <main>
+10. phone type=number?
 
 
 Info:
 
 -CurrentUser bugfix alles mit Test markiert, currentUser wird nun im localStorage gespeichert(individuell).
-
-
-FeedBack Simon:
-
--Login Animation blink entfernen
-- suche funktioniert nicht board?? eventuell selection falsch gesetzt(tasks[..] und nicht users[..].tasks[..]!!)
--board responsive(mobile): drag&drop, anzeige
--addTask category: category und color nebeneinander
-          assignTo: checkbox rechts anordnen
--legal Manu adresse
-
--Nav: aktive Seite kennzeichnen
--Addtask: rote Umrandung runden
--phone type=number?
