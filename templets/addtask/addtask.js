@@ -1,9 +1,9 @@
 /**init onload functions */
 async function initAddTask() {
     await initHeaderNav();
-    await loadUsers();
+    await loadUserData();
     media();
-    setMinDate();
+    setMinDate('date');
     // dropdownValueCheck(); 
     renderCategory();
     await renderContacts()
@@ -66,7 +66,7 @@ async function addTask() {
         "boardColumn": 'board-column-todo'
     };
     // Abfragen einfügen ?
-    users[currentUser].tasks.push(newTask);
+    activeUser.tasks.push(newTask);
     await setItem('users', JSON.stringify(users));
     // Zurücksetzen der Eingabefelder
 }
@@ -90,7 +90,7 @@ function newInput(section) {
 /**Render all contacts */
 async function renderContacts() {
     let contactList = document.getElementById('apicontact-list');
-    let contactsArray = users[currentUser].contacts;
+    let contactsArray = activeUser.contacts;
 
     for (let i = 0; i < contactsArray.length; i++) {
         const contact = contactsArray[i].name;
@@ -108,7 +108,7 @@ async function renderContacts() {
 
 /**Save checked Contacts */
 async function saveCheckedContacts() {
-    let contactsArray = users[currentUser].contacts;
+    let contactsArray = activeUser.contacts;
 
     for (let i = 0; i < contactsArray.length; i++) {
         const contact = contactsArray[i];

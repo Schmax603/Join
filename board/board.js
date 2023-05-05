@@ -233,8 +233,10 @@ function renderBoardCardEditing(taskIndex) {
     document.getElementById('title-edit-input').value = task.title;
     document.getElementById('description-edit-input').value = task.description;
     document.getElementById('dueDate-edit-input').value = task.dueDate;
+    setMinDate('dueDate-edit-input');
     activatePrioButton(task.prio);
     // todo: assigned contacts
+    renderContactsForDropDown();
     renderAssignedContactsForEditing(task);
 
     setEditTaskSubmitButton(taskIndex);
@@ -294,4 +296,42 @@ function getPrioViaActiveButton() {
     if (document.getElementById('edit-prio-btn-urgent').classList.contains('active')) return 2;
     if (document.getElementById('edit-prio-btn-medium').classList.contains('active')) return 1;
     if (document.getElementById('edit-prio-btn-low').classList.contains('active')) return 0;
+}
+
+
+function toggleActiveForDropDown(id) {
+    document.getElementById(id).classList.toggle("collapsed");
+}
+
+
+// function toggleCheckbox(index) {
+//     // todo
+// }
+
+
+/**Render all contacts */
+async function renderContactsForDropDown() {
+    let contactList = document.getElementById('assigned-edit-contact-list');
+    let contactsArray = getContactArrayStartingWithYou();
+
+    for (let i = 0; i < contactsArray.length; i++) {
+        const contact = contactsArray[i];
+        contactList.innerHTML += /*html*/`
+            <div class="assigned-edit-contact" onclick="toggleCheckbox(${i})">
+                <span>${contact.name}</span>
+                <input id="assigned-edit-contact-checkbox-${i}" type="checkbox">
+            </div>
+        `;
+    }
+}
+
+
+function getContactArrayStartingWithYou() {
+    let contactsArray = activeUser.contacts;
+    let indexYou = activeUser.contacts.indexOf(contact => contact.email === activeUser.email);
+    if (indexYou > 0) {
+        contactsArray.splice(indexYou, 1);
+        arr.splice(0, 0, activeUser.contacts[indexYou]);
+    }
+    return contactsArray;
 }

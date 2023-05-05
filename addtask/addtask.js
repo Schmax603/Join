@@ -5,7 +5,7 @@ async function initAddTask() {
     await loadUserData();
     setActiveUser();
     media();
-    setMinDate();
+    setMinDate('date');
     // dropdownValueCheck(); 
     renderCategory();
     await renderContacts()

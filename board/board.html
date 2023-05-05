@@ -18,6 +18,7 @@
     <!-- Board style -->
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
+    <link rel="stylesheet" href="../addtask/addtask.css">
     <link rel="stylesheet" href="board.css">
     <link rel="stylesheet" href="../showAndHide.css">
     <link rel="stylesheet" href="../bgColors.css">
@@ -135,7 +136,7 @@
 
             <div id="dueDate-edit" class="edit-input fs-21 fw-400 m-0 mb-30">
                 <span>Due Date</span>
-                <input id="dueDate-edit-input" class="fs-21 fw-400" type="date" title="" required>
+                <input id="dueDate-edit-input" class="fs-21 fw-400" type="date" min="" title="" required>
             </div>
 
             <div class="edit-input fs-21 fw-400 m-0 mb-45">
@@ -167,8 +168,25 @@
             <!-- Todo -->
             <div id="assigned-edit" class="edit-input fs-21 fw-400 m-0">
                 <span>Assigned To</span>
-                <input id="assigned-edit-input" class="fs-21 fw-400" type="text" title="" value="Todo..." required>
-                <div id="assignedTo-icons" class="assigned-contacts">Todo: show Icons</div>
+
+                <div id="assigned-edit-dropdown" class="dropdown-menu fs-21 fw-400 mb-20">
+                    <div class="select-task-contacts" onclick="toggleActiveForDropDown('assigned-edit-dropdown');">
+                        Select task contacts to assign
+                    </div>
+                    <div class="assigned-edit-contacts-container">
+
+                        <div id="assigned-edit-contact-list">
+                            <!-- rendered in renderContactsForDropDown() -->
+                        </div>
+
+                        <div class="assigned-edit-contact assigned-edit-contact-new"
+                            onclick="window.location.href = '../contacts/contacts.html';">
+                            Invite new contact
+                        </div>
+                    </div>
+                </div>
+
+                <div id="assignedTo-icons" class="assigned-contacts"></div>
             </div>
 
             <!-- Render Elements from Array -->

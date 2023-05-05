@@ -80,7 +80,8 @@
 
 input[type=email],
 input[type=name],
-input[type=tel] {
+input[type=tel],
+input[type=number] {
     height: 51px;
     width: 100%;
     border-radius: 10px;
@@ -103,7 +104,8 @@ input[type=name] {
     background-image: url(../img/nameInput.png);
 }
 
-input[type=tel] {
+input[type=tel],
+input[type=number] {
     background-image: url(../img/phoneInput.png);
 }
 

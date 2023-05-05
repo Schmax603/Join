@@ -18,6 +18,7 @@ async function userSignUp() {
 	let password = document.getElementById('signUpPassword');
 
 	if (users.length === 0) {
+		setSignedUpUserAsFirstContact(name, email);
 		pushUserArray(name, email, password);
 		window.location.href = '../index.html?msg=You have successfully registered.';
 	} else {
@@ -74,6 +75,7 @@ async function checkEmailAvailable(name, email, password) {
 		// window.location.href = 'signUp.html?msg=Email already exists.';
 	} else {
 		EmailIsAvailable = false;
+		setSignedUpUserAsFirstContact(name, email);
 		await pushUserArray(name, email, password);
 	}
 }
@@ -87,4 +89,9 @@ async function pushUserArray(name, email, password) {
 	users.push({ name: name.value, email: email.value, password: password.value, contacts, tasks });
 	await setItem('users', JSON.stringify(users));
 	window.location.href = '../index.html?msg=You have successfully registered.';
+}
+
+
+function setSignedUpUserAsFirstContact(name, email) {
+	contacts = [{ name: `${name.value} (You)`, email: email.value, phone: '', color: 'bg-theme', tasks: [] }];
 }
