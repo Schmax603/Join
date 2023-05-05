@@ -29,3 +29,5 @@ Abgabe Ziele:
 Info:
 
 -CurrentUser bugfix alles mit Test markiert, currentUser wird nun im localStorage gespeichert(individuell).
+
+-Bei Sign Up wird der User als sein eigener erster Kontakt erstellt ('Name (You)'), der dann in activeUser.contacts an Position 0 sortiert bleibt (für Dropdown)
