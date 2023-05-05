@@ -2,7 +2,7 @@ Abgabe Ziele:
 
     Prio hoch
 1. Board karten werden in der richtigen spalte gespeichert. (überschreiben des arrays und column neu setzen)
-2. Board suche ist funktionsfähig
+2. ERLEDIGT    Board suche ist funktionsfähig
 3. Board karten sind gestylt und subtasks werden in der progressbar korrekt angezeigt.
 4. Board addTask splaten karten werden in der entsprechenden spalte gespeichert.
 5. Board drag&drop funktioniert in der mobile version
@@ -18,6 +18,10 @@ Abgabe Ziele:
 5. add Task: hover Effekt clearBtn
 6. Summary fix media querry height
 
+7. Nav: aktive Seite kennzeichnen
+8. Addtask: rote Umrandung runden
+9. padding <main>
+
 
 Info:
 
@@ -32,3 +36,7 @@ FeedBack Simon:
 -addTask category: category und color nebeneinander
           assignTo: checkbox rechts anordnen
 -legal Manu adresse
+
+-Nav: aktive Seite kennzeichnen
+-Addtask: rote Umrandung runden
+-phone type=number?

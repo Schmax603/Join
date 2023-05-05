@@ -84,8 +84,8 @@ async function keyframe() {
     await new Promise(resolve => setTimeout(resolve, 1000));
     console.log("Delayed for 1 second.");
     document.getElementById("addtask-create-task").classList.add("d-none");
-  }
-  
+}
+
 
 /**Save values into backend */
 async function addTask() {
@@ -152,7 +152,7 @@ async function addTask() {
         console.log("true XD")
         await keyframe();
         users[currentUser].tasks.push(newTask);
-        await setItem('users', JSON.stringify(users));
+        await saveUserData();
         // Zurücksetzen der Eingabefelder
     }
 }
