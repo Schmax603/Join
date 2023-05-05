@@ -4,6 +4,7 @@
  */
 function renderContactList() {
     sortContactsByName();
+    sortContactsPushingSignedUserToFront();
     clearElement('contacts-list');
 
     getInitialLetters().forEach(letter => {
@@ -68,9 +69,18 @@ function renderContact(contact) {
  * @returns {Array} The sorted `activeUserContacts` array.
  */
 function sortContactsByName() {
-    return activeUserContacts.sort((a, b) => {
+    activeUserContacts.sort((a, b) => {
         if (a.name < b.name) {
             return -1;
         }
     });
+}
+
+
+function sortContactsPushingSignedUserToFront() {
+    let indexYou = activeUserContacts.map(c => c.email).indexOf(activeUser.email);
+    if (indexYou > 0) {
+        activeUserContacts.splice(0, 0, activeUserContacts[indexYou]);
+        activeUserContacts.splice(indexYou + 1, 1);
+    }
 }

@@ -236,7 +236,7 @@ function renderBoardCardEditing(taskIndex) {
     setMinDate('dueDate-edit-input');
     activatePrioButton(task.prio);
     // todo: assigned contacts
-    renderContactsForDropDown();
+    renderContactsForDropDown(taskIndex);
     renderAssignedContactsForEditing(task);
 
     setEditTaskSubmitButton(taskIndex);
@@ -275,7 +275,7 @@ function saveEditedTask(task) {
     task.description = document.getElementById('description-edit-input').value;
     task.dueDate = document.getElementById('dueDate-edit-input').value;
     task.prio = getPrioViaActiveButton();
-    // todo: assigned contacts
+    saveAssignedContacts(task);
 }
 
 
@@ -304,34 +304,42 @@ function toggleActiveForDropDown(id) {
 }
 
 
-// function toggleCheckbox(index) {
-//     // todo
-// }
-
-
 /**Render all contacts */
-async function renderContactsForDropDown() {
+async function renderContactsForDropDown(taskIndex) {
+    let task = activeUser.tasks[taskIndex];
     let contactList = document.getElementById('assigned-edit-contact-list');
-    let contactsArray = getContactArrayStartingWithYou();
 
-    for (let i = 0; i < contactsArray.length; i++) {
-        const contact = contactsArray[i];
+    for (let i = 0; i < activeUser.contacts.length; i++) {
+        const contact = activeUser.contacts[i];
+        const contactChecked = arrayIncludesObject(task.assignedTo, contact) ? 'checked' : '';
         contactList.innerHTML += /*html*/`
-            <div class="assigned-edit-contact" onclick="toggleCheckbox(${i})">
+            <label for="assigned-edit-contact-checkbox-${i}" class="assigned-edit-contact">
                 <span>${contact.name}</span>
-                <input id="assigned-edit-contact-checkbox-${i}" type="checkbox">
-            </div>
+                <input id="assigned-edit-contact-checkbox-${i}" type="checkbox" ${contactChecked}>
+            </label>
         `;
     }
 }
 
 
-function getContactArrayStartingWithYou() {
-    let contactsArray = activeUser.contacts;
-    let indexYou = activeUser.contacts.indexOf(contact => contact.email === activeUser.email);
-    if (indexYou > 0) {
-        contactsArray.splice(indexYou, 1);
-        arr.splice(0, 0, activeUser.contacts[indexYou]);
+function saveAssignedContacts(task) {
+    task.assignedTo = [];
+
+    for (let i = 0; i < activeUser.contacts.length; i++) {
+        const contact = activeUser.contacts[i];
+        if (document.getElementById(`assigned-edit-contact-checkbox-${i}`).checked) {
+            task.assignedTo.push(contact);
+        }
     }
-    return contactsArray;
+}
+
+
+function arrayIncludesObject(array, object) {
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        if (JSON.stringify(element) === JSON.stringify(object)) {
+            return true;
+        }
+    }
+    return false;
 }
