@@ -91,7 +91,7 @@ async function keyframe() {
 /**Save values into backend */
 async function addTask() {
     await saveCheckedContacts();
-    await saveCheckedSubtasks();
+    await setCheckedSubtasksAsDone();
 
     const newTask = {
         "title": document.getElementById('task-title').value,
@@ -100,11 +100,12 @@ async function addTask() {
         "prio": priority,
         "category": category[selectCategory],
         "assignedTo": contacts,
-        "subtasks": subtasksChecked,
+        "subtasks": subtasks,
         "boardColumn": 'board-column-todo'
     };
 
-    console.log(priority)
+    // console.log(subtasks)
+    // subtasks = [];
 
     const prioIsWhat = document.querySelector('#addtask-prio .addtask-prio-bnt.active');
     const title = document.getElementById('task-title');
@@ -291,7 +292,7 @@ async function saveCheckedContacts() {
 
     for (let i = 0; i < contactsArray.length; i++) {
         const contact = contactsArray[i];
-        if (document.getElementById(`contact-checkbox${i}`).checked == true) {
+        if (document.getElementById(`contact-checkbox${i}`).checked) {
             contacts.push(contact);
         }
     }
@@ -300,22 +301,25 @@ async function saveCheckedContacts() {
 /**Save & load subtasks */
 function initSubtask() {
     let inputValue = document.getElementById('subtask');
-    subtasks.push(inputValue.value);    // Save temporary subtasks
+    subtasks.push({
+        name: inputValue.value,
+        done: false
+    });
     inputValue.value = '';
     renderSubtaskArray();
 }
 
-/**Save only checked Subtasks */
-async function saveCheckedSubtasks() {
+/**Set checked Subtasks as "done" */
+async function setCheckedSubtasksAsDone() {
     for (let i = 0; i < subtasks.length; i++) {
         const subtask = subtasks[i];
-        if (document.getElementById(`subtask-checkbox${i}`).checked == true) {
-            subtasksChecked.push(subtask);
+        if (document.getElementById(`subtask-checkbox${i}`).checked) {
+            subtask.done = true;
         }
     }
 }
 
-/**Load temporary Subtasks */
+/**Load Subtasks */
 function renderSubtaskArray() {
     let subtaskList = document.getElementById("dropNum(subtask)");
 
@@ -324,11 +328,11 @@ function renderSubtaskArray() {
         const subtask = subtasks[i];
 
         subtaskList.innerHTML += /*html*/`
-    <div>
-        <input type="checkbox" name="" id="subtask-checkbox${i}">
-        <label for="subtask-checkbox${i}">${subtask}</label>
-    </div>
-    `;
+            <div>
+                <input type="checkbox" name="" id="subtask-checkbox${i}">
+                <label for="subtask-checkbox${i}">${subtask.name}</label>
+            </div>
+        `;
     }
 }
 

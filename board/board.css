@@ -71,6 +71,7 @@ Overlay
 	justify-content: flex-start;
 	align-items: flex-start;
 	gap: 25px;
+	gap: 15px;
 }
 
 .board-card-assigned {
@@ -88,6 +89,21 @@ Overlay
 	justify-content: flex-start;
 	align-items: center;
 	gap: 25px;
+}
+
+.board-card-subtasks {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.board-card-subtask {
+	display: flex;
+	flex-direction: column;
+}
+
+.board-card-subtask-checkbox {
+	display: flex;
 }
 
 .card-close {

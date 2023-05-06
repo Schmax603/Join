@@ -3,7 +3,7 @@ Abgabe Ziele:
     Prio hoch
 1. ERLEDIGT    Board karten werden in der richtigen spalte gespeichert. (überschreiben des arrays und column neu setzen)
 2. ERLEDIGT    Board suche ist funktionsfähig
-3. Board karten sind gestylt und subtasks werden in der progressbar korrekt angezeigt.
+3. ERLEDIGT    Board karten sind gestylt und subtasks werden in der progressbar korrekt angezeigt.
 4. Board addTask spalten karten werden in der entsprechenden spalte gespeichert (auf Board umleiten?).
 5. Board drag&drop funktioniert in der mobile version
 6. ERLEDIGT    add task: bei guest im localstorage speichern
@@ -11,7 +11,7 @@ Abgabe Ziele:
 ====> Abgabe Join
 
     Prio niedrig
-1. Done legal Maximilian adresse
+1. ERLEDIGT   legal Maximilian adresse
 2.  ERLEDIGT    Login Animation blink entfernen
 3. addTask  category: category und color nebeneinander
             assignTo: checkbox rechts anordnen

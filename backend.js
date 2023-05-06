@@ -11,7 +11,7 @@ let category = [];
 let categoryColorPick;
 let selectCategory;
 let subtasks = [];
-let subtasksChecked = [];   //Save temporary
+// let subtasksChecked = [];   //Save temporary
 
 /**Onload Array */
 async function loadUsers() {

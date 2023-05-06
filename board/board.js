@@ -110,7 +110,8 @@ function getProgressOfSubtasks(task) {
 
 
 function getNumberOfDoneSubtasks(task) {
-    return 1; // TODO
+    let doneSubtasks = task.subtasks.filter(t => t.done);
+    return doneSubtasks.length;
 }
 
 
@@ -172,6 +173,7 @@ function renderBoardCardOverlay(task) {
     document.getElementById('priority').innerHTML = getPriorityAsString(task.prio);
     document.getElementById('priority-icon').src = `../img/prio-${task.prio}_white.svg`;
     document.getElementById('assignedTo').innerHTML = renderAssignedContactsForOverlay(task);
+    renderSubtaskCheckboxes(task);
     setBoardCardButtons(task);
 }
 
@@ -235,7 +237,6 @@ function renderBoardCardEditing(taskIndex) {
     document.getElementById('dueDate-edit-input').value = task.dueDate;
     setMinDate('dueDate-edit-input');
     activatePrioButton(task.prio);
-    // todo: assigned contacts
     renderContactsForDropDown(taskIndex);
     renderAssignedContactsForEditing(task);
 
@@ -253,6 +254,34 @@ function renderAssignedContactsForEditing(task) {
                 ${getInitials(contact)}
             </div>
         `;
+    }
+}
+
+
+function renderSubtaskCheckboxes(task) {
+    let subtaskContainer = document.getElementById('board-card-subtasks');
+
+    subtaskContainer.innerHTML = 'Subtasks';
+    for (let i = 0; i < task.subtasks.length; i++) {
+        const subtask = task.subtasks[i];
+        const subtaskChecked = subtask.done ? 'checked' : '';
+
+        subtaskContainer.innerHTML += /*html*/`
+            <label for="board-card-subtask-checkbox-${i}" class="board-card-subtask-checkbox fw-400" onclick="setStatusOfSubtasks(${activeUser.tasks.indexOf(task)})">
+                <input type="checkbox" name="" id="board-card-subtask-checkbox-${i}" ${subtaskChecked}>
+                <span>${subtask.name}</span>
+            </label>
+        `;
+    }
+}
+
+
+/**Set checked Subtasks as "done" */
+async function setStatusOfSubtasks(taskIndex) {
+    let task = activeUser.tasks[taskIndex];
+    for (let i = 0; i < task.subtasks.length; i++) {
+        const subtask = task.subtasks[i];
+        subtask.done = document.getElementById(`board-card-subtask-checkbox-${i}`).checked;
     }
 }
 
