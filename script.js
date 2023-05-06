@@ -57,7 +57,7 @@ function getRandomInt(max) {
 function getInitialLetters() {
     const initialLetters = [];
     activeUserContacts.forEach(contact => {
-        const initialLetter = getInitialLetter(contact);
+        const initialLetter = getInitialLetter(contact).toUpperCase();
         if (!initialLetters.includes(initialLetter))
             initialLetters.push(initialLetter);
     });
@@ -86,10 +86,10 @@ function getInitials(contact) {
     if (fullName.includes(' ')) {
         let firstName = fullName.substring(0, fullName.indexOf(' '));
         let lastName = fullName.substring(fullName.indexOf(' ') + 1);
-        return firstName.charAt(0) + lastName.charAt(0);
+        return firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
     }
     else {
-        return fullName.charAt(0);
+        return fullName.charAt(0).toUpperCase();
     }
 }
 

@@ -20,7 +20,7 @@ function renderContactList() {
 function renderLetterContacts(letter) {
     renderLetterHeader(letter);
     activeUserContacts.forEach(contact => {
-        if (getInitialLetter(contact) === letter)
+        if (getInitialLetter(contact).toUpperCase() === letter)
             renderContact(contact);
     });
 }
@@ -46,7 +46,7 @@ function renderLetterHeader(letter) {
  * @param {object} contact - The contact to render.
  */
 function renderContact(contact) {
-    const letter = getInitialLetter(contact);
+    const letter = getInitialLetter(contact).toUpperCase();
     const contactIndex = activeUserContacts.indexOf(contact);
     const container = document.getElementById(`letter-container-${letter}`);
     container.innerHTML += /*html*/`

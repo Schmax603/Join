@@ -15,15 +15,15 @@ Abgabe Ziele:
 2.  ERLEDIGT    Login Animation blink entfernen
 3. addTask  category: category und color nebeneinander
             assignTo: checkbox rechts anordnen
-4. Contacts: hover Effekt deleteBtn, editBtn? mobile
+4. ERLEDIGT   Contacts: hover Effekt deleteBtn, editBtn? mobile
 5. add Task: hover Effekt clearBtn
 6. Summary fix media querry height
-
 7. ERLEDIGT    Nav: aktive Seite kennzeichnen
 8. Addtask: rote Umrandung runden
 9. padding <main>
 10. ERLEDIGT    phone type=number?
 11. input-Felder: immer title=""
+12. ERLEDIGT    Contactlist und -icons: Anfangsbuchstaben immer groß (auch wenn im Kontakt klein geschrieben)
 
 
 Info:

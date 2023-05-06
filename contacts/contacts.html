@@ -81,7 +81,8 @@
                         <div class="cursor-d fs-21 fw-400">
                             Contact Information
                         </div>
-                        <div id="contact-details-edit" class="contact-edit fs-16 fw-400 desktop-only">
+                        <div id="contact-details-edit" class="contact-edit fs-16 fw-400 desktop-only"
+                            onclick="openEditContactOverlay(getActiveContact())">
                             <div w3-include-html="../img/pencilContacts.svg" style="display:flex"></div>
                             <span>Edit Contact</span>
                         </div>
@@ -108,13 +109,15 @@
                 <img src="../img/arrow_left.png">
             </div>
 
-            <div id="contact-details-edit-mobile" class="contact-edit fs-16 fw-400 mobile-only"
-                onclick="openEditContactOverlay(getActiveContact())">
-                <img src="../img/editResponsive.png" class="img-50">
-            </div>
+            <div class="edit-card-mobile">
+                <button id="contact-details-edit-mobile" class="mobile-only"
+                    onclick="openEditContactOverlay(getActiveContact())">
+                    <!-- <img src="../img/editResponsive.png" class="img-50"> -->
+                </button>
 
-            <div id="contact-delete-mobile" class="mobile-only" onclick="deleteContact(getActiveContact())">
-                <img src="../img/deleteButtonMobile.png" class="img-40">
+                <button id="contact-delete-mobile" class="mobile-only" onclick="deleteContact(getActiveContact())">
+                    <!-- <img src="../img/deleteButtonMobile.png" class="img-40"> -->
+                </button>
             </div>
         </div>
     </main>
