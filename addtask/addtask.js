@@ -10,6 +10,10 @@ async function initAddTask() {
     renderCategory();
     await renderContacts()
     giveContactListId();
+
+    if (localStorage.getItem('boardColumnToAddTask')) {
+        boardColumnToAddTask = localStorage.getItem('boardColumnToAddTask');
+    }
 }
 
 window.addEventListener('resize', media);
@@ -101,7 +105,7 @@ async function addTask() {
         "category": category[selectCategory],
         "assignedTo": contacts,
         "subtasks": subtasks,
-        "boardColumn": 'board-column-todo'
+        "boardColumn": boardColumnToAddTask
     };
 
     // console.log(subtasks)
@@ -155,6 +159,7 @@ async function addTask() {
         await keyframe();
         activeUser.tasks.push(newTask);
         await saveUserData();
+        window.location.href = '../board/board.html';
         // Zurücksetzen der Eingabefelder
     }
 }

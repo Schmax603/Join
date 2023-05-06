@@ -4,7 +4,7 @@ Abgabe Ziele:
 1. ERLEDIGT    Board karten werden in der richtigen spalte gespeichert. (überschreiben des arrays und column neu setzen)
 2. ERLEDIGT    Board suche ist funktionsfähig
 3. ERLEDIGT    Board karten sind gestylt und subtasks werden in der progressbar korrekt angezeigt.
-4. Board addTask spalten karten werden in der entsprechenden spalte gespeichert (auf Board umleiten?).
+4. ERLEDIGT    Board addTask spalten karten werden in der entsprechenden spalte gespeichert (auf Board umleiten?).
 5. Board drag&drop funktioniert in der mobile version
 6. ERLEDIGT    add task: bei guest im localstorage speichern
 

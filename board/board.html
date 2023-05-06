@@ -237,7 +237,8 @@
             <article class="board-column">
                 <div class="board-column-header">
                     <h2 class="board-column-headline cursor-d fs-21 fw-700 m-0">In progress</h2>
-                    <div id="addBtn-progress" class="board-column-header-add-btn img-50" onclick="openAddTaskOverlay()">
+                    <div id="addBtn-progress" class="board-column-header-add-btn img-50"
+                        onclick="openAddTaskOverlay('board-column-progress')">
                     </div>
                 </div>
                 <div id="board-column-progress" class="board-column-content" ondrop="moveTo('board-column-progress')"
@@ -248,7 +249,8 @@
             <article class="board-column">
                 <div class="board-column-header">
                     <h2 class="board-column-headline cursor-d fs-21 fw-700 m-0">Awaiting Feedback</h2>
-                    <div id="addBtn-feedback" class="board-column-header-add-btn img-50" onclick="openAddTaskOverlay()">
+                    <div id="addBtn-feedback" class="board-column-header-add-btn img-50"
+                        onclick="openAddTaskOverlay('board-column-feedback')">
                     </div>
                 </div>
                 <div id="board-column-feedback" class="board-column-content" ondrop="moveTo('board-column-feedback')"
@@ -259,7 +261,8 @@
             <article class="board-column">
                 <div class="board-column-header">
                     <h2 class="board-column-headline cursor-d fs-21 fw-700 m-0">Done</h2>
-                    <div id="addBtn-done" class="board-column-header-add-btn img-50" onclick="openAddTaskOverlay()">
+                    <div id="addBtn-done" class="board-column-header-add-btn img-50"
+                        onclick="openAddTaskOverlay('board-column-done')">
                     </div>
                 </div>
                 <div id="board-column-done" class="board-column-content" ondrop="moveTo('board-column-done')"

@@ -3,6 +3,7 @@ Global Constants and Variables
 ---------------------------------------------------*/
 const NUMBER_OF_BG_COLORS = 17; // see bgColors.css
 let activeUser;
+let boardColumnToAddTask = 'board-column-todo';
 
 
 /*--------------------------------------------------
@@ -123,12 +124,14 @@ function setMinDate(inputID) {
 /*--------------------------------------------------
 Overlays
 ---------------------------------------------------*/
-function openAddTaskOverlay() {
+function openAddTaskOverlay(columnID = 'board-column-todo') {
     // freezeBackground('overlay-fullscreen');
     // // renderAddTaskCard();
     // showElement('add-task-card');
     // slideInOverlay('add-task-card');
 
+    boardColumnToAddTask = columnID;
+    localStorage.setItem('boardColumnToAddTask', boardColumnToAddTask);
     location.href = '../addtask/addtask.html';
 }
 
