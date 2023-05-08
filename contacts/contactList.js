@@ -4,6 +4,7 @@
  */
 function renderContactList() {
     sortContactsByName();
+    sortContactsPushingSignedUserToFront();
     clearElement('contacts-list');
 
     getInitialLetters().forEach(letter => {
@@ -19,7 +20,7 @@ function renderContactList() {
 function renderLetterContacts(letter) {
     renderLetterHeader(letter);
     activeUserContacts.forEach(contact => {
-        if (getInitialLetter(contact) === letter)
+        if (getInitialLetter(contact).toUpperCase() === letter)
             renderContact(contact);
     });
 }
@@ -45,7 +46,7 @@ function renderLetterHeader(letter) {
  * @param {object} contact - The contact to render.
  */
 function renderContact(contact) {
-    const letter = getInitialLetter(contact);
+    const letter = getInitialLetter(contact).toUpperCase();
     const contactIndex = activeUserContacts.indexOf(contact);
     const container = document.getElementById(`letter-container-${letter}`);
     container.innerHTML += /*html*/`
@@ -68,9 +69,18 @@ function renderContact(contact) {
  * @returns {Array} The sorted `activeUserContacts` array.
  */
 function sortContactsByName() {
-    return activeUserContacts.sort((a, b) => {
+    activeUserContacts.sort((a, b) => {
         if (a.name < b.name) {
             return -1;
         }
     });
+}
+
+
+function sortContactsPushingSignedUserToFront() {
+    let indexYou = activeUserContacts.map(c => c.email).indexOf(activeUser.email);
+    if (indexYou > 0) {
+        activeUserContacts.splice(0, 0, activeUserContacts[indexYou]);
+        activeUserContacts.splice(indexYou + 1, 1);
+    }
 }

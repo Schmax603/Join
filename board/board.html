@@ -83,9 +83,11 @@
                 </div>
             </div>
 
-            <div class="board-card-assigned mobile-fs-16 fs-21 fw-700">Assigned To:
+            <div class="board-card-assigned mobile-fs-16 fs-21 fw-700 mb-20">Assigned To:
                 <div id="assignedTo">Assigned to</div>
             </div>
+
+            <div id="board-card-subtasks" class="board-card-subtasks mobile-fs-16 fs-21 fw-700"></div>
             <!-- Render Elements from Array -->
 
         </article>
@@ -165,7 +167,6 @@
                 </div>
             </div>
 
-            <!-- Todo -->
             <div id="assigned-edit" class="edit-input fs-21 fw-400 m-0">
                 <span>Assigned To</span>
 
@@ -236,7 +237,8 @@
             <article class="board-column">
                 <div class="board-column-header">
                     <h2 class="board-column-headline cursor-d fs-21 fw-700 m-0">In progress</h2>
-                    <div id="addBtn-progress" class="board-column-header-add-btn img-50" onclick="openAddTaskOverlay()">
+                    <div id="addBtn-progress" class="board-column-header-add-btn img-50"
+                        onclick="openAddTaskOverlay('board-column-progress')">
                     </div>
                 </div>
                 <div id="board-column-progress" class="board-column-content" ondrop="moveTo('board-column-progress')"
@@ -247,7 +249,8 @@
             <article class="board-column">
                 <div class="board-column-header">
                     <h2 class="board-column-headline cursor-d fs-21 fw-700 m-0">Awaiting Feedback</h2>
-                    <div id="addBtn-feedback" class="board-column-header-add-btn img-50" onclick="openAddTaskOverlay()">
+                    <div id="addBtn-feedback" class="board-column-header-add-btn img-50"
+                        onclick="openAddTaskOverlay('board-column-feedback')">
                     </div>
                 </div>
                 <div id="board-column-feedback" class="board-column-content" ondrop="moveTo('board-column-feedback')"
@@ -258,7 +261,8 @@
             <article class="board-column">
                 <div class="board-column-header">
                     <h2 class="board-column-headline cursor-d fs-21 fw-700 m-0">Done</h2>
-                    <div id="addBtn-done" class="board-column-header-add-btn img-50" onclick="openAddTaskOverlay()">
+                    <div id="addBtn-done" class="board-column-header-add-btn img-50"
+                        onclick="openAddTaskOverlay('board-column-done')">
                     </div>
                 </div>
                 <div id="board-column-done" class="board-column-content" ondrop="moveTo('board-column-done')"

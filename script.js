@@ -3,6 +3,7 @@ Global Constants and Variables
 ---------------------------------------------------*/
 const NUMBER_OF_BG_COLORS = 17; // see bgColors.css
 let activeUser;
+let boardColumnToAddTask = 'board-column-todo';
 
 
 /*--------------------------------------------------
@@ -56,7 +57,7 @@ function getRandomInt(max) {
 function getInitialLetters() {
     const initialLetters = [];
     activeUserContacts.forEach(contact => {
-        const initialLetter = getInitialLetter(contact);
+        const initialLetter = getInitialLetter(contact).toUpperCase();
         if (!initialLetters.includes(initialLetter))
             initialLetters.push(initialLetter);
     });
@@ -85,10 +86,10 @@ function getInitials(contact) {
     if (fullName.includes(' ')) {
         let firstName = fullName.substring(0, fullName.indexOf(' '));
         let lastName = fullName.substring(fullName.indexOf(' ') + 1);
-        return firstName.charAt(0) + lastName.charAt(0);
+        return firstName.charAt(0).toUpperCase() + lastName.charAt(0).toUpperCase();
     }
     else {
-        return fullName.charAt(0);
+        return fullName.charAt(0).toUpperCase();
     }
 }
 
@@ -123,12 +124,14 @@ function setMinDate(inputID) {
 /*--------------------------------------------------
 Overlays
 ---------------------------------------------------*/
-function openAddTaskOverlay() {
+function openAddTaskOverlay(columnID = 'board-column-todo') {
     // freezeBackground('overlay-fullscreen');
     // // renderAddTaskCard();
     // showElement('add-task-card');
     // slideInOverlay('add-task-card');
 
+    boardColumnToAddTask = columnID;
+    localStorage.setItem('boardColumnToAddTask', boardColumnToAddTask);
     location.href = '../addtask/addtask.html';
 }
 

@@ -14,7 +14,6 @@ function showContactDetails(contactIndex, justEdited = false) {
             removeElement('contacts-list-container');
         }
         renderContactDetails(contact);
-        setOpenEditContact(contact);
         showOverlay('contact-details-overlay');
     }, 220);
 }
@@ -128,20 +127,6 @@ function renderContactDetailsPhone(contact) {
         <b>Phone</b>
         <a href="tel:${contact.phone}">${contact.phone}</a>
     `;
-}
-
-
-/**
- * Sets the onclick function to open a contact for editing.
- * @param {Object} contact - The contact to set as open for editing.
- */
-function setOpenEditContact(contact) {
-    document.getElementById('contact-details-edit').onclick = () => {
-        openEditContactOverlay(contact);
-    };
-    document.getElementById('contact-details-edit-mobile').onclick = () => {
-        openEditContactOverlay(contact);
-    };
 }
 
 

@@ -373,7 +373,7 @@ Contact Details
     cursor: pointer;
 }
 
-#contact-details-edit-mobile {
+/* #contact-details-edit-mobile {
     position: absolute;
     bottom: 113px;
     right: 22px;
@@ -384,4 +384,52 @@ Contact Details
     bottom: 180px;
     right: 22px;
     cursor: pointer;
+} */
+
+.edit-card-mobile {
+    position: absolute;
+    right: 47px;
+    bottom: 61px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+#contact-details-edit-mobile {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: unset;
+    background-image: url(../img/editBtn_mobile.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+#contact-details-edit-mobile:hover {
+    background-image: url(../img/editBtn_mobile_hover.svg);
+}
+
+#contact-details-edit-mobile:active {
+    background-image: url(../img/editBtn_mobile_active.svg);
+}
+
+#contact-delete-mobile {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: unset;
+    background-image: url(../img/deleteBtn_mobile.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+#contact-delete-mobile:hover {
+    background-image: url(../img/deleteBtn_mobile_hover.svg);
+}
+
+#contact-delete-mobile:active {
+    background-image: url(../img/deleteBtn_mobile_active.svg);
 }
