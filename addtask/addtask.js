@@ -285,9 +285,9 @@ async function renderContacts() {
         const contact = contactsArray[i].name;
 
         contactList.innerHTML += /*html*/`
-        <div class="addtask-item contact-list paddings pos-re" onclick="checkboxSwitch(id)">${contact}
+        <label for="contact-checkbox${i}" class="addtask-item contact-list paddings pos-re" onclick="checkboxSwitch(id)">${contact}
             <input id="contact-checkbox${i}" type="checkbox">
-		</div>
+		</label>
         `;
     }
 }
