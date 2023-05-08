@@ -198,7 +198,7 @@ Contact Details
 ---------------------------------------------------*/
 .contacts-info-container {
     flex-grow: 1;
-    padding: 89px 52px 67px 52px;
+    padding: 80px 50px 70px 60px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -368,8 +368,8 @@ Contact Details
 
 .close-contact-info {
     position: absolute;
-    top: 34px;
-    right: 34px;
+    top: 30px;
+    right: 30px;
     cursor: pointer;
 }
 
@@ -388,8 +388,8 @@ Contact Details
 
 .edit-card-mobile {
     position: absolute;
-    right: 47px;
-    bottom: 61px;
+    right: 30px;
+    bottom: 60px;
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-end;

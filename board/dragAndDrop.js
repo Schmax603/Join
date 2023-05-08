@@ -57,9 +57,15 @@ function removeHighlight(boardColumn) {
 Drag and Drop Mobile
 ---------------------------------------------------*/
 // (function () {
-window.onload = async function () {
-    await initBoard();
+// window.onload = async function () {
+//     await initBoard();
+//     enableMobileDragAndDrop();
 
+// };
+// })();
+
+
+function enableMobileDragAndDrop() {
     // find the element that you want to drag.
     let taskElement = document.getElementById(`task-0`);
     let isDragging = false;
@@ -143,5 +149,4 @@ window.onload = async function () {
         }
         return null;
     }
-};
-// })();
+}

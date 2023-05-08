@@ -108,15 +108,15 @@ Overlay
 
 .card-close {
 	position: absolute;
-	top: 35px;
-	right: 45px;
+	top: 30px;
+	right: 30px;
 	cursor: pointer;
 }
 
 .edit-card {
 	position: absolute;
-	right: 47px;
-	bottom: 61px;
+	right: 30px;
+	bottom: 60px;
 	display: flex;
 }
 
@@ -312,7 +312,7 @@ Main
 ---------------------------------------------------*/
 main {
 	margin: 89px 0 0 232px;
-	padding: 82px 60px 0 70px;
+	padding: 80px 60px 0 70px;
 	height: calc(100vh - 89px - 82px);
 	display: flex;
 	flex-direction: column;
@@ -454,10 +454,6 @@ Board
 	cursor: pointer;
 	box-shadow: 0px 0px 14px 3px #0000000A;
 }
-
-/* #task-0 {
-	position: absolute;
-} */
 
 .task-card-category {
 	color: white;

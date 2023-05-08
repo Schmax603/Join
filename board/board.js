@@ -8,6 +8,7 @@ async function initBoard() {
     await initHeaderNav();
     activateNavSection('nav-board');
     renderBoardColumns();
+    enableMobileDragAndDrop();
 }
 
 
@@ -20,6 +21,7 @@ function renderBoardColumns() {
     renderColumn('board-column-progress');
     renderColumn('board-column-feedback');
     renderColumn('board-column-done');
+    enableMobileDragAndDrop();
 }
 
 

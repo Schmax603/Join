@@ -24,9 +24,9 @@ Media Queries for Width
         max-width: unset;
     }
 
-    .contacts-info-container {
+    /* .contacts-info-container {
         padding: 34px 34px 80px 34px;
-    }
+    } */
 
     .header-headline {
         font-size: 47px;
@@ -128,8 +128,12 @@ Media Queries for Width
         display: block;
     }
 
-    .close-contact-info {
+    /* .close-contact-info {
         top: 85px;
+    } */
+
+    .contacts-info-container {
+        padding: 35px 30px 80px 30px;
     }
 
     .create-or-edit-contact-overlay {

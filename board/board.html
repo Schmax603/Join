@@ -18,7 +18,7 @@
     <!-- Board style -->
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
-    <link rel="stylesheet" href="../addtask/addtask.css">
+    <!-- <link rel="stylesheet" href="../addtask/addtask.css"> -->
     <link rel="stylesheet" href="board.css">
     <link rel="stylesheet" href="../showAndHide.css">
     <link rel="stylesheet" href="../bgColors.css">
@@ -28,14 +28,14 @@
     <script src="../guestUserData.js"></script>
     <script src="../script.js"></script>
     <script src="board.js"></script>
-    <!-- <script src="dragAndDrop.js"></script> -->
+    <script src="dragAndDrop.js"></script>
     <script src="search.js"></script>
     <script src="../login/login.js"></script>
     <script src="/templets/addtask/addtask.js"></script>
 </head>
 
 
-<body id="body">
+<body id="body" onload="initBoard()">
 
     <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
 
@@ -275,7 +275,7 @@
         </section>
     </main>
 
-    <script src="dragAndDrop.js"></script>
+    <!-- <script src="dragAndDrop.js"></script> -->
 </body>
 
 </html>

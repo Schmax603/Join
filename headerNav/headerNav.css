@@ -14,7 +14,7 @@ Header
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 6;
+  z-index: 11;
 }
 
 .header-logo-small {
@@ -37,7 +37,7 @@ Header
   color: #CDCDCD;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
   border-radius: 20px 0px 20px 20px;
-  z-index: 10;
+  z-index: 11;
 }
 
 .mobile-drdo-menu-box {
@@ -77,7 +77,7 @@ nav {
   width: 232px;
   background-color: #2A3647;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, .1);
-  z-index: 6;
+  z-index: 10;
 }
 
 .n-logo {
@@ -137,10 +137,10 @@ Overlay legal, help
   height: calc(100vh - 89px);
   background-color: #F5F5F5;
   margin: 89px 0 0 232px;
-  padding: 82px 128px 0 123px;
+  padding: 80px 60px 0 70px;
   display: flex;
   flex-direction: column;
-  z-index: 101;
+  z-index: 10;
   overflow: auto;
 }
 
@@ -253,7 +253,8 @@ Media Querry
   ---------------------------------------------------*/
   .overlay {
     margin: unset;
-    padding: 10% 10% 0 10%;
+    /* padding: 10% 10% 0 10%; */
+    padding: 35px 30px 0 30px;
     overflow-y: auto;
     top: 80px;
     left: 0;
