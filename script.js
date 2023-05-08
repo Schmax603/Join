@@ -121,6 +121,16 @@ function setMinDate(inputID) {
 }
 
 
+/**
+ * Checks if the current screen width is at most a specified width.
+ * @param {string} screenWidth - The maximum screen width to check against.
+ * @returns {boolean} Whether or not the current screen width is at most the specified width.
+ */
+function screenWidthIsAtMost(screenWidth) {
+    return window.matchMedia(`(max-width: ${screenWidth})`).matches;
+}
+
+
 /*--------------------------------------------------
 Overlays
 ---------------------------------------------------*/

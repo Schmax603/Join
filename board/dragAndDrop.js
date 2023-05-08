@@ -56,15 +56,6 @@ function removeHighlight(boardColumn) {
 /*--------------------------------------------------
 Drag and Drop Mobile
 ---------------------------------------------------*/
-// (function () {
-// window.onload = async function () {
-//     await initBoard();
-//     enableMobileDragAndDrop();
-
-// };
-// })();
-
-
 function enableMobileDragAndDrop() {
     // find the element that you want to drag.
     let taskElement = document.getElementById(`task-0`);
@@ -75,11 +66,7 @@ function enableMobileDragAndDrop() {
     taskElement.addEventListener('touchstart', function (e) {
         isDragging = true;
         startDragging(0)
-        taskElement.style.position = 'absolute';
-        taskElement.style.zIndex = '20';
-        taskElement.style.boxShadow = '0px 0px 14px 3px rgba(0, 0, 0, 1);';
-        // taskElement.style.width = '16%';
-        taskElement.style.width = '45%';
+        taskElement.classList.add('task-ondrag');
     });
 
     /* listen to the touchmove event,
@@ -94,21 +81,24 @@ function enableMobileDragAndDrop() {
             let touchLocation = e.targetTouches[0];
 
             // assign taskElement new coordinates based on the touch.
-            taskElement.style.left = touchLocation.pageX - 100 + 'px';
+            taskElement.style.left = touchLocation.pageX - 0.5 * getTaskWidthOnDrag() + 'px';
             taskElement.style.top = touchLocation.pageY - 100 + 'px';
 
-            let left = parseInt(taskElement.style.left);
-            let top = parseInt(taskElement.style.top);
+            let left = parseInt(taskElement.style.left) + 0.5 * getTaskWidthOnDrag();
+            let top = parseInt(taskElement.style.top) + 100;
+
             let dropTarget = findDropTarget(left, top);
             if (dropTarget) {
                 let boardColumn = dropTarget.id;
                 highlight(boardColumn);
+                taskElement.classList.add('task-ondrag-over-droptarget');
             }
             else {
                 removeHighlight('board-column-todo');
                 removeHighlight('board-column-progress');
                 removeHighlight('board-column-feedback');
                 removeHighlight('board-column-done');
+                taskElement.classList.remove('task-ondrag-over-droptarget');
             }
         }
     }, { passive: false });
@@ -123,8 +113,8 @@ function enableMobileDragAndDrop() {
             isDragging = false;
 
             // current taskElement position.
-            let left = parseInt(taskElement.style.left);
-            let top = parseInt(taskElement.style.top);
+            let left = parseInt(taskElement.style.left) + 0.5 * getTaskWidthOnDrag();
+            let top = parseInt(taskElement.style.top) + 100;
 
             // check if taskElement is over a drop target
             let dropTarget = findDropTarget(left, top);
@@ -136,20 +126,38 @@ function enableMobileDragAndDrop() {
                 console.log('Dropped on ' + boardColumn);
             }
             else {
-                taskElement.style.position = 'unset'; // in if-case above: this reset is done automatically
-                taskElement.style.width = 'unset'; // in if-case above: this reset is done automatically
+                taskElement.classList.remove('task-ondrag');
+                taskElement.classList.remove('task-ondrag-over-droptarget'); // in if-case above: this reset is done automatically
             }
         }
     });
+}
 
-    // helper function to find the drop target element under the given coordinates
-    function findDropTarget(x, y) {
-        let elements = document.elementsFromPoint(x, y);
-        for (let i = 0; i < elements.length; i++) {
-            if (elements[i].classList.contains('drop-target-mobile')) {
-                return elements[i];
-            }
+
+/** 
+ * Helper function to find a drop target element under the given coordinates
+ * @param {number} x - The given x coordinate.
+ * @param {number} y - The given y coordinate.
+ * @returns {HTMLElement} An element that contains the class 'drop-target-mobile' if one exists.
+ */
+function findDropTarget(x, y) {
+    let elements = document.elementsFromPoint(x, y);
+    for (let i = 0; i < elements.length; i++) {
+        if (elements[i].classList.contains('drop-target-mobile')) {
+            return elements[i];
         }
-        return null;
     }
+    return null;
+}
+
+
+function getTaskWidthOnDrag() {
+    let widthInPercent = 16;
+    if (screenWidthIsAtMost('900px')) {
+        widthInPercent = 80;
+    }
+    else if (screenWidthIsAtMost('1100px')) {
+        widthInPercent = 45;
+    }
+    return Math.round(window.innerWidth * widthInPercent / 100);
 }

@@ -22,7 +22,7 @@ Abgabe Ziele:
 7.  ERLEDIGT    Nav: aktive Seite kennzeichnen
 8.  ERLEDIGT    Addtask: rote Umrandung runden
 
-9. padding <main> (addTask)
+9.  ERLEDIGT    padding <main> (addTask)
 10. ERLEDIGT    phone type=number?
 
 11. input-Felder: immer title=""

@@ -456,6 +456,17 @@ Board
 	z-index: 15;
 }
 
+.task-ondrag {
+	position: absolute;
+	width: 16%;
+	z-index: 20;
+	box-shadow: 0px 0px 7px 3px rgba(100, 0, 0, 0.4);
+}
+
+.task-ondrag-over-droptarget {
+	box-shadow: 0px 0px 7px 3px rgba(0, 100, 0, 0.4);
+}
+
 .task-card-category {
 	color: white;
 	border-radius: 8px;
@@ -545,6 +556,10 @@ Media Querry
 
 	.board-column {
 		width: 80%;
+	}
+
+	.task-ondrag {
+		width: 45%;
 	}
 }
 
@@ -657,6 +672,10 @@ Media Querry
 
 	.board-column {
 		width: 100%;
+	}
+
+	.task-ondrag {
+		width: 80%;
 	}
 
 }
