@@ -456,6 +456,10 @@ Board
 	z-index: 15;
 }
 
+/* .task-ondragstart {
+	box-shadow: 0px 0px 7px 3px rgba(100, 0, 0, 0.4);
+} */
+
 .task-ondrag {
 	position: absolute;
 	width: 16%;
