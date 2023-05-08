@@ -440,6 +440,7 @@ Board
 	box-sizing: border-box;
 	border-radius: 20px;
 	padding: 8px;
+	/* position: relative; */
 }
 
 .task {
@@ -453,6 +454,10 @@ Board
 	cursor: pointer;
 	box-shadow: 0px 0px 14px 3px #0000000A;
 }
+
+/* #task-0 {
+	position: absolute;
+} */
 
 .task-card-category {
 	color: white;

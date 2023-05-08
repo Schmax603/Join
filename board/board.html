@@ -28,14 +28,14 @@
     <script src="../guestUserData.js"></script>
     <script src="../script.js"></script>
     <script src="board.js"></script>
-    <script src="dragAndDrop.js"></script>
+    <!-- <script src="dragAndDrop.js"></script> -->
     <script src="search.js"></script>
     <script src="../login/login.js"></script>
     <script src="/templets/addtask/addtask.js"></script>
 </head>
 
 
-<body id="body" onload="initBoard()">
+<body id="body">
 
     <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
 
@@ -229,8 +229,8 @@
                     <div id="addBtn-todo" class="board-column-header-add-btn img-50" onclick="openAddTaskOverlay()">
                     </div>
                 </div>
-                <div id="board-column-todo" class="board-column-content" ondrop="moveTo('board-column-todo')"
-                    ondragover="allowDrop(event); highlight('board-column-todo')"
+                <div id="board-column-todo" class="board-column-content drop-target-mobile"
+                    ondrop="moveTo('board-column-todo')" ondragover="allowDrop(event); highlight('board-column-todo')"
                     ondragleave="removeHighlight('board-column-todo')">
                 </div>
             </article>
@@ -241,7 +241,8 @@
                         onclick="openAddTaskOverlay('board-column-progress')">
                     </div>
                 </div>
-                <div id="board-column-progress" class="board-column-content" ondrop="moveTo('board-column-progress')"
+                <div id="board-column-progress" class="board-column-content drop-target-mobile"
+                    ondrop="moveTo('board-column-progress')"
                     ondragover="allowDrop(event); highlight('board-column-progress')"
                     ondragleave="removeHighlight('board-column-progress')">
                 </div>
@@ -253,7 +254,8 @@
                         onclick="openAddTaskOverlay('board-column-feedback')">
                     </div>
                 </div>
-                <div id="board-column-feedback" class="board-column-content" ondrop="moveTo('board-column-feedback')"
+                <div id="board-column-feedback" class="board-column-content drop-target-mobile"
+                    ondrop="moveTo('board-column-feedback')"
                     ondragover="allowDrop(event); highlight('board-column-feedback')"
                     ondragleave="removeHighlight('board-column-feedback')">
                 </div>
@@ -265,15 +267,15 @@
                         onclick="openAddTaskOverlay('board-column-done')">
                     </div>
                 </div>
-                <div id="board-column-done" class="board-column-content" ondrop="moveTo('board-column-done')"
-                    ondragover="allowDrop(event); highlight('board-column-done')"
+                <div id="board-column-done" class="board-column-content drop-target-mobile"
+                    ondrop="moveTo('board-column-done')" ondragover="allowDrop(event); highlight('board-column-done')"
                     ondragleave="removeHighlight('board-column-done')">
                 </div>
             </article>
         </section>
     </main>
 
-
+    <script src="dragAndDrop.js"></script>
 </body>
 
 </html>
