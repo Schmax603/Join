@@ -215,7 +215,7 @@ textarea {
 }
 
 .addtask-title {
-    margin-top: 19px;
+    margin-top: 80px;
     margin-bottom: 23px;
     font-weight: 700;
     font-size: 47px;
@@ -384,7 +384,7 @@ textarea {
 
 @media (min-width: 900px) {
     .amogus {
-        margin-left: 355px;
+        margin-left: 302px;
         margin-top: 96px;
     }
 
@@ -456,7 +456,7 @@ textarea {
         order: 1;
         float: left;
         z-index: 100;
-        width: 33%;
+        width: 45%;
         margin-right: 0px;
     }
 
@@ -465,9 +465,9 @@ textarea {
         display: flex;
         flex-direction: column;
         float: right;
-        margin-right: 123px;
-        margin-top: 194px;
-        width: 33%;
+        margin-right: 60px;
+        margin-top: 256px;
+        width: 45%;
         order: 3;
     }
 
