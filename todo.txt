@@ -5,6 +5,7 @@ Abgabe Ziele:
 2. ERLEDIGT    Board suche ist funktionsfähig
 3. ERLEDIGT    Board karten sind gestylt und subtasks werden in der progressbar korrekt angezeigt.
 4. ERLEDIGT    Board addTask spalten karten werden in der entsprechenden spalte gespeichert (auf Board umleiten?).
+
 5. Board drag&drop funktioniert in der mobile version
 6. ERLEDIGT    add task: bei guest im localstorage speichern
 
@@ -19,14 +20,12 @@ Abgabe Ziele:
 5.  ERLEDIGT    add Task: hover Effekt clearBtn
 6.  ERLEDIGT    Summary fix media querry height
 7.  ERLEDIGT    Nav: aktive Seite kennzeichnen
-8.  ERLEDIGT Addtask: rote Umrandung runden
+8.  ERLEDIGT    Addtask: rote Umrandung runden
 
 9. padding <main>
-
 10. ERLEDIGT    phone type=number?
 
 11. input-Felder: immer title=""
-
 12. ERLEDIGT    Contactlist und -icons: Anfangsbuchstaben immer groß (auch wenn im Kontakt klein geschrieben)
 
 
