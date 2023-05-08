@@ -28,6 +28,7 @@ Abgabe Ziele:
 11. input-Felder: immer title=""
 12. ERLEDIGT    Contactlist und -icons: Anfangsbuchstaben immer groß (auch wenn im Kontakt klein geschrieben)
 13. Vor Abgabe: pushEmptyarray() ausführen
+14. ERLEDIGT    dropdown-Menüs schließen bei Klick daneben
 
 
 Info:

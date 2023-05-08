@@ -1,4 +1,4 @@
-function generateHtmlLogin(){
+function generateHtmlLogin() {
   /**@alias module:generateHtmlLogin */
   return /*html*/`
   <div class="overlay-login-header">
@@ -8,8 +8,8 @@ function generateHtmlLogin(){
 
   <!--!!! return false =>  prevents the page from reloading-->
   <form onsubmit="userLogin(); return false" class="overlay-login-form">
-    <input id="loginEmail" type="email" placeholder="Email" autocomplete="current-password" required>
-    <input id="loginPassword" class="password-img" type="password" placeholder="Password" autocomplete="current-password" required>
+    <input id="loginEmail" type="email" placeholder="Email" autocomplete="current-password" title="" required>
+    <input id="loginPassword" class="password-img" type="password" placeholder="Password" autocomplete="current-password" title="" required>
     
     <div class="overlay-login-selection">
       
@@ -30,7 +30,7 @@ function generateHtmlLogin(){
 `
 }
 
-function generateHtmlWrongLogin(){
+function generateHtmlWrongLogin() {
   return /*html*/`
   <div class="msg-box ta-c fs-21 fw-400">
   Incorrect email or password.
@@ -38,7 +38,7 @@ function generateHtmlWrongLogin(){
 `
 }
 
-function generateHtmlSignUp(){
+function generateHtmlSignUp() {
   return /*html*/`
   <img onclick="closeSignup()" class="overlay-login-arrow arrow-black cursor-p img-16" src="../img/arrow_left.png" alt="arrow left black">
   <img onclick="closeSignup()" class="overlay-login-arrow arrow-blue cursor-p img-24" src="../img/arrow_left_blue.png" alt="arrow left blue">
@@ -50,9 +50,9 @@ function generateHtmlSignUp(){
      <!--!!! return false =>  prevents the page from reloading-->
      <form onsubmit="userSignUp(); return false" class="overlay-login-form">
 
-       <input id="signUpName" type="name" placeholder="Name" autocomplete="current-password" required>
-       <input id="signUpEmail" type="email" placeholder="Email" autocomplete="current-password" required>
-       <input id="signUpPassword" class="password-img" type="password" placeholder="Password" autocomplete="current-password" required>
+       <input id="signUpName" type="name" placeholder="Name" autocomplete="current-password" title="" required>
+       <input id="signUpEmail" type="email" placeholder="Email" autocomplete="current-password" title="" required>
+       <input id="signUpPassword" class="password-img" type="password" placeholder="Password" autocomplete="current-password" title="" required>
 
        <div class="overlay-login-buttons">
         <button type="submit" class="btn-dark bg-c-db cursor-p c-w fs-21 fw-700">Sign up</button>
@@ -62,7 +62,7 @@ function generateHtmlSignUp(){
 `
 }
 
-function generateHtmlEmailNotAvailable(){
+function generateHtmlEmailNotAvailable() {
   return /*html*/`
   <div class="msg-box ta-c fs-21 fw-400">
   Email already exists.
@@ -70,7 +70,7 @@ function generateHtmlEmailNotAvailable(){
 `
 }
 
-function generateHtmlRegistry(){
+function generateHtmlRegistry() {
   return /*html*/`
   <div class="msg-box ta-c fs-21 fw-400">
   You have registered successfully.
@@ -78,7 +78,7 @@ function generateHtmlRegistry(){
 `
 }
 
-function generateHtmlForgotPassword(){
+function generateHtmlForgotPassword() {
   return /*html*/`
   <img onclick="closeSignup()" class="overlay-login-arrow arrow-black cursor-p img-16" src="../img/arrow_left.png" alt="arrow left black">
   <img onclick="closeSignup()" class="overlay-login-arrow arrow-blue cursor-p img-24" src="../img/arrow_left_blue.png" alt="arrow left blue">
@@ -91,7 +91,7 @@ function generateHtmlForgotPassword(){
     <form onsubmit="saveRequesterLocal()" action="https://gruppe-534.developerakademie.net/send_mail.php" method="post" class="overlay-login-form">
       <p class="cursor-d fs-21  fw-400 ta-c mb-35">Don´t worry! We will send you an email with the instructions to reset your password.</p>
       
-      <input id="requesterEmail" name="requesterEmail" type="email" placeholder="Email" autocomplete="current-password" required>
+      <input id="requesterEmail" name="requesterEmail" type="email" placeholder="Email" autocomplete="current-password" title="" required>
       
       <div class="overlay-login-buttons">
         <button type="submit" class="btn-dark btn-send bg-c-db cursor-p c-w fs-21 fw-700">Send me the email</button>
