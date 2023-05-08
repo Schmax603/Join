@@ -77,7 +77,7 @@ input:focus {
 }
 
 .addtask-create {
-    z-index: 6;
+    z-index: 12;
     cursor: pointer;
 }
 
@@ -121,6 +121,7 @@ input:focus {
     flex-wrap: wrap;
     align-content: center;
     justify-content: space-around;
+    gap: 10px;
 }
 
 .addtask-create-text {
@@ -338,6 +339,7 @@ textarea {
     font-weight: 400;
     font-size: 16px;
 }
+
 .addTask-selection {
     position: relative;
 }
@@ -349,10 +351,12 @@ textarea {
     right: 0;
     /* translate: -100% -50%; */
 }
-.contact-list{
+
+.contact-list {
     padding-right: 21px;
     justify-content: space-between;
 }
+
 .subtask-list {
     display: flex;
     flex-direction: column;
@@ -497,12 +501,21 @@ textarea {
         width: 136px;
         height: 55px;
         cursor: pointer;
+        gap: unset;
     }
 
     .addtask-clear-bnt:hover {
         border: 1px solid #28aae2;
         color: #28aae2;
         box-shadow: 0px 20px 20px -10px #babdbd;
+    }
+
+    .addtask-clear-bnt:hover .cancel-icon {
+        background-image: url(../img/cancelHover.png);
+    }
+
+    .addtask-clear-bnt:active .cancel-icon {
+        background-image: url(../img/cancelActive.png);
     }
 
     .addtask-create {
@@ -519,6 +532,7 @@ textarea {
         width: 187px;
         height: 55px;
         border-radius: 10px;
+        gap: unset;
     }
 
     .addtask-create-bnt:hover {
@@ -536,7 +550,7 @@ textarea {
         color: #2A3647;
     }
 
-    .addtask-clear-text:hover {
+    .addtask-clear-bnt:hover .addtask-clear-text {
         color: #28aae2;
     }
 

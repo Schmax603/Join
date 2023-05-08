@@ -41,9 +41,10 @@
 	<button class="addtask-create addtask-bnt-center">
 		<div class="addtask-clear-bnt addtask-bnt-center d-nonemax1300" onclick="rel()">
 			<div class="addtask-clear-text">Clear</div>
-			<img src="/img/close.svg">
+			<div class="cancel-icon img-24"></div>
+			<!-- <img src="/img/close.svg"> -->
 		</div>
-		<script>function rel() {location.reload();}</script>
+		<script>function rel() { location.reload(); }</script>
 		<div class="addtask-create-bnt addtask-bnt-center">
 			<div onclick="addTask()" class="addtask-create-text">
 				<p class="d-nonemin1300">Create</p>
@@ -115,7 +116,8 @@
 
 						<div class="select-task-category" id="currentItem">
 
-							<div id="selected-element" class="d-flex gap-10 paddings" onclick="toggleActive('category-selection');">
+							<div id="selected-element" class="d-flex gap-10 paddings"
+								onclick="toggleActive('category-selection');">
 								Select task category
 							</div>
 						</div>
@@ -167,7 +169,7 @@
 
 						<div class="addtask-item contact-list paddings" id="contact-1" style="position: relative;"
 							onclick="newInput('new-mail');">
-							Invite new contact 
+							Invite new contact
 							<img src="/img/contactsaddtask.svg" alt="">
 						</div>
 
