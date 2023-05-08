@@ -29,8 +29,9 @@ Abgabe Ziele:
 12. ERLEDIGT    Contactlist und -icons: Anfangsbuchstaben immer groß (auch wenn im Kontakt klein geschrieben)
 13. Vor Abgabe: pushEmptyarray() ausführen
 14. ERLEDIGT    dropdown-Menüs schließen bei Klick daneben
-15. Subtasks on Enter
+15. ERLEDIGT    Subtasks on Enter
 16. ERLEDIGT    checkbox label: check bei klick auf ganze Zeile
+17. ERLEDIGT    Board card: "No assigned contacts yet"
 
 
 Info:

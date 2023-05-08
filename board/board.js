@@ -175,7 +175,9 @@ function renderBoardCardOverlay(task) {
     document.getElementById('priority').innerHTML = getPriorityAsString(task.prio);
     document.getElementById('priority-icon').src = `../img/prio-${task.prio}_white.svg`;
     document.getElementById('assignedTo').innerHTML = renderAssignedContactsForOverlay(task);
-    renderSubtaskCheckboxes(task);
+    if (task.subtasks.length) {
+        renderSubtaskCheckboxes(task);
+    }
     setBoardCardButtons(task);
 }
 
@@ -195,18 +197,23 @@ function getPriorityAsString(prioAsNumber) {
 
 
 function renderAssignedContactsForOverlay(task) {
-    let html = '';
-    for (let i = 0; i < task.assignedTo.length; i++) {
-        const contact = task.assignedTo[i];
-        html += `
-            <div class="assigned-contact">
-                <div class="contact-icon contact-overlay-icon-board fs-16 fw-400 ${contact.color}">
-                    ${getInitials(contact)}
+    let html = '<span class="fs-21 fw-400">No assigned contacts yet</span>';
+
+    if (task.assignedTo.length) {
+        html = '';
+        for (let i = 0; i < task.assignedTo.length; i++) {
+            const contact = task.assignedTo[i];
+            html += `
+                <div class="assigned-contact">
+                    <div class="contact-icon contact-overlay-icon-board fs-16 fw-400 ${contact.color}">
+                        ${getInitials(contact)}
+                    </div>
+                    <span class="fs-21 fw-400">${contact.name}</span>
                 </div>
-                <span class="fs-21 fw-400">${contact.name}</span>
-            </div>
-        `;
+            `;
+        }
     }
+
     return html;
 }
 

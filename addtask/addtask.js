@@ -380,6 +380,19 @@ async function trueFalesTranslater(params) {
 }
 
 
+/*-------------------------------------
+Trigger Subtask-Creation on Enter
+--------------------------------------*/
+let subtaskInput = document.getElementById('subtask');
+
+subtaskInput.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        saveNewCategory('subtask');
+    }
+});
+
+
 /*--------------------------------------------------
 The dead code grave
 ---------------------------------------------------*/
