@@ -215,8 +215,8 @@ function renderCategory() {
 
         categoryList.innerHTML += /*html*/`
         <div onclick="selectedCategory(${i})" class="addtask-item paddings addtask-id">
-            ${categoryElement.name}
             <div class="addtask-item-color color-cicle img-20 bg-${categoryElement.color}"></div>
+            ${categoryElement.name}
 		</div>
         `;
     }
