@@ -504,6 +504,11 @@ textarea {
         cursor: pointer;
     }
 
+    .addtask-clear-bnt:hover {
+        border: 1px solid #28aae2;
+        color: #28aae2;
+        box-shadow: 0px 20px 20px -10px #babdbd;
+    }
 
     .addtask-create {
         position: absolute;
@@ -534,6 +539,10 @@ textarea {
         font-size: 21px;
         line-height: 120%;
         color: #2A3647;
+    }
+
+    .addtask-clear-text:hover {
+        color: #28aae2;
     }
 
     .addtask-duedate {

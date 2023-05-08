@@ -120,6 +120,7 @@ async function addTask() {
 
     if (prioIsWhat === null || prioIsWhat === undefined) {
         document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ff0000";
+        document.getElementById('addtask-prio-whichBnt').style.border.radius = "10px";
     } else {
         document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ffffff";
     }
@@ -369,6 +370,11 @@ async function trueFalesTranslater(params) {
     console.log(activeList)
 }
 
+
+/*--------------------------------------------------
+The dead code grave
+---------------------------------------------------*/
+
 /*
 function assignedToCheckbox(id) {
 
@@ -380,7 +386,7 @@ function assignedToCheckbox(id) {
 
 }
 
-*/
+
 
 
 function dropSelectValue(params) {
@@ -396,7 +402,7 @@ function dropSelectValue(params) {
 
 
 }
-/*
+
 function dropdownValueCheck() {
     let dropNameQuery = document.querySelectorAll("[id*=dropNum]")
     const dropNameArray = [];

@@ -15,6 +15,10 @@ Global Variable
 	background-color: #FFFFFF;
 }
 
+.bor-r-10 {
+	border-radius: 10px;
+}
+
 .cursor-d {
 	cursor: default;
 }
