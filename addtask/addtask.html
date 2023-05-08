@@ -35,7 +35,8 @@
 
 </head>
 
-<body id="body" onload="initAddTask();" onclick="closeMenu()">
+<body id="body" onload="initAddTask();"
+	onclick="closeMenu(); closeDropDown('category-selection'); closeDropDown('mail-selection');">
 	<div w3-include-html="../headerNav/headerNav.html" style="height: 0;"></div>
 
 	<button class="addtask-create addtask-bnt-center">
@@ -106,7 +107,8 @@
 
 
 
-					<div id="category-selection" class="addtask-gendrop-coll collapsible inline-img">
+					<div id="category-selection" class="addtask-gendrop-coll collapsible inline-img"
+						onclick="doNotClose(event)">
 
 						<div class="select-task-category-img img-44">
 							<img id="category-img-dropdown" src="../img/dropdown.svg" alt="drop down">
@@ -147,7 +149,8 @@
 			<div class="addtask-gencon addtask-assigned-to">
 				<div class="addtask-gentext cursor-d"><span>Assigned to</span></div>
 
-				<div id="mail-selection" class="addtask-gendrop-coll collapsible inline-img">
+				<div id="mail-selection" class="addtask-gendrop-coll collapsible inline-img"
+					onclick="doNotClose(event)">
 
 					<div class="select-task-category-img img-44">
 						<img id="mail-img-dropdown" src="../img/dropdown.svg" alt="drop down">

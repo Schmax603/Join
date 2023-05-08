@@ -264,6 +264,11 @@ function doNotClose(event) {
 }
 
 
+function closeDropDown(id) {
+    document.getElementById(id).classList.remove('collapsed');
+}
+
+
 /*--------------------------------------------------
 User Data
 ---------------------------------------------------*/

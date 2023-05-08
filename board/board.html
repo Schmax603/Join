@@ -40,7 +40,7 @@
     <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
 
     <section id="overlay-fullscreen" class="overlay-fullscreen d-none"
-        onclick="closeAddTaskOverlay(); closeBoardCardOverlay();">
+        onclick="closeAddTaskOverlay(); closeBoardCardOverlay(); closeDropDown('assigned-edit-dropdown');">
 
         <article id="add-task-card" class="add-task-card d-none" onclick="doNotClose(event)">
             <h2>WORK IN PROGRESS</h2><span>Add Task Overlay</span>
@@ -111,7 +111,8 @@
 
         </article>
 
-        <form id="board-card-edit" class="board-card d-none" onclick="doNotClose(event)">
+        <form id="board-card-edit" class="board-card d-none"
+            onclick="doNotClose(event); closeDropDown('assigned-edit-dropdown')">
 
             <div class="card-close" onclick="closeBoardCardOverlay()">
                 <img class="desktop-only" src="../img/close.png" alt="close">
@@ -170,7 +171,7 @@
             <div id="assigned-edit" class="edit-input fs-21 fw-400 m-0">
                 <span>Assigned To</span>
 
-                <div id="assigned-edit-dropdown" class="dropdown-menu fs-21 fw-400 mb-20">
+                <div id="assigned-edit-dropdown" class="dropdown-menu fs-21 fw-400 mb-20" onclick="doNotClose(event)">
                     <div class="select-task-contacts" onclick="toggleActiveForDropDown('assigned-edit-dropdown');">
                         Select task contacts to assign
                     </div>
