@@ -148,7 +148,7 @@ Summary greetings
   display: none;
 }
 /*--------------------------------------------------
-Media Querry 
+Media Querry width
 ---------------------------------------------------*/
 @media(max-width: 1270px){
   .summary-infos{
@@ -158,6 +158,19 @@ Media Querry
     display: none;
   }
 } 
+@media (max-height: 950px){
+  .summary{
+    padding: 120px 53px 0 355px;
+  }
+  .summary-infos{
+    padding-top: 30px;
+  }
+}
+@media (max-height: 950px) and (max-width: 900px){
+  .summary{
+    padding: 114px 35px 35px 35px;
+  }
+}
 
 @media(max-width: 900px){
   .summary{
@@ -250,10 +263,20 @@ Media Querry
 
 @media (max-width: 400px){
   .summary{
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 100px 20px 0 20px;
   }
-  .summary-infos-tasks{
+  .summary-header-headline {
+    font-size: 37px;
+}
+.summary-header-subheadline{
+  font-size: 16px;
+  margin-top: 16px;
+  margin-bottom: 26px;
+}
+.summary-infos{
+  padding-top: 20px;
+}
+.summary-infos-tasks{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 10px;
@@ -266,12 +289,9 @@ Media Querry
   .summary-infos-tasks-card-amount{
     font-size: 47px;
   }
+  .fs-64 {
+    font-size: 37px;
 }
-
-@media (max-height: 850px){
-  .summary{
-    padding-bottom: 86px;
-  }
 }
 /*--------------------------------------------------
 Animation
