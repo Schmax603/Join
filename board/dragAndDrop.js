@@ -75,8 +75,11 @@ function enableMobileDragAndDrop() {
     taskElement.addEventListener('touchstart', function (e) {
         isDragging = true;
         startDragging(0)
-        this.style.position = 'absolute';
-        this.style.width = '20%';
+        taskElement.style.position = 'absolute';
+        taskElement.style.zIndex = '20';
+        taskElement.style.boxShadow = '0px 0px 14px 3px rgba(0, 0, 0, 1);';
+        // taskElement.style.width = '16%';
+        taskElement.style.width = '45%';
     });
 
     /* listen to the touchmove event,
@@ -91,8 +94,8 @@ function enableMobileDragAndDrop() {
             let touchLocation = e.targetTouches[0];
 
             // assign taskElement new coordinates based on the touch.
-            taskElement.style.left = touchLocation.pageX - 50 + 'px';
-            taskElement.style.top = touchLocation.pageY - 50 + 'px';
+            taskElement.style.left = touchLocation.pageX - 100 + 'px';
+            taskElement.style.top = touchLocation.pageY - 100 + 'px';
 
             let left = parseInt(taskElement.style.left);
             let top = parseInt(taskElement.style.top);
@@ -127,15 +130,15 @@ function enableMobileDragAndDrop() {
             let dropTarget = findDropTarget(left, top);
 
             if (dropTarget) {
-                // do something with the dropped element here
+                // drop element on boardColumn
                 let boardColumn = dropTarget.id;
                 await moveTo(boardColumn);
                 console.log('Dropped on ' + boardColumn);
-
             }
-            taskElement.style.position = 'static';
-            taskElement.style.width = 'unset';
-            taskElement.style.background = 'red';
+            else {
+                taskElement.style.position = 'unset'; // in if-case above: this reset is done automatically
+                taskElement.style.width = 'unset'; // in if-case above: this reset is done automatically
+            }
         }
     });
 
