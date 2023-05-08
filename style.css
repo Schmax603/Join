@@ -43,6 +43,10 @@ Global Variable
 	color: #FFFFFF;
 }
 
+.d-flex{
+	display: flex;
+}
+
 /* ===font-size=== */
 .fs-12 {
 	font-size: 12px;
@@ -92,7 +96,12 @@ Global Variable
 .fw-700 {
 	font-weight: 700;
 }
-
+.gap-10{
+	gap: 10px;
+}
+.height-46{
+	height: 46px;
+}
 .img-15 {
 	width: 15px;
 	height: 15px;

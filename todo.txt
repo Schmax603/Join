@@ -11,15 +11,15 @@ Abgabe Ziele:
 ====> Abgabe Join
 
     Prio niedrig
-1. ERLEDIGT   legal Maximilian adresse
+1.  ERLEDIGT    legal Maximilian adresse
 2.  ERLEDIGT    Login Animation blink entfernen
-3. addTask  category: category und color nebeneinander
-            assignTo: checkbox rechts anordnen
-4. ERLEDIGT   Contacts: hover Effekt deleteBtn, editBtn? mobile
+3.  ERLEDIGT    addTask  category: category und color nebeneinander
+                assignTo: checkbox rechts anordnen
+4.  ERLEDIGT    Contacts: hover Effekt deleteBtn, editBtn? mobile
 5. add Task: hover Effekt clearBtn
 6. Summary fix media querry height
-7. ERLEDIGT    Nav: aktive Seite kennzeichnen
-8. ERLEDIGT Addtask: rote Umrandung runden
+7.  ERLEDIGT    Nav: aktive Seite kennzeichnen
+8.  ERLEDIGT Addtask: rote Umrandung runden
 9. padding <main>
 10. ERLEDIGT    phone type=number?
 11. input-Felder: immer title=""

@@ -170,6 +170,7 @@ function newInput(section) {
     if (section === 'category') {
         generateHTMLNewCategory();
         document.getElementById('color-pick').classList.remove('d-none');
+        document.getElementById('category-selection').classList.add('height-46');
     }
     else if (section === 'new-mail') {
         window.location.href = '../contacts/contacts.html';
@@ -184,6 +185,7 @@ function newInput(section) {
 /**Cancel input and load drop down list */
 function cancelSection(section) {
     if (section === 'category') {
+        document.getElementById('category-selection').classList.remove('height-46');
         resetCetegory('category');
         renderCategory();
     } else if (section === 'new-mail') {
@@ -229,6 +231,7 @@ async function saveNewCategory(section) {
             // Save backend
             // await setItem('category', JSON.stringify(category));
             await saveUserData();
+            document.getElementById('category-selection').classList.remove('height-46');
             resetCetegory(inputValue);
             renderCategory();
         }
@@ -282,11 +285,8 @@ async function renderContacts() {
         const contact = contactsArray[i].name;
 
         contactList.innerHTML += /*html*/`
-        <div class="addtask-item paddings pos-re" onclick="checkboxSwitch(id)">${contact}
+        <div class="addtask-item contact-list paddings pos-re" onclick="checkboxSwitch(id)">${contact}
             <input id="contact-checkbox${i}" type="checkbox">
-        <!-- <div id="addtask-checkbox${i}" class="addtask-checkbox"> 
-                <div id="addtask-checkbox-active${i}" class="addtask-checkbox-active"></div>
-            </div> -->
 		</div>
         `;
     }
