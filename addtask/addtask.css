@@ -407,7 +407,7 @@ textarea {
     }
 
     .addtask-create {
-        position: absolute !important;
+        position: fixed !important;
         top: 14px;
         right: 25px;
         width: 124px;

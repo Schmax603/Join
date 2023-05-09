@@ -43,7 +43,7 @@ Simon abgabe
 24.             bord moba inspect container overflow
 25.             addtask moba create bnt scrollt raus
 26.             contacts add page des tel input field ist nicht type number
-27.             legal notice zu niedriger z-index ?         
+27. ERLEDIGT    legal notice zu niedriger z-index ?         
 
 Info:
 
