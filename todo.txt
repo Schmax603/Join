@@ -36,14 +36,14 @@ Abgabe Ziele:
 Simon abgabe
 18.             login signup bnt schriftgröße
 19.             bord addtask popup bei neuen task hinzufügen
-20.             addtask clear create task bnts nur ein bnt soll hochsprinegn beim hovern nicht der gesamte contioner
-21.             bord moba task edit container overvlow
-22.             bord moba hedernav profielbild nicht da
-23.             bord moba caten verschieben fasche fabe ? https://www.loom.com/share/1b14705662244f7aa134579c4d99be7d minute 5:32
-24.             bord moba inspect container overvlow
-25.             addtask moba create bnt srollt raus
-26.             contacts add page des tel input field ist nicht type nuber
-27.             legal notice zunidrieger z-index ?           
+20.             addtask clear create task bnts nur ein bnt soll hochspringen beim hovern nicht der gesamte container
+21.             bord moba task edit container overflow
+22.             bord moba hedernav profil bild nicht da
+23.             bord moba caten verschieben falsche farbe ? https://www.loom.com/share/1b14705662244f7aa134579c4d99be7d minute 5:32
+24.             bord moba inspect container overflow
+25.             addtask moba create bnt scrollt raus
+26.             contacts add page des tel input field ist nicht type number
+27.             legal notice zu niedriger z-index ?         
 
 Info:
 
