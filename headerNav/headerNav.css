@@ -2,167 +2,167 @@
 Header
 ---------------------------------------------------*/
 .header-headerNav {
-  padding-left: 70px;
-  padding-right: 33px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 232px;
-  height: 89px;
-  background-color: #FFFFFF;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 11;
+	padding-left: 70px;
+	padding-right: 33px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 232px;
+	height: 89px;
+	background-color: #FFFFFF;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 11;
 }
 
 .header-logo-small {
-  display: none;
+	display: none;
 }
 
 .h-menu {
-  display: flex;
-  align-items: center;
-  gap: 26px;
+	display: flex;
+	align-items: center;
+	gap: 26px;
 }
 
 .mobile-drdo-menu {
-  padding: 10px;
-  flex-direction: column;
-  position: absolute;
-  top: 89px;
-  right: 33px;
-  background-color: #2A3647;
-  color: #CDCDCD;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 20px 0px 20px 20px;
-  z-index: 11;
+	padding: 10px;
+	flex-direction: column;
+	position: absolute;
+	top: 89px;
+	right: 33px;
+	background-color: #2A3647;
+	color: #CDCDCD;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 20px 0px 20px 20px;
+	z-index: 11;
 }
 
 .mobile-drdo-menu-box {
-  height: 33px;
-  width: 110px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+	height: 33px;
+	width: 110px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 .mobile-only {
-  display: none;
+	display: none;
 }
 
 .animation {
-  animation: 250ms moveIn ease-in-out;
+	animation: 250ms moveIn ease-in-out;
 }
 
 @keyframes moveIn {
-  from {
-    right: -130px;
-  }
+	from {
+		right: -130px;
+	}
 
-  to {
-    right: 33px;
-  }
+	to {
+		right: 33px;
+	}
 }
 
 /*--------------------------------------------------
 Navbar
 ---------------------------------------------------*/
 nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 232px;
-  background-color: #2A3647;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, .1);
-  z-index: 10;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 232px;
+	background-color: #2A3647;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, .1);
+	z-index: 10;
 }
 
 .n-logo {
-  padding: 60px 60px 60px 60px;
-  max-width: 290px;
+	padding: 60px 60px 60px 60px;
+	max-width: 290px;
 }
 
 .n-nav {
-  padding-bottom: 112px;
-  height: calc(100vh - 242px - 112px);
-  width: 100%;
-  position: absolute;
-  top: 242px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+	padding-bottom: 112px;
+	height: calc(100vh - 242px - 112px);
+	width: 100%;
+	position: absolute;
+	top: 242px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .n-nav-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 .n-nav-ul-li {
-  padding-left: 54px;
-  display: flex;
-  gap: 21px;
-  justify-content: flex-start;
-  align-items: center;
-  list-style: none;
-  cursor: pointer;
+	padding-left: 54px;
+	display: flex;
+	gap: 21px;
+	justify-content: flex-start;
+	align-items: center;
+	list-style: none;
+	cursor: pointer;
 }
 
 .n-nav-ul-li:hover {
-  background-color: #0919314d;
+	background-color: #0919314d;
 }
 
 .n-nav-ul-li.active {
-  background-color: #091931;
+	background-color: #091931;
 }
 
 .n-more {
-  padding-left: 54px;
-  display: flex;
-  gap: 21px;
-  justify-content: flex-start;
-  align-items: center;
+	padding-left: 54px;
+	display: flex;
+	gap: 21px;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 /*--------------------------------------------------
 Overlay legal, help
 ---------------------------------------------------*/
 .overlay {
-  position: absolute;
-  top: 0;
-  height: calc(100vh - 89px);
-  background-color: #F5F5F5;
-  margin: 89px 0 0 232px;
-  padding: 80px 60px 0 70px;
-  display: flex;
-  flex-direction: column;
-  z-index: 10;
-  overflow: auto;
+	position: absolute;
+	top: 0;
+	height: calc(100vh - 89px);
+	background-color: #F5F5F5;
+	margin: 89px 0 0 232px;
+	padding: 80px 60px 0 70px;
+	display: flex;
+	flex-direction: column;
+	z-index: 20;
+	overflow: auto;
 }
 
 .overlay-header {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
 }
 
 .overlay-h1 {
-  gap: 100%;
-  display: flex;
+	gap: 100%;
+	display: flex;
 }
 
 .overlay-h1 img:hover {
-  margin-left: 20px;
-  cursor: pointer;
+	margin-left: 20px;
+	cursor: pointer;
 }
 
 .bnt {
-  top: 82.51px;
-  right: 126.17px;
+	top: 82.51px;
+	right: 126.17px;
 }
 
 /*--------------------------------------------------
@@ -170,126 +170,126 @@ Media Query
 ---------------------------------------------------*/
 @media (max-width: 900px) {
 
-  /*--------------------------------------------------
+	/*--------------------------------------------------
   <900 header
   ---------------------------------------------------*/
-  .header-headerNav {
-    height: 80px;
-    padding: 0 25px;
-    left: 0;
-  }
+	.header-headerNav {
+		height: 80px;
+		padding: 0 25px;
+		left: 0;
+	}
 
-  .header-logo-small {
-    display: flex;
-  }
+	.header-logo-small {
+		display: flex;
+	}
 
-  .header-text {
-    display: none;
-  }
+	.header-text {
+		display: none;
+	}
 
-  #header-help-icon {
-    display: none;
-  }
+	#header-help-icon {
+		display: none;
+	}
 
-  .mobile-drdo-menu {
-    top: 80px;
-    right: 25px;
-  }
+	.mobile-drdo-menu {
+		top: 80px;
+		right: 25px;
+	}
 
-  .mobile-drdo-menu-box {
-    display: flex;
-  }
+	.mobile-drdo-menu-box {
+		display: flex;
+	}
 
-  /*--------------------------------------------------
+	/*--------------------------------------------------
   <900 Navbar
   ---------------------------------------------------*/
-  nav {
-    position: fixed;
-    width: 100%;
-    height: 80px;
-    top: calc(100vh - 80px)
-  }
+	nav {
+		position: fixed;
+		width: 100%;
+		height: 80px;
+		top: calc(100vh - 80px)
+	}
 
-  .n-logo {
-    display: none;
-  }
+	.n-logo {
+		display: none;
+	}
 
-  .n-nav {
-    padding-bottom: 0;
-    height: 100%;
-    flex-direction: row;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
+	.n-nav {
+		padding-bottom: 0;
+		height: 100%;
+		flex-direction: row;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
 
-  .n-nav-ul {
-    height: 100%;
-    width: 100%;
-    color: white;
-    display: flex;
-    justify-content: space-around;
-  }
+	.n-nav-ul {
+		height: 100%;
+		width: 100%;
+		color: white;
+		display: flex;
+		justify-content: space-around;
+	}
 
-  .n-nav-ul-li {
-    width: 90px;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0;
-    padding: 1%;
-  }
+	.n-nav-ul-li {
+		width: 90px;
+		flex-direction: column;
+		justify-content: center;
+		gap: 0;
+		padding: 1%;
+	}
 
-  .n-nav-ul-li p {
-    margin-top: 14px;
-    margin-bottom: 0;
-  }
+	.n-nav-ul-li p {
+		margin-top: 14px;
+		margin-bottom: 0;
+	}
 
-  .n-more {
-    display: none;
-  }
+	.n-more {
+		display: none;
+	}
 
-  /*--------------------------------------------------
+	/*--------------------------------------------------
   <900 Overlay legal, help
   ---------------------------------------------------*/
-  .overlay {
-    margin: unset;
-    /* padding: 10% 10% 0 10%; */
-    padding: 35px 30px 0 30px;
-    overflow-y: auto;
-    top: 80px;
-    left: 0;
-    height: calc(100vh - 80px - 80px);
-  }
+	.overlay {
+		margin: unset;
+		/* padding: 10% 10% 0 10%; */
+		padding: 35px 30px 0 30px;
+		overflow-y: auto;
+		top: 80px;
+		left: 0;
+		height: calc(100vh - 80px - 80px);
+	}
 
-  .overlay-h1 {
-    gap: 50%;
-  }
+	.overlay-h1 {
+		gap: 50%;
+	}
 }
 
 @media (max-width: 400px) {
 
-  /*--------------------------------------------------
+	/*--------------------------------------------------
   <400 Navbar
   ---------------------------------------------------*/
-  .nav-txt {
-    font-size: 14px;
-  }
+	.nav-txt {
+		font-size: 14px;
+	}
 }
 
 @media (max-width: 350px) {
 
-  /*--------------------------------------------------
+	/*--------------------------------------------------
   <350 Overlay legal, help
   ---------------------------------------------------*/
-  .overlay-h1 {
-    gap: 10%;
-  }
+	.overlay-h1 {
+		gap: 10%;
+	}
 
-  .overlay-h1 h1 {
-    font-size: 40px;
-  }
+	.overlay-h1 h1 {
+		font-size: 40px;
+	}
 }
 
 .d-none {
-  display: none;
+	display: none;
 }
