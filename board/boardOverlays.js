@@ -27,7 +27,7 @@ function closeBoardCardOverlay() {
  */
 function renderBoardCardOverlay(task) {
     document.getElementById('category').innerHTML = task.category.name;
-    document.getElementById('category').classList.add(`bg-${task.category.color}`);
+    document.getElementById('category').classList = `board-card-category mobile-category fs-27 fw-400 mb-25 mobile-mb-32 bg-${task.category.color}`;
     document.getElementById('title').innerHTML = task.title;
     document.getElementById('description').innerHTML = task.description;
     document.getElementById('dueDate').innerHTML = task.dueDate;
@@ -67,7 +67,7 @@ function getPriorityAsString(prioAsNumber) {
  * @returns {string} - The HTML string for the assigned contacts section of the overlay.
  */
 function renderAssignedContactsForOverlay(task) {
-    let html = '<span class="fs-21 fw-400">No assigned contacts yet</span>';
+    let html = '<span class="fs-21 fw-400 mobile-fs-16">No assigned contacts yet</span>';
 
     if (task.assignedTo.length) {
         html = '';
@@ -75,10 +75,10 @@ function renderAssignedContactsForOverlay(task) {
             const contact = task.assignedTo[i];
             html += `
                 <div class="assigned-contact">
-                    <div class="contact-icon contact-overlay-icon-board fs-16 fw-400 ${contact.color}">
+                    <div class="contact-icon contact-overlay-icon-board fs-16 fw-400 mobile-fs-16 ${contact.color}">
                         ${getInitials(contact)}
                     </div>
-                    <span class="fs-21 fw-400">${contact.name}</span>
+                    <span class="fs-21 fw-400 mobile-fs-16">${contact.name}</span>
                 </div>
             `;
         }

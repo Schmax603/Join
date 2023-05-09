@@ -252,8 +252,9 @@ Overlay
 
 .board-card {
 	position: relative;
-	padding: 50px 50px 50px 50px;
+	padding: 50px;
 	width: calc(600px - 100px);
+	max-height: 80%;
 	background: #FFFFFF;
 	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 	border-radius: 30px;

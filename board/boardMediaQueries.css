@@ -62,32 +62,36 @@ Media Query
         border-radius: 10px;
     }
 
+    .edit-input {
+        width: 100%;
+    }
+
     .mobile-mb-29 {
-        margin-bottom: 29px;
+        margin-bottom: 29px !important;
     }
 
     .mobile-mb-32 {
-        margin-bottom: 32px;
+        margin-bottom: 32px !important;
     }
 
     .mobile-mb-35 {
-        margin-bottom: 35px;
+        margin-bottom: 35px !important;
     }
 
     .mobile-category {
-        font-size: 21px;
+        font-size: 21px !important;
     }
 
     .mobile-title {
-        font-size: 36px;
+        font-size: 36px !important;
     }
 
     .mobile-description {
-        font-size: 16px;
+        font-size: 16px !important;
     }
 
     .mobile-fs-16 {
-        font-size: 16px;
+        font-size: 16px !important;
     }
 
     /*--------------------------------------------------
@@ -129,5 +133,15 @@ Media Query
 
     .task-ondrag {
         width: 80%;
+    }
+}
+
+@media(max-width: 400px) {
+    #prio-edit {
+        flex-wrap: wrap;
+    }
+
+    .edit-prio-btn {
+        min-width: 100px;
     }
 }

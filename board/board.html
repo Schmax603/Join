@@ -65,7 +65,7 @@
                         src="../img/pencilBoard.svg" class="img-30" alt="edit"></button>
             </div>
 
-            <!-- Render Elements from Array -->
+            <!-- Render Elements from Array 21 36 16 -->
             <span id="category"
                 class="board-card-category mobile-category fs-27 fw-400 mb-25 mobile-mb-32">Category</span>
 
@@ -74,7 +74,7 @@
             <p id="description" class="mobile-description fs-21 fw-400 m-0 mb-25">Description<br> Lorem ipsum dolor sit
                 amet consectetur adipisicing elit. Nostrum, vel!</p>
 
-            <div class="mobile-fs-16 fs-21 fw-700 mb-25 mobile-mb-35">Due Date:
+            <div class="fs-21 fw-700 mobile-fs-16 mb-25 mobile-mb-35">Due Date:
                 <span id="dueDate" class="fw-400 ml-25">Due Date</span>
             </div>
 
@@ -129,40 +129,42 @@
             </div>
 
             <!-- Render Elements from Array -->
-            <div id="title-edit" class="edit-input fs-21 fw-400 m-0 mb-20">
+            <div id="title-edit" class="edit-input fs-21 fw-400 mobile-fs-16 m-0 mb-20">
                 <span>Title</span>
-                <input id="title-edit-input" class="fs-21 fw-400" type="text" title="" required>
+                <input id="title-edit-input" class="fs-21 fw-400 mobile-fs-16" type="text" title="" required>
             </div>
 
-            <div id="description-edit" class="edit-input fs-21 fw-400 m-0 mb-30">
+            <div id="description-edit" class="edit-input fs-21 fw-400 mobile-fs-16 m-0 mb-30">
                 <span>Description</span>
-                <textarea id="description-edit-input" class="fs-21 fw-400" title="" required></textarea>
+                <textarea id="description-edit-input" class="fs-21 fw-400 mobile-fs-16" title="" required></textarea>
             </div>
 
-            <div id="dueDate-edit" class="edit-input fs-21 fw-400 m-0 mb-30">
+            <div id="dueDate-edit" class="edit-input fs-21 fw-400 mobile-fs-16 m-0 mb-30">
                 <span>Due Date</span>
-                <input id="dueDate-edit-input" class="fs-21 fw-400" type="date" min="" title="" required>
+                <input id="dueDate-edit-input" class="fs-21 fw-400 mobile-fs-16" type="date" min="" title="" required>
             </div>
 
-            <div class="edit-input fs-21 fw-400 m-0 mb-45">
+            <div class="edit-input fs-21 fw-400 mobile-fs-16 m-0 mb-45">
                 <span>Priority</span>
                 <div id="prio-edit">
-                    <button id="edit-prio-btn-urgent" class="edit-prio-btn edit-prio-btn-urgent fs-21 fw-400"
-                        type="button" onclick="activatePrioButton(2)">
+                    <button id="edit-prio-btn-urgent"
+                        class="edit-prio-btn edit-prio-btn-urgent fs-21 fw-400 mobile-fs-16" type="button"
+                        onclick="activatePrioButton(2)">
                         <span>Urgent</span>
                         <img class="prio-image" src="../img/prio-2.svg">
                         <img class="prio-image-active" src="../img/prio-2_white.svg">
                     </button>
 
-                    <button id="edit-prio-btn-medium" class="edit-prio-btn edit-prio-btn-medium fs-21 fw-400"
-                        type="button" onclick="activatePrioButton(1)">
+                    <button id="edit-prio-btn-medium"
+                        class="edit-prio-btn edit-prio-btn-medium fs-21 fw-400 mobile-fs-16" type="button"
+                        onclick="activatePrioButton(1)">
                         <span>Medium</span>
                         <img class="prio-image" src="../img/prio-1.svg">
                         <img class="prio-image-active" src="../img/prio-1_white.svg">
                     </button>
 
-                    <button id="edit-prio-btn-low" class="edit-prio-btn edit-prio-btn-low fs-21 fw-400" type="button"
-                        onclick="activatePrioButton(0)">
+                    <button id="edit-prio-btn-low" class="edit-prio-btn edit-prio-btn-low fs-21 fw-400 mobile-fs-16"
+                        type="button" onclick="activatePrioButton(0)">
                         <span>Low</span>
                         <img class="prio-image" src="../img/prio-0.svg">
                         <img class="prio-image-active" src="../img/prio-0_white.svg">
@@ -170,10 +172,11 @@
                 </div>
             </div>
 
-            <div id="assigned-edit" class="edit-input fs-21 fw-400 m-0">
+            <div id="assigned-edit" class="edit-input fs-21 fw-400 mobile-fs-16 m-0">
                 <span>Assigned To</span>
 
-                <div id="assigned-edit-dropdown" class="dropdown-menu fs-21 fw-400 mb-20" onclick="doNotClose(event)">
+                <div id="assigned-edit-dropdown" class="dropdown-menu fs-21 fw-400 mobile-fs-16 mb-20"
+                    onclick="doNotClose(event)">
                     <div class="select-task-contacts" onclick="toggleActiveForDropDown('assigned-edit-dropdown');">
                         Select task contacts to assign
                     </div>

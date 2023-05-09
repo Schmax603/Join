@@ -105,12 +105,12 @@ input[type=number] {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    /* margin: 0; */
 }
 
 /* Remove Arrows/Spinners for Firefox */
 input[type=number] {
     -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 #form-contact-buttons {
