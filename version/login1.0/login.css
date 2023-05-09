@@ -1,24 +1,29 @@
-body{
+body {
   height: 100vh;
   background-color: #F5F5F5;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 /*--------------------------------------------------
 Global elements
 ---------------------------------------------------*/
-button{
+button {
   height: 49px;
   border-radius: 8px;
 }
-form{
+
+form {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-form input[type=email], input[type=name], input[type=password]{
+
+form input[type=email],
+input[type=name],
+input[type=password] {
   margin-bottom: 49px;
   width: 85%;
   padding: 13px 21px;
@@ -29,53 +34,64 @@ form input[type=email], input[type=name], input[type=password]{
   border: 1px solid #D1D1D1;
   border-radius: 10px;
 }
-form input:last-child{
+
+form input:last-child {
   margin-bottom: 55px;
 }
-input[type=email]{
+
+input[type=email] {
   background-image: url(../img/emailInput.png);
   background-repeat: no-repeat;
   background-position: 95%;
 }
-.password-img{
+
+.password-img {
   background-image: url(../img/lock.png);
   background-repeat: no-repeat;
   background-position: 95%;
 }
-input:focus{
+
+input:focus {
   outline: none;
 }
-input[type=checkbox]{
+
+input[type=checkbox] {
   margin-right: 20px;
 }
+
 /*--------------------------------------------------
 Buttons
 ---------------------------------------------------*/
-.main-login-btn{
+.main-login-btn {
   padding: 16px;
   display: flex;
   align-items: center;
 }
-.btn-bright{
+
+.btn-bright {
   border: 1px solid #2A3647;
 }
-.btn-bright:hover{
+
+.btn-bright:hover {
   border: 1px solid #29ABE2;
   color: #29ABE2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.btn-dark{
+
+.btn-dark {
   border: 1px solid #2A3647;
 }
-.btn-dark:hover{
+
+.btn-dark:hover {
   border: 1px solid #29ABE2;
   background-color: #29ABE2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 /*--------------------------------------------------
 Main overlay
 ---------------------------------------------------*/
-.main-overlay{
+.main-overlay {
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -83,16 +99,19 @@ Main overlay
   justify-content: flex-end;
   align-items: flex-start;
 }
-.main-logo-white{
+
+.main-logo-white {
   opacity: 0;
 }
-.main-logo{
+
+.main-logo {
   width: 100px;
   position: absolute;
   top: 80px;
   left: 77px;
 }
-.main-login{
+
+.main-login {
   margin-top: 67px;
   margin-right: 114px;
   display: flex;
@@ -100,10 +119,11 @@ Main overlay
   gap: 35px;
   z-index: 1;
 }
+
 /*--------------------------------------------------
 Login overlay
 ---------------------------------------------------*/
-.overlay{
+.overlay {
   position: absolute;
   top: 0;
   right: 0;
@@ -114,7 +134,8 @@ Login overlay
   align-items: center;
   flex-direction: column;
 }
-#msg-box{
+
+#msg-box {
   /* margin-top: 25px; */
   padding: 24px;
   color: #FFFFFF;
@@ -125,8 +146,9 @@ Login overlay
   bottom: 5%;
   /* transform: translate(-50%); */
   z-index: 10;
-  }
-.overlay-login{
+}
+
+.overlay-login {
   margin: 0 15%;
   max-width: 826px;
   position: relative;
@@ -138,117 +160,144 @@ Login overlay
   border-radius: 30px;
   z-index: 1;
 }
-.overlay-login-arrow{
+
+.overlay-login-arrow {
   position: absolute;
   top: 41px;
   left: 37px;
 }
-.arrow-black{
+
+.arrow-black {
   display: none;
 }
-.overlay-login-header{
+
+.overlay-login-header {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.border{
+
+.border {
   width: 150px;
   height: 3px;
   background-color: #29ABE2;
   margin-top: 24px;
   margin-bottom: 35px;
 }
-.overlay-login-selection-support{
+
+.overlay-login-selection-support {
   display: flex;
   margin-bottom: 35px;
   align-items: baseline;
 }
-.overlay-login-buttons{
+
+.overlay-login-buttons {
   display: flex;
   justify-content: space-between;
 }
-.overlay-login-buttons button{
+
+.overlay-login-buttons button {
   width: 145px;
 }
-.overlay-login-buttons .btn-send{
+
+.overlay-login-buttons .btn-send {
   padding-left: 30px;
   padding-right: 30px;
   width: 100%;
   max-width: 264px;
 }
+
 /*--------------------------------------------------
-Media Querry 
+Media Query 
 ---------------------------------------------------*/
-@media (max-width: 900px){
+@media (max-width: 900px) {
+
   /*--------------------------------------------------
   <900 global
   ---------------------------------------------------*/
-  .fs-21{
+  .fs-21 {
     font-size: 16px;
   }
-  .fs-61{
+
+  .fs-61 {
     font-size: 47px;
   }
-  .fs-61-pw{
+
+  .fs-61-pw {
     font-size: 40px;
   }
+
   /*--------------------------------------------------
   <900 main overlay
   ---------------------------------------------------*/
-  .main-overlay{
-   justify-content: center;
-   align-items: flex-end;
+  .main-overlay {
+    justify-content: center;
+    align-items: flex-end;
   }
-  .main-logo{
+
+  .main-logo {
     width: 64px;
   }
-  .main-login{
+
+  .main-login {
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 59px;
   }
+
   /*--------------------------------------------------
   <900 login overlay
   ---------------------------------------------------*/
-  .overlay-login{
+  .overlay-login {
     margin: 10px;
     padding: 35px 22px;
   }
-  .border{
+
+  .border {
     width: 88px;
   }
-  .header-forgot-password{
+
+  .header-forgot-password {
     padding-top: 21px;
     text-align: center;
   }
-  .overlay-login-arrow{
+
+  .overlay-login-arrow {
     top: 27px;
     left: 33px;
   }
-  .arrow-black{
+
+  .arrow-black {
     display: flex;
   }
-  .arrow-blue{
+
+  .arrow-blue {
     display: none;
   }
-  .overlay-login-selection{
+
+  .overlay-login-selection {
     width: 100%;
   }
-  form input:last-child{
+
+  form input:last-child {
     margin-bottom: 30px;
   }
-  .overlay-login-selection-support{
+
+  .overlay-login-selection-support {
     display: flex;
     flex-direction: column-reverse;
   }
-  .checkbox{
+
+  .checkbox {
     margin-top: 31px;
   }
-  .overlay-login-buttons{
+
+  .overlay-login-buttons {
     flex-direction: column;
     align-items: center;
   }
-  .overlay-login-buttons :first-child{
+
+  .overlay-login-buttons :first-child {
     margin-bottom: 21px;
   }
 }
@@ -256,30 +305,35 @@ Media Querry
 /*--------------------------------------------------
 Animation
 ---------------------------------------------------*/
-.animation-bg{
+.animation-bg {
   position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
 }
-.bg-animation{ 
+
+.bg-animation {
   animation: 1000ms bg-fade-out ease-in;
 }
-.logo-animate{
- animation: 1000ms moveLogo ease-in-out;
+
+.logo-animate {
+  animation: 1000ms moveLogo ease-in-out;
 }
-@keyframes bg-fade-out{
-  from{
+
+@keyframes bg-fade-out {
+  from {
     z-index: 10;
     background-color: #F5F5F5;
   }
-  to{
+
+  to {
     z-index: 0;
   }
 }
-@keyframes moveLogo{
-  from{
+
+@keyframes moveLogo {
+  from {
     width: 50vw;
     position: absolute;
     top: 50%;
@@ -287,25 +341,29 @@ Animation
     transform: translate(-50%, -50%);
     z-index: 15;
   }
-  to{
+
+  to {
     z-index: 5;
   }
 }
+
 /*--------------------------------------------------
 Animation <900
 ---------------------------------------------------*/
-@media(max-width: 900px){
-  .logo-animate-white{
+@media(max-width: 900px) {
+  .logo-animate-white {
     animation: 1000ms moveLogo-white ease-in-out;
   }
-  @keyframes bg-fade-out{
-    from{
+
+  @keyframes bg-fade-out {
+    from {
       z-index: 10;
       background-color: #2A3647;
     }
   }
-  @keyframes moveLogo-white{
-    from{
+
+  @keyframes moveLogo-white {
+    from {
       width: 50vw;
       position: absolute;
       top: 50%;
@@ -314,11 +372,13 @@ Animation <900
       opacity: 1;
       z-index: 20;
     }
-    to{
+
+    to {
       opacity: 0;
     }
   }
 }
-.d-none{
+
+.d-none {
   display: none;
 }

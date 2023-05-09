@@ -18,7 +18,7 @@ Abgabe Ziele:
                 assignTo: checkbox rechts anordnen
 4.  ERLEDIGT    Contacts: hover Effekt deleteBtn, editBtn? mobile
 5.  ERLEDIGT    add Task: hover Effekt clearBtn
-6.  ERLEDIGT    Summary fix media querry height
+6.  ERLEDIGT    Summary fix media Query height
 7.  ERLEDIGT    Nav: aktive Seite kennzeichnen
 8.  ERLEDIGT    Addtask: rote Umrandung runden
 

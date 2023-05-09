@@ -179,7 +179,7 @@ Summary greetings
 }
 
 /*--------------------------------------------------
-Media Querry width
+Media Query width
 ---------------------------------------------------*/
 @media(max-width: 1270px) {
   .summary-infos {

@@ -52,10 +52,12 @@ function removeHighlight(boardColumn) {
 }
 
 
-
 /*--------------------------------------------------
 Drag and Drop Mobile
 ---------------------------------------------------*/
+/**
+ * Sets up EventListeners to enable drag and drop on mobile devices via touch.
+ */
 function enableMobileDragAndDrop() {
     activeUser.tasks.forEach(task => {
         let taskIndex = activeUser.tasks.indexOf(task);
@@ -163,6 +165,10 @@ function findDropTarget(x, y) {
 }
 
 
+/** 
+ * Helper function to get the width of a currently dragged task card.
+ * @returns {number} The calulated width.
+ */
 function getTaskWidthOnDrag() {
     let widthInPercent = 16;
     if (screenWidthIsAtMost('900px')) {

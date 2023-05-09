@@ -87,6 +87,10 @@ function renderCard(task) {
 }
 
 
+/**
+ * This function renders the progress bar regarding the subtasks of a task object.
+ * @param {json} task - The task object with the corresponding subtasks.
+ */
 function renderProgressBar(task) {
     if (task.subtasks.length) {
         return /*html*/`
@@ -104,6 +108,11 @@ function renderProgressBar(task) {
 }
 
 
+/**
+ * This function calculates the progress regarding the subtasks of a task object.
+ * @param {json} task - The task object with the corresponding subtasks.
+ * @returns {number} The progress in percentage.
+ */
 function getProgressOfSubtasks(task) {
     let percentage = (getNumberOfDoneSubtasks(task) / task.subtasks.length) * 100;
     let roundedPercentage = Math.round(percentage);
@@ -111,12 +120,21 @@ function getProgressOfSubtasks(task) {
 }
 
 
+/**
+ * This function gives the number of done subtasks of a task object.
+ * @param {json} task - The task object with the corresponding subtasks.
+ * @returns {number} The number of done subtasks.
+ */
 function getNumberOfDoneSubtasks(task) {
     let doneSubtasks = task.subtasks.filter(t => t.done);
     return doneSubtasks.length;
 }
 
 
+/**
+ * This function renders the assigned contacts of a task object within the cards of the board-columns.
+ * @param {json} task - The corresponding task object.
+ */
 function renderAssignedContacts(task) {
     let html = '';
     if (task.assignedTo.length <= 3) {
@@ -143,241 +161,4 @@ function renderAssignedContacts(task) {
         `;
     }
     return html;
-}
-
-
-/*--------------------------------------------------
-Overlays
----------------------------------------------------*/
-function openBoardCardOverlay(taskIndex) {
-    let task = activeUser.tasks[taskIndex];
-    freezeBackground('overlay-fullscreen');
-    renderBoardCardOverlay(task);
-    showElement('board-card');
-}
-
-
-function closeBoardCardOverlay() {
-    removeElement('board-card');
-    removeElement('board-card-edit');
-    unfreezeBackground('overlay-fullscreen');
-    renderBoardColumns();
-}
-
-
-function renderBoardCardOverlay(task) {
-    document.getElementById('category').innerHTML = task.category.name;
-    document.getElementById('category').classList.add(`bg-${task.category.color}`);
-    document.getElementById('title').innerHTML = task.title;
-    document.getElementById('description').innerHTML = task.description;
-    document.getElementById('dueDate').innerHTML = task.dueDate;
-    document.getElementById('prio-container-board').classList = `prio-container-board bg-${getPriorityAsString(task.prio).toLowerCase()} ml-25`;
-    document.getElementById('priority').innerHTML = getPriorityAsString(task.prio);
-    document.getElementById('priority-icon').src = `../img/prio-${task.prio}_white.svg`;
-    document.getElementById('assignedTo').innerHTML = renderAssignedContactsForOverlay(task);
-    if (task.subtasks.length) {
-        renderSubtaskCheckboxes(task);
-    }
-    setBoardCardButtons(task);
-}
-
-
-function getPriorityAsString(prioAsNumber) {
-    switch (prioAsNumber) {
-        case 0:
-            return 'Low';
-        case 1:
-            return 'Medium';
-        case 2:
-            return 'Urgent';
-        default:
-            return 'No priority defined';
-    }
-}
-
-
-function renderAssignedContactsForOverlay(task) {
-    let html = '<span class="fs-21 fw-400">No assigned contacts yet</span>';
-
-    if (task.assignedTo.length) {
-        html = '';
-        for (let i = 0; i < task.assignedTo.length; i++) {
-            const contact = task.assignedTo[i];
-            html += `
-                <div class="assigned-contact">
-                    <div class="contact-icon contact-overlay-icon-board fs-16 fw-400 ${contact.color}">
-                        ${getInitials(contact)}
-                    </div>
-                    <span class="fs-21 fw-400">${contact.name}</span>
-                </div>
-            `;
-        }
-    }
-
-    return html;
-}
-
-
-function setBoardCardButtons(task) {
-    let index = activeUser.tasks.indexOf(task);
-    document.getElementById('board-card-btn-edit').onclick = () => {
-        openBoardCardEditing(index);
-    };
-    document.getElementById('board-card-btn-delete').onclick = () => {
-        deleteTask(index);
-        closeBoardCardOverlay();
-        renderBoardColumns();
-        saveUserData();
-    };
-}
-
-
-function openBoardCardEditing(taskIndex) {
-    removeElement('board-card');
-    showElement('board-card-edit');
-    renderBoardCardEditing(taskIndex);
-}
-
-
-function renderBoardCardEditing(taskIndex) {
-    let task = activeUser.tasks[taskIndex];
-    document.getElementById('title-edit-input').value = task.title;
-    document.getElementById('description-edit-input').value = task.description;
-    document.getElementById('dueDate-edit-input').value = task.dueDate;
-    setMinDate('dueDate-edit-input');
-    activatePrioButton(task.prio);
-    renderContactsForDropDown(taskIndex);
-    renderAssignedContactsForEditing(task);
-
-    setEditTaskSubmitButton(taskIndex);
-}
-
-
-function renderAssignedContactsForEditing(task) {
-    let container = document.getElementById('assignedTo-icons');
-    container.innerHTML = '';
-    for (let i = 0; i < task.assignedTo.length; i++) {
-        const contact = task.assignedTo[i];
-        container.innerHTML += `
-            <div class="contact-icon contact-icon-board fs-12 fw-400 ${contact.color}">
-                ${getInitials(contact)}
-            </div>
-        `;
-    }
-}
-
-
-function renderSubtaskCheckboxes(task) {
-    let subtaskContainer = document.getElementById('board-card-subtasks');
-
-    subtaskContainer.innerHTML = 'Subtasks';
-    for (let i = 0; i < task.subtasks.length; i++) {
-        const subtask = task.subtasks[i];
-        const subtaskChecked = subtask.done ? 'checked' : '';
-
-        subtaskContainer.innerHTML += /*html*/`
-            <label for="board-card-subtask-checkbox-${i}" class="board-card-subtask-checkbox fw-400" onclick="setStatusOfSubtasks(${activeUser.tasks.indexOf(task)})">
-                <input type="checkbox" name="" id="board-card-subtask-checkbox-${i}" ${subtaskChecked}>
-                <span>${subtask.name}</span>
-            </label>
-        `;
-    }
-}
-
-
-/**Set checked Subtasks as "done" */
-async function setStatusOfSubtasks(taskIndex) {
-    let task = activeUser.tasks[taskIndex];
-    for (let i = 0; i < task.subtasks.length; i++) {
-        const subtask = task.subtasks[i];
-        subtask.done = document.getElementById(`board-card-subtask-checkbox-${i}`).checked;
-    }
-}
-
-
-function setEditTaskSubmitButton(taskIndex) {
-    document.getElementById('board-card-edit').onsubmit = () => {
-        let task = activeUser.tasks[taskIndex];
-        saveEditedTask(task);
-        removeElement('board-card-edit');
-        renderBoardCardOverlay(task);
-        showElement('board-card');
-        saveUserData();
-        return false;
-    };
-}
-
-
-function saveEditedTask(task) {
-    task.title = document.getElementById('title-edit-input').value;
-    task.description = document.getElementById('description-edit-input').value;
-    task.dueDate = document.getElementById('dueDate-edit-input').value;
-    task.prio = getPrioViaActiveButton();
-    saveAssignedContacts(task);
-}
-
-
-function deleteTask(taskIndex) {
-    activeUser.tasks.splice(taskIndex, 1);
-}
-
-
-function activatePrioButton(prioAsNumber) {
-    document.getElementById('edit-prio-btn-urgent').classList.remove('active');
-    document.getElementById('edit-prio-btn-medium').classList.remove('active');
-    document.getElementById('edit-prio-btn-low').classList.remove('active');
-    document.getElementById(`edit-prio-btn-${getPriorityAsString(prioAsNumber).toLowerCase()}`).classList.add('active');
-}
-
-
-function getPrioViaActiveButton() {
-    if (document.getElementById('edit-prio-btn-urgent').classList.contains('active')) return 2;
-    if (document.getElementById('edit-prio-btn-medium').classList.contains('active')) return 1;
-    if (document.getElementById('edit-prio-btn-low').classList.contains('active')) return 0;
-}
-
-
-function toggleActiveForDropDown(id) {
-    document.getElementById(id).classList.toggle("collapsed");
-}
-
-
-/**Render all contacts */
-async function renderContactsForDropDown(taskIndex) {
-    let task = activeUser.tasks[taskIndex];
-    let contactList = document.getElementById('assigned-edit-contact-list');
-
-    for (let i = 0; i < activeUser.contacts.length; i++) {
-        const contact = activeUser.contacts[i];
-        const contactChecked = arrayIncludesObject(task.assignedTo, contact) ? 'checked' : '';
-        contactList.innerHTML += /*html*/`
-            <label for="assigned-edit-contact-checkbox-${i}" class="assigned-edit-contact">
-                <span>${contact.name}</span>
-                <input id="assigned-edit-contact-checkbox-${i}" type="checkbox" ${contactChecked}>
-            </label>
-        `;
-    }
-}
-
-
-function saveAssignedContacts(task) {
-    task.assignedTo = [];
-
-    for (let i = 0; i < activeUser.contacts.length; i++) {
-        const contact = activeUser.contacts[i];
-        if (document.getElementById(`assigned-edit-contact-checkbox-${i}`).checked) {
-            task.assignedTo.push(contact);
-        }
-    }
-}
-
-
-function arrayIncludesObject(array, object) {
-    for (let i = 0; i < array.length; i++) {
-        const element = array[i];
-        if (JSON.stringify(element) === JSON.stringify(object)) {
-            return true;
-        }
-    }
-    return false;
 }
