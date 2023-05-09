@@ -65,8 +65,6 @@ function renderContact(contact) {
 
 /**
  * Sorts the `activeUserContacts` array of contacts by name, in alphabetical order.
- *
- * @returns {Array} The sorted `activeUserContacts` array.
  */
 function sortContactsByName() {
     activeUserContacts.sort((a, b) => {
@@ -77,6 +75,9 @@ function sortContactsByName() {
 }
 
 
+/**
+ * Pushing the currently signed user to the first position in the `activeUserContacts` array.
+ */
 function sortContactsPushingSignedUserToFront() {
     let indexYou = activeUserContacts.map(c => c.email).indexOf(activeUser.email);
     if (indexYou > 0) {

@@ -24,10 +24,6 @@ Media Queries for Width
         max-width: unset;
     }
 
-    /* .contacts-info-container {
-        padding: 34px 34px 80px 34px;
-    } */
-
     .header-headline {
         font-size: 47px;
     }
@@ -80,7 +76,6 @@ Media Queries for Width
     }
 
     .form-contact-info {
-        /* padding: 104px 27px 104px 80px; */
         padding: 10vh 27px 10vh 80px;
     }
 
@@ -128,10 +123,6 @@ Media Queries for Width
         display: block;
     }
 
-    /* .close-contact-info {
-        top: 85px;
-    } */
-
     .contacts-info-container {
         padding: 35px 30px 80px 30px;
     }
@@ -159,7 +150,6 @@ Media Queries for Width
     }
 
     .form-contact-info {
-        /* padding: 48px 27px; */
         padding: 5vh 27px;
         height: unset;
     }
@@ -167,7 +157,6 @@ Media Queries for Width
     input[type=email],
     input[type=name],
     input[type=tel] {
-        /* margin: 0 0 35px 0; */
         margin: 0 0 4vh 0;
         height: 44px;
     }

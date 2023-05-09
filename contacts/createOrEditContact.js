@@ -1,6 +1,9 @@
 /*--------------------------------------------------
 Create Contact Overlay
 ---------------------------------------------------*/
+/**
+ * Opens/renders the create contact overlay.
+ */
 function openCreateContactOverlay() {
     freezeBackground('create-or-edit-contact-screen');
     renderCreateContactHeadline();
@@ -11,6 +14,9 @@ function openCreateContactOverlay() {
 }
 
 
+/**
+ * Renders the headline for the create contact overlay.
+ */
 function renderCreateContactHeadline() {
     document.getElementById('create-or-edit-contact-headline').classList = 'header-headline cursor-d mt-12 mb-12';
     document.getElementById('create-or-edit-contact-headline').innerHTML = 'Add contact';
@@ -19,11 +25,17 @@ function renderCreateContactHeadline() {
 }
 
 
+/**
+ * Renders the icon for the create contact overlay.
+ */
 function renderCreateContactIcon() {
     document.getElementById('create-or-edit-contact-icon-container').innerHTML = '<img src="../img/emptyImg.png">';
 }
 
 
+/**
+ * Renders the buttons for the create contact overlay.
+ */
 function renderCreateContactButtons() {
     document.getElementById('form-contact-light-btn').classList.add('desktop-only');
     document.getElementById('form-contact-buttons').classList.remove('align-self-end');
@@ -37,6 +49,9 @@ function renderCreateContactButtons() {
 }
 
 
+/**
+ * Sets up the event handlers for the buttons in the create contact overlay.
+ */
 function setCreateContactButtons() {
     document.getElementById('form-contact-light-btn').onclick = closeCreateOrEditContactOverlay;
     document.getElementById('form-contact-info').onsubmit = () => {
@@ -46,6 +61,10 @@ function setCreateContactButtons() {
 }
 
 
+/**
+ * Opens the edit contact overlay and sets up its initial state.
+ * @param {Object} contact - The contact to be edited.
+ */
 function openEditContactOverlay(contact) {
     freezeBackground('create-or-edit-contact-screen');
     renderEditContactHeadline();
@@ -57,6 +76,9 @@ function openEditContactOverlay(contact) {
 }
 
 
+/**
+ * Renders the headline for the edit contact overlay.
+ */
 function renderEditContactHeadline() {
     document.getElementById('create-or-edit-contact-headline').classList = 'header-headline mt-34';
     document.getElementById('create-or-edit-contact-headline').innerHTML = 'Edit contact';
@@ -64,6 +86,10 @@ function renderEditContactHeadline() {
 }
 
 
+/**
+ * Renders the icon for the edit contact overlay.
+ * @param {Object} contact - The contact whose icon should be displayed.
+ */
 function renderEditContactIcon(contact) {
     document.getElementById('create-or-edit-contact-icon-container').innerHTML = /*html*/`
         <div id="create-or-edit-contact-icon" class="contact-icon contact-overlay-icon fs-47 fw-500 ${contact.color}">
@@ -73,6 +99,10 @@ function renderEditContactIcon(contact) {
 }
 
 
+/**
+ * Sets the initial values for the input fields in the edit contact overlay.
+ * @param {Object} contact - The contact whose values should be set.
+ */
 function setEditContactInputValues(contact) {
     document.getElementById('new-contact-name').value = contact.name;
     document.getElementById('new-contact-email').value = contact.email;
@@ -80,6 +110,9 @@ function setEditContactInputValues(contact) {
 }
 
 
+/**
+ * Renders the buttons for the edit contact overlay.
+ */
 function renderEditContactButtons() {
     if (screenWidthIsAtMost('1200px')) {
         document.getElementById('form-contact-light-btn').classList.remove('desktop-only');
@@ -98,6 +131,9 @@ function renderEditContactButtons() {
 }
 
 
+/**
+ * Sets up the event handlers for the buttons in the edit contact overlay.
+ */
 function setEditContactButtons() {
     document.getElementById('form-contact-light-btn').onclick = () => {
         deleteContact(getActiveContact());
@@ -109,6 +145,10 @@ function setEditContactButtons() {
 }
 
 
+/**
+ * Deletes a contact from the user's list of contacts.
+ * @param {Object} contact - The contact to be deleted.
+ */
 function deleteContact(contact) {
     const contactIndex = activeUserContacts.indexOf(contact);
     activeUserContacts.splice(contactIndex, 1);
@@ -127,6 +167,11 @@ function deleteContact(contact) {
     saveUserData();
 }
 
+
+/**
+ * Updates the values of a contact with the new values entered in the edit contact overlay.
+ * @param {Object} contact - The contact to be updated.
+ */
 function editContact(contact) {
     contact.name = document.getElementById('new-contact-name').value;
     contact.email = document.getElementById('new-contact-email').value;
@@ -142,6 +187,9 @@ function editContact(contact) {
 }
 
 
+/**
+ * Closes the create or edit contact overlay.
+ */
 function closeCreateOrEditContactOverlay() {
     hideOverlay('create-or-edit-contact-overlay');
     setTimeout(() => {
@@ -151,6 +199,9 @@ function closeCreateOrEditContactOverlay() {
 }
 
 
+/**
+ * Adds a new contact to the user's list of contacts.
+ */
 async function addNewContact() {
     const newContact = {
         "name": document.getElementById('new-contact-name').value,
@@ -172,6 +223,10 @@ async function addNewContact() {
 }
 
 
+/**
+ * Scrolls the contacts list to the specified contact.
+ * @param {number} contactIndex - The index of the contact to scroll to.
+ */
 function scrollToContact(contactIndex) {
     scrollToID(`contact-${contactIndex}`);
 }
