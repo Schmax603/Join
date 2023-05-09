@@ -101,6 +101,18 @@ input[type=number] {
     background-image: url(../img/phoneInput.png);
 }
 
+/* Remove Arrows/Spinners for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    /* margin: 0; */
+}
+
+/* Remove Arrows/Spinners for Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 #form-contact-buttons {
     display: flex;
     margin-top: 3vh;
