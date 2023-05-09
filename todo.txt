@@ -34,15 +34,15 @@ Abgabe Ziele:
 17. ERLEDIGT    Board card: "No assigned contacts yet"
 
 Simon abgabe
-18.             login signup bnt schriftgröße
+18. ERLEDIGT    login signup bnt schriftgröße
 19.             bord addtask popup bei neuen task hinzufügen
 20.             addtask clear create task bnts nur ein bnt soll hochspringen beim hovern nicht der gesamte container
 21.             bord moba task edit container overflow
 22.             bord moba hedernav profil bild nicht da
 23.             bord moba caten verschieben falsche farbe ? https://www.loom.com/share/1b14705662244f7aa134579c4d99be7d minute 5:32
 24.             bord moba inspect container overflow
-25.             addtask moba create bnt scrollt raus
-26.             contacts add page des tel input field ist nicht type number
+25. ERLEDIGT    addtask moba create bnt scrollt raus
+26. ERLEDIGT    contacts add page des tel input field ist nicht type number
 27. ERLEDIGT    legal notice zu niedriger z-index ?         
 
 Info:
