@@ -46,9 +46,6 @@ function getRandomInt(max) {
 }
 
 
-
-
-
 /**
  * Gets the initial letters of all the active user's contacts and returns them
  * in alphabetical order.
@@ -94,6 +91,10 @@ function getInitials(contact) {
 }
 
 
+/**
+ * Function to highlight the current section in the Navbar.
+ * @param {string} sectionID - The ID of the section to be highlighted.
+ */
 function activateNavSection(sectionID) {
     document.getElementById('nav-summary').classList.remove('active');
     document.getElementById('nav-board').classList.remove('active');
@@ -103,7 +104,8 @@ function activateNavSection(sectionID) {
 }
 
 
-/**This Function restricts the date so you can't pick dates in the past 
+/**
+ * This Function restricts the date so you can't pick dates in the past 
  * @param {string} inputID - The ID of the input field that will be checked.
 */
 function setMinDate(inputID) {
@@ -134,6 +136,11 @@ function screenWidthIsAtMost(screenWidth) {
 /*--------------------------------------------------
 Overlays
 ---------------------------------------------------*/
+/**
+ * This function currently links to the Add Task page, 
+ * and sets the board-column where a new task will be rendered.
+ * @param {string} columnID - The ID of the board-column.
+ */
 function openAddTaskOverlay(columnID = 'board-column-todo') {
     // freezeBackground('overlay-fullscreen');
     // // renderAddTaskCard();
@@ -146,6 +153,10 @@ function openAddTaskOverlay(columnID = 'board-column-todo') {
 }
 
 
+/**
+ * This function currently obsolete, 
+ * as there is no Add Task Overlay.
+ */
 function closeAddTaskOverlay() {
     hideOverlay('add-task-card');
     setTimeout(() => {
@@ -264,6 +275,10 @@ function doNotClose(event) {
 }
 
 
+/**
+* Closes a Dropdown menu.
+* @param {string} id - The ID of the menu element to close.
+*/
 function closeDropDown(id) {
     document.getElementById(id).classList.remove('collapsed');
 }
