@@ -300,11 +300,11 @@ Overlay
 
 .board-card-assigned {
 	width: 75%;
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 
 #assignedTo {
-	overflow-y: auto;
+	/* overflow-y: auto; */
 	width: 100%;
 }
 

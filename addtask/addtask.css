@@ -536,7 +536,7 @@ textarea {
     }
 
     .addtask-create-bnt:hover {
-        border: 1px solid #28aae2;
+        /* border: 1px solid #28aae2; */
         background-color: #28aae2;
         box-shadow: 0px 20px 20px -10px #babdbd;
     }

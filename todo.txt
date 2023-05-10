@@ -36,7 +36,7 @@ Abgabe Ziele:
 Simon abgabe
 18. ERLEDIGT    login signup bnt schriftgröße
 19.             bord addtask popup bei neuen task hinzufügen
-20.             addtask clear create task bnts nur ein bnt soll hochspringen beim hovern nicht der gesamte container
+20. ERLEDIGT    addtask clear create task bnts nur ein bnt soll hochspringen beim hovern nicht der gesamte container
 21. ERLEDIGT    bord moba task edit container overflow
 22. ERLEDIGT    bord moba hedernav profil bild nicht da
 23. ERLEDIGT    bord moba caten verschieben falsche farbe ? https://www.loom.com/share/1b14705662244f7aa134579c4d99be7d minute 5:32
