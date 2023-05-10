@@ -356,8 +356,6 @@ textarea {
 }
 
 @media (max-width: 1300px) {
-
-
     .d-nonemax1300 {
         display: none;
     }
