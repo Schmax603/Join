@@ -356,9 +356,7 @@ textarea {
 }
 
 @media (max-width: 1300px) {
-    .h-menu {
-        display: none;
-    }
+
 
     .d-nonemax1300 {
         display: none;

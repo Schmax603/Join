@@ -250,7 +250,12 @@ Overlay
 	overflow: hidden;
 }
 
+.board-card::-webkit-scrollbar {
+	display: none;
+}
+
 .board-card {
+	overflow: scroll;
 	position: relative;
 	padding: 50px;
 	width: calc(600px - 100px);
@@ -333,6 +338,7 @@ Overlay
 }
 
 .edit-card {
+	z-index: 60;
 	position: absolute;
 	right: 30px;
 	bottom: 60px;

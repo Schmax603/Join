@@ -16,6 +16,12 @@ Media Query
     }
 }
 
+@media(max-width: 1300px) {
+    .board {
+        display: flex !important;
+    }
+}
+
 @media(max-width: 900px) {
     .mobile-only {
         display: flex !important;
@@ -138,10 +144,10 @@ Media Query
 
 @media(max-width: 400px) {
     #prio-edit {
-        flex-wrap: wrap;
+        flex-direction: column;
     }
 
     .edit-prio-btn {
-        min-width: 100px;
+        width: 100%;
     }
 }
