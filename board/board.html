@@ -58,13 +58,6 @@
                 <img class="mobile-only" src="../img/arrow_left.png" alt="back">
             </div>
 
-            <div id="edit-card" class="edit-card">
-                <button id="board-card-btn-delete" class="btn-delete btn-animation-invert"></button>
-                <button id="board-card-btn-edit" class="btn-edit btn-animation"
-                    onclick="hideElementDisplay('board-card'); showElement('board-edit')"><img
-                        src="../img/pencilBoard.svg" class="img-30" alt="edit"></button>
-            </div>
-
             <!-- Render Elements from Array 21 36 16 -->
             <span id="category"
                 class="board-card-category mobile-category fs-27 fw-400 mb-25 mobile-mb-32">Category</span>
@@ -91,6 +84,14 @@
 
             <div id="board-card-subtasks" class="board-card-subtasks mobile-fs-16 fs-21 fw-700"></div>
             <!-- Render Elements from Array -->
+
+
+            <div id="edit-card" class="edit-card edit-card-mobile">
+                <button id="board-card-btn-delete" class="btn-delete btn-animation-invert"></button>
+                <button id="board-card-btn-edit" class="btn-edit btn-animation"
+                    onclick="hideElementDisplay('board-card'); showElement('board-edit')"><img
+                        src="../img/pencilBoard.svg" class="img-30" alt="edit"></button>
+            </div>
 
         </article>
 
@@ -121,12 +122,6 @@
                 <img class="mobile-only" src="../img/arrow_left.png" alt="back">
             </div>
 
-            <div class="edit-card">
-                <button type="submit" id="board-card-btn-save" class="dark-btn">
-                    <span class="fs-21 fw-700">Ok</span>
-                    <img src="../img/check.svg">
-                </button>
-            </div>
 
             <!-- Render Elements from Array -->
             <div id="title-edit" class="edit-input fs-21 fw-400 mobile-fs-16 m-0 mb-20">
@@ -193,10 +188,18 @@
                     </div>
                 </div>
 
-                <div id="assignedTo-icons" class="assigned-contacts"></div>
+                <div id="assignedTo-icons" class="assigned-contacts mb-15"></div>
             </div>
 
             <!-- Render Elements from Array -->
+
+
+            <div class="edit-card edit-card-mobile">
+                <button type="submit" id="board-card-btn-save" class="dark-btn">
+                    <span class="fs-21 fw-700">Ok</span>
+                    <img src="../img/check.svg">
+                </button>
+            </div>
         </form>
 
     </section>

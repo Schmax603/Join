@@ -267,6 +267,7 @@ Overlay
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
+	border: 8px solid white;
 }
 
 #board-card #title {
@@ -338,11 +339,12 @@ Overlay
 }
 
 .edit-card {
-	z-index: 60;
-	position: absolute;
+	align-self: flex-end;
+	/* position: absolute;
 	right: 30px;
-	bottom: 60px;
+	bottom: 60px; */
 	display: flex;
+	z-index: 60;
 }
 
 .btn-delete {
