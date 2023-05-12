@@ -78,8 +78,8 @@ guestUser.tasks = [
         "category": { name: "Design", color: 0 },
         "assignedTo": guestUser.contacts.slice(0, 3),
         "subtasks": [
-            { name: "sub 1", done: false },
-            { name: "sub 2", done: false }
+            { name: "Edit start page", done: false },
+            { name: "Update pictures", done: false }
         ],
         "boardColumn": "board-column-todo"
     }
@@ -125,9 +125,9 @@ guestUser.tasks = [
         "category": { name: "Marketing", color: 12 },
         "assignedTo": guestUser.contacts.slice(3, 5),
         "subtasks": [
-            { name: "sub 1", done: true },
-            { name: "sub 2", done: true },
-            { name: "sub 3", done: true }
+            { name: "Brainstorming", done: true },
+            { name: "User survey", done: true },
+            { name: "Develop ads", done: true }
         ],
         "boardColumn": "board-column-done"
     }
