@@ -65,19 +65,23 @@ function enableMobileDragAndDrop() {
         // find the element that you want to drag.
         let taskElement = document.getElementById(`task-${taskIndex}`);
         let isDragging = false;
+        let drag;
 
         /* listen to the touchstart event,
         and mark the taskElement as being dragged. */
         taskElement.addEventListener('touchstart', function (e) {
-            isDragging = true;
-            startDragging(taskIndex)
-            taskElement.classList.add('task-ondrag');
+            drag = setTimeout(() => {
+                isDragging = true;
+                startDragging(taskIndex)
+                taskElement.classList.add('task-ondrag');
 
-            // grab the location of touch
-            let touchLocation = e.targetTouches[0];
-            // assign taskElement new coordinates based on the touch.
-            taskElement.style.left = touchLocation.pageX - 0.5 * getTaskWidthOnDrag() + 'px';
-            taskElement.style.top = touchLocation.pageY - 100 + 'px';
+                // grab the location of touch
+                let touchLocation = e.targetTouches[0];
+                // assign taskElement new coordinates based on the touch.
+                taskElement.style.left = touchLocation.pageX - 0.5 * getTaskWidthOnDrag() + 'px';
+                taskElement.style.top = touchLocation.pageY - 100 + 'px';
+            }, 250);
+
         });
 
         /* listen to the touchmove event,
@@ -113,6 +117,9 @@ function enableMobileDragAndDrop() {
                     taskElement.classList.remove('task-ondrag-over-droptarget');
                 }
             }
+            else {
+                clearTimeout(drag);
+            }
         }, { passive: false });
 
         /* record the position of the touch
@@ -142,6 +149,9 @@ function enableMobileDragAndDrop() {
                     taskElement.classList.remove('task-ondrag');
                     taskElement.classList.remove('task-ondrag-over-droptarget'); // in if-case above: this reset is done automatically
                 }
+            }
+            else {
+                clearTimeout(drag);
             }
         });
     });
