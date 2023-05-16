@@ -1,41 +1,78 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Add Task</title>
+	<!-- favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+	<link rel="manifest" href="../favicon/site.webmanifest" />
+	<link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
 
-
-
+	<!-- style -->
+	<link rel="stylesheet" href="../headerNav/headerNav.css">
+	<script src="../headerNav/headerNav.js"></script>
 
 
 	<link rel="stylesheet" href="../fonts/fonts.css">
+	<link rel="stylesheet" href="../headerNav/headerNav.css">
 
-
-	<link rel="stylesheet" href="/templets/addtask/addtask.css">
+	<link rel="stylesheet" href="addtask.css">
 	<link rel="stylesheet" href="../style.css">
 	<link rel="stylesheet" href="../showAndHide.css">
 	<link rel="stylesheet" href="../bgColors.css">
 
-
+	<!-- script -->
 	<!-- https://i.imgflip.com/52lvif.jpg -->
-	<script src="/templets/addtask/addtask.js"></script>
+	<script src="backend.js"></script>
+	<script src="../guestUserData.js"></script>
+	<script src="../script.js"></script>
+	<script src="addtask.js" defer></script>
+	<script src="../backend.js"></script>
+	<script src="../headerNav/headerNav.js"></script>
+	<script src="../login/login.js"></script>
 
-
-	<script src="/templets/addtask/templates.js"></script>
+	<script src="templates.js"></script>
 
 	<script src="test.js"></script>
 
 </head>
 
-<body id="body" onload="initAddTask();" onclick="closeMenu()">
+<body id="body" onload="initAddTask();"
+	onclick="closeMenu(); closeDropDown('category-selection'); closeDropDown('mail-selection');">
+	<div w3-include-html="../headerNav/headerNav.html" style="height: 0;"></div>
 
+	<button class="addtask-create addtask-bnt-center">
+		<div class="addtask-clear-bnt addtask-bnt-center d-nonemax1300" onclick="rel()">
+			<div class="addtask-clear-text">Clear</div>
+			<div class="cancel-icon img-24"></div>
+			<!-- <img src="/img/close.svg"> -->
+		</div>
+		<script>function rel() { location.reload(); }</script>
+		<div class="addtask-create-bnt addtask-bnt-center">
+			<div onclick="addTask()" class="addtask-create-text">
+				<p class="d-nonemin1300">Create</p>
+				<p class="d-nonemax1300">Create Task</p>
+			</div>
+			<img src="/img/check.svg">
+		</div>
+	</button>
+
+
+
+	<div class="lobby">
+		<div class="amogus center-stuff" id="amogus">
+
+			<h6 class="addtask-gentext karben-text">Kanban Project Management Tool</h6>
+			<h1 class="addtask-title cursor-d">Add Task</h1>
 
 			<div class="addtask-tasktitle addtask-gencon">
-				<div class="addtask-gentext cursor-d" style="padding-top: 0px;">Title</div>
-				<input id="task-title" class="addtask-genimput" placeholder="Enter a title"></input>
+				<div class="addtask-gentext cursor-d">Title</div>
+				<textarea id="task-title" class="addtask-genimput" placeholder="Enter a title"></textarea>
 			</div>
 
 			<div class="addtask-description addtask-gencon">
@@ -44,16 +81,11 @@
 					placeholder="Enter a Description" type="text"></textarea>
 			</div>
 
-			<div class="addtask-gencon addtask-duedate" id="addtask-duedate">
-				<div class="addtask-gentext cursor-d">Due date</div>
-				<input style="display: block; font-family: 'Inter';" class="addtask-genimput" id="date"
-					placeholder="dd/mm/yyyy" type="date" min=""></input>
-			</div>
 
 			<div class="addtask-prio" id="addtask-prio">
-				<div class="addtask-gentext cursor-d" id="addtask-prio-text">Prio</div>
+				<div class="addtask-gentext cursor-d">Prio</div>
 
-				<div class="addtask-prio-whichBnt addtask-flex-moba center-stuff">
+				<div class="addtask-prio-whichBnt addtask-flex-moba center-stuff bor-r-10" id="addtask-prio-whichBnt">
 					<button class="addtask-prio-bnt addtask-prio-bnt-urgent addtask-genimput center-stuff fs-16 fw-400"
 						id="addtask-prio-bnt-urgent" onclick="setActiveButton(0)">Urgent <img class="addtask-prio-img"
 							id="addtask-prio-bnt-urgent-img" src="../img/prio-urgent.svg"></button>
@@ -69,10 +101,63 @@
 
 			</div>
 
+			<div class="addtask-gencon addtask-duedate" id="addtask-duedate">
+				<div class="addtask-gentext cursor-d">Due date</div>
+				<input style="display: block; font-family: 'Inter';" class="addtask-genimput" id="date"
+					placeholder="dd/mm/yyyy" type="date" min=""></input>
+			</div>
+
+			<div class="addtask-gencon addtask-category">
+				<div class="addtask-gentext cursor-d">Category</div>
+				<div class="addtask-gendrop" id="drop">
+
+
+
+
+					<div id="category-selection" class="addtask-gendrop-coll collapsible inline-img"
+						onclick="doNotClose(event)">
+
+						<div class="select-task-category-img img-44">
+							<img id="category-img-dropdown" src="../img/dropdown.svg" alt="drop down">
+						</div>
+
+
+
+						<div class="select-task-category" id="currentItem">
+
+							<div id="selected-element" class="d-flex gap-10 paddings"
+								onclick="toggleActive('category-selection');">
+								Select task category
+							</div>
+						</div>
+
+						<div class="addtask-gendrop-scroll">
+
+							<div class="addtask-item paddings" onclick="newInput('category');">
+								New category
+							</div>
+
+							<div id="dropNum(category)"></div>
+
+						</div>
+					</div>
+
+					<div id="color-pick" class="color-pick d-none">
+						<span onclick="addColorCategory(0)" class="color-cicle bg-0 img-20"></span>
+						<span onclick="addColorCategory(2)" class="color-cicle bg-2 img-20"></span>
+						<span onclick="addColorCategory(4)" class="color-cicle bg-4 img-20"></span>
+						<span onclick="addColorCategory(5)" class="color-cicle bg-5 img-20"></span>
+						<span onclick="addColorCategory(9)" class="color-cicle bg-9 img-20"></span>
+					</div>
+
+				</div>
+			</div>
+
 			<div class="addtask-gencon addtask-assigned-to">
 				<div class="addtask-gentext cursor-d"><span>Assigned to</span></div>
 
-				<div id="mail-selection" class="addtask-gendrop-coll collapsible inline-img">
+				<div id="mail-selection" class="addtask-gendrop-coll collapsible inline-img"
+					onclick="doNotClose(event)">
 
 					<div class="select-task-category-img img-44">
 						<img id="mail-img-dropdown" src="../img/dropdown.svg" alt="drop down">
@@ -84,35 +169,59 @@
 					</div>
 					<div id="contact-list" class="addtask-gendrop-scroll">
 
-						<div class="addtask-item paddings pos-re" id="contact-0" onclick="checkboxSwitch(id)">You
+						<!-- <div class="addtask-item paddings pos-re" id="contact-0" onclick="checkboxSwitch(id)">You
 							<div id="checkbox-0" class="addtask-checkbox">
 								<div id="checkbox-active-0" class="addtask-checkbox-active"></div>
 							</div>
-						</div>
-
-						<div id="apicontact-list">
-
-						</div>
-
-						<div class="addtask-item paddings" id="contact-1" style="position: relative;"
-							onclick="newInput('new-mail');">
-							Invite new contact <div class="select-task-category-img-2"> <img
-									src="/img/contactsaddtask.svg" alt=""></div>
-						</div>
-
-
-
-						<!-- <div id="dropNum(assigned)">
-							
-							<div class="addtask-item paddings addtask-id" onclick="assignedToCheckbox(id)">Someone
-								<div class="addtask-checkbox "> <div class="addtask-checkbox-active"></div></div>
-							</div>
-							
 						</div> -->
+
+						<div id="apicontact-list"></div>
+
+						<div class="addtask-item contact-list paddings" id="contact-1" style="position: relative;"
+							onclick="newInput('new-mail');">
+							Invite new contact
+							<img src="/img/contactsaddtask.svg" alt="">
+						</div>
+
 					</div>
 				</div>
 			</div>
+		</div>
 
+
+		<div class="addtask-subtasks addtask-gencon" id="addtask-subtasks">
+			<div class="addtask-gentext cursor-d">Subtasks</div>
+
+			<div class="addTask-selection">
+				<textarea id="subtask" onkeydown="newInput('subtask')"
+					class="addtask-genimput addtask-subtasks-textarea" placeholder="Add new subtask"></textarea>
+
+				<div class="selection-img">
+					<img id="subtask-img-add" src="../img/plus.svg" alt="add">
+
+					<!-- change add-img remove & add d-none -->
+					<div id="subtask-img-activ" class="selection-img selection-img-activ d-none">
+						<img onclick="cancelSection('subtask')" class="px-5" src="../img/cancel.png" alt="cancel">
+						<img onclick="saveNewCategory('subtask')" class="border px-5" src="../img/check-black.svg"
+							alt="check">
+					</div>
+
+				</div>
+
+			</div>
+
+			<div id="dropNum(subtask)" class="subtask-list"></div>
+		</div>
+
+		<div class="line"></div>
+
+		<div class="imposter" id="imposter"></div>
+	</div>
+	</div>
+
+	<div id="addtask-create-task" class="addtask-create-task pos-a d-none">
+		Task added to board <img src="/img/boardNav.png" alt="" srcset="">
+	</div>
 </body>
 
 </html>

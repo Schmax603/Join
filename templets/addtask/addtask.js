@@ -1,14 +1,47 @@
 /**init onload functions */
 async function initAddTask() {
     await initHeaderNav();
+    activateNavSection('nav-addtask');
     await loadUserData();
+    setActiveUser();
     media();
     setMinDate('date');
     // dropdownValueCheck(); 
     renderCategory();
     await renderContacts()
     giveContactListId();
+
+    if (localStorage.getItem('boardColumnToAddTask')) {
+        boardColumnToAddTask = localStorage.getItem('boardColumnToAddTask');
+    }
 }
+
+window.addEventListener('resize', media);
+let minwidth = window.matchMedia('(min-width: 1300px)')
+
+function media() {
+    const imposter = document.getElementById("imposter");
+    const amogus = document.getElementById("amogus");
+
+    if (minwidth.matches) {
+        moveContent("imposter");
+    } else {
+        moveContent("amogus");
+    }
+}
+
+function moveContent(destination) {
+    const container = document.getElementById(destination);
+
+    const prio = document.getElementById("addtask-prio");
+    const duedate = document.getElementById("addtask-duedate");
+    const subtasks = document.getElementById("addtask-subtasks");
+
+    container.appendChild(prio);
+    container.appendChild(duedate);
+    container.appendChild(subtasks);
+}
+
 
 let lastClickedImage = null;
 let priority;
@@ -51,10 +84,19 @@ function toggleActive(dropMaster) {
     }
 }
 
+async function keyframe() {
+    document.getElementById("addtask-create-task").classList.remove("d-none");
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log("Delayed for 1 second.");
+    document.getElementById("addtask-create-task").classList.add("d-none");
+}
+
+
 /**Save values into backend */
 async function addTask() {
     await saveCheckedContacts();
-    await saveCheckedSubtasks();
+    await setCheckedSubtasksAsDone();
+
     const newTask = {
         "title": document.getElementById('task-title').value,
         "description": document.getElementById('task-description').value,
@@ -62,13 +104,65 @@ async function addTask() {
         "prio": priority,
         "category": category[selectCategory],
         "assignedTo": contacts,
-        "subtasks": subtasksChecked,
-        "boardColumn": 'board-column-todo'
+        "subtasks": subtasks,
+        "boardColumn": boardColumnToAddTask
     };
-    // Abfragen einfügen ?
-    activeUser.tasks.push(newTask);
-    await setItem('users', JSON.stringify(users));
-    // Zurücksetzen der Eingabefelder
+
+    // console.log(subtasks)
+    // subtasks = [];
+
+    const prioIsWhat = document.querySelector('#addtask-prio .addtask-prio-bnt.active');
+    const title = document.getElementById('task-title');
+    const description = document.getElementById('task-description');
+    const dueDate = document.getElementById('date');
+    const categorySelection = document.getElementById('category-selection');
+
+    if (!category[selectCategory]) {
+        categorySelection.style.border = "1px solid #ff0000";
+    } else {
+        categorySelection.style.border = "1px solid #FFFFFF";
+    }
+
+    if (prioIsWhat === null || prioIsWhat === undefined) {
+        document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ff0000";
+        document.getElementById('addtask-prio-whichBnt').style.border.radius = "10px";
+    } else {
+        document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ffffff";
+    }
+
+    if (!title.value.trim()) {
+        title.style.border = "1px solid #ff0000";
+    } else {
+        title.style.border = "1px solid #FFFFFF";
+    }
+
+    if (!description.value.trim()) {
+        description.style.border = "1px solid #ff0000";
+    } else {
+        description.style.border = "1px solid #FFFFFF";
+    }
+
+    if (!dueDate.value.trim()) {
+        dueDate.style.border = "1px solid #ff0000";
+    } else {
+        dueDate.style.border = "1px solid #FFFFFF";
+    }
+
+    if (
+        category[selectCategory] &&
+        prioIsWhat !== null && prioIsWhat !== undefined &&
+        title.value.trim() !== '' &&
+        description.value.trim() !== '' &&
+        dueDate.value.trim() !== ''
+    ) {
+        // Abfragen einfügen ?
+        console.log("true XD")
+        await keyframe();
+        activeUser.tasks.push(newTask);
+        await saveUserData();
+        window.location.href = '../board/board.html';
+        // Zurücksetzen der Eingabefelder
+    }
 }
 
 /**Render input field for new Catergory */
@@ -76,6 +170,7 @@ function newInput(section) {
     if (section === 'category') {
         generateHTMLNewCategory();
         document.getElementById('color-pick').classList.remove('d-none');
+        document.getElementById('category-selection').classList.add('height-46');
     }
     else if (section === 'new-mail') {
         window.location.href = '../contacts/contacts.html';
@@ -87,6 +182,100 @@ function newInput(section) {
     }
 }
 
+/**Cancel input and load drop down list */
+function cancelSection(section) {
+    if (section === 'category') {
+        document.getElementById('category-selection').classList.remove('height-46');
+        resetCetegory('category');
+        renderCategory();
+    } else if (section === 'new-mail') {
+        generateHTMLSelectMail();
+    } else if (section === 'subtask') {
+        removeHTMLSubtaskImg();
+    }
+}
+
+function selectedCategory(i) {
+    let showSelectedCategory = document.getElementById('selected-element');
+
+    selectCategory = i
+
+    showSelectedCategory.innerHTML = `
+        <div>${category[i].name}</div>
+        <div class="addtask-item-color color-cicle img-20 bg-${category[i].color}"></div>
+    `;
+}
+
+/**Load all categorys with color */
+function renderCategory() {
+    let categoryList = document.getElementById('dropNum(category)');
+
+    for (let i = 0; i < category.length; i++) {
+        let categoryElement = category[i];
+
+        categoryList.innerHTML += /*html*/`
+        <div onclick="selectedCategory(${i})" class="addtask-item paddings addtask-id">
+            <div class="addtask-item-color color-cicle img-20 bg-${categoryElement.color}"></div>
+            ${categoryElement.name}
+		</div>
+        `;
+    }
+}
+
+/**Save new category */
+async function saveNewCategory(section) {
+    if (section === 'category') {
+        let inputValue = document.getElementById('new-category');
+        if (categoryColorPick !== undefined && inputValue.value !== '') {
+            category.push({ name: inputValue.value, color: categoryColorPick });
+            // Save backend
+            // await setItem('category', JSON.stringify(category));
+            await saveUserData();
+            document.getElementById('category-selection').classList.remove('height-46');
+            resetCetegory(inputValue);
+            renderCategory();
+        }
+    }
+    // Figma Version
+    // else if (section === 'new-mail' ) {
+    //     let inputValue = document.getElementById('new-mail').value; 
+
+    //     assignedTo.push(inputValue);
+    // Save backend
+    // await setItem('assignedTo', JSON.stringify(assignedTo));
+    // }
+    else if (section === 'subtask') {
+        initSubtask();
+    }
+}
+
+/**After save new category, reset the selection */
+function resetCetegory(inputValue) {
+    let editColor = document.getElementById('color-selected');
+    let editContainer = document.getElementById('category-selection');
+
+    document.getElementById('color-pick').classList.add('d-none');
+    editColor.classList.remove(`bg-${categoryColorPick}`);
+    editContainer.classList.remove('d-flex');
+    editContainer.classList.remove('a-item');
+    inputValue.value = '';
+    categoryColorPick = undefined;
+    generateHTMLSelectCategory();
+}
+
+/**Color pick category */
+function addColorCategory(id) {
+    let editContainer = document.getElementById('category-selection');
+    let editColor = document.getElementById('color-selected');
+
+    editContainer.classList.add('d-flex');
+    editContainer.classList.add('a-item');
+
+    categoryColorPick = id;
+    editColor.classList.add(`bg-${id}`);
+    document.getElementById('color-pick').classList.add('d-none');
+}
+
 /**Render all contacts */
 async function renderContacts() {
     let contactList = document.getElementById('apicontact-list');
@@ -96,12 +285,9 @@ async function renderContacts() {
         const contact = contactsArray[i].name;
 
         contactList.innerHTML += /*html*/`
-        <div class="addtask-item paddings pos-re" onclick="checkboxSwitch(id)">${contact}
+        <label for="contact-checkbox${i}" class="addtask-item contact-list paddings pos-re" onclick="checkboxSwitch(id)">${contact}
             <input id="contact-checkbox${i}" type="checkbox">
-        <!-- <div id="addtask-checkbox${i}" class="addtask-checkbox"> 
-                <div id="addtask-checkbox-active${i}" class="addtask-checkbox-active"></div>
-            </div> -->
-		</div>
+		</label>
         `;
     }
 }
@@ -112,7 +298,7 @@ async function saveCheckedContacts() {
 
     for (let i = 0; i < contactsArray.length; i++) {
         const contact = contactsArray[i];
-        if (document.getElementById(`contact-checkbox${i}`).checked == true) {
+        if (document.getElementById(`contact-checkbox${i}`).checked) {
             contacts.push(contact);
         }
     }
@@ -121,22 +307,25 @@ async function saveCheckedContacts() {
 /**Save & load subtasks */
 function initSubtask() {
     let inputValue = document.getElementById('subtask');
-    subtasks.push(inputValue.value);    // Save temporary subtasks
+    subtasks.push({
+        name: inputValue.value,
+        done: false
+    });
     inputValue.value = '';
     renderSubtaskArray();
 }
 
-/**Save only checked Subtasks */
-async function saveCheckedSubtasks() {
+/**Set checked Subtasks as "done" */
+async function setCheckedSubtasksAsDone() {
     for (let i = 0; i < subtasks.length; i++) {
         const subtask = subtasks[i];
-        if (document.getElementById(`subtask-checkbox${i}`).checked == true) {
-            subtasksChecked.push(subtask);
+        if (document.getElementById(`subtask-checkbox${i}`).checked) {
+            subtask.done = true;
         }
     }
 }
 
-/**Load temporary Subtasks */
+/**Load Subtasks */
 function renderSubtaskArray() {
     let subtaskList = document.getElementById("dropNum(subtask)");
 
@@ -145,11 +334,11 @@ function renderSubtaskArray() {
         const subtask = subtasks[i];
 
         subtaskList.innerHTML += /*html*/`
-    <div>
-        <input type="checkbox" name="" id="subtask-checkbox${i}">
-        <label for="subtask-checkbox${i}">${subtask}</label>
-    </div>
-    `;
+            <div>
+                <input type="checkbox" name="" id="subtask-checkbox${i}">
+                <label for="subtask-checkbox${i}">${subtask.name}</label>
+            </div>
+        `;
     }
 }
 
@@ -184,11 +373,30 @@ function checkboxSwitch(id) {
 }
 
 
+/*--------------------------------------------------
+The dead code grave
+---------------------------------------------------*/
+
+/*
 async function trueFalesTranslater(params) {
 
     const activeList = document.querySelectorAll('.addtask-id-contact');
     console.log(activeList)
 }
+
+
+-------------------------------------
+Trigger Subtask-Creation on Enter
+--------------------------------------
+let subtaskInput = document.getElementById('subtask');
+
+subtaskInput.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        saveNewCategory('subtask');
+    }
+});
+
 
 /*
 function assignedToCheckbox(id) {
@@ -201,7 +409,7 @@ function assignedToCheckbox(id) {
 
 }
 
-*/
+
 
 
 function dropSelectValue(params) {
@@ -217,7 +425,7 @@ function dropSelectValue(params) {
 
 
 }
-/*
+
 function dropdownValueCheck() {
     let dropNameQuery = document.querySelectorAll("[id*=dropNum]")
     const dropNameArray = [];

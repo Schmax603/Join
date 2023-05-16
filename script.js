@@ -142,14 +142,14 @@ Overlays
  * @param {string} columnID - The ID of the board-column.
  */
 function openAddTaskOverlay(columnID = 'board-column-todo') {
-    // freezeBackground('overlay-fullscreen');
-    // // renderAddTaskCard();
-    // showElement('add-task-card');
-    // slideInOverlay('add-task-card');
+    freezeBackground('overlay-fullscreen');
+    //renderAddTaskCard();
+    showElement('add-task-card');
+    slideInOverlay('add-task-card');
 
     boardColumnToAddTask = columnID;
     localStorage.setItem('boardColumnToAddTask', boardColumnToAddTask);
-    location.href = '../addtask/addtask.html';
+    //location.href = '../addtask/addtask.html';
 }
 
 

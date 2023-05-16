@@ -373,6 +373,11 @@ function checkboxSwitch(id) {
 }
 
 
+/*--------------------------------------------------
+The dead code grave
+---------------------------------------------------*/
+
+/*
 async function trueFalesTranslater(params) {
 
     const activeList = document.querySelectorAll('.addtask-id-contact');
@@ -380,9 +385,9 @@ async function trueFalesTranslater(params) {
 }
 
 
-/*-------------------------------------
+-------------------------------------
 Trigger Subtask-Creation on Enter
---------------------------------------*/
+--------------------------------------
 let subtaskInput = document.getElementById('subtask');
 
 subtaskInput.addEventListener('keypress', function (event) {
@@ -392,10 +397,6 @@ subtaskInput.addEventListener('keypress', function (event) {
     }
 });
 
-
-/*--------------------------------------------------
-The dead code grave
----------------------------------------------------*/
 
 /*
 function assignedToCheckbox(id) {
