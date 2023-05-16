@@ -1,0 +1,166 @@
+/*--------------------------------------------------
+Media Query
+---------------------------------------------------*/
+@media(max-width: 1100px) {
+    .board {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .board-column {
+        width: 80%;
+    }
+
+    .task-ondrag {
+        width: 45%;
+    }
+}
+
+@media(max-width: 1300px) {
+    .board {
+        display: flex !important;
+    }
+}
+
+@media(max-width: 900px) {
+    .mobile-only {
+        display: flex !important;
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+
+    /*--------------------------------------------------
+	Overlay <900
+	---------------------------------------------------*/
+    .overlay-fullscreen {
+        top: 80px;
+        height: calc(100vh - 80px - 80px);
+    }
+
+    .board-card {
+        position: unset;
+        /* padding: 65px 33px 8px 33px; */
+        padding: 50px 30px;
+        height: calc(100% - 50px);
+        max-height: unset;
+        width: 100%;
+        background: #F5F5F5;
+        box-shadow: unset;
+        border-radius: unset;
+        border: unset;
+    }
+
+    .edit-card {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 20px;
+    }
+
+    .edit-card-mobile {
+        position: unset;
+        align-self: flex-end;
+    }
+
+    .card-close {
+        align-self: flex-end;
+        position: unset;
+        margin-bottom: 15px;
+    }
+
+    .btn-delete {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+
+    .btn-edit {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+    }
+
+    .edit-input {
+        width: 100%;
+    }
+
+    .mobile-mb-29 {
+        margin-bottom: 29px !important;
+    }
+
+    .mobile-mb-32 {
+        margin-bottom: 32px !important;
+    }
+
+    .mobile-mb-35 {
+        margin-bottom: 35px !important;
+    }
+
+    .mobile-category {
+        font-size: 21px !important;
+    }
+
+    .mobile-title {
+        font-size: 36px !important;
+    }
+
+    .mobile-description {
+        font-size: 16px !important;
+    }
+
+    .mobile-fs-16 {
+        font-size: 16px !important;
+    }
+
+    /*--------------------------------------------------
+	Main <900
+	---------------------------------------------------*/
+    main {
+        margin: 80px 0 80px 0;
+        padding: 35px 30px 0 30px;
+        height: calc(100vh - 80px - 80px - 35px);
+    }
+
+    .board-header {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .headline-mobile {
+        margin-bottom: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .headline {
+        font-size: 47px;
+    }
+
+    .dark-btn-mobile {
+        height: 40px;
+        width: 40px;
+    }
+
+    .board-column {
+        width: 100%;
+    }
+
+    .task-ondrag {
+        width: 80%;
+    }
+}
+
+@media(max-width: 400px) {
+    #prio-edit {
+        flex-direction: column;
+    }
+
+    .edit-prio-btn {
+        width: 100%;
+    }
+}

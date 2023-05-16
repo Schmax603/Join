@@ -34,7 +34,6 @@
     color: white;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
     padding: 46px;
     border-top-left-radius: 30px;
@@ -43,14 +42,7 @@
 
 .create-or-edit-contact-header img {
     width: 55px;
-    /* height: 100%; */
 }
-
-/* .header-border-bottom {
-    width: 90px;
-    border: 3px solid #29ABE2;
-    border-radius: 2px;
-} */
 
 #create-or-edit-contact-icon-container {
     width: 260px;
@@ -80,7 +72,8 @@
 
 input[type=email],
 input[type=name],
-input[type=tel] {
+input[type=tel],
+input[type=number] {
     height: 51px;
     width: 100%;
     border-radius: 10px;
@@ -103,13 +96,25 @@ input[type=name] {
     background-image: url(../img/nameInput.png);
 }
 
-input[type=tel] {
+input[type=tel],
+input[type=number] {
     background-image: url(../img/phoneInput.png);
+}
+
+/* Remove Arrows/Spinners for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/* Remove Arrows/Spinners for Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 #form-contact-buttons {
     display: flex;
-    /* gap: 20px; */
     margin-top: 3vh;
 }
 

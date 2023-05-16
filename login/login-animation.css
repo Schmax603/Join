@@ -1,4 +1,4 @@
-.screen-animation{
+.screen-animation {
   position: absolute;
   top: 0;
   left: 0;
@@ -7,50 +7,59 @@
   background-color: #F5F5F5;
   z-index: 1;
   opacity: 1;
-  animation: 1000ms opacity ease-in-out;
+  animation: 1100ms opacity ease-in-out;
 }
-@keyframes opacity{
-  from{
+
+@keyframes opacity {
+  from {
     opacity: 1;
   }
-  to{
+
+  to {
     opacity: 0;
   }
 }
-.logo-w-animation{
+
+.logo-w-animation {
   opacity: 0;
 }
-.logo-b-animation{
+
+.logo-b-animation {
   opacity: 1;
 }
-.logo-w-animation, .logo-b-animation{
+
+.logo-w-animation,
+.logo-b-animation {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 274px;
   transform: translate(-50%, -50%);
-  animation: 1000ms position ease-in-out;
+  animation: 1100ms position ease-in-out;
   z-index: 5;
 }
-@keyframes position{
-  0%{
+
+@keyframes position {
+  0% {
     top: 50%;
     left: 50%;
     width: 274px;
   }
-  100%{
+
+  100% {
     transform: translate(0%, 0%);
     top: 80px;
     left: 77px;
     width: 100px;
   }
 }
+
 /*--------------------------------------------------
-Media Querry 
+Media Query 
 ---------------------------------------------------*/
-@media (max-height: 850px){
-  @keyframes position{
-    100%{
+@media (max-height: 850px) {
+  @keyframes position {
+    100% {
       top: 20px;
       left: 77px;
       width: 40px;
@@ -58,33 +67,41 @@ Media Querry
     }
   }
 }
+
 @media (max-width: 900px) {
-  .screen-animation{
+  .screen-animation {
     background-color: #2A3647;
-    animation: 1000ms opacity ease-in-out;
+    animation: 1100ms opacity ease-in-out;
   }
-  .logo-b-animation, .logo-w-animation{
+
+  .logo-b-animation,
+  .logo-w-animation {
     width: 100px;
   }
-  .logo-b-animation{
+
+  .logo-b-animation {
     opacity: 0;
-    animation: 1000ms position-b-mobile ease-in-out;
+    animation: 1100ms position-b-mobile ease-in-out;
   }
-  .logo-w-animation{
+
+  .logo-w-animation {
     opacity: 1;
-    animation: 1000ms position-w-mobile ease-in-out;
+    animation: 1100ms position-w-mobile ease-in-out;
   }
-  @keyframes position-w-mobile{
-    0%{
+
+  @keyframes position-w-mobile {
+    0% {
       top: 50%;
       left: 50%;
       width: 100px;
       opacity: 1;
     }
-    50%{
+
+    50% {
       opacity: 0;
     }
-    100%{
+
+    100% {
       transform: translate(0%, 0%);
       top: 38px;
       left: 37px;
@@ -92,17 +109,20 @@ Media Querry
       opacity: 0;
     }
   }
-  @keyframes position-b-mobile{
-    0%{
+
+  @keyframes position-b-mobile {
+    0% {
       top: 50%;
       left: 50%;
       width: 100px;
       opacity: 0;
     }
-    50%{
+
+    50% {
       opacity: 1;
     }
-    100%{
+
+    100% {
       transform: translate(0%, 0%);
       top: 38px;
       left: 37px;
@@ -111,19 +131,22 @@ Media Querry
     }
   }
 }
-@media(max-height: 850px){
-  @media(max-width: 900px){
-    @keyframes position-w-mobile{
-      0%{
+
+@media(max-height: 850px) {
+  @media(max-width: 900px) {
+    @keyframes position-w-mobile {
+      0% {
         top: 50%;
         left: 50%;
         width: 100px;
         opacity: 1;
       }
-      50%{
+
+      50% {
         opacity: 0;
       }
-      100%{
+
+      100% {
         transform: translate(0%, 0%);
         top: 20px;
         left: 37px;
@@ -131,17 +154,20 @@ Media Querry
         opacity: 0;
       }
     }
-    @keyframes position-b-mobile{
-      0%{
+
+    @keyframes position-b-mobile {
+      0% {
         top: 50%;
         left: 50%;
         width: 100px;
         opacity: 0;
       }
-      50%{
+
+      50% {
         opacity: 1;
       }
-      100%{
+
+      100% {
         transform: translate(0%, 0%);
         top: 20px;
         left: 37px;

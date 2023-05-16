@@ -1,59 +1,52 @@
-Checked:
-cleanCode .css:
-  -login
-  -summary
-  -headerNav
--Login:
-  -rework style Desktop
-  -rework style Mobile
-   -Check Summary width (max-width:652px?)
-  -rework animation Logo, Background, msgBox
+Abgabe Ziele:
 
+    Prio hoch
+1. ERLEDIGT    Board karten werden in der richtigen spalte gespeichert. (überschreiben des arrays und column neu setzen)
+2. ERLEDIGT    Board suche ist funktionsfähig
+3. ERLEDIGT    Board karten sind gestylt und subtasks werden in der progressbar korrekt angezeigt.
+4. ERLEDIGT    Board addTask spalten karten werden in der entsprechenden spalte gespeichert (auf Board umleiten?).
 
-ToDo:
--Login:
-  - Login animation blink remove
-  - red border input wrong input? red label? (yet mesg box)
- 
--Summary:
-  -render next Dedline (date)
-  -JS all number of Tasks
-  - fix media querry
+5. ERLEDIGT    Board drag&drop funktioniert in der mobile version
+6. ERLEDIGT    add task: bei guest im localstorage speichern
 
-+Contacts:
-  -implement backend
+====> Abgabe Join
 
-+Show hide css global implement
+    Prio niedrig
+1.  ERLEDIGT    legal Maximilian adresse
+2.  ERLEDIGT    Login Animation blink entfernen
+3.  ERLEDIGT    addTask  category: category und color nebeneinander
+                assignTo: checkbox rechts anordnen
+4.  ERLEDIGT    Contacts: hover Effekt deleteBtn, editBtn? mobile
+5.  ERLEDIGT    add Task: hover Effekt clearBtn
+6.  ERLEDIGT    Summary fix media Query height
+7.  ERLEDIGT    Nav: aktive Seite kennzeichnen
+8.  ERLEDIGT    Addtask: rote Umrandung runden
 
-+ addTask
+9.  ERLEDIGT    padding <main> (addTask)
+10. ERLEDIGT    phone type=number?
 
-tasks = [
-    {
-        title.value
-        discription.value
-        Categorys[
-            {
-                category.value
-                colorCategory.value
-            }
-            ]
+11. ERLEDIGT    input-Felder: immer title=""
+12. ERLEDIGT    Contactlist und -icons: Anfangsbuchstaben immer groß (auch wenn im Kontakt klein geschrieben)
+13. Vor Abgabe: pushEmptyarray() ausführen
+14. ERLEDIGT    dropdown-Menüs schließen bei Klick daneben
+15. ERLEDIGT    Subtasks on Enter
+16. ERLEDIGT    checkbox label: check bei klick auf ganze Zeile
+17. ERLEDIGT    Board card: "No assigned contacts yet"
 
-        AssignTo[
-            Contact.value
-            contact.value
-        ] 
+Simon abgabe
+18. ERLEDIGT    login signup bnt schriftgröße
+19.             bord addtask popup bei neuen task hinzufügen
+20. ERLEDIGT    addtask clear create task bnts nur ein bnt soll hochspringen beim hovern nicht der gesamte container
+21. ERLEDIGT    bord moba task edit container overflow
+22. ERLEDIGT    bord moba hedernav profil bild nicht da
+23. ERLEDIGT    bord moba caten verschieben falsche farbe ? https://www.loom.com/share/1b14705662244f7aa134579c4d99be7d minute 5:32
+24. ERLEDIGT    bord moba inspect container overflow
+25. ERLEDIGT    addtask moba create bnt scrollt raus
+26. ERLEDIGT    contacts add page des tel input field ist nicht type number
+27. ERLEDIGT    legal notice zu niedriger z-index ?         
 
-        Prio.value
-        Due Date.value
+Info:
 
-        Subtasks[
-            subtask + checkbox
-        ]
+-CurrentUser bugfix alles mit Test markiert, currentUser wird nun im localStorage gespeichert(individuell).
 
-        columnCategory.value (default)
-    }
-
-]
-
-
-subtasks.length * abgeschlossen subtask / 100%
+-Bei Sign Up wird der User als sein eigener erster Kontakt erstellt ('Name (You)'), der dann in activeUser.contacts an Position 0 sortiert bleibt (für Dropdown)

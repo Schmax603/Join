@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Join</title>
   <!-- favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
-    <link rel="manifest" href="../favicon/site.webmanifest" />
-    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+  <link rel="manifest" href="../favicon/site.webmanifest" />
+  <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5" />
   <!-- login style -->
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="login-animation.css">
-    <link rel="stylesheet" href="../fonts/fonts.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="login-animation.css">
+  <link rel="stylesheet" href="../fonts/fonts.css">
   <!-- backend -->
-    <script src="../backend.js"></script>
+  <script src="../backend.js"></script>
   <!-- 
       frontend functions
       change for index.html 
   -->
-    <script src="login.js"></script>
-    <script src="registry.js"></script>
+  <script src="login.js"></script>
+  <script src="registry.js"></script>
 </head>
 
 <!-- todo animation JS -->
+
 <body onload="initLogin(); loadUsers(); remember(); displayMessage();" class="o-flow-h">
-  
+
   <section id="animation-join">
     <div class="screen-animation">
     </div>
@@ -41,16 +43,21 @@
   <main class="main">
     <img class="logo" src="../img/logoBig.png" alt="join logo">
 
-<!-- return false =>  prevents the page from reloading-->
+    <!-- return false =>  prevents the page from reloading-->
     <form onsubmit="userLogin(); return false" class="form">
       <h1 class="form-headline cursor-d ta-c fs-61 fw-700">Log in</h1>
       <div class="border"></div>
-      
+
       <section class="form-verification">
-        <input id="loginEmail" type="email" placeholder="Email" autocomplete="current-password" required>
-        <input id="loginPassword" class="img-password" type="password" placeholder="Password" autocomplete="current-password" required>
+        <label for="loginEmail" id="loginEmail-label" class="c-red fs-12">Incorrect email or password.</label>
+        <input id="loginEmail" type="email" placeholder="Email" autocomplete="current-password" title="" required>
+
+        <label for="loginPassword" id="loginPassword-label" class="d-none c-red fs-12">Incorrect email or
+          password.</label>
+        <input id="loginPassword" class="img-password" type="password" placeholder="Password"
+          autocomplete="current-password" title="" required>
       </section>
-      
+
       <section class="form-valuable">
         <div class="checkbox">
           <input id="remember-me" id="checkbox" class="cursor-p" type="checkbox">
@@ -61,20 +68,23 @@
 
       <section class="form-submit">
         <button type="submit" class="btn btn-py btn-w-145 btn-dark cursor-p fs-21 fw-700">Log in</button>
-        <button onclick="userGuest(); return false" class="btn btn-py btn-w-145 btn-bright cursor-p fs-21 fw-700">Guest Log in</button>
+        <button onclick="userGuest(); return false" class="btn btn-py btn-w-145 btn-bright cursor-p fs-21 fw-700">Guest
+          Log in</button>
       </section>
     </form>
 
     <section class="sign-up">
       <p class="cursor-d fs-21 fw-400">Not a Join user?</p>
-      <button onclick="window.location.href= 'signUp.html'" class="btn btn-py btn-w-91 btn-dark cursor-p fw-700">Sign up</button>
+      <button onclick="window.location.href= 'signUp.html'" class="btn btn-px btn-dark cursor-p fs-21 fw-700">Sign
+        up</button>
     </section>
 
     <!-- todo rework -->
     <div id="msg-box" class="msg-box"></div>
 
   </main>
-  
+
 
 </body>
+
 </html>

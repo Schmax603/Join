@@ -19,27 +19,35 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
     <link rel="stylesheet" href="board.css">
+    <link rel="stylesheet" href="boardMediaQueries.css">
     <link rel="stylesheet" href="../showAndHide.css">
+    <link rel="stylesheet" href="../bgColors.css">
     <!-- backend -->
     <script src="../backend.js"></script>
     <!-- scripts  -->
+    <script src="../guestUserData.js"></script>
+    <script src="../script.js"></script>
     <script src="board.js"></script>
+    <script src="boardOverlays.js"></script>
     <script src="dragAndDrop.js"></script>
-    <script src="showAndHide.js"></script>
     <script src="search.js"></script>
     <script src="../login/login.js"></script>
+
+
+    <link rel="stylesheet" href="../templets/addtask/addtask.css">
+    <script src="../templets/addtask/addtask.js"></script>
 </head>
 
 
-<body id="body" onload="initHeaderNav(); updateDragAndDropHTML(); loadUsers();">
+<body id="body" onload="initBoard()">
 
     <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
 
     <section id="overlay-fullscreen" class="overlay-fullscreen d-none"
-        onclick="closeAddTaskOverlay(); closeBoardCardOverlay();">
+        onclick="closeAddTaskOverlay(); closeBoardCardOverlay(); closeDropDown('assigned-edit-dropdown');">
 
         <article id="add-task-card" class="add-task-card d-none" onclick="doNotClose(event)">
-            <h2>WORK IN PROGRESS</h2><span>Add Task Overlay</span>
+            <div w3-include-html="../templets/addtask/addtask.html" style="height:0"></div>
             <div class="close-add-task-card" onclick="closeAddTaskOverlay()">
                 <img src="../img/close.png">
             </div>
@@ -52,50 +60,165 @@
                 <img class="mobile-only" src="../img/arrow_left.png" alt="back">
             </div>
 
-            <div id="edit-card" class="edit-card">
-                <button class="btn-delete btn-animation-invert"></button>
-                <button class="btn-edit btn-animation"><img src="../img/pencilBoard.svg" class="img-30"
-                        alt="edit"></button>
-            </div>
-
-            <!-- Render Elements from Array -->
-            <span id="category" class="mobile-category fs-27 fw-400 mb-25 mobile-mb-32">Category</span>
+            <!-- Render Elements from Array 21 36 16 -->
+            <span id="category"
+                class="board-card-category mobile-category fs-27 fw-400 mb-25 mobile-mb-32">Category</span>
 
             <h2 id="title" class="mobile-title fs-61 fw-700 m-0 mb-25">Title</h2>
 
             <p id="description" class="mobile-description fs-21 fw-400 m-0 mb-25">Description<br> Lorem ipsum dolor sit
                 amet consectetur adipisicing elit. Nostrum, vel!</p>
 
-            <div class="mobile-fs-16 fs-21 fw-700 mb-25 mobile-mb-35">Due Date:
-                <span id="dueDate" class="fw-400">Due Date</span>
+            <div class="fs-21 fw-700 mobile-fs-16 mb-25 mobile-mb-35">Due Date:
+                <span id="dueDate" class="fw-400 ml-25">Due Date</span>
             </div>
 
-            <div class="mobile-fs-16 fs-21 fw-700 mb-25 mobile-mb-29">Priority:
-                <span id="priority" class="fw-400">Priority</span>
+            <div class="board-card-prio mobile-fs-16 fs-21 fw-700 mb-25 mobile-mb-29">Priority:
+                <div id="prio-container-board" class="prio-container-board bg-urgent ml-25">
+                    <span id="priority" class="fw-400">Priority</span>
+                    <img id="priority-icon" src="../img/prio-2_white.svg">
+                </div>
             </div>
 
-            <div class="mobile-fs-16 fs-21 fw-700">Assign to:
-                <div id="assignTo" class="fw-400">Assign to</div>
+            <div class="board-card-assigned mobile-fs-16 fs-21 fw-700 mb-20">Assigned To:
+                <div id="assignedTo">Assigned to</div>
             </div>
+
+            <div id="board-card-subtasks" class="board-card-subtasks mobile-fs-16 fs-21 fw-700"></div>
             <!-- Render Elements from Array -->
+
+
+            <div id="edit-card" class="edit-card edit-card-mobile">
+                <button id="board-card-btn-delete" class="btn-delete btn-animation-invert"></button>
+                <button id="board-card-btn-edit" class="btn-edit btn-animation"
+                    onclick="hideElementDisplay('board-card'); showElement('board-edit')"><img
+                        src="../img/pencilBoard.svg" class="img-30" alt="edit"></button>
+            </div>
+
         </article>
+
+        <article id="board-edit" class="board-card d-none" style="flex-direction: unset; gap: 18px;"
+            onclick="doNotClose(event)">
+            <div w3-include-html="/templets/addtask/addtask.html" style="order: 1; float: left;"></div>
+
+            <div style="order: 2; float: right; ">
+                <div class="card-close" onclick="closeBoardCardOverlay()">
+                    <img class="desktop-only" src="../img/close.png" alt="close">
+                    <img class="mobile-only" src="../img/arrow_left.png" alt="back">
+                </div>
+
+                <button class="dark-btn btn-animation desktop-only pos-a"
+                    style="top: calc(95% - 50px); width: 93px; height: 50px;" onclick="openAddTaskOverlay()">
+                    <p class="fs-21 fw-700 m-0">Ok</p>
+                    <img class="img-15" src="../img/check.svg" alt="add">
+                </button>
+            </div>
+
+        </article>
+
+        <form id="board-card-edit" class="board-card d-none"
+            onclick="doNotClose(event); closeDropDown('assigned-edit-dropdown')">
+
+            <div class="card-close" onclick="closeBoardCardOverlay()">
+                <img class="desktop-only" src="../img/close.png" alt="close">
+                <img class="mobile-only" src="../img/arrow_left.png" alt="back">
+            </div>
+
+
+            <!-- Render Elements from Array -->
+            <div id="title-edit" class="edit-input fs-21 fw-400 mobile-fs-16 m-0 mb-20">
+                <span>Title</span>
+                <input id="title-edit-input" class="fs-21 fw-400 mobile-fs-16" type="text" title="" required>
+            </div>
+
+            <div id="description-edit" class="edit-input fs-21 fw-400 mobile-fs-16 m-0 mb-30">
+                <span>Description</span>
+                <textarea id="description-edit-input" class="fs-21 fw-400 mobile-fs-16" title="" required></textarea>
+            </div>
+
+            <div id="dueDate-edit" class="edit-input fs-21 fw-400 mobile-fs-16 m-0 mb-30">
+                <span>Due Date</span>
+                <input id="dueDate-edit-input" class="fs-21 fw-400 mobile-fs-16" type="date" min="" title="" required>
+            </div>
+
+            <div class="edit-input fs-21 fw-400 mobile-fs-16 m-0 mb-45">
+                <span>Priority</span>
+                <div id="prio-edit">
+                    <button id="edit-prio-btn-urgent"
+                        class="edit-prio-btn edit-prio-btn-urgent fs-21 fw-400 mobile-fs-16" type="button"
+                        onclick="activatePrioButton(2)">
+                        <span>Urgent</span>
+                        <img class="prio-image" src="../img/prio-2.svg">
+                        <img class="prio-image-active" src="../img/prio-2_white.svg">
+                    </button>
+
+                    <button id="edit-prio-btn-medium"
+                        class="edit-prio-btn edit-prio-btn-medium fs-21 fw-400 mobile-fs-16" type="button"
+                        onclick="activatePrioButton(1)">
+                        <span>Medium</span>
+                        <img class="prio-image" src="../img/prio-1.svg">
+                        <img class="prio-image-active" src="../img/prio-1_white.svg">
+                    </button>
+
+                    <button id="edit-prio-btn-low" class="edit-prio-btn edit-prio-btn-low fs-21 fw-400 mobile-fs-16"
+                        type="button" onclick="activatePrioButton(0)">
+                        <span>Low</span>
+                        <img class="prio-image" src="../img/prio-0.svg">
+                        <img class="prio-image-active" src="../img/prio-0_white.svg">
+                    </button>
+                </div>
+            </div>
+
+            <div id="assigned-edit" class="edit-input fs-21 fw-400 mobile-fs-16 m-0">
+                <span>Assigned To</span>
+
+                <div id="assigned-edit-dropdown" class="dropdown-menu fs-21 fw-400 mobile-fs-16 mb-20"
+                    onclick="doNotClose(event)">
+                    <div class="select-task-contacts" onclick="toggleActiveForDropDown('assigned-edit-dropdown');">
+                        Select task contacts to assign
+                    </div>
+                    <div class="assigned-edit-contacts-container">
+
+                        <div id="assigned-edit-contact-list">
+                            <!-- rendered in renderContactsForDropDown() -->
+                        </div>
+
+                        <div class="assigned-edit-contact assigned-edit-contact-new"
+                            onclick="window.location.href = '../contacts/contacts.html';">
+                            Invite new contact
+                        </div>
+                    </div>
+                </div>
+
+                <div id="assignedTo-icons" class="assigned-contacts mb-15"></div>
+            </div>
+
+            <!-- Render Elements from Array -->
+
+
+            <div class="edit-card edit-card-mobile">
+                <button type="submit" id="board-card-btn-save" class="dark-btn">
+                    <span class="fs-21 fw-700">Ok</span>
+                    <img src="../img/check.svg">
+                </button>
+            </div>
+        </form>
 
     </section>
 
     <main>
         <header class="board-header">
-            <p class="subheadline m-0 fs-16 fw-400 mb-20 mobile-only">Kanban Project Managment Tool</p>
+            <p class="subheadline cursor-d m-0 fs-16 fw-400 mb-20 mobile-only">Kanban Project Managment Tool</p>
 
             <div class="headline-mobile">
-                <h2 class="headline fs-61 fw-700 m-0">Board</h2>
+                <h2 class="headline cursor-d fs-61 fw-700 m-0">Board</h2>
 
-                <button class="dark-btn dark-btn-mobile mobile-only">
+                <button class="dark-btn dark-btn-mobile mobile-only" onclick="openAddTaskOverlay()">
                     <img class="img-15" src="../img/add.png" alt="add">
                 </button>
             </div>
 
             <div class="headline-desktop">
-                <!-- todo innerstyle -->
                 <div class="searchbar">
                     <input id="search-input" class="search-input fs-16 fw-400" type="text" name="q"
                         placeholder="Find Task" onkeyup="search()">
@@ -112,51 +235,55 @@
         <section class="board">
             <article class="board-column">
                 <div class="board-column-header">
-                    <h2 class="board-column-headline fs-21 fw-700 m-0">To do</h2>
+                    <h2 class="board-column-headline cursor-d fs-21 fw-700 m-0">To do</h2>
                     <div id="addBtn-todo" class="board-column-header-add-btn img-50" onclick="openAddTaskOverlay()">
                     </div>
                 </div>
-                <div id="board-column-todo" class="board-column-content" ondrop="moveTo('board-column-todo')"
-                    ondragover="allowDrop(event); highlight('board-column-todo')"
+                <div id="board-column-todo" class="board-column-content drop-target-mobile"
+                    ondrop="moveTo('board-column-todo')" ondragover="allowDrop(event); highlight('board-column-todo')"
                     ondragleave="removeHighlight('board-column-todo')">
                 </div>
             </article>
             <article class="board-column">
                 <div class="board-column-header">
-                    <h2 class="board-column-headline fs-21 fw-700 m-0">In progress</h2>
-                    <div id="addBtn-progress" class="board-column-header-add-btn img-50" onclick="openAddTaskOverlay()">
+                    <h2 class="board-column-headline cursor-d fs-21 fw-700 m-0">In progress</h2>
+                    <div id="addBtn-progress" class="board-column-header-add-btn img-50"
+                        onclick="openAddTaskOverlay('board-column-progress')">
                     </div>
                 </div>
-                <div id="board-column-progress" class="board-column-content" ondrop="moveTo('board-column-progress')"
+                <div id="board-column-progress" class="board-column-content drop-target-mobile"
+                    ondrop="moveTo('board-column-progress')"
                     ondragover="allowDrop(event); highlight('board-column-progress')"
                     ondragleave="removeHighlight('board-column-progress')">
                 </div>
             </article>
             <article class="board-column">
                 <div class="board-column-header">
-                    <h2 class="board-column-headline fs-21 fw-700 m-0">Awaiting Feedback</h2>
-                    <div id="addBtn-feedback" class="board-column-header-add-btn img-50" onclick="openAddTaskOverlay()">
+                    <h2 class="board-column-headline cursor-d fs-21 fw-700 m-0">Awaiting Feedback</h2>
+                    <div id="addBtn-feedback" class="board-column-header-add-btn img-50"
+                        onclick="openAddTaskOverlay('board-column-feedback')">
                     </div>
                 </div>
-                <div id="board-column-feedback" class="board-column-content" ondrop="moveTo('board-column-feedback')"
+                <div id="board-column-feedback" class="board-column-content drop-target-mobile"
+                    ondrop="moveTo('board-column-feedback')"
                     ondragover="allowDrop(event); highlight('board-column-feedback')"
                     ondragleave="removeHighlight('board-column-feedback')">
                 </div>
             </article>
             <article class="board-column">
                 <div class="board-column-header">
-                    <h2 class="board-column-headline fs-21 fw-700 m-0">Done</h2>
-                    <div id="addBtn-done" class="board-column-header-add-btn img-50" onclick="openAddTaskOverlay()">
+                    <h2 class="board-column-headline cursor-d fs-21 fw-700 m-0">Done</h2>
+                    <div id="addBtn-done" class="board-column-header-add-btn img-50"
+                        onclick="openAddTaskOverlay('board-column-done')">
                     </div>
                 </div>
-                <div id="board-column-done" class="board-column-content" ondrop="moveTo('board-column-done')"
-                    ondragover="allowDrop(event); highlight('board-column-done')"
+                <div id="board-column-done" class="board-column-content drop-target-mobile"
+                    ondrop="moveTo('board-column-done')" ondragover="allowDrop(event); highlight('board-column-done')"
                     ondragleave="removeHighlight('board-column-done')">
                 </div>
             </article>
         </section>
     </main>
-
 
 </body>
 

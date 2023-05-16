@@ -36,8 +36,8 @@ async function confirmPassword(){
       }
   }
   }else{
-    wrongPasswordInput();
-    console.log('Wrong Password');
+    errorBox('confirm-password', 'confirm-password-label')
+    // wrongPasswordInput();
   }
 }
 
@@ -49,14 +49,14 @@ function confirmMsg(){
   // }, 1000);
 }
 
-function wrongPasswordInput(){
-  let newPassword = document.getElementById('new-password');
-  let confirmPassword = document.getElementById('confirm-password');
+// function wrongPasswordInput(){
+//   let newPassword = document.getElementById('new-password');
+//   let confirmPassword = document.getElementById('confirm-password');
 
-  newPassword.value = '';
-  confirmPassword.value = '';
-  window.location.href='newPassword.html?msg=Make sure the second password you typed matches the first.';
-}
+//   newPassword.value = '';
+//   confirmPassword.value = '';
+//   window.location.href='newPassword.html?msg=Make sure the second password you typed matches the first.';
+// }
 
 
 /**generate Feedback succes password change*/

@@ -1,3 +1,0 @@
-- JSDoc Kommentierung
-- globales CSS auslagern (z.B. Buttons)
-- Gast-Login: Local Storage?

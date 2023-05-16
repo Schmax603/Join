@@ -1,292 +1,345 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter';
+	margin: 0;
+	padding: 0;
+	font-family: 'Inter';
 }
 
 /*--------------------------------------------------
 Global Variable
 ---------------------------------------------------*/
 .bg-c-db {
-  background-color: #2A3647;
+	background-color: #2A3647;
 }
 
 .bg-c-w {
-  background-color: #FFFFFF;
+	background-color: #FFFFFF;
+}
+
+.bor-r-10 {
+	border-radius: 10px;
 }
 
 .cursor-d {
-  cursor: default;
+	cursor: default;
 }
 
 .cursor-p {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .c-db {
-  color: #2A3647;
+	color: #2A3647;
 }
 
 .c-lb {
-  color: #29ABE2;
+	color: #29ABE2;
+}
+
+.c-red {
+	color: red;
 }
 
 .c-w {
-  color: #FFFFFF;
+	color: #FFFFFF;
+}
+
+.d-flex{
+	display: flex;
 }
 
 /* ===font-size=== */
+.fs-12 {
+	font-size: 12px;
+}
+
 .fs-16 {
-  font-size: 16px;
+	font-size: 16px;
 }
 
 .fs-21 {
-  font-size: 21px;
+	font-size: 21px;
 }
 
 .fs-27 {
-  font-size: 27px;
+	font-size: 27px;
 }
 
 .fs-36 {
-  font-size: 36px;
+	font-size: 36px;
 }
 
 .fs-47 {
-  font-size: 47px;
+	font-size: 47px;
 }
 
 .fs-61 {
-  font-size: 61px;
+	font-size: 61px;
 }
 
 .fs-64 {
-  font-size: 64px;
+	font-size: 64px;
 }
 
 /* ===font-weight=== */
 .fw-400 {
-  font-weight: 400;
+	font-weight: 400;
 }
 
 .fw-500 {
-  font-weight: 500;
+	font-weight: 500;
 }
 
 .fw-600 {
-  font-weight: 600;
+	font-weight: 600;
 }
 
 .fw-700 {
-  font-weight: 700;
+	font-weight: 700;
 }
-
+.gap-10{
+	gap: 10px;
+}
+.height-46{
+	height: 46px;
+}
 .img-15 {
-  width: 15px;
-  height: 15px;
+	width: 15px;
+	height: 15px;
 }
 
 .img-16 {
-  width: 16px;
-  height: 16px;
+	width: 16px;
+	height: 16px;
 }
 
 .img-20 {
-  width: 20px;
-  height: 20px;
+	width: 20px;
+	height: 20px;
 }
 
 .img-24 {
-  width: 24px;
-  height: 24px;
+	width: 24px;
+	height: 24px;
 }
 
 .img-30 {
-  width: 30px;
-  height: 30px;
+	width: 30px;
+	height: 30px;
 }
 
 .img-32 {
-  width: 32px;
-  height: 32px;
+	width: 32px;
+	height: 32px;
 }
 
 .img-40 {
-  width: 40px;
-  height: 40px;
+	width: 40px;
+	height: 40px;
 }
 
 .img-41 {
-  width: 41px;
-  height: 41px;
+	width: 41px;
+	height: 41px;
 }
-.img-44{
-  width: 44px;
-  height: 44px;
+
+.img-44 {
+	width: 44px;
+	height: 44px;
 }
+
 .img-50 {
-  width: 50px;
-  height: 50px;
+	width: 50px;
+	height: 50px;
 }
 
 .m-0 {
-  margin: 0;
+	margin: 0;
 }
 
 .mt-12 {
-  margin-top: 12px;
+	margin-top: 12px;
 }
 
 .mt-34 {
-  margin-top: 34px;
+	margin-top: 34px;
 }
 
 .mb-10 {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .mb-12 {
-  margin-bottom: 12px;
+	margin-bottom: 12px;
 }
 
 .mb-15 {
-  margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 .mb-20 {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .mb-25 {
-  margin-bottom: 25px;
+	margin-bottom: 25px;
+}
+
+.mb-30 {
+	margin-bottom: 30px;
 }
 
 .mb-35 {
-  margin-bottom: 35px;
+	margin-bottom: 35px;
+}
+
+.mb-45 {
+	margin-bottom: 45px;
+}
+
+.ml-25 {
+	margin-left: 25px;
 }
 
 .ml-30 {
-  margin-left: 30px;
+	margin-left: 30px;
 }
 
 .mr-20 {
-  margin-right: 20px;
+	margin-right: 20px;
 }
 
 .mr-30 {
-  margin-right: 30px;
+	margin-right: 30px;
 }
 
 .mr-35 {
-  margin-right: 35px;
+	margin-right: 35px;
 }
 
 .o-flow-h {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .px-50 {
-  padding: 0 50px;
+	padding: 0 50px;
 }
 
 .ta-c {
-  text-align: center;
+	text-align: center;
 }
 
 .td-n {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 .wmax-826 {
-  max-width: 826px;
+	max-width: 826px;
 }
+
+.pos-r {
+	position: relative;
+}
+
+.pos-a {
+	position: absolute;
+}
+
 
 /*--------------------------------------------------
 Global Elements
 ---------------------------------------------------*/
 /* ===scrollbar=== */
 ::-webkit-scrollbar {
-  width: 7px;
+	width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: white;
+	background: white;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #a8a8a8;
-  border-radius: 10px;
+	background: #a8a8a8;
+	border-radius: 10px;
 }
 
 /* ===buttons=== */
 button {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .dark-btn {
-  color: white;
-  background-color: #2A3647;
-  border-radius: 10px;
-  border: none;
-  transition: 100ms ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* padding: 18px 15px; */
-  padding: 15px 10px;
-  gap: 10px;
-  white-space: nowrap;
+	color: white;
+	background-color: #2A3647;
+	border-radius: 10px;
+	border: none;
+	transition: 100ms ease-in-out;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* padding: 18px 15px; */
+	padding: 15px 10px;
+	gap: 10px;
+	white-space: nowrap;
 }
 
 .dark-btn:hover {
-  background-color: #29ABE2;
-  box-shadow: 0px 4px 4px 0px #00000040;
+	background-color: #29ABE2;
+	box-shadow: 0px 4px 4px 0px #00000040;
 }
 
 .dark-btn:active {
-  background-color: #091931;
-  box-shadow: 0px 4px 4px 0px #00000040;
+	background-color: #091931;
+	box-shadow: 0px 4px 4px 0px #00000040;
 
 }
 
 .light-btn {
-  color: #2A3647;
-  background-color: white;
-  border-radius: 10px;
-  border: 1px solid #2A3647;
-  transition: 100ms ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  gap: 13px;
-  white-space: nowrap;
+	color: #2A3647;
+	background-color: white;
+	border-radius: 10px;
+	border: 1px solid #2A3647;
+	transition: 100ms ease-in-out;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	gap: 13px;
+	white-space: nowrap;
 }
 
 .light-btn:hover {
-  cursor: pointer;
-  color: #29ABE2;
-  border: 1px solid #29ABE2;
-  box-shadow: 0 4px 5px #5551;
+	cursor: pointer;
+	color: #29ABE2;
+	border: 1px solid #29ABE2;
+	box-shadow: 0 4px 5px #5551;
 }
 
 .light-btn:active {
-  color: #091931;
-  border: 1px solid #091931;
-  box-shadow: 0 4px 5px #5551;
+	color: #091931;
+	border: 1px solid #091931;
+	box-shadow: 0 4px 5px #5551;
 }
 
 .cancel-icon {
-  background-image: url(../img/cancel.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: 100ms ease-in-out;
+	background-image: url(../img/cancel.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	transition: 100ms ease-in-out;
 }
 
 .light-btn:hover .cancel-icon {
-  background-image: url(../img/cancelHover.png);
+	background-image: url(../img/cancelHover.png);
 }
 
 .light-btn:active .cancel-icon {
-  background-image: url(../img/cancelActive.png);
+	background-image: url(../img/cancelActive.png);
+}
+
+/* ===icons=== */
+.contact-icon {
+	color: white;
+	border-radius: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

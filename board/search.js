@@ -20,7 +20,7 @@ function removeNonrelevantTasks(search) {
     const tasksToRemove = getTasksToRemoveForSearch(search);
 
     for (let i = 0; i < tasksToRemove.length; i++) {
-        const index = tasks.indexOf(tasksToRemove[i]);
+        const index = activeUser.tasks.indexOf(tasksToRemove[i]);
         removeElement(`task-${index}`);
     }
 }
@@ -34,7 +34,7 @@ function removeNonrelevantTasks(search) {
  */
 function getTasksToRemoveForSearch(searchString) {
     let search = searchString.toLowerCase();
-    return tasks.filter(obj =>
+    return activeUser.tasks.filter(obj =>
         !obj.title.toLowerCase().includes(search) &&
         !obj.description.toLowerCase().includes(search)
     )
@@ -58,7 +58,7 @@ function closeSearch() {
  * @returns {undefined} This function does not return a value.
  */
 function showTasks() {
-    for (let i = 0; i < tasks.length; i++) {
+    for (let i = 0; i < activeUser.tasks.length; i++) {
         showElement(`task-${i}`);
     }
 }
