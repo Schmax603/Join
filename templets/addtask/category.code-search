@@ -1,0 +1,261 @@
+# Query: category
+# ContextLines: 1
+
+153 results - 10 files
+
+backend.js:
+   8  let tasks = [];
+   9: let categorys = [];
+  10: let categoryColorPick;
+  11  let assignToChecked = [];
+
+  27      try {
+  28:         categorys = JSON.parse(await getItem('category'));
+  29          assignTo = JSON.parse(await getItem('assignTo'));
+
+todo.txt:
+  34:         Categorys[
+  36:                 category.value
+  37:                 colorCategory.value
+  53:         columnCategory.value (default)
+
+addtask/addtask.css:
+   53: .addtask-category {
+  247: .select-task-category {
+  252: .select-task-category-img {
+  287: .new-category {
+  294: .select-task-category-img-2 {
+  395:     .addtask-category {
+
+addtask/addtask.html:
+   95  
+   96: 			<div class="addtask-gencon addtask-category">
+   97: 				<div class="addtask-gentext cursor-d">Category</div>
+   98  				<div class="addtask-gendrop" id="drop">
+
+  102  
+  103: 					<div id="category-selection" class="addtask-gendrop-coll collapsible inline-img">
+  104  
+  105: 						<div class="select-task-category-img img-44">
+  106: 							<img id="category-img-dropdown" src="../img/dropdown.svg" alt="drop down">
+  107  						</div>
+
+  110  
+  111: 						<div class="select-task-category" id="currentItem">
+  112  
+  113: 							<div class="paddings" onclick="toggleActive('category-selection');">
+  114: 								Select task category
+  115  							</div>
+
+  119  
+  120: 							<div class="addtask-item paddings" onclick="newInput('category');">
+  121: 								New category
+  122  							</div>
+  123  
+  124: 							<div id="dropNum(category)">
+  125  								<div class="addtask-item paddings addtask-id">Design <div class="addtask-item-color">
+
+  145  					<div id="color-pick" class="color-pick d-none">
+  146: 						<span onclick="addColorCategory(0)" class="color-cicle bg-0 img-20"></span>
+  147: 						<span onclick="addColorCategory(2)" class="color-cicle bg-2 img-20"></span>
+  148: 						<span onclick="addColorCategory(4)" class="color-cicle bg-4 img-20"></span>
+  149: 						<span onclick="addColorCategory(5)" class="color-cicle bg-5 img-20"></span>
+  150: 						<span onclick="addColorCategory(9)" class="color-cicle bg-9 img-20"></span>
+  151  					</div>
+
+  161  
+  162: 					<div class="select-task-category-img img-44">
+  163  						<img id="mail-img-dropdown" src="../img/dropdown.svg" alt="drop down">
+
+  165  
+  166: 					<div class="select-task-category paddings" id="currentItem">
+  167  						Select task contacts to assign
+
+  182  							onclick="newInput('new-mail');">
+  183: 							Invite new contact <div class="select-task-category-img-2"> <img
+  184  									src="/img/contactsaddtask.svg" alt=""></div>
+
+  215  						<img onclick="cancelSection('subtask')" class="px-5" src="../img/cancel.png" alt="cancel">
+  216: 						<img onclick="saveNewCategory('subtask')" class="border px-5" src="../img/check-black.svg"
+  217  							alt="check">
+
+addtask/addtask.js:
+   70  function toggleActive(dropMaster) {
+   71:     if (dropMaster === 'category-selection') {
+   72:         document.getElementById("category-selection").classList.toggle("collapsed");
+   73          document.getElementById('color-pick').classList.add('d-none');
+
+   88          "prio": priority,
+   89:         // "category": [] (Zuordnung einer Kategorie)
+   90          // "assignTo": assignToChecked,
+
+  100  function newInput(section) {
+  101:     if (section === 'category') {
+  102:         generateHTMLNewCategory();
+  103          document.getElementById('color-pick').classList.remove('d-none');
+
+  116  function cancelSection(section) {
+  117:     if (section === 'category') {
+  118:         resetCetegory('category');
+  119      } else if (section === 'new-mail') {
+
+  125  
+  126: function renderCategory(){
+  127:     let categorysList = document.getElementById('dropNum(category)');
+  128  
+  129:     for (let i = 0; i < categorys.length; i++) {
+  130:         const contact = categorys[i];
+  131  
+  132:         categorysList.innerHTML += /*html*/`
+  133          <div class="addtask-item paddings addtask-id">
+
+  140  
+  141: /**Save new category */
+  142: async function saveNewCategory(section) {
+  143:     if (section === 'category') {
+  144:         let inputValue = document.getElementById('new-category');
+  145:         if (categoryColorPick !== undefined && inputValue.value !== '') {
+  146:             categorys.push({ name: inputValue.value, color: categoryColorPick });
+  147              // Save backend
+  148:             // await setItem('categorys', JSON.stringify(categorys));
+  149              resetCetegory(inputValue);
+
+  164  
+  165: /**After save new category, reset the selection */
+  166  function resetCetegory(inputValue) {
+  167      let editColor = document.getElementById('color-selected');
+  168:     let editContainer = document.getElementById('category-selection');
+  169  
+  170:     editColor.classList.remove(`bg-${categoryColorPick}`);
+  171      editContainer.classList.remove('d-flex');
+
+  173      inputValue.value = '';
+  174:     categoryColorPick = undefined;
+  175:     generateHTMLSelectCategory();
+  176  }
+  177  
+  178: /**Color pick category */
+  179: function addColorCategory(id) {
+  180:     let editContainer = document.getElementById('category-selection');
+  181      let editColor = document.getElementById('color-selected');
+
+  185  
+  186:     categoryColorPick = id;
+  187      editColor.classList.add(`bg-${id}`);
+
+  297  function dropSelectValue(params) {
+  298:     if (params === "category-1") {
+  299          console.log("id")
+
+addtask/backend.js:
+   1: function loadCategory() {
+   2:     const coll = document.getElementById("apicategory");
+   8: function newCategory() {
+   9:     const coll = document.getElementById("apicategory");
+  25:         Categorys: [
+  27:                 category: "",
+  28:                 colorCategory: ""
+  45:         columnCategory: "default"
+
+addtask/templates.js:
+   1: /**Generate input field new category */
+   2: function generateHTMLNewCategory() {
+   3: 	let selectField = document.getElementById('category-selection');
+   4: 	let imgDropdown = document.getElementById('category-img-dropdown');
+   5  
+
+   8  	selectField.innerHTML = /*html*/`
+   9:   <input id="new-category" class="new-category select-task-category paddings" type="name" placeholder="New category name">
+  10:   <label for="new-category" id="color-selected" class="color-cicle img-20"></label>
+  11    <div class="selection-img selection-img-activ">
+  12:     <img onclick="cancelSection('category')" class="img-24 px-5" src="../img/clear.svg" alt="cancel">
+  13:     <img onclick="saveNewCategory('category')" class="border img-24 px-5" src="../img/check-black.svg" alt="check">
+  14    </div>
+
+  26  //   selectField.innerHTML = /*html*/`
+  27: //   <input id="new-mail" class="new-category select-task-category paddings" type="name" placeholder="Contact email">
+  28  //   <div class="selection-img selection-img-activ">
+  29  //     <img onclick="cancelSection('new-mail')" class="img-24 px-5" src="../img/clear.svg" alt="cancel">
+  30: //     <img onclick="saveNewCategory('new-mail')" class="border img-24 px-5" src="../img/check-black.svg" alt="check">
+  31  //   </div>
+
+  34  
+  35: /**Generate Section Category after cancel input */
+  36: function generateHTMLSelectCategory() {
+  37: 	let selectField = document.getElementById('category-selection');
+  38  	selectField.innerHTML = /*html*/`
+  39  
+  40:   <div class="select-task-category-img img-44">
+  41:     <img id="category-img-dropdown" src="../img/dropdown.svg" alt="drop down">
+  42    </div>
+
+  45  
+  46:   <div class="select-task-category" id="currentItem">
+  47  
+  48:     <div class="paddings" onclick="toggleActive('category-selection');">
+  49:       Select task category
+  50      </div>
+
+  53  
+  54:     <div class="addtask-item paddings" onclick="newInput('category');">
+  55:       New category
+  56      </div>
+  57  
+  58:     <div id="dropNum(category)">
+  59        <div class="addtask-item paddings addtask-id">Design <div class="addtask-item-color"></div></div>
+
+  75  // 	selectField.innerHTML = /*html*/`
+  76: //   <div class="select-task-category-img img-44">
+  77  // 						<img id="mail-img-dropdown" src="../img/dropdown.svg" alt="drop down">
+
+  79  
+  80: // 					<div class="select-task-category paddings" id="currentItem">
+  81  // 						Select task contacts to assign
+
+  84  // 						<div class="addtask-item paddings addtask-id">You
+  85: // 							<div class="select-task-category-img img-44">
+  86: // 								<img id="category-img-dropdown" src="../img/dropdown.svg" alt="drop down">
+  87  // 							</div>
+
+board/board.css:
+  347: 	.mobile-category {
+
+board/board.html:
+  63:             <span id="category" class="mobile-category fs-27 fw-400 mb-25 mobile-mb-32">Category</span>
+
+board/dragAndDrop.js:
+    7:     'category': 'board-column-todo'
+   11:     'category': 'board-column-todo'
+   15:     'category': 'board-column-progress'
+   19:     'category': 'board-column-done'
+   27:  * It calls the function {@link updateDragAndDropHTMLForCategory} twice.
+   30:     updateDragAndDropHTMLForCategory('board-column-todo');
+   31:     updateDragAndDropHTMLForCategory('board-column-progress');
+   32:     updateDragAndDropHTMLForCategory('board-column-feedback');
+   33:     updateDragAndDropHTMLForCategory('board-column-done');
+   38:  * This function updates the HTML container for a Task category given as a parameter.
+   39:  * @param {string} category - The category to be updated.
+   41: function updateDragAndDropHTMLForCategory(category) {
+   42:     let tasksOfCategory = tasks.filter(t => t.category === category);
+   43:     let container = document.getElementById(category);
+   45:     if (tasksOfCategory.length) {
+   46:         container.innerHTML = renderCards(tasksOfCategory);
+   49:         container.innerHTML = renderEmptyCategory();
+   69:  * This function renders an empty category (board-column).
+   71: function renderEmptyCategory() {
+   72:     return `<div class="empty-column fs-16 fw-400 ta-c">No tasks in this category</div>`;
+  101:  * This function enables dropping of an element to the category over which it is dragged.
+  109:  * This function changes the category of a Task element and [updates the category containers]{@link updateDragAndDropHTML}.
+  110:  * @param {string} category - The target category.
+  112: function moveTo(category) {
+  113:     tasks[currentDraggedElement].category = category;
+  115:     removeHighlight(category);
+  120:  * This function highlights a category container when an element is dragged over, if the dragged element is not contained.
+  121:  * @param {string} category - The category to be highlighted.
+  123: function highlight(category) {
+  124:     if (tasks[currentDraggedElement].category !== category)
+  125:         document.getElementById(category).classList.add('drag-area-highlight');
+  130:  * This function removes the highlight effect of a category container.
+  131:  * @param {string} category - The category to be unhighlighted.
+  133: function removeHighlight(category) {
+  134:     document.getElementById(category).classList.remove('drag-area-highlight');
