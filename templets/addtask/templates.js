@@ -42,9 +42,10 @@ function generateHTMLSelectCategory() {
   </div>
 
 
+
   <div class="select-task-category" id="currentItem">
 
-    <div id="selected-element" class="d-flex gap-10 paddings" onclick="toggleActive('category-selection');">
+    <div id="selected-element" class="paddings" onclick="toggleActive('category-selection');">
       Select task category
     </div>
   </div>
