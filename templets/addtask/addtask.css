@@ -13,39 +13,30 @@ textarea:focus,
 input:focus {
     outline: none;
 }
-
-.color-cicle {
+.color-cicle{
     display: flex;
     border-radius: 50%;
     border: 2px solid #FFFFFF;
 }
-
-.color-cicle:hover {
+.color-cicle:hover{
     box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
     border: 0px solid #D1D1D1;
 }
-
-.color-pick {
+.color-pick{
     margin-top: 17px;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
-
-.d-flex {
+.d-flex{
     display: flex;
 }
-
-.a-item {
+.a-item{
     align-items: center;
 }
 
 .pos-re {
     position: relative;
-}
-
-.pos-a {
-    position: absolute;
 }
 
 .addtask-tasktitle {
@@ -77,43 +68,9 @@ input:focus {
 }
 
 .addtask-create {
-    z-index: 12;
+    z-index: 6;
     cursor: pointer;
 }
-
-.addtask-create-task {
-    z-index: 13;
-    position: absolute;
-    right: 47%;
-    left: 47%;
-    bottom: -10%;
-    color: white;
-    background-color: #2A3647;
-    border-radius: 10px;
-    transition: 100ms ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 326px;
-    height: 74px;
-    animation-duration: 1s;
-    animation-name: slidedtou;
-
-}
-
-@keyframes slidedtou {
-    from {
-        margin-bottom: -10%;
-
-    }
-
-    to {
-        margin-bottom: 20%;
-
-    }
-}
-
 
 .addtask-bnt-center {
     display: flex;
@@ -121,7 +78,6 @@ input:focus {
     flex-wrap: wrap;
     align-content: center;
     justify-content: space-around;
-    gap: 10px;
 }
 
 .addtask-create-text {
@@ -216,7 +172,7 @@ textarea {
 }
 
 .addtask-title {
-    margin-top: 80px;
+    margin-top: 19px;
     margin-bottom: 23px;
     font-weight: 700;
     font-size: 47px;
@@ -316,7 +272,7 @@ textarea {
     position: absolute;
     width: 14px;
     height: 14px;
-    right: 21px;
+    right: 7px;
     top: 15px;
     background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
     border: 1px solid #000000;
@@ -340,6 +296,13 @@ textarea {
     font-size: 16px;
 }
 
+.select-task-category-img-2 {
+    position: absolute;
+    right: 5px;
+    top: 12px;
+}
+
+
 .addTask-selection {
     position: relative;
 }
@@ -350,11 +313,6 @@ textarea {
     top: 0;
     right: 0;
     /* translate: -100% -50%; */
-}
-
-.contact-list {
-    padding-right: 21px;
-    justify-content: space-between;
 }
 
 .subtask-list {
@@ -388,7 +346,7 @@ textarea {
 
 @media (min-width: 900px) {
     .amogus {
-        margin-left: 302px;
+        margin-left: 355px;
         margin-top: 96px;
     }
 
@@ -398,16 +356,12 @@ textarea {
 }
 
 @media (max-width: 1300px) {
-    .h-menu {
-        display: none;
-    }
-
     .d-nonemax1300 {
         display: none;
     }
 
     .addtask-create {
-        position: fixed !important;
+        position: absolute !important;
         top: 14px;
         right: 25px;
         width: 124px;
@@ -459,8 +413,8 @@ textarea {
         display: flex;
         order: 1;
         float: left;
-        z-index: 12;
-        width: 45%;
+        z-index: 100;
+        width: 33%;
         margin-right: 0px;
     }
 
@@ -469,9 +423,9 @@ textarea {
         display: flex;
         flex-direction: column;
         float: right;
-        margin-right: 60px;
-        margin-top: 256px;
-        width: 45%;
+        margin-right: 123px;
+        margin-top: 194px;
+        width: 33%;
         order: 3;
     }
 
@@ -501,22 +455,8 @@ textarea {
         width: 136px;
         height: 55px;
         cursor: pointer;
-        gap: unset;
     }
 
-    .addtask-clear-bnt:hover {
-        border: 1px solid #28aae2;
-        color: #28aae2;
-        box-shadow: 0px 20px 20px -10px #babdbd;
-    }
-
-    .addtask-clear-bnt:hover .cancel-icon {
-        background-image: url(../img/cancelHover.png);
-    }
-
-    .addtask-clear-bnt:active .cancel-icon {
-        background-image: url(../img/cancelActive.png);
-    }
 
     .addtask-create {
         position: absolute;
@@ -532,11 +472,10 @@ textarea {
         width: 187px;
         height: 55px;
         border-radius: 10px;
-        gap: unset;
     }
 
     .addtask-create-bnt:hover {
-        /* border: 1px solid #28aae2; */
+        border: 1px solid #28aae2;
         background-color: #28aae2;
         box-shadow: 0px 20px 20px -10px #babdbd;
     }
@@ -550,20 +489,11 @@ textarea {
         color: #2A3647;
     }
 
-    .addtask-clear-bnt:hover .addtask-clear-text {
-        color: #28aae2;
-    }
-
     .addtask-duedate {
         display: unset;
     }
 
     .addtask-subtasks {
         display: unset;
-    }
-
-    .addtask-create-task {
-        right: 50%;
-        left: 50%;
     }
 }

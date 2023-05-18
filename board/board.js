@@ -4,7 +4,7 @@
 async function initBoard() {
     await loadUserData();
     setActiveUser();
-
+    media();
     await initHeaderNav();
     activateNavSection('nav-board');
     renderBoardColumns();
