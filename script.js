@@ -141,11 +141,14 @@ Overlays
  * and sets the board-column where a new task will be rendered.
  * @param {string} columnID - The ID of the board-column.
  */
-function openAddTaskOverlay(columnID = 'board-column-todo') {
+async function openAddTaskOverlay(columnID = 'board-column-todo') {
     freezeBackground('overlay-fullscreen');
     //renderAddTaskCard();
     showElement('add-task-card');
     slideInOverlay('add-task-card');
+    await renderContacts();
+    renderCategory();
+    setMinDate('date');
 
     boardColumnToAddTask = columnID;
     localStorage.setItem('boardColumnToAddTask', boardColumnToAddTask);

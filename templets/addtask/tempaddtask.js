@@ -1,17 +1,17 @@
 /**init onload functions */
 async function initAddTask() {
-    await initHeaderNav();
     await loadUserData();
+    await initHeaderNav();
     media();
     setMinDate('date');
     // dropdownValueCheck(); 
     renderCategory();
-    await renderContacts()
+    await renderContacts();
     giveContactListId();
 }
 
 window.addEventListener('resize', media);
-let minwidth = window.matchMedia('(min-width: 1300px)')
+let minwidth = window.matchMedia('(min-width: 900px)')
 
 function media() {
     const imposter = document.getElementById("imposter");
@@ -25,11 +25,11 @@ function media() {
 }
 
 function moveContent(destination) {
-    const container = document.getElementById(`${destination}`);
+    const container = document.getElementById(destination);
 
-    const prio = document.getElementById("addtask-prio");
-    const duedate = document.getElementById("addtask-duedate");
-    const subtasks = document.getElementById("addtask-subtasks");
+    const prio = document.getElementById("addtaskFull-prio");
+    const duedate = document.getElementById("addtaskFull-duedate");
+    const subtasks = document.getElementById("addtaskFull-subtasks");
 
     container.appendChild(prio);
     container.appendChild(duedate);
@@ -88,13 +88,84 @@ async function addTask() {
         "prio": priority,
         "category": category[selectCategory],
         "assignedTo": contacts,
-        "subtasks": subtasksChecked,
-        "boardColumn": 'board-column-todo'
+        "subtasks": subtasks,
+        "boardColumn": localStorage.getItem('boardColumnToAddTask'),
     };
-    // Abfragen einfügen ?
-    activeUser.tasks.push(newTask);
-    await setItem('users', JSON.stringify(users));
-    // Zurücksetzen der Eingabefelder
+
+    const prioIsWhat = document.querySelector('.addtask-prio-bnt.active');
+    const title = document.getElementById('task-title');
+    const description = document.getElementById('task-description');
+    const dueDate = document.getElementById('date');
+    const categorySelection = document.getElementById('category-selection');
+
+    if (!category[selectCategory]) {
+        categorySelection.style.border = "1px solid #ff0000";
+    } else {
+        categorySelection.style.border = "1px solid #FFFFFF";
+    }
+
+    if (prioIsWhat === null || prioIsWhat === undefined) {
+        document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ff0000";
+        document.getElementById('addtask-prio-whichBnt').style.border.radius = "10px";
+    } else {
+        document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ffffff";
+    }
+
+    if (!title.value.trim()) {
+        title.style.border = "1px solid #ff0000";
+    } else {
+        title.style.border = "1px solid #FFFFFF";
+    }
+
+    if (!description.value.trim()) {
+        description.style.border = "1px solid #ff0000";
+    } else {
+        description.style.border = "1px solid #FFFFFF";
+    }
+
+    if (!dueDate.value.trim()) {
+        dueDate.style.border = "1px solid #ff0000";
+    } else {
+        dueDate.style.border = "1px solid #FFFFFF";
+    }
+
+    if (
+        category[selectCategory] &&
+        prioIsWhat !== null && prioIsWhat !== undefined &&
+        title.value.trim() !== '' &&
+        description.value.trim() !== '' &&
+        dueDate.value.trim() !== ''
+    ) {
+        activeUser.tasks.push(newTask);
+        await setItem('users', JSON.stringify(users));
+        // Zurücksetzen der Eingabefelder
+        closeBoardCardOverlay();
+        renderBoardColumns();
+        resetInputFields(lastbnt);
+    }
+}
+
+let lastbntclick = null
+
+function bntislal(lastbntclick) {
+    lastbnt = lastbntclick
+    console.log(lastbnt)
+}
+
+/**Reset all inputs */
+function resetInputFields(lastbnt){
+    document.getElementById('task-title').value = '';
+    document.getElementById('task-description').value = '';
+    document.getElementById('date').value = '';
+    document.getElementById('currentItem').innerHTML = /*html*/`
+    <div id="selected-element" class="paddings" onclick="toggleActive('category-selection');">
+      Select task category
+    </div>
+    `;
+    document.getElementById('mail-selection').classList.toggle("collapsed");
+    priority = null;
+    lastClickedImage = null;
+    setActiveButton(lastbnt)
 }
 
 /**Render input field for new Catergory */
@@ -113,10 +184,109 @@ function newInput(section) {
     }
 }
 
+/**Cancel input and load drop down list */
+function cancelSection(section) {
+    if (section === 'category') {
+        document.getElementById('category-selection').classList.remove('height-46');
+        resetCetegory('category');
+        renderCategory();
+    } else if (section === 'new-mail') {
+        generateHTMLSelectMail();
+    } else if (section === 'subtask') {
+        removeHTMLSubtaskImg();
+    }
+}
+
+function selectedCategory(i) {
+    let showSelectedCategory = document.getElementById('selected-element');
+
+    selectCategory = i
+
+    showSelectedCategory.innerHTML = `
+        <div>${category[i].name}</div>
+        <div class="addtask-item-color color-cicle img-20 bg-${category[i].color}"></div>
+    `;
+    document.getElementById("category-selection").classList.remove("collapsed");
+    document.getElementById('color-pick').classList.add('d-none');
+}
+
+/**Load all categorys with color */
+function renderCategory() {
+    let categoryList = document.getElementById('dropNum(category)');
+    categoryList.innerHTML = '';
+
+    for (let i = 0; i < category.length; i++) {
+        let categoryElement = category[i];
+
+        categoryList.innerHTML += /*html*/`
+        <div onclick="selectedCategory(${i})" class="addtask-item paddings addtask-id">
+            <div class="addtask-item-color color-cicle img-20 bg-${categoryElement.color}"></div>
+            ${categoryElement.name}
+		</div>
+        `;
+    }
+}
+
+/**Save new category */
+async function saveNewCategory(section) {
+    if (section === 'category') {
+        let inputValue = document.getElementById('new-category');
+        if (categoryColorPick !== undefined && inputValue.value !== '') {
+            category.push({ name: inputValue.value, color: categoryColorPick });
+            // Save backend
+            // await setItem('category', JSON.stringify(category));
+            await saveUserData();
+            document.getElementById('category-selection').classList.remove('height-46');
+            resetCetegory(inputValue);
+            renderCategory();
+        }
+    }
+    // Figma Version
+    // else if (section === 'new-mail' ) {
+    //     let inputValue = document.getElementById('new-mail').value; 
+
+    //     assignedTo.push(inputValue);
+    // Save backend
+    // await setItem('assignedTo', JSON.stringify(assignedTo));
+    // }
+    else if (section === 'subtask') {
+        initSubtask();
+    }
+}
+
+/**After save new category, reset the selection */
+function resetCetegory(inputValue) {
+    let editColor = document.getElementById('color-selected');
+    let editContainer = document.getElementById('category-selection');
+
+    document.getElementById('color-pick').classList.add('d-none');
+    editColor.classList.remove(`bg-${categoryColorPick}`);
+    editContainer.classList.remove('d-flex');
+    editContainer.classList.remove('a-item');
+    inputValue.value = '';
+    categoryColorPick = undefined;
+    generateHTMLSelectCategory();
+}
+
+/**Color pick category */
+function addColorCategory(id) {
+    let editContainer = document.getElementById('category-selection');
+    let editColor = document.getElementById('color-selected');
+
+    editContainer.classList.add('d-flex');
+    editContainer.classList.add('a-item');
+
+    categoryColorPick = id;
+    editColor.classList.add(`bg-${id}`);
+    document.getElementById('color-pick').classList.add('d-none');
+}
+
 /**Render all contacts */
 async function renderContacts() {
     let contactList = document.getElementById('apicontact-list');
     let contactsArray = activeUser.contacts;
+
+    contactList.innerHTML = '';
 
     for (let i = 0; i < contactsArray.length; i++) {
         const contact = contactsArray[i].name;

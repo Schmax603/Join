@@ -13,25 +13,30 @@ textarea:focus,
 input:focus {
     outline: none;
 }
-.color-cicle{
+
+.color-cicle {
     display: flex;
     border-radius: 50%;
     border: 2px solid #FFFFFF;
 }
-.color-cicle:hover{
+
+.color-cicle:hover {
     box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
     border: 0px solid #D1D1D1;
 }
-.color-pick{
+
+.color-pick {
     margin-top: 17px;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
-.d-flex{
+
+.d-flex {
     display: flex;
 }
-.a-item{
+
+.a-item {
     align-items: center;
 }
 
@@ -148,9 +153,9 @@ textarea {
 
 .amogus {
     flex-direction: column;
-    margin-top: 60px;
+    margin-top: 63px;
     margin-left: 31px;
-    margin-right: 14px;
+    margin-right: 74px;
     margin-bottom: 100px;
 }
 
@@ -172,7 +177,7 @@ textarea {
 }
 
 .addtask-title {
-    margin-top: 19px;
+    margin-top: 0px;
     margin-bottom: 23px;
     font-weight: 700;
     font-size: 47px;
@@ -344,20 +349,25 @@ textarea {
     }
 }
 
-@media (min-width: 900px) {
-    .amogus {
-        margin-left: 355px;
-        margin-top: 96px;
-    }
-
+@media (max-width: 900px) {
     .karben-text {
         display: none;
     }
 }
 
-@media (max-width: 1300px) {
+@media (min-width: 900px) {
+    .karben-text {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
     .d-nonemax1300 {
         display: none;
+    }
+
+    .lobby {
+        width: 135%;
     }
 
     .addtask-create {
@@ -372,7 +382,7 @@ textarea {
     }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 900px) {
     .d-nonemin1300 {
         display: none;
     }
@@ -407,6 +417,7 @@ textarea {
 
     .lobby {
         display: flex;
+        width: 120%;
     }
 
     .amogus {
@@ -423,8 +434,7 @@ textarea {
         display: flex;
         flex-direction: column;
         float: right;
-        margin-right: 123px;
-        margin-top: 194px;
+        margin-top: 143px;
         width: 33%;
         order: 3;
     }
@@ -432,7 +442,7 @@ textarea {
     .line {
         order: 2;
         width: 0px;
-        margin-top: 230px !important;
+        margin-top: 180px !important;
         margin-bottom: -80px !important;
         margin: 50px;
         height: 551px;
