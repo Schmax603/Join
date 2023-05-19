@@ -204,6 +204,8 @@ function selectedCategory(i) {
         <div>${category[i].name}</div>
         <div class="addtask-item-color color-cicle img-20 bg-${category[i].color}"></div>
     `;
+    document.getElementById("category-selection").classList.remove("collapsed");
+    document.getElementById('color-pick').classList.add('d-none');
 }
 
 /**Load all categorys with color */

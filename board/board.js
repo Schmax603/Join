@@ -4,8 +4,8 @@
 async function initBoard() {
     await loadUserData();
     setActiveUser();
-    media();
     await initHeaderNav();
+    media();
     activateNavSection('nav-board');
     renderBoardColumns();
     enableMobileDragAndDrop();
