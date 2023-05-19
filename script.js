@@ -145,7 +145,9 @@ async function openAddTaskOverlay(columnID = 'board-column-todo') {
     freezeBackground('overlay-fullscreen');
     //renderAddTaskCard();
     showElement('add-task-card');
+    showElement('addtask-create');
     slideInOverlay('add-task-card');
+    slideInOverlay('addtask-create');
     await renderContacts();
     renderCategory();
     setMinDate('date');
@@ -162,8 +164,10 @@ async function openAddTaskOverlay(columnID = 'board-column-todo') {
  */
 function closeAddTaskOverlay() {
     hideOverlay('add-task-card');
+    hideOverlay('addtask-create');
     setTimeout(() => {
         removeElement('add-task-card');
+        removeElement('addtask-create');
         unfreezeBackground('overlay-fullscreen');
     }, 220);
 }

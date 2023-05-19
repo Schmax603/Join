@@ -80,7 +80,7 @@ function toggleActive(dropMaster) {
 /**Save values into backend */
 async function addTask() {
     await saveCheckedContacts();
-    await saveCheckedSubtasks();
+    await setCheckedSubtasksAsDone();
     const newTask = {
         "title": document.getElementById('task-title').value,
         "description": document.getElementById('task-description').value,
@@ -147,25 +147,36 @@ async function addTask() {
 
 let lastbntclick = null
 
-function bntislal(lastbntclick) {
+// Give the exact same number than setActiveButton(0-2) but for tempaddtask js
+function givebntid(lastbntclick) {
     lastbnt = lastbntclick
-    console.log(lastbnt)
 }
 
-/**Reset all inputs */
-function resetInputFields(lastbnt){
-    document.getElementById('task-title').value = '';
-    document.getElementById('task-description').value = '';
-    document.getElementById('date').value = '';
-    document.getElementById('currentItem').innerHTML = /*html*/`
+/**Refresh Category */
+function renderHtmlCategory(){
+    return /*html*/`
     <div id="selected-element" class="paddings" onclick="toggleActive('category-selection');">
       Select task category
     </div>
     `;
+}
+
+/**Reset Subtasks */
+async function resetSubtasks(){
+    subtasks = [];
+    await setItem('subtasks', JSON.stringify(subtasks));
+    renderSubtaskArray();
+}
+
+/**Reset all inputs */
+async function resetInputFields(lastbnt){
+    document.getElementById('task-title').value = '';
+    document.getElementById('task-description').value = '';
+    document.getElementById('date').value = '';
+    document.getElementById('currentItem').innerHTML = renderHtmlCategory();
     document.getElementById('mail-selection').classList.toggle("collapsed");
-    priority = null;
-    lastClickedImage = null;
-    setActiveButton(lastbnt)
+    setActiveButton(lastbnt);
+    await resetSubtasks();
 }
 
 /**Render input field for new Catergory */
@@ -317,17 +328,20 @@ async function saveCheckedContacts() {
 /**Save & load subtasks */
 function initSubtask() {
     let inputValue = document.getElementById('subtask');
-    subtasks.push(inputValue.value);    // Save temporary subtasks
+    subtasks.push({
+        name: inputValue.value,
+        done: false
+    });
     inputValue.value = '';
     renderSubtaskArray();
 }
 
 /**Save only checked Subtasks */
-async function saveCheckedSubtasks() {
+async function setCheckedSubtasksAsDone() {
     for (let i = 0; i < subtasks.length; i++) {
         const subtask = subtasks[i];
         if (document.getElementById(`subtask-checkbox${i}`).checked == true) {
-            subtasksChecked.push(subtask);
+            subtask.done = true;
         }
     }
 }
@@ -343,7 +357,7 @@ function renderSubtaskArray() {
         subtaskList.innerHTML += /*html*/`
     <div>
         <input type="checkbox" name="" id="subtask-checkbox${i}">
-        <label for="subtask-checkbox${i}">${subtask}</label>
+        <label for="subtask-checkbox${i}">${subtask.name}</label>
     </div>
     `;
     }
