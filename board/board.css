@@ -378,12 +378,15 @@ Overlay
 
 .add-task-card {
 	width: 80%;
-	height: 80%;
+	min-height: 80%;
+	max-height: 100vh;
 	background-color: #F5F5F5;
 	border-radius: 30px;
 	transform: translateX(100vw);
 	transition: all 220ms ease-in-out;
 	position: relative;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .close-add-task-card {

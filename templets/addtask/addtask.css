@@ -147,6 +147,10 @@ textarea {
     color: white;
 }
 
+.addtask-prio-whichBnt {
+    gap: 5px;
+}
+
 .center-stuff {
     display: flex;
     justify-content: center;

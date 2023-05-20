@@ -170,6 +170,8 @@ function closeAddTaskOverlay() {
         removeElement('addtask-create');
         unfreezeBackground('overlay-fullscreen');
     }, 220);
+    resetInputFields();
+    document.getElementById('add-task-card').classList.add('d-none');
 }
 
 

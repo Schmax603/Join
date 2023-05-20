@@ -39,12 +39,13 @@ function moveContent(destination) {
 let lastClickedImage = null;
 let priority;
 
+const buttons = [
+    { id: "addtask-prio-bnt-urgent", img: "/img/prio-urgent.svg", activeImg: "/img/urgent-white.svg" },
+    { id: "addtask-prio-bnt-medium", img: "/img/prio-medium.svg", activeImg: "/img/medium-white.svg" },
+    { id: "addtask-prio-bnt-low", img: "/img/prio-low.svg", activeImg: "/img/low-white.svg" },
+];
+//mark
 function setActiveButton(buttonId) {
-    const buttons = [
-        { id: "addtask-prio-bnt-urgent", img: "/img/prio-urgent.svg", activeImg: "/img/urgent-white.svg" },
-        { id: "addtask-prio-bnt-medium", img: "/img/prio-medium.svg", activeImg: "/img/medium-white.svg" },
-        { id: "addtask-prio-bnt-low", img: "/img/prio-low.svg", activeImg: "/img/low-white.svg" },
-    ];
     const selectedButton = buttons.find((button) => button.id === buttons[buttonId].id);
     priority = buttonId;
 
@@ -138,44 +139,55 @@ async function addTask() {
     ) {
         activeUser.tasks.push(newTask);
         await setItem('users', JSON.stringify(users));
-        // Zurücksetzen der Eingabefelder
-        closeBoardCardOverlay();
-        renderBoardColumns();
-        resetInputFields(lastbnt);
+        resetAddTaskOverlay();
     }
 }
 
-let lastbntclick = null
-
-// Give the exact same number than setActiveButton(0-2) but for tempaddtask js
-function givebntid(lastbntclick) {
-    lastbnt = lastbntclick
+/**Close and reset add task overlay */
+function resetAddTaskOverlay(){
+    closeBoardCardOverlay();
+    renderBoardColumns();
+    resetInputFields();
+    document.getElementById('add-task-card').classList.add('d-none');
+    document.getElementById('addtask-create').classList.add('d-none');
 }
 
 /**Refresh Category */
-function renderHtmlCategory(){
+function renderHtmlCategory() {
     return /*html*/`
-    <div id="selected-element" class="paddings" onclick="toggleActive('category-selection');">
+    <div id="selected-element" class="paddings d-flex" onclick="toggleActive('category-selection');">
       Select task category
     </div>
     `;
 }
 
 /**Reset Subtasks */
-async function resetSubtasks(){
+async function resetSubtasks() {
     subtasks = [];
     await setItem('subtasks', JSON.stringify(subtasks));
     renderSubtaskArray();
 }
-
+//mark
 /**Reset all inputs */
-async function resetInputFields(lastbnt){
+let bntIdis
+function givebntid(bntId) {
+    bntIdis = bntId
+}
+
+
+
+
+async function resetInputFields() {
     document.getElementById('task-title').value = '';
     document.getElementById('task-description').value = '';
     document.getElementById('date').value = '';
     document.getElementById('currentItem').innerHTML = renderHtmlCategory();
     document.getElementById('mail-selection').classList.toggle("collapsed");
-    setActiveButton(lastbnt);
+    const bntis = document.querySelector('.addtask-prio-bnt.active');
+    letbntimgis = bntis.id + "-img"
+    console.log(bntIdis)
+    document.getElementById(letbntimgis).src = buttons[bntIdis].img
+    document.getElementById(bntis.id).classList.remove('active');
     await resetSubtasks();
 }
 
@@ -245,7 +257,7 @@ async function saveNewCategory(section) {
         if (categoryColorPick !== undefined && inputValue.value !== '') {
             category.push({ name: inputValue.value, color: categoryColorPick });
             // Save backend
-            // await setItem('category', JSON.stringify(category));
+            await setItem('category', JSON.stringify(category));
             await saveUserData();
             document.getElementById('category-selection').classList.remove('height-46');
             resetCetegory(inputValue);
