@@ -166,12 +166,11 @@ function closeAddTaskOverlay() {
     hideOverlay('add-task-card');
     hideOverlay('addtask-create');
     setTimeout(() => {
-        removeElement('add-task-card');
         removeElement('addtask-create');
+        removeElement('add-task-card');
         unfreezeBackground('overlay-fullscreen');
     }, 220);
     resetInputFields();
-    document.getElementById('add-task-card').classList.add('d-none');
 }
 
 
