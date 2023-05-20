@@ -39,12 +39,13 @@ function moveContent(destination) {
 let lastClickedImage = null;
 let priority;
 
+const buttons = [
+    { id: "addtask-prio-bnt-urgent", img: "/img/prio-urgent.svg", activeImg: "/img/urgent-white.svg" },
+    { id: "addtask-prio-bnt-medium", img: "/img/prio-medium.svg", activeImg: "/img/medium-white.svg" },
+    { id: "addtask-prio-bnt-low", img: "/img/prio-low.svg", activeImg: "/img/low-white.svg" },
+];
+//mark
 function setActiveButton(buttonId) {
-    const buttons = [
-        { id: "addtask-prio-bnt-urgent", img: "/img/prio-urgent.svg", activeImg: "/img/urgent-white.svg" },
-        { id: "addtask-prio-bnt-medium", img: "/img/prio-medium.svg", activeImg: "/img/medium-white.svg" },
-        { id: "addtask-prio-bnt-low", img: "/img/prio-low.svg", activeImg: "/img/low-white.svg" },
-    ];
     const selectedButton = buttons.find((button) => button.id === buttons[buttonId].id);
     priority = buttonId;
 
@@ -80,7 +81,7 @@ function toggleActive(dropMaster) {
 /**Save values into backend */
 async function addTask() {
     await saveCheckedContacts();
-    await saveCheckedSubtasks();
+    await setCheckedSubtasksAsDone();
     const newTask = {
         "title": document.getElementById('task-title').value,
         "description": document.getElementById('task-description').value,
@@ -138,34 +139,56 @@ async function addTask() {
     ) {
         activeUser.tasks.push(newTask);
         await setItem('users', JSON.stringify(users));
-        // Zurücksetzen der Eingabefelder
-        closeBoardCardOverlay();
-        renderBoardColumns();
-        resetInputFields(lastbnt);
+        resetAddTaskOverlay();
     }
 }
 
-let lastbntclick = null
-
-function bntislal(lastbntclick) {
-    lastbnt = lastbntclick
-    console.log(lastbnt)
+/**Close and reset add task overlay */
+function resetAddTaskOverlay(){
+    closeBoardCardOverlay();
+    renderBoardColumns();
+    resetInputFields();
+    document.getElementById('add-task-card').classList.add('d-none');
+    document.getElementById('addtask-create').classList.add('d-none');
 }
 
-/**Reset all inputs */
-function resetInputFields(lastbnt){
-    document.getElementById('task-title').value = '';
-    document.getElementById('task-description').value = '';
-    document.getElementById('date').value = '';
-    document.getElementById('currentItem').innerHTML = /*html*/`
-    <div id="selected-element" class="paddings" onclick="toggleActive('category-selection');">
+/**Refresh Category */
+function renderHtmlCategory() {
+    return /*html*/`
+    <div id="selected-element" class="paddings d-flex" onclick="toggleActive('category-selection');">
       Select task category
     </div>
     `;
+}
+
+/**Reset Subtasks */
+async function resetSubtasks() {
+    subtasks = [];
+    await setItem('subtasks', JSON.stringify(subtasks));
+    renderSubtaskArray();
+}
+//mark
+/**Reset all inputs */
+let bntIdis
+function givebntid(bntId) {
+    bntIdis = bntId
+}
+
+
+
+
+async function resetInputFields() {
+    document.getElementById('task-title').value = '';
+    document.getElementById('task-description').value = '';
+    document.getElementById('date').value = '';
+    document.getElementById('currentItem').innerHTML = renderHtmlCategory();
     document.getElementById('mail-selection').classList.toggle("collapsed");
-    priority = null;
-    lastClickedImage = null;
-    setActiveButton(lastbnt)
+    const bntis = document.querySelector('.addtask-prio-bnt.active');
+    letbntimgis = bntis.id + "-img"
+    console.log(bntIdis)
+    document.getElementById(letbntimgis).src = buttons[bntIdis].img
+    document.getElementById(bntis.id).classList.remove('active');
+    await resetSubtasks();
 }
 
 /**Render input field for new Catergory */
@@ -234,7 +257,7 @@ async function saveNewCategory(section) {
         if (categoryColorPick !== undefined && inputValue.value !== '') {
             category.push({ name: inputValue.value, color: categoryColorPick });
             // Save backend
-            // await setItem('category', JSON.stringify(category));
+            await setItem('category', JSON.stringify(category));
             await saveUserData();
             document.getElementById('category-selection').classList.remove('height-46');
             resetCetegory(inputValue);
@@ -317,17 +340,20 @@ async function saveCheckedContacts() {
 /**Save & load subtasks */
 function initSubtask() {
     let inputValue = document.getElementById('subtask');
-    subtasks.push(inputValue.value);    // Save temporary subtasks
+    subtasks.push({
+        name: inputValue.value,
+        done: false
+    });
     inputValue.value = '';
     renderSubtaskArray();
 }
 
 /**Save only checked Subtasks */
-async function saveCheckedSubtasks() {
+async function setCheckedSubtasksAsDone() {
     for (let i = 0; i < subtasks.length; i++) {
         const subtask = subtasks[i];
         if (document.getElementById(`subtask-checkbox${i}`).checked == true) {
-            subtasksChecked.push(subtask);
+            subtask.done = true;
         }
     }
 }
@@ -343,7 +369,7 @@ function renderSubtaskArray() {
         subtaskList.innerHTML += /*html*/`
     <div>
         <input type="checkbox" name="" id="subtask-checkbox${i}">
-        <label for="subtask-checkbox${i}">${subtask}</label>
+        <label for="subtask-checkbox${i}">${subtask.name}</label>
     </div>
     `;
     }

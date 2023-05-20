@@ -73,8 +73,10 @@ input:focus {
 }
 
 .addtask-create {
-    z-index: 6;
+    z-index: 50;
     cursor: pointer;
+    transform: translateX(100vw);
+    transition: all 220ms ease-in-out;
 }
 
 .addtask-bnt-center {
@@ -145,6 +147,10 @@ textarea {
     color: white;
 }
 
+.addtask-prio-whichBnt {
+    gap: 5px;
+}
+
 .center-stuff {
     display: flex;
     justify-content: center;
@@ -157,12 +163,6 @@ textarea {
     margin-left: 31px;
     margin-right: 74px;
     margin-bottom: 100px;
-}
-
-.karben-text {
-    width: 255px;
-    height: 19px;
-    margin: 0;
 }
 
 .addtask-gentext {
@@ -342,43 +342,58 @@ textarea {
     padding: 18px;
 }
 
-@media (max-width: 415px) {
-    .addtask-flex-moba {
-        display: flex;
-        flex-wrap: wrap;
-    }
-}
-
-@media (max-width: 900px) {
-    .karben-text {
-        display: none;
-    }
-}
-
-@media (min-width: 900px) {
-    .karben-text {
-        display: none;
-    }
-}
-
 @media (max-width: 900px) {
     .d-nonemax1300 {
         display: none;
     }
-
-    .lobby {
-        width: 135%;
+    
+    .amogus {
+        flex-direction: column;
+        margin-top: 20px;
+        margin-right: 34px;
+        margin-bottom: 100px;
     }
 
     .addtask-create {
-        position: absolute !important;
-        top: 14px;
+        position: fixed !important;
+        top: 13px;
         right: 25px;
         width: 124px;
         height: 51px;
         background: #2A3647;
         border-radius: 10px;
+    }
 
+    .addtask-title {
+        margin-top: 10px;
+    }
+
+    .addtask-tasktitle {
+        order: 1;
+    }
+
+    .addtask-description {
+        order: 2;
+    }
+
+    .addtask-prio {
+        order: 6;
+    }
+
+    .addtask-duedate {
+        order: 5;
+    }
+
+    .addtask-category {
+        order: 3;
+    }
+
+    .addtask-assigned-to {
+        order: 4;
+    }
+
+    .addtask-subtasks {
+        order: 7;
     }
 }
 
@@ -465,16 +480,16 @@ textarea {
         width: 136px;
         height: 55px;
         cursor: pointer;
+        padding: 0;
     }
 
-
     .addtask-create {
-        position: absolute;
-        z-index: 10;
         gap: 25px;
-        bottom: 10%;
-        right: 10%;
         border: unset;
+        position: fixed;
+        bottom: 15% ;
+        right: 13%;
+        padding: 0;
     }
 
     .addtask-create-bnt {
@@ -506,4 +521,17 @@ textarea {
     .addtask-subtasks {
         display: unset;
     }
+}
+
+@media (max-width: 1300px) {
+    .addtask-flex-moba {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width: 1300px) {
+    .lobby {
+        width: 130%;
+    } 
 }

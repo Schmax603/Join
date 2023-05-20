@@ -42,7 +42,7 @@
 
     <div w3-include-html="../headerNav/headerNav.html" style="height:0"></div>
 
-    <section id="overlay-fullscreen" class="overlay-fullscreen d-none"
+    <section id="overlay-fullscreen" class="overlay-fullscreen d-none" style="overflow-y: auto;"
         onclick="closeAddTaskOverlay(); closeBoardCardOverlay(); closeDropDown('assigned-edit-dropdown');">
 
         <article id="add-task-card" class="add-task-card d-none" onclick="doNotClose(event)">
@@ -206,6 +206,22 @@
     </section>
 
     <main>
+        <button class="addtask-create d-none addtask-bnt-center" id="addtask-create">
+            <div class="addtask-clear-bnt addtask-bnt-center d-nonemax1300" onclick="rel()">
+                <div class="addtask-clear-text">Clear</div>
+                <div class="cancel-icon img-24"></div>
+                <!-- <img src="/img/close.svg"> -->
+            </div>
+            <script>function rel() { location.reload(); }</script>
+            <div class="addtask-create-bnt addtask-bnt-center">
+                <div onclick="addTask()" class="addtask-create-text">
+                    <p class="d-nonemin1300">Create</p>
+                    <p class="d-nonemax1300">Create Task</p>
+                </div>
+                <img src="/img/check.svg">
+            </div>
+        </button>
+
         <header class="board-header">
             <p class="subheadline cursor-d m-0 fs-16 fw-400 mb-20 mobile-only">Kanban Project Managment Tool</p>
 
