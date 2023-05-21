@@ -83,32 +83,32 @@ async function checkEmailAvailable(name, email, password) {
 *@param {*} backend - mini_backend.js variable
 */
 async function pushUserArray(name, email, password) {
-	let loadDate =  renderDate();
-	
-	users.push({ 
-		name: name.value, 
-		email: email.value, 
-		password: password.value, 
-		contacts, 
+	let loadDate = renderDate();
+
+	users.push({
+		name: name.value,
+		email: email.value,
+		password: password.value,
+		contacts,
 		tasks: [{
 			"title": "Start with Join",
-      "description": "For new taks click on add task.",
-      "dueDate": loadDate,
-      "prio": 0,
-      "category": { name: "test", color: 0 },
-      "assignedTo": [{
-				name: `${name.value} (You)`, 
-				email: email.value, 
-				phone: '', 
-				color: 'bg-theme', 
+			"description": "For new tasks click on add task.",
+			"dueDate": loadDate,
+			"prio": 0,
+			"category": { name: "Test", color: 0 },
+			"assignedTo": [{
+				name: `${name.value} (You)`,
+				email: email.value,
+				phone: '',
+				color: 'bg-theme',
 				tasks: []
 			}],
-      "subtasks": [
-        { name: "Create task", done: false },
-        { name: "Check task", done: false }
-      ],
-      "boardColumn": "board-column-todo"
-		}] 
+			"subtasks": [
+				{ name: "Create task", done: false },
+				{ name: "Check task", done: false }
+			],
+			"boardColumn": "board-column-todo"
+		}]
 	});
 	await setItem('users', JSON.stringify(users));
 	window.location.href = '../index.html?msg=You have successfully registered.';
@@ -128,12 +128,12 @@ function renderDate() {
 	let year = dateToday.getFullYear();
 
 	if (month < 10)
-			month = '0' + month.toString();
+		month = '0' + month.toString();
 	if (day < 10)
-			day = '0' + day.toString();
-	
-			let renderDate = year + '-' + month + '-' + day;
-			return renderDate;
+		day = '0' + day.toString();
+
+	let renderDate = year + '-' + month + '-' + day;
+	return renderDate;
 }
 
 function setSignedUpUserAsFirstContact(name, email) {

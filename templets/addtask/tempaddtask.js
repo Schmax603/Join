@@ -138,10 +138,22 @@ async function addTask() {
         dueDate.value.trim() !== ''
     ) {
         activeUser.tasks.push(newTask);
-        await setItem('users', JSON.stringify(users));
+        await setItem('category', JSON.stringify(category));
+        await saveUserData();
         resetAddTaskOverlay();
     }
 }
+
+
+/**Close and reset add task overlay */
+function resetAddTaskOverlay() {
+    closeBoardCardOverlay();
+    renderBoardColumns();
+    resetInputFields();
+    document.getElementById('add-task-card').classList.add('d-none');
+    document.getElementById('addtask-create').classList.add('d-none');
+}
+
 
 let lastbntclick = null
 
@@ -255,8 +267,8 @@ async function saveNewCategory(section) {
         if (categoryColorPick !== undefined && inputValue.value !== '') {
             category.push({ name: inputValue.value, color: categoryColorPick });
             // Save backend
-            await setItem('category', JSON.stringify(category));
-            await saveUserData();
+            // await setItem('category', JSON.stringify(category));
+            // await saveUserData();
             document.getElementById('category-selection').classList.remove('height-46');
             resetCetegory(inputValue);
             renderCategory();

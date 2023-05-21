@@ -159,6 +159,7 @@ async function addTask() {
         console.log("true XD")
         await keyframe();
         activeUser.tasks.push(newTask);
+        await setItem('category', JSON.stringify(category));
         await saveUserData();
         window.location.href = '../board/board.html';
         // Zurücksetzen der Eingabefelder
@@ -232,7 +233,7 @@ async function saveNewCategory(section) {
             category.push({ name: inputValue.value, color: categoryColorPick });
             // Save backend
             // await setItem('category', JSON.stringify(category));
-            await saveUserData();
+            // await saveUserData();
             document.getElementById('category-selection').classList.remove('height-46');
             resetCetegory(inputValue);
             renderCategory();

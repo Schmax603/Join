@@ -1,3 +1,20 @@
+Todos nach zweiter Abgabe:
+- ERLEDIGT    addtask overlay: overflow-y auto nur auf Karte 
+  ERLEDIGT                     buttons bleiben da bei create 
+  ERLEDIGT                     und dann bei schließen wird task nicht gespeichert (gast-login)
+  ERLEDIGT                     auf addtask-SEITE wird gespeichert, allerdings wird die column nicht auf todo zurückgesetzt
+  ERLEDIGT                     von contacts aus öffnen
+-             help/legal: z-index niedriger als board-cards?
+-                         bottom verdeckt bei desktop board und addtask (da auch größerer Abstand in Nav)
+
+- ERLEDIGT    mobile: summary-info mehr padding-bottom
+-             vordefinierte categories an tasks anpassen (Sales, Design, Backoffice, Media, Marketing) 
+              ...mit entsprechenden Farben
+-             new category: bei Auswahl Farbe NEBEN Text (ist unter Text bei addtask overlay)
+- ERLEDIGT    new category speichern
+- ERLEDIGT    ...aber erst bei Task-Erstellung
+
+
 Abgabe Ziele:
 
     Prio hoch
