@@ -108,7 +108,10 @@ async function pushUserArray(name, email, password) {
 				{ name: "Check task", done: false }
 			],
 			"boardColumn": "board-column-todo"
-		}]
+		}],
+		categories: [
+			{ name: "Test", color: 0 }
+		]
 	});
 	await setItem('users', JSON.stringify(users));
 	window.location.href = '../index.html?msg=You have successfully registered.';

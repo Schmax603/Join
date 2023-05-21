@@ -9,6 +9,7 @@ let activeContactIndex;
 async function initContacts() {
     await loadUserData();
     setActiveUser();
+    setCategories();
 
     await initHeaderNav();
     activateNavSection('nav-contacts');

@@ -4,6 +4,7 @@ async function initAddTask() {
     activateNavSection('nav-addtask');
     await loadUserData();
     setActiveUser();
+    setCategories();
     media();
     setMinDate('date');
     // dropdownValueCheck(); 
@@ -159,7 +160,7 @@ async function addTask() {
         console.log("true XD")
         await keyframe();
         activeUser.tasks.push(newTask);
-        await setItem('category', JSON.stringify(category));
+        // await setItem('category', JSON.stringify(category));
         await saveUserData();
         window.location.href = '../board/board.html';
         // Zurücksetzen der Eingabefelder

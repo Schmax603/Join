@@ -304,6 +304,14 @@ function setActiveUser() {
 
 
 /**
+* Sets the predefined categories for active user.
+*/
+function setCategories() {
+    category = activeUser.categories;
+}
+
+
+/**
 * Saves the user data to local storage (guest) or backend (signed user).
 */
 async function saveUserData() {

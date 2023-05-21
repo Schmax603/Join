@@ -138,7 +138,7 @@ async function addTask() {
         dueDate.value.trim() !== ''
     ) {
         activeUser.tasks.push(newTask);
-        await setItem('category', JSON.stringify(category));
+        // await setItem('category', JSON.stringify(category));
         await saveUserData();
         resetAddTaskOverlay();
     }

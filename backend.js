@@ -13,6 +13,7 @@ let selectCategory;
 let subtasks = [];
 // let subtasksChecked = [];   //Save temporary
 
+
 /**Onload Array */
 async function loadUsers() {
     try {
@@ -20,7 +21,7 @@ async function loadUsers() {
         // currentUser = JSON.parse(await getItem('currentUser'));
         // !!Test
         loadCurrentUserFromLocalStorage()
-        category = JSON.parse(await getItem('category'));
+        // category = JSON.parse(await getItem('category'));
     } catch (e) {
         console.error('Loading error:', e);
     }

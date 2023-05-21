@@ -6,13 +6,14 @@ Todos nach zweiter Abgabe:
   ERLEDIGT                     von contacts aus öffnen
 -             help/legal: z-index niedriger als board-cards?
 -                         bottom verdeckt bei desktop board und addtask (da auch größerer Abstand in Nav)
-
 - ERLEDIGT    mobile: summary-info mehr padding-bottom
--             vordefinierte categories an tasks anpassen (Sales, Design, Backoffice, Media, Marketing) 
-              ...mit entsprechenden Farben
+- ERLEDIGT    vordefinierte categories an tasks anpassen (bei Gast: Sales, Design, Backoffice, Media, Marketing) 
+  ERLEDIGT    ...mit entsprechenden Farben
 -             new category: bei Auswahl Farbe NEBEN Text (ist unter Text bei addtask overlay)
 - ERLEDIGT    new category speichern
 - ERLEDIGT    ...aber erst bei Task-Erstellung
+- ERLEDIGT    ...und nur für den aktiven User (Eintrag im User-Array)
+
 
 
 Abgabe Ziele:

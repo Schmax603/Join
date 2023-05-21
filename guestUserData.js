@@ -1,6 +1,7 @@
 let guestUser = {
     "contacts": [],
-    "tasks": []
+    "tasks": [],
+    "categories": []
 };
 
 guestUser.contacts = [
@@ -131,4 +132,12 @@ guestUser.tasks = [
         ],
         "boardColumn": "board-column-done"
     }
+];
+
+guestUser.categories = [
+    { name: "Backoffice", color: 15 },
+    { name: "Design", color: 0 },
+    { name: "Marketing", color: 12 },
+    { name: "Media", color: 7 },
+    { name: "Sales", color: 3 }
 ];

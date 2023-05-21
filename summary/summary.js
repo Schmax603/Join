@@ -3,6 +3,7 @@ let timeOfDay;
 async function initSummary() {
   await loadUserData();
   setActiveUser();
+  setCategories();
   await initHeaderNav();
   activateNavSection('nav-summary');
   renderGreeting();

@@ -4,6 +4,7 @@
 async function initBoard() {
     await loadUserData();
     setActiveUser();
+    setCategories();
     await initHeaderNav();
     media();
     activateNavSection('nav-board');
