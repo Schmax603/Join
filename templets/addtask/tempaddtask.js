@@ -137,7 +137,8 @@ async function addTask() {
         dueDate.value.trim() !== ''
     ) {
         activeUser.tasks.push(newTask);
-        await setItem('users', JSON.stringify(users));
+        // await setItem('users', JSON.stringify(users));
+        await saveUserData();
         // Zurücksetzen der Eingabefelder
         closeBoardCardOverlay();
         renderBoardColumns();
@@ -153,7 +154,7 @@ function givebntid(lastbntclick) {
 }
 
 /**Refresh Category */
-function renderHtmlCategory(){
+function renderHtmlCategory() {
     return /*html*/`
     <div id="selected-element" class="paddings" onclick="toggleActive('category-selection');">
       Select task category
@@ -162,14 +163,14 @@ function renderHtmlCategory(){
 }
 
 /**Reset Subtasks */
-async function resetSubtasks(){
+async function resetSubtasks() {
     subtasks = [];
     await setItem('subtasks', JSON.stringify(subtasks));
     renderSubtaskArray();
 }
 
 /**Reset all inputs */
-async function resetInputFields(lastbnt){
+async function resetInputFields(lastbnt) {
     document.getElementById('task-title').value = '';
     document.getElementById('task-description').value = '';
     document.getElementById('date').value = '';

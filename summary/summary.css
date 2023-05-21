@@ -194,6 +194,7 @@ Media Query width
 @media (max-height: 950px) {
   .summary-infos {
     padding-top: 30px;
+    padding-bottom: 20px;
   }
 }
 

@@ -342,7 +342,7 @@ textarea {
     .d-nonemax1300 {
         display: none;
     }
-    
+
     .amogus {
         flex-direction: column;
         margin-top: 20px;
@@ -483,7 +483,7 @@ textarea {
         gap: 25px;
         border: unset;
         position: fixed;
-        bottom: 15% ;
+        bottom: 15%;
         right: 13%;
         padding: 0;
     }
@@ -529,5 +529,5 @@ textarea {
 @media (min-width: 1300px) {
     .lobby {
         width: 130%;
-    } 
+    }
 }

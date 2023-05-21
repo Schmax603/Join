@@ -11,9 +11,9 @@ async function initAddTask() {
     await renderContacts()
     giveContactListId();
 
-    if (localStorage.getItem('boardColumnToAddTask')) {
-        boardColumnToAddTask = localStorage.getItem('boardColumnToAddTask');
-    }
+    // if (localStorage.getItem('boardColumnToAddTask')) {
+    //     boardColumnToAddTask = localStorage.getItem('boardColumnToAddTask');
+    // }
 }
 
 window.addEventListener('resize', media);
@@ -105,7 +105,7 @@ async function addTask() {
         "category": category[selectCategory],
         "assignedTo": contacts,
         "subtasks": subtasks,
-        "boardColumn": boardColumnToAddTask
+        "boardColumn": "board-column-todo"
     };
 
     // console.log(subtasks)
