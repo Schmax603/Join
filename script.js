@@ -159,8 +159,7 @@ async function openAddTaskOverlay(columnID = 'board-column-todo') {
 
 
 /**
- * This function currently obsolete, 
- * as there is no Add Task Overlay.
+ * Close Add Task Overlay.
  */
 function closeAddTaskOverlay() {
     hideOverlay('add-task-card');
@@ -171,6 +170,7 @@ function closeAddTaskOverlay() {
         unfreezeBackground('overlay-fullscreen');
     }, 220);
     resetInputFields();
+    renderBoardColumns();
 }
 
 
