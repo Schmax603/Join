@@ -147,19 +147,9 @@ async function addTask() {
 
 /**Close and reset add task overlay */
 function resetAddTaskOverlay() {
-    closeBoardCardOverlay();
+    closeAddTaskOverlay();
     renderBoardColumns();
     resetInputFields();
-    document.getElementById('add-task-card').classList.add('d-none');
-    document.getElementById('addtask-create').classList.add('d-none');
-}
-
-
-let lastbntclick = null
-
-// Give the exact same number than setActiveButton(0-2) but for tempaddtask js
-function givebntid(lastbntclick) {
-    lastbnt = lastbntclick
 }
 
 /**Refresh Category */
@@ -177,27 +167,30 @@ async function resetSubtasks() {
     await setItem('subtasks', JSON.stringify(subtasks));
     renderSubtaskArray();
 }
-//mark
-/**Reset all inputs */
-let bntIdis
+
+let bntIdis = 1;
 function givebntid(bntId) {
     bntIdis = bntId
 }
 
+function resetbnts(bntIdis) {
+    const bntis = document.querySelector('.addtask-prio-bnt.active');
+    if (bntis === null || bntis === undefined) { console.log("Try chatch E") } else {
+        letbntimgis = bntis.id + "-img"
+        document.getElementById(letbntimgis).src = buttons[bntIdis].img
+        document.getElementById(bntis.id).classList.remove('active');
+    }
+}
 
-
-
+//mark
+/**Reset all inputs */
 async function resetInputFields() {
     document.getElementById('task-title').value = '';
     document.getElementById('task-description').value = '';
     document.getElementById('date').value = '';
     document.getElementById('currentItem').innerHTML = renderHtmlCategory();
     document.getElementById('mail-selection').classList.toggle("collapsed");
-    const bntis = document.querySelector('.addtask-prio-bnt.active');
-    letbntimgis = bntis.id + "-img"
-    console.log(bntIdis)
-    document.getElementById(letbntimgis).src = buttons[bntIdis].img
-    document.getElementById(bntis.id).classList.remove('active');
+    await resetbnts(bntIdis);
     await resetSubtasks();
 }
 
@@ -433,7 +426,7 @@ function assignedToCheckbox(id) {
 
 }
 
-*/
+
 
 
 function dropSelectValue(params) {
@@ -449,7 +442,7 @@ function dropSelectValue(params) {
 
 
 }
-/*
+
 function dropdownValueCheck() {
     let dropNameQuery = document.querySelectorAll("[id*=dropNum]")
     const dropNameArray = [];
