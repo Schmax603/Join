@@ -18,6 +18,7 @@ function closeBoardCardOverlay() {
     removeElement('board-card-edit');
     unfreezeBackground('overlay-fullscreen');
     renderBoardColumns();
+    document.getElementById('add-task-card').classList.add('d-none');
 }
 
 
