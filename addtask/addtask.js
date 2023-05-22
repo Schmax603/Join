@@ -97,7 +97,6 @@ async function keyframe() {
 async function addTask() {
     await saveCheckedContacts();
     await setCheckedSubtasksAsDone();
-
     const newTask = {
         "title": document.getElementById('task-title').value,
         "description": document.getElementById('task-description').value,
@@ -108,47 +107,12 @@ async function addTask() {
         "subtasks": subtasks,
         "boardColumn": "board-column-todo"
     };
-
-    // console.log(subtasks)
-    // subtasks = [];
-
     const prioIsWhat = document.querySelector('#addtask-prio .addtask-prio-bnt.active');
     const title = document.getElementById('task-title');
     const description = document.getElementById('task-description');
     const dueDate = document.getElementById('date');
-    const categorySelection = document.getElementById('category-selection');
-
-    if (!category[selectCategory]) {
-        categorySelection.style.border = "1px solid #ff0000";
-    } else {
-        categorySelection.style.border = "1px solid #FFFFFF";
-    }
-
-    if (prioIsWhat === null || prioIsWhat === undefined) {
-        document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ff0000";
-        document.getElementById('addtask-prio-whichBnt').style.border.radius = "10px";
-    } else {
-        document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ffffff";
-    }
-
-    if (!title.value.trim()) {
-        title.style.border = "1px solid #ff0000";
-    } else {
-        title.style.border = "1px solid #FFFFFF";
-    }
-
-    if (!description.value.trim()) {
-        description.style.border = "1px solid #ff0000";
-    } else {
-        description.style.border = "1px solid #FFFFFF";
-    }
-
-    if (!dueDate.value.trim()) {
-        dueDate.style.border = "1px solid #ff0000";
-    } else {
-        dueDate.style.border = "1px solid #FFFFFF";
-    }
-
+    
+    setInputFildsFrame();
     if (
         category[selectCategory] &&
         prioIsWhat !== null && prioIsWhat !== undefined &&
@@ -156,14 +120,76 @@ async function addTask() {
         description.value.trim() !== '' &&
         dueDate.value.trim() !== ''
     ) {
-        // Abfragen einfügen ?
         console.log("true XD")
         await keyframe();
         activeUser.tasks.push(newTask);
-        // await setItem('category', JSON.stringify(category));
         await saveUserData();
         window.location.href = '../board/board.html';
-        // Zurücksetzen der Eingabefelder
+    }
+}
+
+/**Set red Frame for input Fields */
+function setInputFildsFrame(){
+    setCategoryInputFrame();
+    setBntPrioInputFrame();
+    setTitleInputFrame();
+    setDescriptionInputFrame();
+    setDueDateInputFrame();
+}
+
+/**Check and set input field */
+function setCategoryInputFrame(){
+    const categorySelection = document.getElementById('category-selection');
+
+    if (!category[selectCategory]) {
+        categorySelection.style.border = "1px solid #ff0000";
+    } else {
+        categorySelection.style.border = "1px solid #FFFFFF";
+    }
+}
+
+/**Check and set bnt frame */
+function setBntPrioInputFrame(){
+    const prioIsWhat = document.querySelector('#addtask-prio .addtask-prio-bnt.active');
+
+   if (prioIsWhat === null || prioIsWhat === undefined) {
+        document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ff0000";
+        document.getElementById('addtask-prio-whichBnt').style.border.radius = "10px";
+    } else {
+        document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ffffff";
+    }
+}
+
+/**Check and set title frame */
+function setTitleInputFrame(){
+    const title = document.getElementById('task-title');
+
+    if (!title.value.trim()) {
+        title.style.border = "1px solid #ff0000";
+    } else {
+        title.style.border = "1px solid #FFFFFF";
+    }
+}
+
+/**Check and set discription field */
+function setDescriptionInputFrame(){
+    const description = document.getElementById('task-description');
+
+    if (!description.value.trim()) {
+        description.style.border = "1px solid #ff0000";
+    } else {
+        description.style.border = "1px solid #FFFFFF";
+    }
+}
+
+/**Check and set due dtae frame */
+function setDueDateInputFrame(){
+    const dueDate = document.getElementById('date');
+
+    if (!dueDate.value.trim()) {
+        dueDate.style.border = "1px solid #ff0000";
+    } else {
+        dueDate.style.border = "1px solid #FFFFFF";
     }
 }
 

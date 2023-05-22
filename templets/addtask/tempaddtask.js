@@ -92,44 +92,17 @@ async function addTask() {
         "subtasks": subtasks,
         "boardColumn": localStorage.getItem('boardColumnToAddTask'),
     };
+    checkRelevantInputFields(newTask);
+}
 
+/**Check input fields for content */
+async function checkRelevantInputFields(newTask){
     const prioIsWhat = document.querySelector('.addtask-prio-bnt.active');
     const title = document.getElementById('task-title');
     const description = document.getElementById('task-description');
     const dueDate = document.getElementById('date');
-    const categorySelection = document.getElementById('category-selection');
-
-    if (!category[selectCategory]) {
-        categorySelection.style.border = "1px solid #ff0000";
-    } else {
-        categorySelection.style.border = "1px solid #FFFFFF";
-    }
-
-    if (prioIsWhat === null || prioIsWhat === undefined) {
-        document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ff0000";
-        document.getElementById('addtask-prio-whichBnt').style.border.radius = "10px";
-    } else {
-        document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ffffff";
-    }
-
-    if (!title.value.trim()) {
-        title.style.border = "1px solid #ff0000";
-    } else {
-        title.style.border = "1px solid #FFFFFF";
-    }
-
-    if (!description.value.trim()) {
-        description.style.border = "1px solid #ff0000";
-    } else {
-        description.style.border = "1px solid #FFFFFF";
-    }
-
-    if (!dueDate.value.trim()) {
-        dueDate.style.border = "1px solid #ff0000";
-    } else {
-        dueDate.style.border = "1px solid #FFFFFF";
-    }
-
+    
+    setInputFildsFrame();
     if (
         category[selectCategory] &&
         prioIsWhat !== null && prioIsWhat !== undefined &&
@@ -138,12 +111,75 @@ async function addTask() {
         dueDate.value.trim() !== ''
     ) {
         activeUser.tasks.push(newTask);
-        // await setItem('category', JSON.stringify(category));
         await saveUserData();
         resetAddTaskOverlay();
     }
 }
 
+/**Set red Frame for input Fields */
+function setInputFildsFrame(){
+    setCategoryField();
+    setPrioBntField();
+    setTitleField();
+    setDiscriptionField();
+    setDueDateField();
+}
+
+/**Check and set input field */
+function setCategoryField(){
+    const categorySelection = document.getElementById('category-selection');
+
+    if (!category[selectCategory]) {
+        categorySelection.style.border = "1px solid #ff0000";
+    } else {
+        categorySelection.style.border = "1px solid #FFFFFF";
+    }
+}
+
+/**Check and set bnt frame */
+function setPrioBntField(){
+    const prioIsWhat = document.querySelector('.addtask-prio-bnt.active');
+
+    if (prioIsWhat === null || prioIsWhat === undefined) {
+        document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ff0000";
+        document.getElementById('addtask-prio-whichBnt').style.border.radius = "10px";
+    } else {
+        document.getElementById('addtask-prio-whichBnt').style.border = "1px solid #ffffff";
+    }
+}
+
+/**Check and set title frame */
+function setTitleField(){
+    const title = document.getElementById('task-title');
+
+    if (!title.value.trim()) {
+        title.style.border = "1px solid #ff0000";
+    } else {
+        title.style.border = "1px solid #FFFFFF";
+    }
+}
+
+/**Check and set discription field */
+function setDiscriptionField(){
+    const description = document.getElementById('task-description');
+
+    if (!description.value.trim()) {
+        description.style.border = "1px solid #ff0000";
+    } else {
+        description.style.border = "1px solid #FFFFFF";
+    }
+}
+
+/**Check and set due dtae frame */
+function setDueDateField(){
+    const dueDate = document.getElementById('date');
+
+    if (!dueDate.value.trim()) {
+        dueDate.style.border = "1px solid #ff0000";
+    } else {
+        dueDate.style.border = "1px solid #FFFFFF";
+    }
+}
 
 /**Close and reset add task overlay */
 function resetAddTaskOverlay() {
