@@ -4,12 +4,12 @@ Todos nach zweiter Abgabe:
   ERLEDIGT                     und dann bei schließen wird task nicht gespeichert (gast-login)
   ERLEDIGT                     auf addtask-SEITE wird gespeichert, allerdings wird die column nicht auf todo zurückgesetzt
   ERLEDIGT                     von contacts aus öffnen
--             help/legal: z-index niedriger als board-cards?
--                         bottom verdeckt bei desktop board und addtask (da auch größerer Abstand in Nav)
+- Fehler taucht nicht mehr auf            help/legal: z-index niedriger als board-cards?
+- Verständnis Problem            bottom verdeckt bei desktop board und addtask (da auch größerer Abstand in Nav)
 - ERLEDIGT    mobile: summary-info mehr padding-bottom
 - ERLEDIGT    vordefinierte categories an tasks anpassen (bei Gast: Sales, Design, Backoffice, Media, Marketing) 
   ERLEDIGT    ...mit entsprechenden Farben
--             new category: bei Auswahl Farbe NEBEN Text (ist unter Text bei addtask overlay)
+- ERLEDIGT    new category: bei Auswahl Farbe NEBEN Text (ist unter Text bei addtask overlay)
 - ERLEDIGT    new category speichern
 - ERLEDIGT    ...aber erst bei Task-Erstellung
 - ERLEDIGT    ...und nur für den aktiven User (Eintrag im User-Array)
@@ -23,7 +23,6 @@ Abgabe Ziele:
 2. ERLEDIGT    Board suche ist funktionsfähig
 3. ERLEDIGT    Board karten sind gestylt und subtasks werden in der progressbar korrekt angezeigt.
 4. ERLEDIGT    Board addTask spalten karten werden in der entsprechenden spalte gespeichert (auf Board umleiten?).
-
 5. ERLEDIGT    Board drag&drop funktioniert in der mobile version
 6. ERLEDIGT    add task: bei guest im localstorage speichern
 
@@ -33,7 +32,7 @@ Abgabe Ziele:
 1.  ERLEDIGT    legal Maximilian adresse
 2.  ERLEDIGT    Login Animation blink entfernen
 3.  ERLEDIGT    addTask  category: category und color nebeneinander
-                assignTo: checkbox rechts anordnen
+    ERLEDIGT    assignTo: checkbox rechts anordnen
 4.  ERLEDIGT    Contacts: hover Effekt deleteBtn, editBtn? mobile
 5.  ERLEDIGT    add Task: hover Effekt clearBtn
 6.  ERLEDIGT    Summary fix media Query height
@@ -53,7 +52,7 @@ Abgabe Ziele:
 
 Simon abgabe
 18. ERLEDIGT    login signup bnt schriftgröße
-19.             bord addtask popup bei neuen task hinzufügen
+19. ERLEDIGT            bord addtask popup bei neuen task hinzufügen
 20. ERLEDIGT    addtask clear create task bnts nur ein bnt soll hochspringen beim hovern nicht der gesamte container
 21. ERLEDIGT    bord moba task edit container overflow
 22. ERLEDIGT    bord moba hedernav profil bild nicht da
