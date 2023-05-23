@@ -13,7 +13,14 @@
 .desktop-only {
 	display: flex !important;
 }
-
+.overlay{
+	height: calc(100vh - 89px - 80px);
+}
+@media (max-width: 900px){
+	.overlay{
+		height: calc(100vh - 89px - 80px - 27px);
+	}
+}
 /*--------------------------------------------------
 Main
 ---------------------------------------------------*/
